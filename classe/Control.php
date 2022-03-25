@@ -1,7 +1,9 @@
 <?php namespace classe;
-class Control {/* controller method depends on the <page> value
-*/
-    private const DEFAULTPAGE = 'objet';
+/**
+ * controller method depends on the <page> value
+ */
+class Control {
+	private const DEFAULTPAGE = 'objet';
 
     public static function load() {
     	//self::autoloadClassDefinition();
@@ -56,9 +58,12 @@ class Control {/* controller method depends on the <page> value
         $rooter->control();
     }
 
-    public static function autoloadClassDefinition() {/* automatic loader
-    uses require_once to load a class if the class definition is required */
-        spl_autoload_register(function($class) {
+    /**
+     * automatic loader
+     * uses require_once to load a class if the class definition is required
+     */
+    public static function autoloadClassDefinition() {
+    	spl_autoload_register(function($class) {
             $path = LOCO.'/';
             $chemin = $path.str_replace('\\', '/', $class);
             $filename = $chemin.'.php';
@@ -74,9 +79,11 @@ class Control {/* controller method depends on the <page> value
 
     public static function terminalRequest() {
 
-        if (empty($_SERVER['REQUEST_METHOD'])) {/* terminal request simulation
-        */
-            define('ONLINE', false);
+        /**
+         * terminal request simulation
+         */
+    	if (empty($_SERVER['REQUEST_METHOD'])) {
+    		define('ONLINE', false);
             define('METHOD', false);
 
             global $argv;

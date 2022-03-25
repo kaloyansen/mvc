@@ -1,20 +1,22 @@
 <?php namespace model;
-/********************************/
-/* code php by Kaloyan KRASTEV */
-/* kaloyansen@gmail.com       */
-/*****************************/
-class DBManager {/********** !!! safety !!! database connexion ***********
-	// code exemple connexion
-	$database = new DBManager(<initfile>);
-	// suit code user
-	// ...
-	unset($database); // déconnexion de la base de données
-
-	// <initfile> is the name of the file to read the identification from
-	// <initfile> is a text file with a basic line format property: value
-	// !!! add <initfile> to .gitignore to keep it secret !!!
-	// <initfile> example: model/.db.example
-	*/
+/**
+ * code php by Kaloyan KRASTEV
+ * kaloyansen@gmail.com
+ *
+ *
+ * // !!! safety !!! database connexion ***********
+ * // code exemple connexion
+ * $database = new DBManager(<initfile>);
+ * // suit code user
+ * ...
+ * unset($database); // déconnexion de la base de données
+ *
+ * // <initfile> is the name of the file to read the identification from
+ * // <initfile> is a text file with a basic line format property: value
+ * // !!! add <initfile> to .gitignore to keep it secret !!!
+ * // <initfile> example: model/.db.example
+ */
+class DBManager {
 	private static $conn;
 	private static $iconn;
 	private static $jsonFile = DOWN."/connexion.json";

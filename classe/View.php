@@ -1,7 +1,9 @@
 <?php namespace classe;
-class View {/* conception et description
-*/
-    private $dossier;
+/**
+ * conception et description
+ */
+class View {
+	private $dossier;
     private $fichier;
     private $titre;
     private $description;

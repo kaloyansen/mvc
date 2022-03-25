@@ -1,7 +1,10 @@
 <?php namespace classe;
-class Rooter {/* creates a new instance of the controller class
-and call the method with the argument all of them specified as arguments */
-    private $space;
+/**
+ * creates a new instance of the controller class
+ * and call the method with the argument all of them specified as arguments
+ */
+class Rooter {
+	private $space;
     private $method;
 
     public function __construct($space, $method, $clargument = false) {
