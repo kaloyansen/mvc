@@ -16,7 +16,7 @@
  * // !!! add <initfile> to .gitignore to keep it secret !!!
  * // <initfile> example: model/.db.example
  */
-class DBManager {
+class BaseManager {
 	private static $conn;
 	private static $iconn;
 	private static $jsonFile = DOWN."/connexion.json";
