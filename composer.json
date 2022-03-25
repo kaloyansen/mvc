@@ -1,0 +1,26 @@
+{
+	"name" : "kalo/mvc",
+	"description" : "model view controller 100% php",
+	"type" : "project",
+	"license" : "Apache-2.0",
+	"require" : {
+		"mistic100/randomcolor" : "^1.0"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"classe\\" : "classe",
+			"controller\\" : "controller",
+			"controller\\admin\\" : "controller/admin",
+			"controller\\site\\" : "controller/site",
+			"model\\" : "model",
+			"model\\admin\\" : "model/admin",
+			"model\\site\\" : "model/site"
+		}
+	},
+	"authors" : [{
+			"name" : "Kaloyan KRASTEV",
+			"email" : "kaloyansen@gmail.com"
+		}
+	],
+	"minimum-stability" : "dev"
+}

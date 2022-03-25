@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+
+RewriteEngine on
+RewriteBase /
+
+# RewriteRule ([a-zA-Z0-9\-]+)_([0-9]+)\.html index.php?page=$1&id=$2 [N]
+RewriteRule ([a-zA-Z0-9\-]+)\.html index.php?page=$1 [L]
+
+</IfModule>
