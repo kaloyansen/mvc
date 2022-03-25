@@ -3,14 +3,14 @@ class Control {/* controller method depends on the <page> value
 */
     private const DEFAULTPAGE = 'objet';
 
-    public static function load($argo) {
+    public static function load() {
     	//self::autoloadClassDefinition();
         //disabled for composer autoload in composer.json
-        self::terminalRequest($argo);
+        self::terminalRequest();
         self::switchMethodController();
     }
 
-    public static function switchMethodController() {
+    public static function controler() {
 
     	$admin = 'controller\admin\Admin';
     	$site = 'controller\site\Site';
@@ -79,7 +79,6 @@ class Control {/* controller method depends on the <page> value
             define('ONLINE', false);
             define('METHOD', false);
 
-            //$argc = count($argo);
             global $argv;
             $argc = count($argv);
 
