@@ -1,6 +1,7 @@
 <?php namespace controller\admin;
 /**
  * controller class
+ * @deprecated
  */
 class Admin extends \controller\site\Site {
 	public function __construct($page = false) {

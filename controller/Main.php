@@ -2,9 +2,10 @@
 /**
  *
  * @author Kaloyan KRASTEV
+ * @desc main controller
  *
  */
-class Controller {
+class Main {
 
     private static $permisDAppelerMethode;
     private static $private_id;
@@ -56,7 +57,7 @@ class Controller {
         }
 
         if (!$inputid || $inputid == 0) {
-            $db = new \model\site\TicketManager();
+            $db = new \model\TicketManager();
             $inputid = $db->last();
             unset($db);
         }
@@ -79,7 +80,7 @@ class Controller {
 
         if (!$pseudo || !$password) return false;
 
-        $db = new \model\admin\MembreManager();
+        $db = new \model\MembreManager();
         $access = $db->select($pseudo, $password);
         unset($db);
 

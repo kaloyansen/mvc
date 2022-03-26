@@ -1,4 +1,4 @@
-<?php namespace model\admin;
+<?php namespace model;
 class Membre {/*
 	*/
 	private $id;

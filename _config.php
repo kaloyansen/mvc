@@ -9,7 +9,10 @@ define('ROOT', $_SERVER['DOCUMENT_ROOT']);//inutile
  * chemin relative
  */
 //$url = $_SERVER['SCRIPT_NAME'];
-$url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];//to work in a container
+$url = 'http://'.$_SERVER['HTTP_HOST'];
+//$url = $url.$_SERVER['REQUEST_URI'];//to work in a container
+$url = $url.$_SERVER['PHP_SELF'];
+
 //define('WWW', dirname($url));
 define('WWW', $url);
 define('WWW_MODEL', WWW.'/model');

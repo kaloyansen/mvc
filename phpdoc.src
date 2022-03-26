@@ -1,1 +1,7 @@
+echo documentation generator
+echo 1. go to main php source folder
+echo 2. set -v argument to pwd in the command below
+echo 3. set -t argument to the name of the output directory (here docs)
+echo 4. run the command or source this file
+
 docker run --rm -v /home/kalo/public_html/mvc:/data phpdoc/phpdoc:3 -d . -t docs

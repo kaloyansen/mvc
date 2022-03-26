@@ -1,4 +1,4 @@
-<?php namespace model\site;
+<?php namespace model;
 
 /********************************/
 /* code php by Kaloyan KRASTEV */
@@ -32,7 +32,7 @@ class TicketManager extends \model\BaseManager {/* database
     	if (!$result) return $this->error();
     	$ticket_array = array();
     	while ($mfobj = $result->fetch_object()) {
-    		$ticket_array[] = new \model\site\Ticket($mfobj, $mfobj->id);
+    		$ticket_array[] = new \model\Ticket($mfobj, $mfobj->id);
     	}
         return empty($ticket_array) ? false : $ticket_array;
     }
@@ -44,10 +44,10 @@ class TicketManager extends \model\BaseManager {/* database
     	$result = mysqli_query($this->get(), $query);
     	if (!$result) return $this->error();
     	$mfobj = mysqli_fetch_object($result);
-        return new \model\site\Ticket($mfobj, $id);
+        return new \model\Ticket($mfobj, $id);
     }
 
-    public function insert(\model\site\Ticket $ticket) {
+    public function insert(\model\Ticket $ticket) {
 
     	$query = "INSERT INTO ".self::TABLE;
         $query = $query."(title, body, position, status, color, description, keywords)";
@@ -63,7 +63,7 @@ class TicketManager extends \model\BaseManager {/* database
         return $result;
     }
 
-    public function update($id, \model\site\Ticket $ticket) {
+    public function update($id, \model\Ticket $ticket) {
 
     	$query = "UPDATE ".self::TABLE." SET title='".$ticket->getTitle();
         $query = $query."', body='".$ticket->getBody();

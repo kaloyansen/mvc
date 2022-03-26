@@ -1,7 +1,10 @@
 <?php namespace controller\site;
-class Site extends \controller\Controller {/* user controller
-*/
-    private $sent;
+/**
+ * user controller
+ * @deprecated
+ */
+class Site extends \controller\Controller {
+	private $sent;
 	public function __construct($page = false) {
 
 		self::permettre();//free access

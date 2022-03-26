@@ -14,8 +14,10 @@ class Control {
 
     public static function controler() {
 
-    	$admin = 'controller\admin\Admin';
-    	$site = 'controller\site\Site';
+    	$admin = 'controller\Boco';
+    	$site = 'controller\Foco';
+    	//$admin = 'controller\admin\Admin';
+    	//$site = 'controller\site\Site';
 
     	$space = -1;        // mamespace\classname
         $clargument = -1;

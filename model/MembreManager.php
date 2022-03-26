@@ -1,4 +1,4 @@
-<?php namespace model\admin;
+<?php namespace model;
 
 class MembreManager extends \model\BaseManager {/* interface
 	database */
@@ -12,7 +12,7 @@ class MembreManager extends \model\BaseManager {/* interface
 		$result = mysqli_query($this->get(), $query);
 		$objet = mysqli_fetch_object($result);
 
-		return $objet ? new \model\admin\Membre($objet) : false;
+		return $objet ? new \model\Membre($objet) : false;
 	}
 }
 

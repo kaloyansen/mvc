@@ -1,11 +1,14 @@
-<?php namespace model\site;
-/********************************/
-/* code php by Kaloyan KRASTEV */
-/* kaloyansen@gmail.com       */
-/*****************************/
+<?php namespace model;
+/**
+ *
+ * @author Kaloyan KRASTEV
+ * @link kaloyansen@gmail.com
+ * @desc ticket container
+ *
+ */
 
-class Ticket {/* ticket container
-*/
+class Ticket {
+
     private $id;
     private $title;
     private $body;
