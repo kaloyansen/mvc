@@ -6,7 +6,7 @@
  *
  * // !!! safety !!! database connexion ***********
  * // code exemple connexion
- * $database = new DBManager(<initfile>);
+ * $database = new BaseManager(<initfile>);
  * // suit code user
  * ...
  * unset($database); // déconnexion de la base de données
@@ -46,7 +46,7 @@ class BaseManager {
 
 	private function export() {
 
-		//file_put_contents(self::$jsonFile, print_r(json_encode(DBManager::getPropArray(self::$conn)), true));
+		//file_put_contents(self::$jsonFile, print_r(json_encode(self::getPropArray(self::$conn)), true));
 		return self::$conn;
 	}
 

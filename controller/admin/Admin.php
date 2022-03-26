@@ -1,7 +1,9 @@
 <?php namespace controller\admin;
-class Admin extends \controller\site\Site {/* controller class
-*/
-    public function __construct($page = false) {
+/**
+ * controller class
+ */
+class Admin extends \controller\site\Site {
+	public function __construct($page = false) {
 
         $access = self::checkAccess();
 

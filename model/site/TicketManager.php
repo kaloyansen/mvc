@@ -4,7 +4,7 @@
 /* code php by Kaloyan KRASTEV */
 /* kaloyansen@gmail.com       */
 /*****************************/
-class TicketManager extends \model\DBManager {/* database
+class TicketManager extends \model\BaseManager {/* database
                                                  interface */
     private const TABLE = 'ticket';//le nom du tableau dans la base de donnée
 	private const SELECT = "SELECT * FROM ticket";

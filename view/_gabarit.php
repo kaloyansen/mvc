@@ -7,7 +7,7 @@ $titre = $view_titre ? $view_titre : 'no title';
   <head>
     <meta charset="utf-8"/>
     <title><?=$titre;?></title>
-    <link rel="stylesheet" href="<?=WWW_MEDIA;?>/css/style.css"/>
+    <link rel="stylesheet" href="./media/css/style.css"/>
     <meta name="application-name" content="<?=APPNAME;?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="<?=$view_description;?>"/>
@@ -21,10 +21,10 @@ $titre = $view_titre ? $view_titre : 'no title';
         <h4><?=$user;?></h4>
         <ul>
           <!-- administrator menu -->
-          <li><a class="lien" href="<?=WWW ?>/?page=objet">last</a></li>
-          <li><a class="lien" href="<?=WWW ?>/?page=liste">list</a></li>
-          <li><a class="lien" href="<?=WWW ?>/?page=insert">new</a></li>
-          <li><a class="lien" href="<?=WWW ?>/?page=deconnexion">
+          <li><a class="lien" href="<?=WWW ?>?page=objet">last</a></li>
+          <li><a class="lien" href="<?=WWW ?>?page=liste">list</a></li>
+          <li><a class="lien" href="<?=WWW ?>?page=insert">new</a></li>
+          <li><a class="lien" href="<?=WWW ?>?page=deconnexion">
           <?php if ($user == 'guest') { echo 'log in'; } else { echo 'log out'; } ?>
           </a></li>
         </ul>

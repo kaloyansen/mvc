@@ -1,5 +1,5 @@
 <?php namespace model\site;
-class ArticleManager extends \model\DBManager {/* conception
+class ArticleManager extends \model\BaseManager {/* conception
 	et description*/
 	public function create(Article $article) { return; }
 	public function readAll() {	return;	}

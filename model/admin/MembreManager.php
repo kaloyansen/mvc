@@ -1,6 +1,6 @@
 <?php namespace model\admin;
 
-class MembreManager extends \model\DBManager {/* interface
+class MembreManager extends \model\BaseManager {/* interface
 	database */
 	private $tab = 'membre';//le nom du tableau dans la base de donnée
 	public function select($pseudo, $password) {

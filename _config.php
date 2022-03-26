@@ -8,9 +8,10 @@ define('ROOT', $_SERVER['DOCUMENT_ROOT']);//inutile
 /*
  * chemin relative
  */
-$url = $_SERVER['SCRIPT_NAME'];
-$url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];//to work in a container
-define('WWW', dirname($url));
+//$url = $_SERVER['SCRIPT_NAME'];
+$url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];//to work in a container
+//define('WWW', dirname($url));
+define('WWW', $url);
 define('WWW_MODEL', WWW.'/model');
 define('WWW_VIEW', WWW.'/view');
 define('WWW_CONTROL', WWW.'/controller');
@@ -21,6 +22,7 @@ define('WWW_MEDIA', WWW.'/media');
  * chemin absolute
  */
 define('LOCO', dirname(__FILE__));
+//define('LOCO', '.');
 define('MODEL', LOCO.'/model');
 define('VIEW', LOCO.'/view');
 define('CONTROL', LOCO.'/controller');
