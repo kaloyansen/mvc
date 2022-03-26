@@ -226,170 +226,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/classe-View.html#property_keywords"
         },                {
-            "fqsen": "\\controller\\admin\\Admin",
-            "name": "Admin",
-            "summary": "controller\u0020class",
-            "url": "classes/controller-admin-Admin.html"
-        },                {
-            "fqsen": "\\controller\\admin\\Admin\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/controller-admin-Admin.html#method___construct"
-        },                {
-            "fqsen": "\\controller\\admin\\Admin\u003A\u003Adeconnexion\u0028\u0029",
-            "name": "deconnexion",
-            "summary": "",
-            "url": "classes/controller-admin-Admin.html#method_deconnexion"
-        },                {
-            "fqsen": "\\controller\\admin\\Admin\u003A\u003Ainsert\u0028\u0029",
-            "name": "insert",
-            "summary": "",
-            "url": "classes/controller-admin-Admin.html#method_insert"
-        },                {
-            "fqsen": "\\controller\\admin\\Admin\u003A\u003Aupdate\u0028\u0029",
-            "name": "update",
-            "summary": "",
-            "url": "classes/controller-admin-Admin.html#method_update"
-        },                {
-            "fqsen": "\\controller\\admin\\Admin\u003A\u003Adelete\u0028\u0029",
-            "name": "delete",
-            "summary": "",
-            "url": "classes/controller-admin-Admin.html#method_delete"
-        },                {
-            "fqsen": "\\controller\\admin\\Admin\u003A\u003Alogin\u0028\u0029",
-            "name": "login",
-            "summary": "",
-            "url": "classes/controller-admin-Admin.html#method_login"
-        },                {
-            "fqsen": "\\controller\\admin\\Admin\u003A\u003Ahome\u0028\u0029",
-            "name": "home",
-            "summary": "",
-            "url": "classes/controller-admin-Admin.html#method_home"
-        },                {
-            "fqsen": "\\controller\\site\\Site",
-            "name": "Site",
-            "summary": "user\u0020controller",
-            "url": "classes/controller-site-Site.html"
-        },                {
-            "fqsen": "\\controller\\site\\Site\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/controller-site-Site.html#method___construct"
-        },                {
-            "fqsen": "\\controller\\site\\Site\u003A\u003AsetSent\u0028\u0029",
-            "name": "setSent",
-            "summary": "",
-            "url": "classes/controller-site-Site.html#method_setSent"
-        },                {
-            "fqsen": "\\controller\\site\\Site\u003A\u003AgetSent\u0028\u0029",
-            "name": "getSent",
-            "summary": "",
-            "url": "classes/controller-site-Site.html#method_getSent"
-        },                {
-            "fqsen": "\\controller\\site\\Site\u003A\u003Adefault\u0028\u0029",
-            "name": "default",
-            "summary": "",
-            "url": "classes/controller-site-Site.html#method_default"
-        },                {
-            "fqsen": "\\controller\\site\\Site\u003A\u003Aliste\u0028\u0029",
-            "name": "liste",
-            "summary": "",
-            "url": "classes/controller-site-Site.html#method_liste"
-        },                {
-            "fqsen": "\\controller\\site\\Site\u003A\u003Aobjet\u0028\u0029",
-            "name": "objet",
-            "summary": "",
-            "url": "classes/controller-site-Site.html#method_objet"
-        },                {
-            "fqsen": "\\controller\\site\\Site\u003A\u003A\u0024sent",
-            "name": "sent",
-            "summary": "",
-            "url": "classes/controller-site-Site.html#property_sent"
-        },                {
             "fqsen": "\\SESTAT",
             "name": "SESTAT",
             "summary": "",
             "url": "namespaces/default.html#constant_SESTAT"
-        },                {
-            "fqsen": "\\model\\site\\Article",
-            "name": "Article",
-            "summary": "",
-            "url": "classes/model-site-Article.html"
-        },                {
-            "fqsen": "\\model\\site\\Article\u003A\u003AgetId\u0028\u0029",
-            "name": "getId",
-            "summary": "",
-            "url": "classes/model-site-Article.html#method_getId"
-        },                {
-            "fqsen": "\\model\\site\\Article\u003A\u003AgetTitre\u0028\u0029",
-            "name": "getTitre",
-            "summary": "",
-            "url": "classes/model-site-Article.html#method_getTitre"
-        },                {
-            "fqsen": "\\model\\site\\Article\u003A\u003AgetArticle\u0028\u0029",
-            "name": "getArticle",
-            "summary": "",
-            "url": "classes/model-site-Article.html#method_getArticle"
-        },                {
-            "fqsen": "\\model\\site\\Article\u003A\u003AsetId\u0028\u0029",
-            "name": "setId",
-            "summary": "",
-            "url": "classes/model-site-Article.html#method_setId"
-        },                {
-            "fqsen": "\\model\\site\\Article\u003A\u003AsetTitre\u0028\u0029",
-            "name": "setTitre",
-            "summary": "",
-            "url": "classes/model-site-Article.html#method_setTitre"
-        },                {
-            "fqsen": "\\model\\site\\Article\u003A\u003AsetArticle\u0028\u0029",
-            "name": "setArticle",
-            "summary": "",
-            "url": "classes/model-site-Article.html#method_setArticle"
-        },                {
-            "fqsen": "\\model\\site\\Article\u003A\u003A\u0024id",
-            "name": "id",
-            "summary": "",
-            "url": "classes/model-site-Article.html#property_id"
-        },                {
-            "fqsen": "\\model\\site\\Article\u003A\u003A\u0024titre",
-            "name": "titre",
-            "summary": "",
-            "url": "classes/model-site-Article.html#property_titre"
-        },                {
-            "fqsen": "\\model\\site\\Article\u003A\u003A\u0024article",
-            "name": "article",
-            "summary": "",
-            "url": "classes/model-site-Article.html#property_article"
-        },                {
-            "fqsen": "\\model\\site\\ArticleManager",
-            "name": "ArticleManager",
-            "summary": "code\u0020php\u0020by\u0020Kaloyan\u0020KRASTEV\nkaloyansen\u0040gmail.com",
-            "url": "classes/model-site-ArticleManager.html"
-        },                {
-            "fqsen": "\\model\\site\\ArticleManager\u003A\u003Acreate\u0028\u0029",
-            "name": "create",
-            "summary": "",
-            "url": "classes/model-site-ArticleManager.html#method_create"
-        },                {
-            "fqsen": "\\model\\site\\ArticleManager\u003A\u003AreadAll\u0028\u0029",
-            "name": "readAll",
-            "summary": "",
-            "url": "classes/model-site-ArticleManager.html#method_readAll"
-        },                {
-            "fqsen": "\\model\\site\\ArticleManager\u003A\u003Aread\u0028\u0029",
-            "name": "read",
-            "summary": "",
-            "url": "classes/model-site-ArticleManager.html#method_read"
-        },                {
-            "fqsen": "\\model\\site\\ArticleManager\u003A\u003Aupdate\u0028\u0029",
-            "name": "update",
-            "summary": "",
-            "url": "classes/model-site-ArticleManager.html#method_update"
-        },                {
-            "fqsen": "\\model\\site\\ArticleManager\u003A\u003Adelete\u0028\u0029",
-            "name": "delete",
-            "summary": "",
-            "url": "classes/model-site-ArticleManager.html#method_delete"
         },                {
             "fqsen": "\\ComposerAutoloaderInita8a7d5bdd20e24d3a59e0b5ac1b67bd6",
             "name": "ComposerAutoloaderInita8a7d5bdd20e24d3a59e0b5ac1b67bd6",
@@ -1351,6 +1191,86 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-TicketManager.html#constant_SELECT"
         },                {
+            "fqsen": "\\controller\\admin\\Admin",
+            "name": "Admin",
+            "summary": "controller\u0020class",
+            "url": "classes/controller-admin-Admin.html"
+        },                {
+            "fqsen": "\\controller\\admin\\Admin\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/controller-admin-Admin.html#method___construct"
+        },                {
+            "fqsen": "\\controller\\admin\\Admin\u003A\u003Adeconnexion\u0028\u0029",
+            "name": "deconnexion",
+            "summary": "",
+            "url": "classes/controller-admin-Admin.html#method_deconnexion"
+        },                {
+            "fqsen": "\\controller\\admin\\Admin\u003A\u003Ainsert\u0028\u0029",
+            "name": "insert",
+            "summary": "",
+            "url": "classes/controller-admin-Admin.html#method_insert"
+        },                {
+            "fqsen": "\\controller\\admin\\Admin\u003A\u003Aupdate\u0028\u0029",
+            "name": "update",
+            "summary": "",
+            "url": "classes/controller-admin-Admin.html#method_update"
+        },                {
+            "fqsen": "\\controller\\admin\\Admin\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "",
+            "url": "classes/controller-admin-Admin.html#method_delete"
+        },                {
+            "fqsen": "\\controller\\admin\\Admin\u003A\u003Alogin\u0028\u0029",
+            "name": "login",
+            "summary": "",
+            "url": "classes/controller-admin-Admin.html#method_login"
+        },                {
+            "fqsen": "\\controller\\admin\\Admin\u003A\u003Ahome\u0028\u0029",
+            "name": "home",
+            "summary": "",
+            "url": "classes/controller-admin-Admin.html#method_home"
+        },                {
+            "fqsen": "\\controller\\site\\Site",
+            "name": "Site",
+            "summary": "user\u0020controller",
+            "url": "classes/controller-site-Site.html"
+        },                {
+            "fqsen": "\\controller\\site\\Site\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/controller-site-Site.html#method___construct"
+        },                {
+            "fqsen": "\\controller\\site\\Site\u003A\u003AsetSent\u0028\u0029",
+            "name": "setSent",
+            "summary": "",
+            "url": "classes/controller-site-Site.html#method_setSent"
+        },                {
+            "fqsen": "\\controller\\site\\Site\u003A\u003AgetSent\u0028\u0029",
+            "name": "getSent",
+            "summary": "",
+            "url": "classes/controller-site-Site.html#method_getSent"
+        },                {
+            "fqsen": "\\controller\\site\\Site\u003A\u003Adefault\u0028\u0029",
+            "name": "default",
+            "summary": "",
+            "url": "classes/controller-site-Site.html#method_default"
+        },                {
+            "fqsen": "\\controller\\site\\Site\u003A\u003Aliste\u0028\u0029",
+            "name": "liste",
+            "summary": "",
+            "url": "classes/controller-site-Site.html#method_liste"
+        },                {
+            "fqsen": "\\controller\\site\\Site\u003A\u003Aobjet\u0028\u0029",
+            "name": "objet",
+            "summary": "",
+            "url": "classes/controller-site-Site.html#method_objet"
+        },                {
+            "fqsen": "\\controller\\site\\Site\u003A\u003A\u0024sent",
+            "name": "sent",
+            "summary": "",
+            "url": "classes/controller-site-Site.html#property_sent"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -1361,15 +1281,15 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/classe.html"
         },                {
-            "fqsen": "\\controller\\admin",
-            "name": "admin",
-            "summary": "",
-            "url": "namespaces/controller-admin.html"
-        },                {
             "fqsen": "\\controller",
             "name": "controller",
             "summary": "",
             "url": "namespaces/controller.html"
+        },                {
+            "fqsen": "\\controller\\admin",
+            "name": "admin",
+            "summary": "",
+            "url": "namespaces/controller-admin.html"
         },                {
             "fqsen": "\\controller\\site",
             "name": "site",
@@ -1380,11 +1300,6 @@ Search.appendIndex(
             "name": "model",
             "summary": "",
             "url": "namespaces/model.html"
-        },                {
-            "fqsen": "\\model\\site",
-            "name": "site",
-            "summary": "",
-            "url": "namespaces/model-site.html"
         },                {
             "fqsen": "\\Composer\\Autoload",
             "name": "Autoload",
