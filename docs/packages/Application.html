@@ -78,10 +78,6 @@
 </h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="namespaces/model-admin.html" class="">admin</a>
-                
-            </li>
-                    <li>
                 <a href="namespaces/model-site.html" class="">site</a>
                 
             </li>
@@ -161,27 +157,12 @@ and call the method with the argument all of them specified as arguments</dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/classe-View.html"><abbr title="\classe\View">View</abbr></a></dt>
         <dd>conception et description</dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/controller-admin-Admin.html"><abbr title="\controller\admin\Admin">Admin</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/controller-Controller.html"><abbr title="\controller\Controller">Controller</abbr></a></dt>
-        <dd></dd>
+        <dd>controller class</dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/controller-site-Site.html"><abbr title="\controller\site\Site">Site</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/model-admin-Membre.html"><abbr title="\model\admin\Membre">Membre</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/model-admin-MembreManager.html"><abbr title="\model\admin\MembreManager">MembreManager</abbr></a></dt>
-        <dd>code php by Kaloyan KRASTEV
-kaloyansen@gmail.com</dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/model-DBManager.html"><abbr title="\model\DBManager">DBManager</abbr></a></dt>
-        <dd>code php by Kaloyan KRASTEV
-kaloyansen@gmail.com</dd>
+        <dd>user controller</dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/model-site-Article.html"><abbr title="\model\site\Article">Article</abbr></a></dt>
         <dd></dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/model-site-ArticleManager.html"><abbr title="\model\site\ArticleManager">ArticleManager</abbr></a></dt>
-        <dd>code php by Kaloyan KRASTEV
-kaloyansen@gmail.com</dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/model-site-Ticket.html"><abbr title="\model\site\Ticket">Ticket</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/model-site-TicketManager.html"><abbr title="\model\site\TicketManager">TicketManager</abbr></a></dt>
         <dd>code php by Kaloyan KRASTEV
 kaloyansen@gmail.com</dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/ComposerAutoloaderInita8a7d5bdd20e24d3a59e0b5ac1b67bd6.html"><abbr title="\ComposerAutoloaderInita8a7d5bdd20e24d3a59e0b5ac1b67bd6">ComposerAutoloaderInita8a7d5bdd20e24d3a59e0b5ac1b67bd6</abbr></a></dt>
@@ -194,6 +175,25 @@ kaloyansen@gmail.com</dd>
         <dd>This class is copied in every Composer installed project and available to all</dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Colors-RandomColor.html"><abbr title="\Colors\RandomColor">RandomColor</abbr></a></dt>
         <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/controller-Boco.html"><abbr title="\controller\Boco">Boco</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/controller-Foco.html"><abbr title="\controller\Foco">Foco</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/controller-Main.html"><abbr title="\controller\Main">Main</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/model-BaseManager.html"><abbr title="\model\BaseManager">BaseManager</abbr></a></dt>
+        <dd>code php by Kaloyan KRASTEV
+kaloyansen@gmail.com</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/model-Membre.html"><abbr title="\model\Membre">Membre</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/model-MembreManager.html"><abbr title="\model\MembreManager">MembreManager</abbr></a></dt>
+        <dd>code php by Kaloyan KRASTEV
+kaloyansen@gmail.com</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/model-Ticket.html"><abbr title="\model\Ticket">Ticket</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/model-TicketManager.html"><abbr title="\model\TicketManager">TicketManager</abbr></a></dt>
+        <dd>code php by Kaloyan KRASTEV
+kaloyansen@gmail.com</dd>
     
     
     </dl>
@@ -355,7 +355,7 @@ kaloyansen@gmail.com</dd>
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/default.html#constant_WWW">WWW</a>
     <span>
-        &nbsp;= \dirname($url)                            </span>
+        &nbsp;= $url                            </span>
 </dt>
 <dd></dd>
 
@@ -440,7 +440,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="classe/Control.php"><a href="files/classe-control.html"><abbr title="classe/Control.php">Control.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">95</span>
+    <span class="phpdocumentor-element-found-in__line">97</span>
 
     </aside>
 
@@ -469,7 +469,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="classe/Control.php"><a href="files/classe-control.html"><abbr title="classe/Control.php">Control.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">97</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 
     </aside>
 
@@ -498,7 +498,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="classe/Control.php"><a href="files/classe-control.html"><abbr title="classe/Control.php">Control.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">99</span>
+    <span class="phpdocumentor-element-found-in__line">101</span>
 
     </aside>
 
@@ -527,7 +527,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="classe/Control.php"><a href="files/classe-control.html"><abbr title="classe/Control.php">Control.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">101</span>
+    <span class="phpdocumentor-element-found-in__line">103</span>
 
     </aside>
 
@@ -556,7 +556,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="classe/Control.php"><a href="files/classe-control.html"><abbr title="classe/Control.php">Control.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">103</span>
+    <span class="phpdocumentor-element-found-in__line">105</span>
 
     </aside>
 
@@ -585,7 +585,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="classe/Control.php"><a href="files/classe-control.html"><abbr title="classe/Control.php">Control.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">105</span>
+    <span class="phpdocumentor-element-found-in__line">107</span>
 
     </aside>
 
@@ -614,7 +614,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="classe/Control.php"><a href="files/classe-control.html"><abbr title="classe/Control.php">Control.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">107</span>
+    <span class="phpdocumentor-element-found-in__line">109</span>
 
     </aside>
 
@@ -643,7 +643,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="classe/Control.php"><a href="files/classe-control.html"><abbr title="classe/Control.php">Control.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">109</span>
+    <span class="phpdocumentor-element-found-in__line">111</span>
 
     </aside>
 
@@ -672,7 +672,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="_config.php"><a href="files/config.html"><abbr title="_config.php">_config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
@@ -730,7 +730,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="_config.php"><a href="files/config.html"><abbr title="_config.php">_config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
@@ -759,7 +759,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="_config.php"><a href="files/config.html"><abbr title="_config.php">_config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">23</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
     </aside>
 
@@ -788,7 +788,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="_config.php"><a href="files/config.html"><abbr title="_config.php">_config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
@@ -817,7 +817,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="classe/Control.php"><a href="files/classe-control.html"><abbr title="classe/Control.php">Control.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">119</span>
+    <span class="phpdocumentor-element-found-in__line">121</span>
 
     </aside>
 
@@ -846,7 +846,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="_config.php"><a href="files/config.html"><abbr title="_config.php">_config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 
     </aside>
 
@@ -875,7 +875,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="classe/Control.php"><a href="files/classe-control.html"><abbr title="classe/Control.php">Control.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">118</span>
+    <span class="phpdocumentor-element-found-in__line">120</span>
 
     </aside>
 
@@ -904,7 +904,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="classe/Control.php"><a href="files/classe-control.html"><abbr title="classe/Control.php">Control.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">120</span>
+    <span class="phpdocumentor-element-found-in__line">122</span>
 
     </aside>
 
@@ -991,7 +991,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="_config.php"><a href="files/config.html"><abbr title="_config.php">_config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 
     </aside>
 
@@ -1020,7 +1020,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="_config.php"><a href="files/config.html"><abbr title="_config.php">_config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">17</span>
 
     </aside>
 
@@ -1029,7 +1029,7 @@ kaloyansen@gmail.com</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">WWW</span>
-    = <span class="phpdocumentor-signature__default-value">\dirname($url)</span>
+    = <span class="phpdocumentor-signature__default-value">$url</span>
 </code>
 
 
@@ -1049,7 +1049,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="_config.php"><a href="files/config.html"><abbr title="_config.php">_config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
@@ -1078,7 +1078,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="_config.php"><a href="files/config.html"><abbr title="_config.php">_config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
@@ -1107,7 +1107,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="_config.php"><a href="files/config.html"><abbr title="_config.php">_config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14</span>
+    <span class="phpdocumentor-element-found-in__line">18</span>
 
     </aside>
 
@@ -1136,7 +1136,7 @@ kaloyansen@gmail.com</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="_config.php"><a href="files/config.html"><abbr title="_config.php">_config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 
     </aside>
 
