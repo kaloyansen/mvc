@@ -4,6 +4,8 @@ connexion.json
 .project
 .buildpath
 .settings/
+.phpdoc/
+docs/
 vendor/
 error.log
 .db.
