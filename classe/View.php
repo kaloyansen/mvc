@@ -18,7 +18,7 @@ class View {
         $this->keywords = $keywords;
     }
 
-    public function manger(\model\site\Ticket $ticket) {
+    public function manger(\model\Ticket $ticket) {
 
         $this->titre = $ticket->getTitle();
         $this->description = $ticket->getDescription();

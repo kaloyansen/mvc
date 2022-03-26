@@ -10,11 +10,7 @@
 		"psr-4" : {
 			"classe\\" : "classe",
 			"controller\\" : "controller",
-			"controller\\admin\\" : "controller/admin",
-			"controller\\site\\" : "controller/site",
-			"model\\" : "model",
-			"model\\admin\\" : "model/admin",
-			"model\\site\\" : "model/site"
+			"model\\" : "model"
 		}
 	},
 	"authors" : [{
