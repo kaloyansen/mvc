@@ -1,11 +1,12 @@
 <?php namespace controller;
 /**
  *
- * @author Kaloyan KRASTEV
- * @desc main controller
+ * @author Kaloyan KRASTEV, kaloyansen@gmail.com
+ * @desc main controller class
+ * @version 0.0.1
  *
  */
-class Main {
+class Moco {
 
     private static $permisDAppelerMethode;
     private static $private_id;

@@ -3,6 +3,7 @@
  *
  * @author Kaloyan KRASTEV
  * @desc backoffice controller class
+ *
  */
 class Boco extends \controller\Foco {
 

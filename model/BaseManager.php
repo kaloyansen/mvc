@@ -1,20 +1,19 @@
 <?php namespace model;
 /**
- * code php by Kaloyan KRASTEV
- * kaloyansen@gmail.com
  *
- *
- * // !!! safety !!! database connexion ***********
- * // code exemple connexion
- * $database = new BaseManager(<initfile>);
+ * @author Kaloyan KRASTEV, kaloyansen@gmail.com
+ * @abstract safety database connexion
+ * @example $database = new BaseManager(<initfile>);
  * // suit code user
  * ...
- * unset($database); // déconnexion de la base de données
+ * @example unset($database); // déconnexion de la base de données
  *
- * // <initfile> is the name of the file to read the identification from
- * // <initfile> is a text file with a basic line format property: value
- * // !!! add <initfile> to .gitignore to keep it secret !!!
- * // <initfile> example: model/.db.example
+ * @desc <initfile> is the name of the file to read the identification from
+ * @desc <initfile> is a text file with a basic line format property: value
+ * @desc !!! add <initfile> to .gitignore to keep it secret !!!
+ * @desc <initfile> example: model/.db.example
+ * @version 0.0.1
+ *
  */
 class BaseManager {
 	private static $conn;

@@ -2,10 +2,10 @@
 /**
  *
  * @author Kaloyan KRASTEV
- * @desc frontoffice controller
+ * @desc frontoffice controller class
  *
  */
-class Foco extends \controller\Main {
+class Foco extends \controller\Moco {
 	private $sent;
 	public function __construct($page = false) {
 

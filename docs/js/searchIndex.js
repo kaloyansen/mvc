@@ -711,104 +711,9 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/controller-Foco.html#property_sent"
         },                {
-            "fqsen": "\\controller\\Main",
-            "name": "Main",
-            "summary": "",
-            "url": "classes/controller-Main.html"
-        },                {
-            "fqsen": "\\controller\\Main\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/controller-Main.html#method___construct"
-        },                {
-            "fqsen": "\\controller\\Main\u003A\u003AjePeuxEntrer\u0028\u0029",
-            "name": "jePeuxEntrer",
-            "summary": "",
-            "url": "classes/controller-Main.html#method_jePeuxEntrer"
-        },                {
-            "fqsen": "\\controller\\Main\u003A\u003Apermettre\u0028\u0029",
-            "name": "permettre",
-            "summary": "",
-            "url": "classes/controller-Main.html#method_permettre"
-        },                {
-            "fqsen": "\\controller\\Main\u003A\u003Ainterdire\u0028\u0029",
-            "name": "interdire",
-            "summary": "",
-            "url": "classes/controller-Main.html#method_interdire"
-        },                {
-            "fqsen": "\\controller\\Main\u003A\u003Aid\u0028\u0029",
-            "name": "id",
-            "summary": "",
-            "url": "classes/controller-Main.html#method_id"
-        },                {
-            "fqsen": "\\controller\\Main\u003A\u003Atikid\u0028\u0029",
-            "name": "tikid",
-            "summary": "",
-            "url": "classes/controller-Main.html#method_tikid"
-        },                {
-            "fqsen": "\\controller\\Main\u003A\u003Aechoo\u0028\u0029",
-            "name": "echoo",
-            "summary": "",
-            "url": "classes/controller-Main.html#method_echoo"
-        },                {
-            "fqsen": "\\controller\\Main\u003A\u003AfromPost\u0028\u0029",
-            "name": "fromPost",
-            "summary": "",
-            "url": "classes/controller-Main.html#method_fromPost"
-        },                {
-            "fqsen": "\\controller\\Main\u003A\u003AfromGet\u0028\u0029",
-            "name": "fromGet",
-            "summary": "",
-            "url": "classes/controller-Main.html#method_fromGet"
-        },                {
-            "fqsen": "\\controller\\Main\u003A\u003AfromSession\u0028\u0029",
-            "name": "fromSession",
-            "summary": "",
-            "url": "classes/controller-Main.html#method_fromSession"
-        },                {
-            "fqsen": "\\controller\\Main\u003A\u003AcheckAccess\u0028\u0029",
-            "name": "checkAccess",
-            "summary": "",
-            "url": "classes/controller-Main.html#method_checkAccess"
-        },                {
-            "fqsen": "\\controller\\Main\u003A\u003AidLoad\u0028\u0029",
-            "name": "idLoad",
-            "summary": "",
-            "url": "classes/controller-Main.html#method_idLoad"
-        },                {
-            "fqsen": "\\controller\\Main\u003A\u003AtransMess\u0028\u0029",
-            "name": "transMess",
-            "summary": "",
-            "url": "classes/controller-Main.html#method_transMess"
-        },                {
-            "fqsen": "\\controller\\Main\u003A\u003Areadid\u0028\u0029",
-            "name": "readid",
-            "summary": "",
-            "url": "classes/controller-Main.html#method_readid"
-        },                {
-            "fqsen": "\\controller\\Main\u003A\u003Apasse\u0028\u0029",
-            "name": "passe",
-            "summary": "",
-            "url": "classes/controller-Main.html#method_passe"
-        },                {
-            "fqsen": "\\controller\\Main\u003A\u003A\u0024permisDAppelerMethode",
-            "name": "permisDAppelerMethode",
-            "summary": "",
-            "url": "classes/controller-Main.html#property_permisDAppelerMethode"
-        },                {
-            "fqsen": "\\controller\\Main\u003A\u003A\u0024private_id",
-            "name": "private_id",
-            "summary": "",
-            "url": "classes/controller-Main.html#property_private_id"
-        },                {
-            "fqsen": "\\controller\\Main\u003A\u003A\u0024private_tikid",
-            "name": "private_tikid",
-            "summary": "",
-            "url": "classes/controller-Main.html#property_private_tikid"
-        },                {
             "fqsen": "\\model\\BaseManager",
             "name": "BaseManager",
-            "summary": "code\u0020php\u0020by\u0020Kaloyan\u0020KRASTEV\nkaloyansen\u0040gmail.com",
+            "summary": "",
             "url": "classes/model-BaseManager.html"
         },                {
             "fqsen": "\\model\\BaseManager\u003A\u003Aget\u0028\u0029",
@@ -973,7 +878,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\model\\MembreManager",
             "name": "MembreManager",
-            "summary": "code\u0020php\u0020by\u0020Kaloyan\u0020KRASTEV\nkaloyansen\u0040gmail.com",
+            "summary": "",
             "url": "classes/model-MembreManager.html"
         },                {
             "fqsen": "\\model\\MembreManager\u003A\u003Aselect\u0028\u0029",
@@ -1143,7 +1048,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\model\\TicketManager",
             "name": "TicketManager",
-            "summary": "code\u0020php\u0020by\u0020Kaloyan\u0020KRASTEV\nkaloyansen\u0040gmail.com",
+            "summary": "",
             "url": "classes/model-TicketManager.html"
         },                {
             "fqsen": "\\model\\TicketManager\u003A\u003Acount\u0028\u0029",
@@ -1270,6 +1175,101 @@ Search.appendIndex(
             "name": "sent",
             "summary": "",
             "url": "classes/controller-deprecated-Site.html#property_sent"
+        },                {
+            "fqsen": "\\controller\\Moco",
+            "name": "Moco",
+            "summary": "",
+            "url": "classes/controller-Moco.html"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method___construct"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003AjePeuxEntrer\u0028\u0029",
+            "name": "jePeuxEntrer",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_jePeuxEntrer"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003Apermettre\u0028\u0029",
+            "name": "permettre",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_permettre"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003Ainterdire\u0028\u0029",
+            "name": "interdire",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_interdire"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003Aid\u0028\u0029",
+            "name": "id",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_id"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003Atikid\u0028\u0029",
+            "name": "tikid",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_tikid"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003Aechoo\u0028\u0029",
+            "name": "echoo",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_echoo"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003AfromPost\u0028\u0029",
+            "name": "fromPost",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_fromPost"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003AfromGet\u0028\u0029",
+            "name": "fromGet",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_fromGet"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003AfromSession\u0028\u0029",
+            "name": "fromSession",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_fromSession"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003AcheckAccess\u0028\u0029",
+            "name": "checkAccess",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_checkAccess"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003AidLoad\u0028\u0029",
+            "name": "idLoad",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_idLoad"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003AtransMess\u0028\u0029",
+            "name": "transMess",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_transMess"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003Areadid\u0028\u0029",
+            "name": "readid",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_readid"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003Apasse\u0028\u0029",
+            "name": "passe",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_passe"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003A\u0024permisDAppelerMethode",
+            "name": "permisDAppelerMethode",
+            "summary": "",
+            "url": "classes/controller-Moco.html#property_permisDAppelerMethode"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003A\u0024private_id",
+            "name": "private_id",
+            "summary": "",
+            "url": "classes/controller-Moco.html#property_private_id"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003A\u0024private_tikid",
+            "name": "private_tikid",
+            "summary": "",
+            "url": "classes/controller-Moco.html#property_private_tikid"
         },                {
             "fqsen": "\\",
             "name": "\\",
