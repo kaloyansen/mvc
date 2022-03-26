@@ -5,7 +5,6 @@ connexion.json
 .buildpath
 .settings/
 .phpdoc/
-documentation/
 vendor/
 error.log
 .db.
