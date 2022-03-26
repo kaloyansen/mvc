@@ -1,1 +1,1 @@
-docker run --rm -v /home/kalo/public_html/mvc:/data phpdoc/phpdoc:3 -d . -t documentation
+docker run --rm -v /home/kalo/public_html/mvc:/data phpdoc/phpdoc:3 -d . -t docs
