@@ -1,9 +1,9 @@
-<?php namespace controller\admin;
+<?php namespace controller\deprecated;
 /**
  * controller class
  * @deprecated
  */
-class Admin extends \controller\site\Site {
+class Admin extends \controller\deprecated\Site {
 	public function __construct($page = false) {
 
         $access = self::checkAccess();
@@ -37,11 +37,11 @@ class Admin extends \controller\site\Site {
         if (ONLINE && self::fromPost('new_ticket_form_fill')) $ticket_load_post = true;
         else $do_insert = false;
 
-        $ticket = new \model\site\Ticket();
+        $ticket = new \model\Ticket();
         if ($ticket_load_post) $ticket->loadpost();
 
         if ($do_insert) {
-            $db = new \model\site\TicketManager();
+            $db = new \model\TicketManager();
             $db_insert = $db->insert($ticket);
             $db_last = $db->last();
             $this->transMess('ticked #'.$db_last.' created('.$db_insert.')');
@@ -59,7 +59,7 @@ class Admin extends \controller\site\Site {
         self::idLoad();
 
         $do_update = true;
-        $db = new \model\site\TicketManager();
+        $db = new \model\TicketManager();
         $ticket = $db->select(self::id());
 
         if (ONLINE) {
@@ -103,7 +103,7 @@ class Admin extends \controller\site\Site {
             $roule = ARGU2 ? 'del' : false;
         }
 
-        $db = new \model\site\TicketManager();
+        $db = new \model\TicketManager();
 
         if (!$roule) {/* afficher la confirmation
         */
@@ -152,7 +152,7 @@ class Admin extends \controller\site\Site {
 
         self::idLoad();
 
-        $manager = new \model\site\TicketManager();
+        $manager = new \model\TicketManager();
         $ticket = $manager->select(self::id());
         $ticket_array[] = $ticket;
         unset($manager);

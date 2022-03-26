@@ -1191,85 +1191,85 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-TicketManager.html#constant_SELECT"
         },                {
-            "fqsen": "\\controller\\admin\\Admin",
+            "fqsen": "\\controller\\deprecated\\Admin",
             "name": "Admin",
             "summary": "controller\u0020class",
-            "url": "classes/controller-admin-Admin.html"
+            "url": "classes/controller-deprecated-Admin.html"
         },                {
-            "fqsen": "\\controller\\admin\\Admin\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\controller\\deprecated\\Admin\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/controller-admin-Admin.html#method___construct"
+            "url": "classes/controller-deprecated-Admin.html#method___construct"
         },                {
-            "fqsen": "\\controller\\admin\\Admin\u003A\u003Adeconnexion\u0028\u0029",
+            "fqsen": "\\controller\\deprecated\\Admin\u003A\u003Adeconnexion\u0028\u0029",
             "name": "deconnexion",
             "summary": "",
-            "url": "classes/controller-admin-Admin.html#method_deconnexion"
+            "url": "classes/controller-deprecated-Admin.html#method_deconnexion"
         },                {
-            "fqsen": "\\controller\\admin\\Admin\u003A\u003Ainsert\u0028\u0029",
+            "fqsen": "\\controller\\deprecated\\Admin\u003A\u003Ainsert\u0028\u0029",
             "name": "insert",
             "summary": "",
-            "url": "classes/controller-admin-Admin.html#method_insert"
+            "url": "classes/controller-deprecated-Admin.html#method_insert"
         },                {
-            "fqsen": "\\controller\\admin\\Admin\u003A\u003Aupdate\u0028\u0029",
+            "fqsen": "\\controller\\deprecated\\Admin\u003A\u003Aupdate\u0028\u0029",
             "name": "update",
             "summary": "",
-            "url": "classes/controller-admin-Admin.html#method_update"
+            "url": "classes/controller-deprecated-Admin.html#method_update"
         },                {
-            "fqsen": "\\controller\\admin\\Admin\u003A\u003Adelete\u0028\u0029",
+            "fqsen": "\\controller\\deprecated\\Admin\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
             "summary": "",
-            "url": "classes/controller-admin-Admin.html#method_delete"
+            "url": "classes/controller-deprecated-Admin.html#method_delete"
         },                {
-            "fqsen": "\\controller\\admin\\Admin\u003A\u003Alogin\u0028\u0029",
+            "fqsen": "\\controller\\deprecated\\Admin\u003A\u003Alogin\u0028\u0029",
             "name": "login",
             "summary": "",
-            "url": "classes/controller-admin-Admin.html#method_login"
+            "url": "classes/controller-deprecated-Admin.html#method_login"
         },                {
-            "fqsen": "\\controller\\admin\\Admin\u003A\u003Ahome\u0028\u0029",
+            "fqsen": "\\controller\\deprecated\\Admin\u003A\u003Ahome\u0028\u0029",
             "name": "home",
             "summary": "",
-            "url": "classes/controller-admin-Admin.html#method_home"
+            "url": "classes/controller-deprecated-Admin.html#method_home"
         },                {
-            "fqsen": "\\controller\\site\\Site",
+            "fqsen": "\\controller\\deprecated\\Site",
             "name": "Site",
             "summary": "user\u0020controller",
-            "url": "classes/controller-site-Site.html"
+            "url": "classes/controller-deprecated-Site.html"
         },                {
-            "fqsen": "\\controller\\site\\Site\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\controller\\deprecated\\Site\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/controller-site-Site.html#method___construct"
+            "url": "classes/controller-deprecated-Site.html#method___construct"
         },                {
-            "fqsen": "\\controller\\site\\Site\u003A\u003AsetSent\u0028\u0029",
+            "fqsen": "\\controller\\deprecated\\Site\u003A\u003AsetSent\u0028\u0029",
             "name": "setSent",
             "summary": "",
-            "url": "classes/controller-site-Site.html#method_setSent"
+            "url": "classes/controller-deprecated-Site.html#method_setSent"
         },                {
-            "fqsen": "\\controller\\site\\Site\u003A\u003AgetSent\u0028\u0029",
+            "fqsen": "\\controller\\deprecated\\Site\u003A\u003AgetSent\u0028\u0029",
             "name": "getSent",
             "summary": "",
-            "url": "classes/controller-site-Site.html#method_getSent"
+            "url": "classes/controller-deprecated-Site.html#method_getSent"
         },                {
-            "fqsen": "\\controller\\site\\Site\u003A\u003Adefault\u0028\u0029",
+            "fqsen": "\\controller\\deprecated\\Site\u003A\u003Adefault\u0028\u0029",
             "name": "default",
             "summary": "",
-            "url": "classes/controller-site-Site.html#method_default"
+            "url": "classes/controller-deprecated-Site.html#method_default"
         },                {
-            "fqsen": "\\controller\\site\\Site\u003A\u003Aliste\u0028\u0029",
+            "fqsen": "\\controller\\deprecated\\Site\u003A\u003Aliste\u0028\u0029",
             "name": "liste",
             "summary": "",
-            "url": "classes/controller-site-Site.html#method_liste"
+            "url": "classes/controller-deprecated-Site.html#method_liste"
         },                {
-            "fqsen": "\\controller\\site\\Site\u003A\u003Aobjet\u0028\u0029",
+            "fqsen": "\\controller\\deprecated\\Site\u003A\u003Aobjet\u0028\u0029",
             "name": "objet",
             "summary": "",
-            "url": "classes/controller-site-Site.html#method_objet"
+            "url": "classes/controller-deprecated-Site.html#method_objet"
         },                {
-            "fqsen": "\\controller\\site\\Site\u003A\u003A\u0024sent",
+            "fqsen": "\\controller\\deprecated\\Site\u003A\u003A\u0024sent",
             "name": "sent",
             "summary": "",
-            "url": "classes/controller-site-Site.html#property_sent"
+            "url": "classes/controller-deprecated-Site.html#property_sent"
         },                {
             "fqsen": "\\",
             "name": "\\",
@@ -1286,15 +1286,10 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/controller.html"
         },                {
-            "fqsen": "\\controller\\admin",
-            "name": "admin",
+            "fqsen": "\\controller\\deprecated",
+            "name": "deprecated",
             "summary": "",
-            "url": "namespaces/controller-admin.html"
-        },                {
-            "fqsen": "\\controller\\site",
-            "name": "site",
-            "summary": "",
-            "url": "namespaces/controller-site.html"
+            "url": "namespaces/controller-deprecated.html"
         },                {
             "fqsen": "\\model",
             "name": "model",

@@ -1,9 +1,9 @@
-<?php namespace controller\site;
+<?php namespace controller\deprecated;
 /**
  * user controller
  * @deprecated
  */
-class Site extends \controller\Controller {
+class Site extends \controller\Main {
 	private $sent;
 	public function __construct($page = false) {
 
@@ -25,7 +25,7 @@ class Site extends \controller\Controller {
 
 	    $viewname = $viewname ? $viewname : $this->sent ? $this->sent : 'lien';
 
-	    $manager = new \model\site\TicketManager();
+	    $manager = new \model\TicketManager();
 		$message = $this->transMess($manager->count().' free tickets available');
 		$ticket_array = $manager->select();
 		unset($manager);
@@ -42,7 +42,7 @@ class Site extends \controller\Controller {
 
     	self::idLoad();
 
-        $manager = new \model\site\TicketManager();
+        $manager = new \model\TicketManager();
         $ticket = $manager->select(self::id());
         $ticket_array[] = $ticket;
         unset($manager);
