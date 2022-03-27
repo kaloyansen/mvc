@@ -3,22 +3,22 @@
  *
  * @author Kaloyan KRASTEV, kaloyansen@gmail.com
  * @abstract safety database connexion
- * @example $database = new BaseManager(<initfile>);
+ * @example $database = new BaseManager(initfile);
  * // suit code user
  * ...
  * @example unset($database); // déconnexion de la base de données
  *
- * @desc <initfile> is the name of the file to read the identification from
- * @desc <initfile> is a text file with a basic line format property: value
- * @desc !!! add <initfile> to .gitignore to keep it secret !!!
- * @desc <initfile> example: model/.db.example
- * @version 0.0.1
+ * @desc initfile is the name of the file to read the identification from
+ * @desc initfile is a text file with a basic line format property: value
+ * @desc !!! add initfile to .gitignore to keep it secret !!!
+ * @example initfile example: model/.db.example
+ * @version 0.0.2
  *
  */
 class BaseManager {
 	private static $conn;
-	private static $iconn;
-	private static $jsonFile = DOWN."/connexion.json";
+	private static int $iconn;
+	private static string $jsonFile = DOWN."/connexion.json";
 
 	private $server;
 	private $username;
