@@ -7,17 +7,12 @@
   gap: .5rem;
 }
 
-.case {
-  background-color: #358;
-  color: #000;
-}
-
 .case span {
   display: flex;
+  font-size: 44px;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   width: 100%;
-  align-items: center;
-  justify-content: center;
-  background-color: #ccc;
-  cursor: pointer;
 }
+

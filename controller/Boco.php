@@ -2,35 +2,37 @@
 /**
  *
  * @author Kaloyan KRASTEV
+ * @link kaloyansen@gmail.com
  * @desc backoffice controller class
+ * @version 0.0.1
  *
  */
 class Boco extends \controller\Foco {
 
     public function __construct($page = false) {
 
-		$access = self::checkAccess();
+        $access = self::checkAccess();
 
-		if (!$access) {
-			self::interdire();
-			if (!$page) error_log('expect argument in constructer of '.__CLASS__);
-			$this->setSent($page);
-			$this->login();
-		} else {
-			self::permettre();
-		}
-	}
+        if (!$access) {
+            self::interdire();
+            if (!$page) error_log('expect argument in constructer of '.__CLASS__);
+            self::setPage($page);
+            $this->login();
+        } else {
+            self::permettre();
+        }
+    }
 
-	public function deconnexion() {
+    public function deconnexion() {
 
-		$user = self::fromSession('user');
-		if (!$user) $user = 'guest';//something wrong
-		$message = $user.' deconnexion';
+        $user = self::fromSession('user');
+        if (!$user) $user = 'guest';//something wrong
+        $message = $user.' deconnexion';
 
-		$view = new \classe\View('admin', 'deconnexion', $message, 'description de la deconnexion', 'clé 1, clé 2, clé 3');
-		$view->afficher( (object) array('user' => $user,
-				'message' => $this->transMess($message)) );
-	}
+        $view = new \classe\View('admin/deconnexion', $message, 'deconnexion', 'clé 5');
+        $view->afficher( (object) array('user' => $user,
+                                        'message' => $this->transMess($message)) );
+    }
 
 	public function insert() {
 
@@ -52,7 +54,7 @@ class Boco extends \controller\Foco {
 			header('location: '.WWW.'?page=objet&id='.$db_last);
 		}
 
-		$view = new \classe\View('admin', 'insert_form');
+		$view = new \classe\View('admin/insert_form');
 		$view->manger($ticket);
 		$view->afficher( (object) array('message' => $this->transMess('create new ticket')) );
 	}
@@ -85,10 +87,10 @@ class Boco extends \controller\Foco {
 
 		unset($db);
 
-		$view = new \classe\View('admin', 'update_form');
+		$view = new \classe\View('admin/update_form');
 		$view->manger($ticket);
 		$view->afficher( (object) array('message' => $this->transMess($message),
-				'ticket' => $ticket) );
+                                        'ticket' => $ticket) );
 	}
 
 	public function delete() {
@@ -110,14 +112,12 @@ class Boco extends \controller\Foco {
 
 		if (!$roule) {/* afficher la confirmation
 			*/
-			$view_dir = 'admin';
-			$view_name = 'delete_confirmation';
+			$view_chemin = 'admin/delete_confirmation';
 			$message = 'delete '.self::tikid().' confirmation';
 			$ticket_array[] = $db->select(self::id());
 		} else {/* sortir
 			*/
-			$view_dir = 'site';
-			$view_name = 'lien';
+			$view_chemin = 'lien';
 			if ($roule == 'nodel') {
 				$message = self::tikid().' not deleted';
 			} elseif ($roule == 'del') {
@@ -132,23 +132,23 @@ class Boco extends \controller\Foco {
 		unset($db);
 		$ticket = $ticket_array[0];
 
-		$view = new \classe\View($view_dir, $view_name);
+		$view = new \classe\View($view_chemin);
 		$view->manger($ticket);
 		$view->afficher( (object) array('user' => self::fromSession('user'),
-				'message' => $this->transMess($message),
-				'ticket_array' => $ticket_array) );
+                                        'message' => $this->transMess($message),
+                                        'ticket_array' => $ticket_array) );
 	}
 
-	private function login() {
+	private function login(): void {
 
-		$page = $this->getSent();
+		$page = self::getPage();
 		if (!$page) $page = 'home';
 
 		$message = 'accès à la zone d\'administration';
-		$view = new \classe\View('admin', 'login_form', $message, 'description', 'clé');
+		$view = new \classe\View('admin/login_form', $message, 'description', 'clé');
 		$view->afficher( (object) array('message' => $this->transMess($message),
-				'action' => WWW.'?page='.$page));
-		return 0;
+                                        'action' => WWW.'?page='.$page));
+		//return 0;
 	}
 
 	public function home() {
@@ -160,12 +160,12 @@ class Boco extends \controller\Foco {
 		$ticket_array[] = $ticket;
 		unset($manager);
 
-		$view = new \classe\View('site', 'objet');
+		$view = new \classe\View('objet');
 		$view->manger($ticket);
 		$view->afficher( (object) array('message' => $this->transMess('zone d\'administration'),
-				'user' => self::fromSession('user'),
-				'ticket_array' => $ticket_array));
-		return 0;
+                                        'user' => self::fromSession('user'),
+                                        'ticket_array' => $ticket_array));
+		//return 0;
 	}
 
 } ?>

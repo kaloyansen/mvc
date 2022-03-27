@@ -23,7 +23,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\LOCO",
             "name": "LOCO",
-            "summary": "",
+            "summary": "le\u0020chemin\u0020absolut",
             "url": "namespaces/default.html#constant_LOCO"
         },                {
             "fqsen": "\\MODEL",
@@ -158,7 +158,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\classe\\View",
             "name": "View",
-            "summary": "conception\u0020et\u0020description",
+            "summary": "",
             "url": "classes/classe-View.html"
         },                {
             "fqsen": "\\classe\\View\u003A\u003A__construct\u0028\u0029",
@@ -176,15 +176,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/classe-View.html#method_afficher"
         },                {
-            "fqsen": "\\classe\\View\u003A\u003A\u0024dossier",
-            "name": "dossier",
+            "fqsen": "\\classe\\View\u003A\u003A\u0024chemin",
+            "name": "chemin",
             "summary": "",
-            "url": "classes/classe-View.html#property_dossier"
-        },                {
-            "fqsen": "\\classe\\View\u003A\u003A\u0024fichier",
-            "name": "fichier",
-            "summary": "",
-            "url": "classes/classe-View.html#property_fichier"
+            "url": "classes/classe-View.html#property_chemin"
         },                {
             "fqsen": "\\classe\\View\u003A\u003A\u0024titre",
             "name": "titre",
@@ -656,19 +651,9 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/controller-Foco.html#method___construct"
         },                {
-            "fqsen": "\\controller\\Foco\u003A\u003AsetSent\u0028\u0029",
-            "name": "setSent",
-            "summary": "",
-            "url": "classes/controller-Foco.html#method_setSent"
-        },                {
-            "fqsen": "\\controller\\Foco\u003A\u003AgetSent\u0028\u0029",
-            "name": "getSent",
-            "summary": "",
-            "url": "classes/controller-Foco.html#method_getSent"
-        },                {
             "fqsen": "\\controller\\Foco\u003A\u003Adefault\u0028\u0029",
             "name": "default",
-            "summary": "",
+            "summary": "appear\u0020if\u0020page\u0020not\u0020recognized",
             "url": "classes/controller-Foco.html#method_default"
         },                {
             "fqsen": "\\controller\\Foco\u003A\u003Aliste\u0028\u0029",
@@ -681,11 +666,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/controller-Foco.html#method_objet"
         },                {
-            "fqsen": "\\controller\\Foco\u003A\u003A\u0024sent",
-            "name": "sent",
-            "summary": "",
-            "url": "classes/controller-Foco.html#property_sent"
-        },                {
             "fqsen": "\\model\\BaseManager",
             "name": "BaseManager",
             "summary": "",
@@ -695,6 +675,11 @@ Search.appendIndex(
             "name": "get",
             "summary": "",
             "url": "classes/model-BaseManager.html#method_get"
+        },                {
+            "fqsen": "\\model\\BaseManager\u003A\u003Aquery\u0028\u0029",
+            "name": "query",
+            "summary": "",
+            "url": "classes/model-BaseManager.html#method_query"
         },                {
             "fqsen": "\\model\\BaseManager\u003A\u003A__destruct\u0028\u0029",
             "name": "__destruct",
@@ -860,6 +845,11 @@ Search.appendIndex(
             "name": "select",
             "summary": "",
             "url": "classes/model-MembreManager.html#method_select"
+        },                {
+            "fqsen": "\\model\\MembreManager\u003A\u003Ainsert\u0028\u0029",
+            "name": "insert",
+            "summary": "",
+            "url": "classes/model-MembreManager.html#method_insert"
         },                {
             "fqsen": "\\model\\MembreManager\u003A\u003A\u0024tab",
             "name": "tab",
@@ -1186,6 +1176,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/controller-Moco.html#method_tikid"
         },                {
+            "fqsen": "\\controller\\Moco\u003A\u003AsetPage\u0028\u0029",
+            "name": "setPage",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_setPage"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003AgetPage\u0028\u0029",
+            "name": "getPage",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_getPage"
+        },                {
             "fqsen": "\\controller\\Moco\u003A\u003Aechoo\u0028\u0029",
             "name": "echoo",
             "summary": "",
@@ -1245,6 +1245,11 @@ Search.appendIndex(
             "name": "private_tikid",
             "summary": "",
             "url": "classes/controller-Moco.html#property_private_tikid"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003A\u0024page",
+            "name": "page",
+            "summary": "",
+            "url": "classes/controller-Moco.html#property_page"
         },                {
             "fqsen": "\\",
             "name": "\\",

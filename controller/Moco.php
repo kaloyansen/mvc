@@ -1,40 +1,41 @@
 <?php namespace controller;
 /**
  *
- * @author Kaloyan KRASTEV, kaloyansen@gmail.com
+ * @author Kaloyan KRASTEV
+ * @link kaloyansen@gmail.com
  * @desc main controller class
- * @version 0.0.1
+ * @version 0.0.2
  *
  */
 class Moco {
 
-    private static $permisDAppelerMethode;
+    private static bool $permisDAppelerMethode;
     private static $private_id;
     private static $private_tikid;
+    private static string $page;
 
     public function __construct() { self::permettre(); }
-    public function jePeuxEntrer() { return self::$permisDAppelerMethode; }
 
-    protected static function permettre() { self::$permisDAppelerMethode = true; }
-    protected static function interdire() { self::$permisDAppelerMethode = false; }
+    public function jePeuxEntrer(): bool { return self::$permisDAppelerMethode; }
+    protected static function permettre(): void { self::$permisDAppelerMethode = true; }
+    protected static function interdire(): void { self::$permisDAppelerMethode = false; }
+
     protected static function id() { return self::$private_id; }
     protected static function tikid() { return self::$private_tikid; }
-
-    protected static function echoo($happy) { echo '(-'.$happy.'-)'; }
-    protected static function fromPost($par) { return isset($_POST[$par]) ?
-                                                      $_POST[$par] : false; }
-    protected static function fromGet($par) { return isset($_GET[$par]) ?
-                                                     $_GET[$par] : false; }
-    protected static function fromSession($par) { return isset($_SESSION[$par]) ?
-                                                         $_SESSION[$par] : false; }
-    protected static function checkAccess() {
+    protected static function setPage(string $page): void { self::$page = $page; }
+    protected static function getPage(): string { return self::$page; }
+    protected static function echoo(string $happy): void { echo '(-'.$happy.'-)'; }
+    protected static function fromPost(string $par) { return isset($_POST[$par]) ? $_POST[$par] : false; }
+    protected static function fromGet(string $par) { return isset($_GET[$par]) ? $_GET[$par] : false; }
+    protected static function fromSession(string $par) { return isset($_SESSION[$par]) ? $_SESSION[$par] : false; }
+    protected static function checkAccess(): ?string {
 
     	$user = self::fromSession('user');
     	if ($user) return $user;
     	return self::passe();
     }
 
-    protected static function idLoad() {
+    protected static function idLoad(): void {
 
     	self::$private_id = self::readid();
     	self::$private_tikid = 'ticket #'.self::$private_id;
@@ -66,7 +67,7 @@ class Moco {
         return $inputid;
     }
 
-    private static function passe() {
+    private static function passe(): ?string {
 
         $pseudo = false;
         $password = false;
@@ -79,7 +80,7 @@ class Moco {
             $password = ARGU3;
         }
 
-        if (!$pseudo || !$password) return false;
+        if (!$pseudo || !$password) return null;
 
         $db = new \model\MembreManager();
         $access = $db->select($pseudo, $password);
@@ -91,7 +92,7 @@ class Moco {
         	return $pseudo;
         }
 
-        return false;
+        return null;
     }
 
 }

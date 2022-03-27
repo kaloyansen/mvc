@@ -7,7 +7,7 @@
 }
 
 .container {
-    max-width: 920px;
+    max-width: 333px;
 }
 
 html {
@@ -26,6 +26,7 @@ body {
 	background-color: #012345;
 	font-family: Questrial;
 }
+
 
 #main {
 	margin: auto;
@@ -78,13 +79,25 @@ a[href^="tel"]::before {
 }
 
 
+.loco {
+    color: #caf;
+    background-color: #358;
+    font-weight: bold;
+    font-size: 27px;
+    text-decoration: none;  
+    list-style: none;
+    padding: 2px;
+    /*width: 77%;*/
+    text-align: center;
+}
+
 .lien {
     display: block;
     color: #caf;
     background-color: #358;
-	font-weight: bold;
+    font-weight: bold;
     font-size: 27px;
-	text-decoration: none;	
+    text-decoration: none;  
     list-style: none;
     padding: 2px;
     /*width: 77%;*/
@@ -92,9 +105,15 @@ a[href^="tel"]::before {
 }
 
 .lien:hover {
-	color: #359;
-	background-color: #caf;
-	cursor: pointer;
+    color: #359;
+    background-color: #caf;
+    cursor: pointer;
+}
+
+.loco:hover {
+    color: #359;
+    background-color: #caf;
+    cursor: pointer;
 }
 
 .ticket {
@@ -134,7 +153,32 @@ input[type="submit"]:hover {
 	color: white;
 }
 
-footer { grid-area: footer; text-align: right; }
+footer {
+    grid-area: footer;
+    text-align: center;
+    padding-top: 10vw;
+}
+
+
+#pad {
+  width: 300px;
+  height: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: .5rem;
+}
+
+.case span {
+  display: flex;
+  font-size: 44px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+
 
 .box {
     width: 75%;

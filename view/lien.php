@@ -1,4 +1,4 @@
-<?php namespace view\site;
+<?php namespace view;
 $user = isset($_SESSION['user']) ? $_SESSION['user'] : 'guest';
 $ta = $controbjet->ticket_array;
 ?>

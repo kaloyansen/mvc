@@ -26,6 +26,7 @@ class BaseManager {
 	private $database;
 
 	public function get() { return self::$conn; }
+	public function query($query) { return mysqli_query(self::$conn, $query); }
 	public function __destruct() {
 		$this->close();
 		error_log('destroying '.__CLASS__."\n");
@@ -33,7 +34,8 @@ class BaseManager {
 	public function __construct($infile = false) {
 		if (!$infile) $infile = MODEL.'/.db.';
 		$this->initFrom($infile);
-	    $this->open();
+		self::$iconn = 0;
+		$this->open();
 	}
 
 	private function close() { echo "\n"; mysqli_close(self::$conn); }
@@ -54,7 +56,6 @@ class BaseManager {
 	//private function error() { return $this->conn->connect_error; }
 	private function initFrom($infile) {
 
-		self::$iconn = 0;
 		if ($handle = fopen($infile, 'r'))
 			while ($data = fgetcsv($handle, 0, ":")) {
 				$property = trim($data[0]);

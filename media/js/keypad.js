@@ -1,5 +1,12 @@
 'use strict';
-
+/**
+ *
+ * @author Eric PONCHANT
+ * @link eric.ponchant@elearningweb.onmicrosoft.com
+ * @description login with a virtual keyboard
+ * @version 0.0.1
+ *
+ */
 class Keystroke {
 
     constructor(div) {
@@ -14,7 +21,7 @@ class Keystroke {
             newDiv.setAttribute('data-key', -1);
             this.currentDiv.appendChild(newDiv);
         }
-        return this;
+        //return this;
     }
 
     setKeystrokeText() {
@@ -32,13 +39,14 @@ class Keystroke {
                     let currentDiv = document.getElementById('case' + num);
                     currentDiv.appendChild(newSpan);
                     currentDiv.setAttribute('data-key', i);
+                    currentDiv.classList.add('lien');
                     str += '-' + num + '-';
                     test = false;
                 }
             }
             test = true;
         }
-        return this;
+        //return this;
     }
 
     resetKeystroke() {
@@ -46,18 +54,21 @@ class Keystroke {
         while (element.firstChild) {
             element.removeChild(element.firstChild);
         }
-        keystroke.setKeystroke().setKeystrokeText().eventKeystroke();
+        this.setKeystroke();
+        this.setKeystrokeText();
+        this.eventKeystroke();
     }
 
     eventKeystroke() {
-        let cases = document.getElementsByClassName('case');
-        for (const cas of cases) {
+        const CASE = document.getElementsByClassName('case');
+        const PASSWORD = document.getElementById('password');
+        var datakey;
+        for (const cas of CASE) {
             cas.addEventListener('click', function() {
-                if (this.getAttribute('data-key') < 0) {
-                    password.value = password.value;
-                } else {
-                    password.value = password.value + this.getAttribute('data-key');
-                }
+
+                datakey = this.getAttribute('data-key');
+                if (datakey < 0) datakey = '';
+                else PASSWORD.value = PASSWORD.value + datakey;
             }, false);
         }
     }
@@ -66,66 +77,37 @@ class Keystroke {
 class Connexion {
 
     constructor(form, login, password, result, reset) {
-        this.form = document.getElementById(form);
-        this.login = document.getElementById(login);
-        this.password = document.getElementById(password);
-        this.result = document.getElementById(result);
-        this.reset = document.getElementById(reset);
-        this.url = this.form.getAttribute('action');
+        this.LOGIN = document.getElementById(login);
+        this.PASSWORD = document.getElementById(password);
+        this.RESULT = document.getElementById(result);
+        this.RESET = document.getElementById(reset);
+        this.FORM = document.getElementById(form);
+        //this.url = this.FORM.getAttribute('action');
     }
 
     submitForm() {
-        //let login = this.login, password = this.password, url = this.url, result = this.result;
-
-        this.form.addEventListener('submit', function(event) {
-
+        this.FORM.addEventListener('submit', function(event) {
             event.preventDefault();
-            /*
-            let formData = new FormData(this);
-            formData.append('login', login.value);
-            formData.append('password', password.value);
-
-            fetch(url, {
-                method: 'POST',
-                body: formData
-            })
-                .then(res => {
-                    console.log(res);
-                    if (res == false) {
-                        throw Error(res.status);
-                    } else {
-                        return res.json();
-                    }
-                })
-                .then(res => {
-                    console.log(res);
-                    let parentDiv = this.parentNode;
-                    if (res.check == true) {
-                        result.setAttribute('class', 'col-lg-9 mx-auto alert alert-success');
-                        parentDiv.parentNode.removeChild(parentDiv);
-                    } else {
-                        result.setAttribute('class', 'col-lg-9 mx-auto alert alert-warning');
-                        password.value = '';
-                    }
-                    result.textContent = res.message;
-                })
-             */
         })
-        return this;
+        //return this;
     }
 
-    resetForm() {
-        let result = this.result, password = this.password;
-        this.reset.addEventListener('click', function() {
+    resetForm(ks) {
+        let result = this.RESULT;
+        let password = this.PASSWORD;
+        this.RESET.addEventListener('click', function() {
             result.setAttribute('class', '');
             result.innerText = password.value = '';
-            keystroke.resetKeystroke();
+            ks.resetKeystroke();
         }, false);
     }
 }
 
 let keystroke = new Keystroke('pad');
-keystroke.setKeystroke().setKeystrokeText().eventKeystroke();
+keystroke.setKeystroke();
+keystroke.setKeystrokeText();
+keystroke.eventKeystroke();
 
-let connexion = new Connexion('form', 'login', 'password', 'result', 'reset');
-connexion.submitForm().resetForm();
+let connexion = new Connexion('logform', 'pseudo', 'password', 'result', 'reset');
+connexion.submitForm();
+connexion.resetForm(keystroke);

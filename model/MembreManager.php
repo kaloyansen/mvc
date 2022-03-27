@@ -9,10 +9,20 @@ class MembreManager extends \model\BaseManager {/* interface
 		$query = $query." WHERE pseudo='".$pseudo."'";
 		$query = $query." AND password='".$password."'";
 
-		$result = mysqli_query($this->get(), $query);
+		//$result = mysqli_query($this->get(), $query);
+		$result = self::query($query);
 		$objet = mysqli_fetch_object($result);
 
 		return $objet ? new \model\Membre($objet) : false;
+	}
+
+	public function insert($pseudo, $password) {
+
+        $query = "INSERT INTO ".$this->tab." (`id`, `pseudo`, `password`) VALUES ";
+        $query = $query."(NULL, '".$pseudo."', '".$password."')";
+
+        return self::query($query);
+
 	}
 }
 

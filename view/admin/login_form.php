@@ -3,19 +3,20 @@
 
 <article>
   <h2><?=$controbjet->message;?></h2>
-  <div id="result"></div>
+  <div class="row" id="result"></div>
   <div class="row" id="connection">
 
-    <form id="form"
+    <form class="col-8 p-auto m-auto"
+          id="logform"
           action="<?=$controbjet->action;?>"
           method="post"
-          enctype="application/x-www-form-urlencoded"
-          class="col-md-6 col-lg-5 ml-auto mb-4 pt-3 pb-4 px-4">
+          enctype="application/x-www-form-urlencoded">
+
       <div class="form-group">
-        <label for="login">identifiant</label>
+        <label for="pseudo">identifiant</label>
         <input type="email"
                class="form-control"
-               id="login"
+               id="pseudo"
                name="pseudo"
                maxlength="255"
                value=""

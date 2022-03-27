@@ -1,4 +1,4 @@
-<?php namespace view\site; ?>
+<?php namespace view; ?>
 
 <article>
 
