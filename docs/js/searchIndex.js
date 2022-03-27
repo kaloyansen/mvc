@@ -653,7 +653,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\controller\\Foco\u003A\u003Adefault\u0028\u0029",
             "name": "default",
-            "summary": "appear\u0020if\u0020page\u0020not\u0020recognized",
+            "summary": "page\u0020not\u0020recognized",
             "url": "classes/controller-Foco.html#method_default"
         },                {
             "fqsen": "\\controller\\Foco\u003A\u003Aliste\u0028\u0029",
@@ -1061,86 +1061,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-TicketManager.html#constant_SELECT"
         },                {
-            "fqsen": "\\controller\\deprecated\\Admin",
-            "name": "Admin",
-            "summary": "controller\u0020class",
-            "url": "classes/controller-deprecated-Admin.html"
-        },                {
-            "fqsen": "\\controller\\deprecated\\Admin\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/controller-deprecated-Admin.html#method___construct"
-        },                {
-            "fqsen": "\\controller\\deprecated\\Admin\u003A\u003Adeconnexion\u0028\u0029",
-            "name": "deconnexion",
-            "summary": "",
-            "url": "classes/controller-deprecated-Admin.html#method_deconnexion"
-        },                {
-            "fqsen": "\\controller\\deprecated\\Admin\u003A\u003Ainsert\u0028\u0029",
-            "name": "insert",
-            "summary": "",
-            "url": "classes/controller-deprecated-Admin.html#method_insert"
-        },                {
-            "fqsen": "\\controller\\deprecated\\Admin\u003A\u003Aupdate\u0028\u0029",
-            "name": "update",
-            "summary": "",
-            "url": "classes/controller-deprecated-Admin.html#method_update"
-        },                {
-            "fqsen": "\\controller\\deprecated\\Admin\u003A\u003Adelete\u0028\u0029",
-            "name": "delete",
-            "summary": "",
-            "url": "classes/controller-deprecated-Admin.html#method_delete"
-        },                {
-            "fqsen": "\\controller\\deprecated\\Admin\u003A\u003Alogin\u0028\u0029",
-            "name": "login",
-            "summary": "",
-            "url": "classes/controller-deprecated-Admin.html#method_login"
-        },                {
-            "fqsen": "\\controller\\deprecated\\Admin\u003A\u003Ahome\u0028\u0029",
-            "name": "home",
-            "summary": "",
-            "url": "classes/controller-deprecated-Admin.html#method_home"
-        },                {
-            "fqsen": "\\controller\\deprecated\\Site",
-            "name": "Site",
-            "summary": "user\u0020controller",
-            "url": "classes/controller-deprecated-Site.html"
-        },                {
-            "fqsen": "\\controller\\deprecated\\Site\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/controller-deprecated-Site.html#method___construct"
-        },                {
-            "fqsen": "\\controller\\deprecated\\Site\u003A\u003AsetSent\u0028\u0029",
-            "name": "setSent",
-            "summary": "",
-            "url": "classes/controller-deprecated-Site.html#method_setSent"
-        },                {
-            "fqsen": "\\controller\\deprecated\\Site\u003A\u003AgetSent\u0028\u0029",
-            "name": "getSent",
-            "summary": "",
-            "url": "classes/controller-deprecated-Site.html#method_getSent"
-        },                {
-            "fqsen": "\\controller\\deprecated\\Site\u003A\u003Adefault\u0028\u0029",
-            "name": "default",
-            "summary": "",
-            "url": "classes/controller-deprecated-Site.html#method_default"
-        },                {
-            "fqsen": "\\controller\\deprecated\\Site\u003A\u003Aliste\u0028\u0029",
-            "name": "liste",
-            "summary": "",
-            "url": "classes/controller-deprecated-Site.html#method_liste"
-        },                {
-            "fqsen": "\\controller\\deprecated\\Site\u003A\u003Aobjet\u0028\u0029",
-            "name": "objet",
-            "summary": "",
-            "url": "classes/controller-deprecated-Site.html#method_objet"
-        },                {
-            "fqsen": "\\controller\\deprecated\\Site\u003A\u003A\u0024sent",
-            "name": "sent",
-            "summary": "",
-            "url": "classes/controller-deprecated-Site.html#property_sent"
-        },                {
             "fqsen": "\\controller\\Moco",
             "name": "Moco",
             "summary": "",
@@ -1266,11 +1186,6 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/controller.html"
         },                {
-            "fqsen": "\\controller\\deprecated",
-            "name": "deprecated",
-            "summary": "",
-            "url": "namespaces/controller-deprecated.html"
-        },                {
             "fqsen": "\\model",
             "name": "model",
             "summary": "",
@@ -1300,10 +1215,5 @@ Search.appendIndex(
             "name": "admin",
             "summary": "",
             "url": "namespaces/view-admin.html"
-        },                {
-            "fqsen": "\\view\\site",
-            "name": "site",
-            "summary": "",
-            "url": "namespaces/view-site.html"
         }            ]
 );
