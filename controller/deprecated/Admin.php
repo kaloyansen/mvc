@@ -46,7 +46,7 @@ class Admin extends \controller\deprecated\Site {
             $db_last = $db->last();
             $this->transMess('ticked #'.$db_last.' created('.$db_insert.')');
             unset($db);
-            header('location: '.WWW.'/?page=objet&id='.$db_last);
+            header('location: '.WWW.'?page=objet&id='.$db_last);
         }
 
         $view = new \classe\View('admin', 'insert_form');
@@ -77,7 +77,7 @@ class Admin extends \controller\deprecated\Site {
         if ($do_update) {
         	$message = self::tikid().' updated('.$db->update(self::id(), $ticket).')';
             unset($db);
-            header('location: '.WWW.'/?page=objet&id='.self::id());
+            header('location: '.WWW.'?page=objet&id='.self::id());
         }
 
         unset($db);
@@ -144,7 +144,7 @@ class Admin extends \controller\deprecated\Site {
     	$message = 'accès à la zone d\'administration';
         $view = new \classe\View('admin', 'login_form', $message, 'description', 'clé');
         $view->afficher( (object) array('message' => $this->transMess($message),
-                                        'action' => WWW.'/?page='.$page));
+                                        'action' => WWW.'?page='.$page));
         return 0;
     }
 

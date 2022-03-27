@@ -3,6 +3,7 @@
  *
  * @author Kaloyan KRASTEV
  * @desc frontoffice controller class
+ * @version 0.0.1
  *
  */
 class Foco extends \controller\Moco {

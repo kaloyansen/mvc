@@ -13,10 +13,10 @@ $ta = $controbjet->ticket_array;
         $id = $ticket->getId();
 
         echo '<li>';
-        echo '<a class="lien" style="background-color: '.$ticket->getColor().';" href="'.WWW.'/?page=objet&id='.$id.'">';
+        echo '<a class="lien" style="background-color: '.$ticket->getColor().';" href="'.WWW.'?page=objet&id='.$id.'">';
         echo $id.' '.$ticket->getTitle().' '.$ticket->getDescription().' '.$ticket->getColor();
         echo '</a>';
-        if ($user != 'guest') echo '<a id="modify" class="lien" href="'.WWW.'/?page=update&id='.$id.'">[modify ticket #'.$id.']</a><a id="delete" class="lien" href="'.WWW.'/?page=delete&id='.$id.'">[delete ticket #'.$id.']</a>';
+        if ($user != 'guest') echo '<a id="modify" class="lien" href="'.WWW.'?page=update&id='.$id.'">[modify ticket #'.$id.']</a><a id="delete" class="lien" href="'.WWW.'?page=delete&id='.$id.'">[delete ticket #'.$id.']</a>';
         echo '</li><br />';
     } ?>
   </ul>

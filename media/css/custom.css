@@ -1,0 +1,23 @@
+#pad {
+  width: 300px;
+  height: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: .5rem;
+}
+
+.case {
+  background-color: #358;
+  color: #000;
+}
+
+.case span {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #ccc;
+  cursor: pointer;
+}

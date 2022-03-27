@@ -1,5 +1,5 @@
 <?php namespace view\admin;
-//if (empty($_SESSION['user'])) header('location: '.WWW.'/?page=admin');
+//if (empty($_SESSION['user'])) header('location: '.WWW.'?page=admin');
 $ta = $controbjet->ticket_array; ?>
 
 <article>
