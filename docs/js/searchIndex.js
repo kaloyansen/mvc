@@ -21,26 +21,6 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#constant_WWW"
         },                {
-            "fqsen": "\\WWW_MODEL",
-            "name": "WWW_MODEL",
-            "summary": "",
-            "url": "namespaces/default.html#constant_WWW_MODEL"
-        },                {
-            "fqsen": "\\WWW_VIEW",
-            "name": "WWW_VIEW",
-            "summary": "",
-            "url": "namespaces/default.html#constant_WWW_VIEW"
-        },                {
-            "fqsen": "\\WWW_CONTROL",
-            "name": "WWW_CONTROL",
-            "summary": "",
-            "url": "namespaces/default.html#constant_WWW_CONTROL"
-        },                {
-            "fqsen": "\\WWW_MEDIA",
-            "name": "WWW_MEDIA",
-            "summary": "",
-            "url": "namespaces/default.html#constant_WWW_MEDIA"
-        },                {
             "fqsen": "\\LOCO",
             "name": "LOCO",
             "summary": "",
@@ -55,11 +35,6 @@ Search.appendIndex(
             "name": "VIEW",
             "summary": "",
             "url": "namespaces/default.html#constant_VIEW"
-        },                {
-            "fqsen": "\\CONTROL",
-            "name": "CONTROL",
-            "summary": "",
-            "url": "namespaces/default.html#constant_CONTROL"
         },                {
             "fqsen": "\\MEDIA",
             "name": "MEDIA",
