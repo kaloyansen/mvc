@@ -24,13 +24,32 @@ class Foco extends \controller\Moco {
         $view->afficher( (object) array('message' => $message) );
     }
 
+    public function love(): void {
+
+    	$chemin = self::getPage() ? self::getPage() : 'lien';
+    	self::idLoad();
+
+    	$manager = new \model\TicketManager();
+    	$manager->loveMeDo(self::id());
+    	$ticket = $manager->select(self::id());
+        $ticket->setLove($manager->sheLovesMe(self::id()));
+    	$ticket_array[] = $ticket;
+    	unset($manager);
+
+        $view = new \classe\View($chemin);
+        $view->manger($ticket);
+        $view->afficher( (object) array('message' => 'i love you',
+                                        'ticket_array' => $ticket_array) );
+    }
+
     public function liste($viewname = false) {
 
-        $viewname = $viewname ? $viewname : self::getPage() ? self::getPage() : 'lien';
+    	$viewname = $viewname ? $viewname : self::getPage() ? self::getPage() : 'lien';
 
-        $manager = new \model\TicketManager();
+    	$manager = new \model\TicketManager();
         $message = $this->transMess($manager->count().' free tickets available');
         $ticket_array = $manager->select();
+        foreach ($ticket_array as $ticket) $ticket->setLove($manager->sheLovesMe($ticket->getId()));
         unset($manager);
 
         $view = new \classe\View($viewname);
@@ -47,6 +66,7 @@ class Foco extends \controller\Moco {
 
         $manager = new \model\TicketManager();
         $ticket = $manager->select(self::id());
+        $ticket->setLove($manager->sheLovesMe(self::id()));
         $ticket_array[] = $ticket;
         unset($manager);
 

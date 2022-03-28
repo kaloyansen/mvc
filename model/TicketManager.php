@@ -14,7 +14,7 @@ class TicketManager extends \model\BaseManager {
     public function count() {
 
         $query = self::SELECT;
-        $result = $this->query($query);
+        $result = $this->sql($query);
         if (!$result) return $this->error();
         return mysqli_num_rows($result);
     }
@@ -25,6 +25,25 @@ class TicketManager extends \model\BaseManager {
         $result = $this->sql($query);
         if (!$result) return $this->error();
         return mysqli_fetch_array($result)[0];
+    }
+
+    public function sheLovesMe(int $id): int {
+
+        $query = "SELECT rid FROM remote";
+        $query = $query." WHERE ticket=".$id;
+        $query = $query." AND ip=".REMOTE;
+        $resultat = $this->sql($query);
+        return $resultat ? $resultat : 0;
+    }
+
+    public function loveMeDo(int $id) {
+
+    	$yes = $this->sheLovesMe($id);
+        if ($yes) $query = "DELETE FROM remote WHERE rid=".$yes;
+        else $query = "INSERT INTO remote (ticket, ip) VALUES ('".$id."', '".REMOTE."')";
+
+        $resultat = $this->sql($query);
+        return $resultat ? $resultat : $this->error();
     }
 
     public function rate(int $id) {

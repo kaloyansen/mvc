@@ -31,7 +31,7 @@ class BaseManager {
 		$this->close();
 		error_log('destroying '.__CLASS__."\n");
 	}
-	public function __construct($infile = false) {
+	public function __construct(?string $infile = null) {
 		if (!$infile) $infile = MODEL.'/.db.';
 		$this->initFrom($infile);
 		self::$iconn = 0;

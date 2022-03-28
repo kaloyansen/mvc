@@ -17,6 +17,7 @@ class Ticket {
     private $color;
     private $description;
     private $keywords;
+    private int $love;
 
     public function __construct($objet = false, $id = false) {
 
@@ -63,6 +64,7 @@ class Ticket {
     public function getColor() { return $this->color; }
     public function getDescription() { return $this->description; }
     public function getKeywords() { return $this->keywords; }
+    public function getLove(): int { return $this->love; }
     public function setId($id) { if (is_int(intval($id))) $this->id = $id; }
     public function setTitle($title) { if (is_string($title)) $this->title = $title; }
     public function setBody($body) { if (is_string($body)) $this->body = $body; }
@@ -71,6 +73,7 @@ class Ticket {
     public function setColor($color) { if (is_string($color)) $this->color = $color; }
     public function setDescription($desc) { if (is_string($desc)) $this->description = $desc; }
     public function setKeywords($keys) { if (is_string($keys)) $this->keywords = $keys; }
+    public function setLove(int $love): void { if (is_int($love)) $this->love = $love; }
 
     public function loadpost() {
 

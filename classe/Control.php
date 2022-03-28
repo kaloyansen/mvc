@@ -3,7 +3,7 @@
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
  * @abstract controller method depends on the value of the parameter [page]
- * @version 0.0.1
+ * @version 0.0.2
  */
 class Control {
     private const DEFAULTPAGE = 'objet';
@@ -32,8 +32,12 @@ class Control {
                 $chemin = $frontofficecontroller;
                 break;
             case 'liste':
-                $chemin = $frontofficecontroller;
-                break;
+            	$chemin = $frontofficecontroller;
+            	break;
+            case 'love':
+            	$chemin = $frontofficecontroller;
+            	$argument = 'objet';
+            	break;
             case 'all':
                 $chemin = $frontofficecontroller;
                 $method = 'liste';
@@ -103,7 +107,7 @@ class Control {
 
     }
 
-    public static function getUserIpAddr() {
+    public static function getUserIpAddr(): ?string {
 
     	if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
             $ip = $_SERVER['HTTP_CLIENT_IP'];

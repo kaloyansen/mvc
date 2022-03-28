@@ -12,6 +12,13 @@ $ta = $controbjet->ticket_array;
       //echo '<a href="'.WWW.'?page=objet&id='.$id.'">';
       echo $ticket;
       //echo '</a>';
-      if ($user != 'guest') echo '<a id="modify" class="lien" href="'.WWW.'?page=update&id='.$id.'">[modify ticket #'.$id.']</a><a id = "delete" class="lien" href="'.WWW.'?page=delete&id='.$id.'">[delete ticket #'.$id.']</a>';
+      if ($user != 'guest') {
+          echo '<a id="modify" class="lien" href="'.WWW.'?page=update&id='.$id.'">[modify ticket #'.$id.']</a>';
+          echo '<a id="delete" class="lien" href="'.WWW.'?page=delete&id='.$id.'">[delete ticket #'.$id.']</a>';
+      }
+      echo '<a id="love" class="lien" href="'.WWW.'?page=love&id='.$id;
+      echo $ticket->getLove();
+      if ($ticket->getLove() > 0) echo '">[stop love ticket #'.$id.']</a>';
+      else echo '">[love ticket #'.$id.']</a>';
   } ?>
 </article>

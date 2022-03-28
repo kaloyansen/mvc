@@ -641,6 +641,11 @@ Search.appendIndex(
             "summary": "page\u0020not\u0020recognized",
             "url": "classes/controller-Foco.html#method_default"
         },                {
+            "fqsen": "\\controller\\Foco\u003A\u003Alove\u0028\u0029",
+            "name": "love",
+            "summary": "",
+            "url": "classes/controller-Foco.html#method_love"
+        },                {
             "fqsen": "\\controller\\Foco\u003A\u003Aliste\u0028\u0029",
             "name": "liste",
             "summary": "",
@@ -901,6 +906,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-Ticket.html#method_getKeywords"
         },                {
+            "fqsen": "\\model\\Ticket\u003A\u003AgetLove\u0028\u0029",
+            "name": "getLove",
+            "summary": "",
+            "url": "classes/model-Ticket.html#method_getLove"
+        },                {
             "fqsen": "\\model\\Ticket\u003A\u003AsetId\u0028\u0029",
             "name": "setId",
             "summary": "",
@@ -940,6 +950,11 @@ Search.appendIndex(
             "name": "setKeywords",
             "summary": "",
             "url": "classes/model-Ticket.html#method_setKeywords"
+        },                {
+            "fqsen": "\\model\\Ticket\u003A\u003AsetLove\u0028\u0029",
+            "name": "setLove",
+            "summary": "",
+            "url": "classes/model-Ticket.html#method_setLove"
         },                {
             "fqsen": "\\model\\Ticket\u003A\u003Aloadpost\u0028\u0029",
             "name": "loadpost",
@@ -991,6 +1006,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-Ticket.html#property_keywords"
         },                {
+            "fqsen": "\\model\\Ticket\u003A\u003A\u0024love",
+            "name": "love",
+            "summary": "",
+            "url": "classes/model-Ticket.html#property_love"
+        },                {
             "fqsen": "\\model\\TicketManager",
             "name": "TicketManager",
             "summary": "",
@@ -1005,6 +1025,16 @@ Search.appendIndex(
             "name": "last",
             "summary": "",
             "url": "classes/model-TicketManager.html#method_last"
+        },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003AsheLovesMe\u0028\u0029",
+            "name": "sheLovesMe",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_sheLovesMe"
+        },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003AloveMeDo\u0028\u0029",
+            "name": "loveMeDo",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_loveMeDo"
         },                {
             "fqsen": "\\model\\TicketManager\u003A\u003Arate\u0028\u0029",
             "name": "rate",
