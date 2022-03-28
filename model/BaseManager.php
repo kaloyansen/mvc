@@ -25,8 +25,8 @@ class BaseManager {
 	private $password;
 	private $database;
 
-	public function get() { return self::$conn; }
-	public function query($query) { return mysqli_query(self::$conn, $query); }
+	//protected function get() { return self::$conn; }
+	protected function sql(string $query) { return mysqli_query(self::$conn, $query); }
 	public function __destruct() {
 		$this->close();
 		error_log('destroying '.__CLASS__."\n");
@@ -38,7 +38,7 @@ class BaseManager {
 		$this->open();
 	}
 
-	private function close() { echo "\n"; mysqli_close(self::$conn); }
+	private function close():void { echo "\n"; mysqli_close(self::$conn); }
 	private function open() {
 		$ok = $this->connexion() == $this->error() ? false : true;
 		if (!$ok) $this->reconnexion();//hypotetic
@@ -51,10 +51,10 @@ class BaseManager {
 		return self::$conn;
 	}
 
-	private function reconnexion() { self::$iconn ++; }
+	private function reconnexion(): void { self::$iconn ++; }
 	protected function error() { return mysqli_error(self::$conn); }
 	//private function error() { return $this->conn->connect_error; }
-	private function initFrom($infile) {
+	private function initFrom(string $infile): void {
 
 		if ($handle = fopen($infile, 'r'))
 			while ($data = fgetcsv($handle, 0, ":")) {

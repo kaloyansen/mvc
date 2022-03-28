@@ -46,6 +46,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#constant_DOWN"
         },                {
+            "fqsen": "\\REMOTE",
+            "name": "REMOTE",
+            "summary": "",
+            "url": "namespaces/default.html#constant_REMOTE"
+        },                {
             "fqsen": "\\ONLINE",
             "name": "ONLINE",
             "summary": "",
@@ -95,6 +100,11 @@ Search.appendIndex(
             "name": "terminalRequest",
             "summary": "terminal\u0020request\u0020simulation",
             "url": "classes/classe-Control.html#method_terminalRequest"
+        },                {
+            "fqsen": "\\classe\\Control\u003A\u003AgetUserIpAddr\u0028\u0029",
+            "name": "getUserIpAddr",
+            "summary": "",
+            "url": "classes/classe-Control.html#method_getUserIpAddr"
         },                {
             "fqsen": "\\classe\\Control\u003A\u003ADEFAULTPAGE",
             "name": "DEFAULTPAGE",
@@ -646,15 +656,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-BaseManager.html"
         },                {
-            "fqsen": "\\model\\BaseManager\u003A\u003Aget\u0028\u0029",
-            "name": "get",
+            "fqsen": "\\model\\BaseManager\u003A\u003Asql\u0028\u0029",
+            "name": "sql",
             "summary": "",
-            "url": "classes/model-BaseManager.html#method_get"
-        },                {
-            "fqsen": "\\model\\BaseManager\u003A\u003Aquery\u0028\u0029",
-            "name": "query",
-            "summary": "",
-            "url": "classes/model-BaseManager.html#method_query"
+            "url": "classes/model-BaseManager.html#method_sql"
         },                {
             "fqsen": "\\model\\BaseManager\u003A\u003A__destruct\u0028\u0029",
             "name": "__destruct",
@@ -1001,6 +1006,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-TicketManager.html#method_last"
         },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003Arate\u0028\u0029",
+            "name": "rate",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_rate"
+        },                {
             "fqsen": "\\model\\TicketManager\u003A\u003AselectAll\u0028\u0029",
             "name": "selectAll",
             "summary": "",
@@ -1035,6 +1045,11 @@ Search.appendIndex(
             "name": "SELECT",
             "summary": "",
             "url": "classes/model-TicketManager.html#constant_SELECT"
+        },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003AWHERE",
+            "name": "WHERE",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#constant_WHERE"
         },                {
             "fqsen": "\\controller\\Moco",
             "name": "Moco",

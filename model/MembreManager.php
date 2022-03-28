@@ -1,19 +1,23 @@
 <?php namespace model;
+/**
+ * @author Kaloyan KRASTEV
+ * @desc membre database intrface
+ * @version 0.0.1
+ */
+class MembreManager extends \model\BaseManager {
 
-class MembreManager extends \model\BaseManager {/* interface
-	database */
 	private $tab = 'membre';//le nom du tableau dans la base de donnée
+
 	public function select($pseudo, $password) {
 
 		$query = "SELECT * FROM ".$this->tab;
 		$query = $query." WHERE pseudo='".$pseudo."'";
 		$query = $query." AND password='".$password."'";
 
-		//$result = mysqli_query($this->get(), $query);
-		$result = self::query($query);
+		$result = $this->sql($query);
 		$objet = mysqli_fetch_object($result);
 
-		return $objet ? new \model\Membre($objet) : false;
+		return $objet ? new \model\Membre($objet) : null;
 	}
 
 	public function insert($pseudo, $password) {
@@ -21,7 +25,7 @@ class MembreManager extends \model\BaseManager {/* interface
 		$query = "INSERT INTO ".$this->tab." (`id`, `pseudo`, `password`, `parent`) VALUES ";
         $query = $query."(NULL, '".$pseudo."', '".$password."', '".$_SESSION['user']."')";
 
-        return self::query($query);
+        return $this->sql($query);
 
 	}
 }

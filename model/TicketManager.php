@@ -1,18 +1,20 @@
 <?php namespace model;
+/**
+ * @author Kaloyan KRASTEV
+ * @link kaloyansen@gmail.com
+ * @desc ticket database interface
+ * @version 0.0.2
+ */
+class TicketManager extends \model\BaseManager {
 
-/********************************/
-/* code php by Kaloyan KRASTEV */
-/* kaloyansen@gmail.com       */
-/*****************************/
-class TicketManager extends \model\BaseManager {/* database
-                                                 interface */
-    private const TABLE = 'ticket';//le nom du tableau dans la base de donnée
+	private const TABLE = 'ticket';//le nom du tableau dans la base de donnée
 	private const SELECT = "SELECT * FROM ticket";
-	//public function getTable() { return self::TABLE; }
+	private const WHERE = " WHERE id=";
+
     public function count() {
 
         $query = self::SELECT;
-        $result = mysqli_query($this->get(), $query);
+        $result = $this->query($query);
         if (!$result) return $this->error();
         return mysqli_num_rows($result);
     }
@@ -20,15 +22,31 @@ class TicketManager extends \model\BaseManager {/* database
     public function last() {
 
     	$query = "SELECT MAX(id) FROM ".self::TABLE;
-        $result = mysqli_query($this->get(), $query);
+        $result = $this->sql($query);
         if (!$result) return $this->error();
         return mysqli_fetch_array($result)[0];
+    }
+
+    public function rate(int $id) {
+
+        $query = "SELECT rate FROM ".self::TABLE;
+        $query = $query.self::WHERE.$id;
+        $result = $this->sql($query);
+        if (!$result) return $this->error();
+
+        $rate = mysqli_fetch_array($result)[0] + 1;
+
+        $query = "UPDATE ".self::TABLE." SET rate=".$rate;
+        $query = $query.self::WHERE.$id;
+        $result = $this->sql($query);
+        if (!$result) return $this->error();
+        return $result;
     }
 
     public function selectAll() {
 
     	$query = self::SELECT;
-    	$result = mysqli_query($this->get(), $query);
+    	$result = $this->sql($query);
     	if (!$result) return $this->error();
     	$ticket_array = array();
     	while ($mfobj = $result->fetch_object()) {
@@ -38,10 +56,11 @@ class TicketManager extends \model\BaseManager {/* database
     }
 
     public function select($id = false) {
+
     	if (!$id) return $this->selectAll();
     	$query = self::SELECT;
-    	$query = $query." WHERE id=".$id;
-    	$result = mysqli_query($this->get(), $query);
+    	$query = $query.self::WHERE.$id;
+    	$result = $this->sql($query);
     	if (!$result) return $this->error();
     	$mfobj = mysqli_fetch_object($result);
         return new \model\Ticket($mfobj, $id);
@@ -58,7 +77,7 @@ class TicketManager extends \model\BaseManager {/* database
         $query = $query."', '".$ticket->getColor();
         $query = $query."', '".$ticket->getDescription();
         $query = $query."', '".$ticket->getKeywords()."')";
-        $result = mysqli_query($this->get(), $query);
+        $result = $this->sql($query);
         if (!$result) return $this->error();
         return $result;
     }
@@ -71,16 +90,16 @@ class TicketManager extends \model\BaseManager {/* database
         $query = $query."', status='".$ticket->getStatus();
         $query = $query."', description='".$ticket->getDescription();
         $query = $query."', keywords='".$ticket->getKeywords();
-        $query = $query."' WHERE id=".$id;
-        $result = mysqli_query($this->get(), $query);
+        $query = $query."'".self::WHERE.$id;
+        $result = $this->sql($query);
         if (!$result) return $this->error();
         return $result;
     }
 
     public function delete($id) {
 
-    	$query = "DELETE FROM ".self::TABLE." WHERE id=".$id;
-        $result = mysqli_query($this->get(), $query);
+    	$query = "DELETE FROM ".self::TABLE.self::WHERE.$id;
+        $result = $this->sql($query);
         if (!$result) return $this->error();
         return $result;
     }

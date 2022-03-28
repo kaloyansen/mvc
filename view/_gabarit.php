@@ -47,6 +47,7 @@ $titre = $view_titre ? $view_titre : 'no title';
          	echo ', page: '.PAGE;
          	echo ', method: '.METHOD;
          	echo ', session: '.SESTAT;
+         	echo ', remote: '.REMOTE;
          	echo ', user: '.$user;
          	echo " -->\n";
          } ?>

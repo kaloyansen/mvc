@@ -42,5 +42,6 @@ error_log('start('.php_sapi_name().')');
 require('vendor/autoload.php');
 // --> composer dump-autoload
 \classe\Control::terminalRequest();
+define('REMOTE', \classe\Control::getUserIpAddr());
 
 ?>
