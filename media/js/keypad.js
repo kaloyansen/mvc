@@ -100,6 +100,7 @@ class Connexion {
             result.innerText = password.value = '';
             ks.resetKeystroke();
         }, false);
+        this.LOGIN.focus();
     }
 }
 

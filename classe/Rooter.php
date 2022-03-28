@@ -11,7 +11,7 @@ class Rooter {
     private string $method;
     private string $argument;
 
-    public function __construct(string $chemin, string $method, string $argument = 0) {
+    public function __construct(string $chemin, string $method, string $argument = null) {
 
     	$this->chemin = $chemin;
         $this->method = $method;
