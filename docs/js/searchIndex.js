@@ -76,44 +76,14 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#constant_ARGU4"
         },                {
-            "fqsen": "\\ARGU5",
-            "name": "ARGU5",
-            "summary": "",
-            "url": "namespaces/default.html#constant_ARGU5"
-        },                {
-            "fqsen": "\\ARGU6",
-            "name": "ARGU6",
-            "summary": "",
-            "url": "namespaces/default.html#constant_ARGU6"
-        },                {
-            "fqsen": "\\ARGU7",
-            "name": "ARGU7",
-            "summary": "",
-            "url": "namespaces/default.html#constant_ARGU7"
-        },                {
-            "fqsen": "\\ARGU8",
-            "name": "ARGU8",
-            "summary": "",
-            "url": "namespaces/default.html#constant_ARGU8"
-        },                {
-            "fqsen": "\\ARGU9",
-            "name": "ARGU9",
-            "summary": "",
-            "url": "namespaces/default.html#constant_ARGU9"
-        },                {
             "fqsen": "\\classe\\Control",
             "name": "Control",
-            "summary": "controller\u0020method\u0020depends\u0020on\u0020the\u0020\u003Cpage\u003E\u0020value",
-            "url": "classes/classe-Control.html"
-        },                {
-            "fqsen": "\\classe\\Control\u003A\u003Aload\u0028\u0029",
-            "name": "load",
             "summary": "",
-            "url": "classes/classe-Control.html#method_load"
+            "url": "classes/classe-Control.html"
         },                {
             "fqsen": "\\classe\\Control\u003A\u003Acontroler\u0028\u0029",
             "name": "controler",
-            "summary": "",
+            "summary": "\u0024objet\u0020\u003D\u0020new\u0020\u0024chemin\u0028\u0024argument\u0029\u003B\n\u0024resultat\u0020\u003D\u0020\u0024objet\u002D\u003E\u0024method\u0028\u0029\u003B",
             "url": "classes/classe-Control.html#method_controler"
         },                {
             "fqsen": "\\classe\\Control\u003A\u003AautoloadClassDefinition\u0028\u0029",
@@ -123,7 +93,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\classe\\Control\u003A\u003AterminalRequest\u0028\u0029",
             "name": "terminalRequest",
-            "summary": "",
+            "summary": "terminal\u0020request\u0020simulation",
             "url": "classes/classe-Control.html#method_terminalRequest"
         },                {
             "fqsen": "\\classe\\Control\u003A\u003ADEFAULTPAGE",
@@ -133,7 +103,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\classe\\Rooter",
             "name": "Rooter",
-            "summary": "creates\u0020a\u0020new\u0020instance\u0020of\u0020the\u0020controller\u0020class\nand\u0020call\u0020the\u0020method\u0020with\u0020the\u0020argument\u0020all\u0020of\u0020them\u0020specified\u0020as\u0020arguments",
+            "summary": "",
             "url": "classes/classe-Rooter.html"
         },                {
             "fqsen": "\\classe\\Rooter\u003A\u003A__construct\u0028\u0029",
@@ -146,15 +116,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/classe-Rooter.html#method_control"
         },                {
-            "fqsen": "\\classe\\Rooter\u003A\u003A\u0024space",
-            "name": "space",
+            "fqsen": "\\classe\\Rooter\u003A\u003A\u0024chemin",
+            "name": "chemin",
             "summary": "",
-            "url": "classes/classe-Rooter.html#property_space"
+            "url": "classes/classe-Rooter.html#property_chemin"
         },                {
             "fqsen": "\\classe\\Rooter\u003A\u003A\u0024method",
             "name": "method",
             "summary": "",
             "url": "classes/classe-Rooter.html#property_method"
+        },                {
+            "fqsen": "\\classe\\Rooter\u003A\u003A\u0024argument",
+            "name": "argument",
+            "summary": "",
+            "url": "classes/classe-Rooter.html#property_argument"
         },                {
             "fqsen": "\\classe\\View",
             "name": "View",

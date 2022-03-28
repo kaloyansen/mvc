@@ -1,12 +1,10 @@
 <?php namespace classe;
 /**
- *
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
  * @desc view class
  * @abstract a class to create and display a frontend
  * @version 0.0.2
- *
  */
 class View {
     private $chemin;

@@ -18,8 +18,9 @@ class MembreManager extends \model\BaseManager {/* interface
 
 	public function insert($pseudo, $password) {
 
-        $query = "INSERT INTO ".$this->tab." (`id`, `pseudo`, `password`) VALUES ";
-        $query = $query."(NULL, '".$pseudo."', '".$password."')";
+        $user = $_SESSION['user'];
+		$query = "INSERT INTO ".$this->tab." (`id`, `pseudo`, `password`, `parent`) VALUES ";
+        $query = $query."(NULL, '".$pseudo."', '".$password."', '".$user."')";
 
         return self::query($query);
 

@@ -1,62 +1,50 @@
 <?php namespace classe;
 /**
- * controller method depends on the <page> value
+ * @author Kaloyan KRASTEV
+ * @link kaloyansen@gmail.com
+ * @abstract controller method depends on the value of the parameter [page]
+ * @version 0.0.1
  */
 class Control {
-	private const DEFAULTPAGE = 'objet';
+    private const DEFAULTPAGE = 'objet';
+    /**
+     * $objet = new $chemin($argument);
+     * $resultat = $objet->$method();
+     */
+    public static function controler(): void {
 
-    public static function load() {
-    	//self::autoloadClassDefinition();
-        //disabled for composer autoload in composer.json
-        self::terminalRequest();
-        self::switchMethodController();
-    }
+        $backofficecontroller = 'controller\Boco';
+        $frontofficecontroller = 'controller\Foco';
+        $chemin = $backofficecontroller;
+        $argument = PAGE;
+        $method = PAGE;
 
-    public static function controler() {
+        switch(PAGE) {
 
-    	$admin = 'controller\Boco';
-    	$site = 'controller\Foco';
-    	//$admin = 'controller\admin\Admin';
-    	//$site = 'controller\site\Site';
-
-    	$space = -1;        // mamespace\classname
-        $clargument = -1;
-        // $objet = new $space($clargument);
-        $method = -1; // method to call
-        // $resultat = $objet->$method();
-    	// $argument = -1;  // $objet->$method($argument);
-
-        switch(PAGE) {/* switch controller
-*/
             case 'insert': break;
             case 'update': break;
             case 'delete': break;
             case 'home': break;
             case 'deconnexion':
-                $clargument = 'home';
+                $argument = 'home';
                 break;
             case 'objet':
-                $space = $site;
+                $chemin = $frontofficecontroller;
                 break;
             case 'liste':
-                $space = $site;
+                $chemin = $frontofficecontroller;
                 break;
             case 'all':
-                $space = $site;
+                $chemin = $frontofficecontroller;
                 $method = 'liste';
-                $clargument = 'objet';
+                $argument = 'objet';
                 break;
             default:
-                $space = $site;
+                $chemin = $frontofficecontroller;
                 $method = 'default';
         }
 
-        if ($space < 0) $space = $admin;
-        if ($method < 0) $method = PAGE;
-        //if ($argument < 0) $argument = false;
-        if ($clargument < 0) $clargument = PAGE;
-
-        $rooter = new \classe\Rooter($space, $method, $clargument);
+        $rooter = new \classe\Rooter($chemin, $method, $argument);
         $rooter->control();
     }
 
@@ -79,13 +67,14 @@ class Control {
         });
     }
 
-    public static function terminalRequest() {
 
-        /**
-         * terminal request simulation
-         */
-    	if (empty($_SERVER['REQUEST_METHOD'])) {
-    		define('ONLINE', false);
+    /**
+     * terminal request simulation
+     */
+    public static function terminalRequest(): void {
+
+        if (empty($_SERVER['REQUEST_METHOD'])) {
+    	    define('ONLINE', false);
             define('METHOD', false);
 
             global $argv;
@@ -99,16 +88,6 @@ class Control {
             else define('ARGU3', false);
             if ($argc > 4) define('ARGU4', $argv[4]);
             else define('ARGU4', false);
-            if ($argc > 5) define('ARGU5', $argv[5]);
-            else define('ARGU5', false);
-            if ($argc > 6) define('ARGU6', $argv[6]);
-            else define('ARGU6', false);
-            if ($argc > 7) define('ARGU7', $argv[7]);
-            else define('ARGU7', false);
-            if ($argc > 8) define('ARGU8', $argv[8]);
-            else define('ARGU8', false);
-            if ($argc > 9) define('ARGU9', $argv[9]);
-            else define('ARGU9', false);
         } else {
 
             if (isset($_GET['page'])) {

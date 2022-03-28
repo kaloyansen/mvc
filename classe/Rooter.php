@@ -1,32 +1,37 @@
 <?php namespace classe;
 /**
- * creates a new instance of the controller class
- * and call the method with the argument all of them specified as arguments
+ * @author Kaloyan KRASTEV
+ * @link kaloyansen@gmail.com
+ * @abstract creates an instance of a controller class and calls the method if allowed
+ * @version 0.0.3
  */
 class Rooter {
-	private $space;
-    private $method;
 
-    public function __construct($space, $method, $clargument = false) {
-    	$this->space = $space;
-    	$this->method = $method;
-    	$this->clargument = $clargument;
+    private string $chemin;
+    private string $method;
+    private string $argument;
+
+    public function __construct(string $chemin, string $method, string $argument = 0) {
+
+    	$this->chemin = $chemin;
+        $this->method = $method;
+        $this->argument = $argument;
     }
 
     public function control() {
 
-        $sp = $this->space;
+        $che = $this->chemin;
         $met = $this->method;
-        $clarg = $this->clargument;
+        $arg = $this->argument;
 
-        if (method_exists($sp, $met)) {/*
-        */
-        	$objet = new $sp($clarg);
+        if (method_exists($che, $met)) {
+
+        	$objet = new $che($arg);
             $resultat = false;
-            if ($objet->jePeuxEntrer()) { $resultat = $objet->$met(); }
+            if ($objet->jePeuxEntrer()) $resultat = $objet->$met();
             if ($resultat) error_log($resultat.' from method '.$met.' in '.__FILE__);
     	} else {
-    	    echo 'error 404 no '.$met.' in '.$sp;
+    	    echo 'error 404 cannot find method '.$met.' in class '.$che;
     	}
     }
 } ?>
