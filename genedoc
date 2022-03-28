@@ -2,22 +2,25 @@
 
 echo php documentation generator
 echo === ============= =========
+set ugit = /usr/bin/git
 
-echo go to the php source directory and
-echo set the name of the documentation folder
+echo go to the php source directory and set the name of the documentation folder
 set docudir = docs
+$ugit switch dev
 
 echo clean that folder
-sudo rm -fvR $docudir
+sudo rm -fR $docudir
 mkdir $docudir
 
 echo the following command will generate the documentation if docker is installed
 echo docker run --rm -v ${PWD}:/data phpdoc/phpdoc:3 -d . -t $docudir
 docker run --rm -v ${PWD}:/data phpdoc/phpdoc:3 -d . -t $docudir
 
-echo final info and clean
+echo final info, git and clean
 /usr/bin/du --max-depth=1 -h -a $docudir
-unset docudir
 
-/usr/bin/git commit -am 'auto-commit by Kaloyan KRASTEV'
-/usr/bin/git push
+$ugit commit -am 'php documentation'
+$ugit push
+
+unset docudir
+unset ugit

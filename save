@@ -1,0 +1,10 @@
+#!/usr/bin/csh -f
+
+set ugit = /usr/bin/git
+
+$ugit switch dev
+$ugit commit -am 'auto-commit by Kaloyan KRASTEV'
+$ugit push
+
+unset ugit
+
