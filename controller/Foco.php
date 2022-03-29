@@ -12,13 +12,14 @@ class Foco extends \controller\Moco {
     public function __construct($page = false) {
 
         self::permettre();//free access to frontoffice
-        self::setPage($page);
+        if ($page) self::setPage($page);
+        else self::setPage('lien');
     }
 
 /**
  * page not recognized
  */
-    public function default($viewname = false) {
+    public function default(): void {
         $message = $this->transMess(PAGE.' not found');
         $view = new \classe\View('default', $message, $message, $message);
         $view->afficher( (object) array('message' => $message) );
@@ -26,25 +27,23 @@ class Foco extends \controller\Moco {
 
     public function love(): void {
 
-    	$chemin = self::getPage() ? self::getPage() : 'lien';
     	self::idLoad();
 
     	$manager = new \model\TicketManager();
-    	$manager->loveMeDo(self::id());
+    	$message = $manager->loveMeDo(self::id());
     	$ticket = $manager->select(self::id());
-        $ticket->setLove($manager->sheLovesMe(self::id()));
-    	$ticket_array[] = $ticket;
+    	$ticket->setLove($manager->sheLovesMe(self::id()));
     	unset($manager);
 
-        $view = new \classe\View($chemin);
+    	$ticket_array[] = $ticket;
+
+        $view = new \classe\View(self::getPage());
         $view->manger($ticket);
-        $view->afficher( (object) array('message' => 'i love you',
+        $view->afficher( (object) array('message' => $message,
                                         'ticket_array' => $ticket_array) );
     }
 
-    public function liste($viewname = false) {
-
-    	$viewname = $viewname ? $viewname : self::getPage() ? self::getPage() : 'lien';
+    public function liste(): void {
 
     	$manager = new \model\TicketManager();
         $message = $this->transMess($manager->count().' free tickets available');
@@ -52,15 +51,13 @@ class Foco extends \controller\Moco {
         foreach ($ticket_array as $ticket) $ticket->setLove($manager->sheLovesMe($ticket->getId()));
         unset($manager);
 
-        $view = new \classe\View($viewname);
+        $view = new \classe\View(self::getPage());
         $view->manger($ticket_array[0]);
         $view->afficher( (object) array('message' => $message,
                                         'ticket_array' => $ticket_array) );
 	}
 
-    public function objet($viewname = false) {
-
-        $viewname = $viewname ? $viewname : self::getPage() ? self::getPage() : 'lien';
+    public function objet(): void {
 
         self::idLoad();
 
@@ -70,7 +67,7 @@ class Foco extends \controller\Moco {
         $ticket_array[] = $ticket;
         unset($manager);
 
-        $view = new \classe\View($viewname);
+        $view = new \classe\View(self::getPage());
         $view->manger($ticket);
         $view->afficher( (object) array('message' => $this->transMess(self::tikid()),
                                         'ticket_array' => $ticket_array) );

@@ -33,9 +33,9 @@ $titre = $view_titre ? $view_titre : 'no title';
         <a class="loco" href="<?=WWW;?>?page=insert">new</a>
         <a class="loco" href="<?=WWW;?>?page=deconnexion"><?=$user;?></a>
         <a class="loco" href="<?=WWW;?>?page=deconnexion"><?php
-        if ($user == 'guest') { ?> login <?php
-          } else { ?> logout <?php
-          } ?></a>
+        if ($user == 'guest') echo 'login';
+        else echo 'logout';?>
+        </a>
       </nav>
       <?=$content;?>
       <footer>

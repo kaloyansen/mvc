@@ -42,12 +42,15 @@ class TicketManager extends \model\BaseManager {
 
     public function loveMeDo(int $id) {
 
-    	$yes = $this->sheLovesMe($id);
-        if ($yes > 0) $query = "DELETE FROM remote WHERE rid=".$yes;
-        else $query = "INSERT INTO remote (ticket, ip) VALUES ('".$id."', '".REMOTE."')";
+        $yes = $this->sheLovesMe($id);
+        if ($yes > 0) {
+    	    $query = "DELETE FROM remote WHERE rid=".$yes;
+        } else {
+    	    $query = "INSERT INTO remote (ticket, ip) VALUES ('".$id."', '".REMOTE."')";
+        }
 
         $resultat = $this->sql($query);
-        return $resultat ? $resultat : $this->error();
+        return $resultat ? $query : $this->error();
     }
 
     public function rate(int $id) {

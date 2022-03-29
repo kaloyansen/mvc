@@ -1,26 +1,35 @@
 #!/usr/bin/csh -f
 
-echo php documentation generator
-echo === ============= =========
-set ugit = /usr/bin/git
+echo      ////////////////////////////////////////////////////
+echo     /// php documentation generation and publication ///
+echo    ////////// with phpdoc, docker and github //////////
+echo   // code by Kaloyan KRASTEV, kaloyansen@gmail.com ///
+echo  ////////////////////////////////////////////////////
 
-echo go to the php source directory and set the name of the documentation folder
-set docudir = docs
+echo usage: it is possible to follow the comments one by one but you\'d better \
+edit this file to correspond your project and then run it any time you need to
+
+echo 1. go to the php source directory and set git branch if needed
+set ugit = /usr/bin/git
 $ugit switch dev
 
-echo clean that folder
+echo 2. name the documentation folder and clean it
+set docudir = docs
 sudo rm -fR $docudir
 mkdir $docudir
 
-echo the following command will generate the documentation if docker is installed
+echo 3. if you have docker the following long command\'s gonna generate the documentation \
+after a phpdoc docker image has been dowloaded
 echo docker run --rm -v ${PWD}:/data phpdoc/phpdoc:3 -d . -t $docudir
 docker run --rm -v ${PWD}:/data phpdoc/phpdoc:3 -d . -t $docudir
 
-echo final info, git and clean
+echo 4. show documentation disk usage
 /usr/bin/du --max-depth=1 -h -a $docudir
 
-$ugit commit -am 'php documentation'
+echo 5. save changes and send all to github
+$ugit commit -am 'commit de la documentation générée par phpdoc:3'
 $ugit push
 
+echo 6. clean the envirenment
 unset docudir
 unset ugit
