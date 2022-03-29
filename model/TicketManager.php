@@ -31,15 +31,19 @@ class TicketManager extends \model\BaseManager {
 
         $query = "SELECT rid FROM remote";
         $query = $query." WHERE ticket=".$id;
-        $query = $query." AND ip=".REMOTE;
-        $resultat = $this->sql($query);
-        return $resultat ? $resultat : 0;
+        $query = $query." AND ip='".REMOTE."'";
+
+        $result = $this->sql($query);
+        $myobj = mysqli_fetch_object($result);
+        $bof = $myobj ? intval($myobj->rid) : 0;
+        error_log('sheLovesMe('.$bof.')');
+        return $bof;
     }
 
     public function loveMeDo(int $id) {
 
     	$yes = $this->sheLovesMe($id);
-        if ($yes) $query = "DELETE FROM remote WHERE rid=".$yes;
+        if ($yes > 0) $query = "DELETE FROM remote WHERE rid=".$yes;
         else $query = "INSERT INTO remote (ticket, ip) VALUES ('".$id."', '".REMOTE."')";
 
         $resultat = $this->sql($query);
