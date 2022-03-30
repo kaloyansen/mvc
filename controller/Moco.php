@@ -4,13 +4,13 @@
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
  * @desc main controller class
- * @version 0.0.2
+ * @version 0.0.4
  *
  */
 class Moco {
 
     private static bool $permisDAppelerMethode;
-    private static $private_id;
+    private static int $private_id;
     private static $private_tikid;
     private static string $page;
 
@@ -20,7 +20,7 @@ class Moco {
     protected static function permettre(): void { self::$permisDAppelerMethode = true; }
     protected static function interdire(): void { self::$permisDAppelerMethode = false; }
 
-    protected static function id() { return self::$private_id; }
+    protected static function id(): int { return self::$private_id; }
     protected static function tikid() { return self::$private_tikid; }
     protected static function setPage(string $page): void { self::$page = $page; }
     protected static function getPage(): string { return self::$page; }
@@ -35,10 +35,11 @@ class Moco {
     	return self::passe();
     }
 
-    protected static function idLoad(): void {
+    protected static function idLoad(): int {
 
     	self::$private_id = self::readid();
     	self::$private_tikid = 'ticket #'.self::$private_id;
+    	return self::id();
     }
 
     protected function transMess($message) {
@@ -50,21 +51,16 @@ class Moco {
         return $ses ? $message.'(-> '.$ses.' <-)' : $message;
     }
 
-    private static function readid() {
+    private static function readid(): int {
 
-        if (ONLINE) {
-            $inputid = self::fromGet('id');
-        } else {
-            $inputid = ARGU2;
-        }
+    	if (ONLINE) $iid = self::fromGet('id');
+    	else $iid = ARGU2;
+    	if ($iid) return intval($iid); //{ || $inputid == 0) {
 
-        if (!$inputid || $inputid == 0) {
-            $db = new \model\TicketManager();
-            $inputid = $db->last();
-            unset($db);
-        }
-
-        return $inputid;
+    	$db = new \model\TicketManager();
+        $iid = $db->last();
+        unset($db);
+        return intval($iid);
     }
 
     private static function passe(): ?string {
@@ -81,7 +77,6 @@ class Moco {
         }
 
         if (!$pseudo || !$password) return null;
-
         $db = new \model\MembreManager();
         $access = $db->select($pseudo, $password);
         unset($db);

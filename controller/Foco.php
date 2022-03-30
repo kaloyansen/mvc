@@ -1,11 +1,9 @@
 <?php namespace controller;
 /**
- *
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
  * @desc frontoffice controller class
  * @version 0.0.4
- *
  */
 class Foco extends \controller\Moco {
 
@@ -27,12 +25,12 @@ class Foco extends \controller\Moco {
 
     public function love(): void {
 
-    	self::idLoad();
+    	$id = self::idLoad();
 
     	$manager = new \model\TicketManager();
-    	$message = $manager->loveMeDo(self::id());
-    	$ticket = $manager->select(self::id());
-    	$ticket->setLove($manager->sheLovesMe(self::id()));
+    	$message = $manager->loveMeDo($id);
+    	$ticket = $manager->select($id);
+    	$ticket->setLove($manager->sheLovesMe($id));
     	unset($manager);
 
     	$ticket_array[] = $ticket;
@@ -59,7 +57,7 @@ class Foco extends \controller\Moco {
 
     public function objet(): void {
 
-        self::idLoad();
+        $id = self::idLoad();
 
         $manager = new \model\TicketManager();
         $ticket = $manager->select(self::id());

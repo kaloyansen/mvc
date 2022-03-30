@@ -4,7 +4,9 @@ echo      ////////////////////////////////////////////////////
 echo     /// php documentation generation and publication ///
 echo    ////////// with phpdoc, docker and github //////////
 echo   // code by Kaloyan KRASTEV, kaloyansen@gmail.com ///
-echo  ////////////////////////////////////////////////////
+echo  ////////////////// version 0.0.2 ///////////////////
+echo ////////////////////////////////////////////////////
+
 
 echo usage: it is possible to follow the comments one by one but you\'d better \
 edit this file to correspond your project and then run it any time you need to
