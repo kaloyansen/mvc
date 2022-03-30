@@ -1,11 +1,12 @@
 <?php namespace controller;
 /**
- *
+ * @desc BackOffice COntroller Boco extends FrontOffice COntroller class Foco
+ * @abstract backoffice methods are reserved to administrator
+ * @namespace controller
+ * @category controller
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @desc backoffice controller class
- * @version 0.0.1
- *
+ * @version 0.0.3
  */
 class Boco extends \controller\Foco {
 
@@ -43,7 +44,7 @@ class Boco extends \controller\Foco {
 		else $do_insert = false;
 
 		$ticket = new \model\Ticket();
-		if ($ticket_load_post) $ticket->loadpost();
+		if ($ticket_load_post) $ticket->loadPost();
 
 		if ($do_insert) {
 			$db = new \model\TicketManager();
@@ -68,12 +69,8 @@ class Boco extends \controller\Foco {
 		$ticket = $db->select(self::id());
 
 		if (ONLINE) {
-			if (self::fromPost('update_ticket_form_fill')) {
-				$ticket->loadpost();
-			} else {
-				$ticket->validation();
-				$do_update = false;
-			}
+			if (self::fromPost('update_ticket_form_fill')) $ticket->loadPost();
+			else $do_update = false;
 		} else {
 			$ticket->setTitle('new-'.$ticket->getTitle());
 		}

@@ -1,9 +1,12 @@
 <?php namespace controller;
 /**
+ * @desc FrontOffice COntroller Foco
+ * @abstract extends main controller class Moco
+ * @namespace controller
+ * @category controller
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @desc frontoffice controller class
- * @version 0.0.4
+ * @version 0.0.7
  */
 class Foco extends \controller\Moco {
 
@@ -12,15 +15,6 @@ class Foco extends \controller\Moco {
         self::permettre();//free access to frontoffice
         if ($page) self::setPage($page);
         else self::setPage('lien');
-    }
-
-/**
- * page not recognized
- */
-    public function default(): void {
-        $message = $this->transMess(PAGE.' not found');
-        $view = new \classe\View('default', $message, $message, $message);
-        $view->afficher( (object) array('message' => $message) );
     }
 
     public function love(): void {
@@ -60,8 +54,8 @@ class Foco extends \controller\Moco {
         $id = self::idLoad();
 
         $manager = new \model\TicketManager();
-        $ticket = $manager->select(self::id());
-        $ticket->setLove($manager->sheLovesMe(self::id()));
+        $ticket = $manager->select($id);
+        $ticket->setLove($manager->sheLovesMe($id));
         $ticket_array[] = $ticket;
         unset($manager);
 
@@ -70,6 +64,17 @@ class Foco extends \controller\Moco {
         $view->afficher( (object) array('message' => $this->transMess(self::tikid()),
                                         'ticket_array' => $ticket_array) );
     }
+
+    /**
+     * when a page has not been recognized
+     */
+    public function default(): void {
+
+    	$message = $this->transMess(PAGE.' not found');
+    	$view = new \classe\View('default', $message, $message, $message);
+    	$view->afficher( (object) array('message' => $message) );
+    }
+
 
 } ?>
 

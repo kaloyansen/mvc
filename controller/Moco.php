@@ -1,11 +1,12 @@
 <?php namespace controller;
 /**
- *
+ * @desc Main COntroller class Moco
+ * @abstract controller superclass
+ * @namespace controller
+ * @category controller
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @desc main controller class
- * @version 0.0.4
- *
+ * @version 0.0.6
  */
 class Moco {
 
