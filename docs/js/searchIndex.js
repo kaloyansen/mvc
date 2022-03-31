@@ -1346,6 +1346,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Perdu.html#method___construct"
         },                {
+            "fqsen": "\\view\\Perdu\u003A\u003Adraw\u0028\u0029",
+            "name": "draw",
+            "summary": "",
+            "url": "classes/view-Perdu.html#method_draw"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",

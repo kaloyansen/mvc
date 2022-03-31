@@ -3,7 +3,7 @@
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
  * @desc view class
- * @abstract a class to create and display a frontend
+ * @abstract a class to create and display a web page
  * @version 0.0.3
  */
 class View {

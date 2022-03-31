@@ -35,7 +35,7 @@ class Gabarit {
   </head>
   <body id="top">
 	<div id="main">
-	  <header><h5><?=$titre;?></h5></header>
+	  <header><h5><?=$oo->titre;?></h5></header>
       <nav>
         <a class="loco" href="<?=WWW;?>">home</a>
         <a class="loco" href="<?=WWW;?>?page=objet">last</a>
