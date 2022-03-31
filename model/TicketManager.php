@@ -83,8 +83,8 @@ class TicketManager extends \model\BaseManager {
     	$result = $this->sql($query);
     	if (!$result) return $this->error();
     	$ticket_array = array();
-    	while ($mfobj = $result->fetch_object() && 0 < $maxtick --) {
-    		$ticket_array[] = new \model\Ticket($mfobj, $mfobj->id);
+    	while ($mfobj = $result->fetch_object()) {
+    		if (0 < $maxtick --) $ticket_array[] = new \model\Ticket($mfobj, $mfobj->id);
     	}
         return empty($ticket_array) ? false : $ticket_array;
     }

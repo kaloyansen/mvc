@@ -9,8 +9,9 @@
 	"autoload" : {
 		"psr-4" : {
 			"classe\\" : "classe",
-			"controller\\" : "controller",
-			"model\\" : "model"
+			"model\\" : "model",
+			"view\\" : "view",
+			"controller\\" : "controller"
 		}
 	},
 	"authors" : [{

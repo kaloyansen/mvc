@@ -3,7 +3,7 @@
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
  * @abstract controller method depends on the value of the parameter [page]
- * @version 0.0.2
+ * @version 0.0.3
  */
 class Control {
     private const DEFAULTPAGE = 'objet';
@@ -31,7 +31,7 @@ class Control {
             case 'objet':
                 $chemin = $frontofficecontroller;
                 break;
-            case 'liste':
+            case 'lien':
             	$chemin = $frontofficecontroller;
             	break;
             case 'love':
@@ -45,7 +45,7 @@ class Control {
                 break;
             default:
                 $chemin = $frontofficecontroller;
-                $method = 'default';
+                $method = 'perdu';
         }
 
         $rooter = new \classe\Rooter($chemin, $method, $argument);

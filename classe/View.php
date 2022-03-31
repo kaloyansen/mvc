@@ -4,7 +4,7 @@
  * @link kaloyansen@gmail.com
  * @desc view class
  * @abstract a class to create and display a frontend
- * @version 0.0.2
+ * @version 0.0.3
  */
 class View {
     private $chemin;
@@ -35,18 +35,18 @@ class View {
      * @desc téléporte au _gabarit.php
      */
     public function afficher($controbjet = 0) {
-        $gabarit = VIEW.'/_gabarit.php';
-        $dinamit = VIEW.'/'.$this->chemin.'.php';
 
-        $view_titre = $this->titre;
-        $view_description = $this->description;
-        $view_keywords = $this->keywords;
+        $dinaclass = '\\view\\'.ucfirst($this->chemin);
 
         ob_start();
-        include($dinamit);
+        new $dinaclass($controbjet);
         $content = ob_get_clean();
-        include($gabarit);
-        return $view_titre.$view_description.$view_keywords.$content;
+
+        $gabarit = new \view\Gabarit($content);
+        $gabarit->tourne( (object) array(
+            'titre' => $this->titre,
+            'description' => $this->description,
+            'keywords' => $this->keywords));
     }
 }
 

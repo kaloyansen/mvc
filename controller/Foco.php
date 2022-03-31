@@ -6,7 +6,7 @@
  * @category controller
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.9
+ * @version 0.1.0
  */
 class Foco extends \controller\Moco {
 
@@ -22,11 +22,13 @@ class Foco extends \controller\Moco {
     	$id = self::idLoad();
     	$rate = array();
     	$tickets = array();
+    	$author = array();
 
     	$mana = new \model\TicketManager();
     	$message = $mana->loveMeDo($id);
     	$ticket = $mana->select($id);
     	$ticket->setLove($mana->sheLovesMe($id));
+    	$author[] = $mana->author($ticket);
     	$rate[] = $mana->rate($id);
     	unset($mana);
 
@@ -36,13 +38,15 @@ class Foco extends \controller\Moco {
         $view->manger($ticket);
         $view->afficher( (object) array('message' => $message,
                                         'ticket_array' => $tickets,
-                                        'rate' => $rate
+                                        'rate' => $rate,
+                                        'author' => $author
         ) );
     }
 
     public function liste(): void {
 
     	$rate = array();
+    	$author = array();
 
     	$mana = new \model\TicketManager();
         $message = $this->transMess($mana->count().' free tickets available');
@@ -50,6 +54,7 @@ class Foco extends \controller\Moco {
         foreach ($tickets as $ticket) {
         	$id = $ticket->getId();
         	$ticket->setLove($mana->sheLovesMe($id));
+        	$author[] = $mana->author($ticket);
         	$rate[] = $mana->rate($id);
         }
         unset($mana);
@@ -58,7 +63,8 @@ class Foco extends \controller\Moco {
         $view->manger($tickets[0]);
         $view->afficher( (object) array('message' => $message,
                                         'ticket_array' => $tickets,
-                                        'rate' => $rate
+                                        'rate' => $rate,
+                                        'author' => $author
         ) );
 	}
 
@@ -89,10 +95,10 @@ class Foco extends \controller\Moco {
     /**
      * when a page has not been recognized
      */
-    public function default(): void {
+    public function perdu(): void {
 
     	$message = $this->transMess(PAGE.' not found');
-    	$view = new \classe\View('default', $message, $message, $message);
+    	$view = new \classe\View('perdu', $message, $message, $message);
     	$view->afficher( (object) array('message' => $message) );
     }
 

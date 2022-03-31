@@ -1,7 +1,8 @@
 <?php namespace view;
 $user = isset($_SESSION['user']) ? $_SESSION['user'] : false;
 $ta = $controbjet->ticket_array;
-$total = count($conrobjet->rate);
+$rate = $controbjet->rate;
+$total = count($rate);
 ?>
 
 <article>
@@ -25,8 +26,8 @@ $total = count($conrobjet->rate);
         	echo '">[delete ticket #'.$id.']</a>';
         }
         echo '<a id="love" class="lien" href="'.WWW.'?page=love&id='.$id;
-        if ($ticket->getLove() > 0) echo '">[hate ticket #'.$id.' rate('.$controbjet->rate[$total].')]</a>';
-        else echo '">[love ticket #'.$id.' rate('.$controbjet->rate[$total].')]</a>';
+        if ($ticket->getLove() > 0) echo '">[hate ticket #'.$id.' rate('.$rate[$total].')]</a>';
+        else echo '">[love ticket #'.$id.' rate('.$rate[$total].')]</a>';
         echo '</li><br />';
 
 
