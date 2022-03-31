@@ -921,6 +921,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-TicketManager.html#method_count"
         },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003Aauthor\u0028\u0029",
+            "name": "author",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_author"
+        },                {
             "fqsen": "\\model\\TicketManager\u003A\u003Alast\u0028\u0029",
             "name": "last",
             "summary": "",

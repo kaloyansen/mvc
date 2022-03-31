@@ -67,19 +67,22 @@ class Foco extends \controller\Moco {
         $id = self::idLoad();
         $rate = array();
         $tickets = array();
+        $author = array();
 
         $mana = new \model\TicketManager();
         $ticket = $mana->select($id);
         $ticket->setLove($mana->sheLovesMe($id));
         $tickets[] = $ticket;
         $rate[] = $mana->rate($id);
+        $author[] = $mana->author($ticket);
         unset($mana);
 
         $view = new \classe\View(self::getPage());
         $view->manger($ticket);
         $view->afficher( (object) array('message' => $this->transMess(self::tikid()),
                                         'ticket_array' => $tickets,
-                                        'rate' => $rate
+                                        'rate' => $rate,
+                                        'author' => $author
         ) );
     }
 

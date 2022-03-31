@@ -19,6 +19,19 @@ class TicketManager extends \model\BaseManager {
         return mysqli_num_rows($result);
     }
 
+    public function author(\model\Ticket $ticket) {
+
+    	$query = "SELECT cuisinier FROM ticket WHERE id=".$ticket->getId();
+    	$result = $this->sql($query);
+    	if (!$result) return $this->error();
+    	$cuisinier = mysqli_fetch_array($result)[0];
+
+    	$query = "SELECT nom FROM cuisinier WHERE cid=".$cuisinier;
+    	$result = $this->sql($query);
+    	if (!$result) return $this->error();
+    	return mysqli_fetch_array($result)[0];
+    }
+
     public function last() {
 
     	$query = "SELECT MAX(id) FROM ".self::TABLE;
