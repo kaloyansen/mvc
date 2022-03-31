@@ -1,10 +1,21 @@
 <?php namespace view;
-$user = isset($_SESSION['user']) ? $_SESSION['user'] : false;
-$ta = $controbjet->ticket_array;
-$rate = $controbjet->rate;
-$total = count($rate);
-?>
+/**
+ * @desc dinamic part of the web page
+ * @abstract dinamic frontend
+ * @author Kaloyan KRASTEV
+ * @link kaloyansen@gmail.com
+ * @version 0.0.1
+ */
+class Lien {
+	/**
+	 */
+	public function __construct($controbjet) {
 
+		$user = isset($_SESSION['user']) ? $_SESSION['user'] : false;
+		$ta = $controbjet->ticket_array;
+		$rate = $controbjet->rate;
+		$total = count($rate);
+		?>
 <article>
 
   <div class="box">
@@ -30,10 +41,10 @@ $total = count($rate);
         else echo '">[love ticket #'.$id.' rate('.$rate[$total].')]</a>';
         echo '</li><br />';
 
-
-
     } ?>
   </ul>
   </div>
 
-</article>
+</article><?php
+    }
+}

@@ -656,10 +656,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/controller-Foco.html#method_objet"
         },                {
-            "fqsen": "\\controller\\Foco\u003A\u003Adefault\u0028\u0029",
-            "name": "default",
+            "fqsen": "\\controller\\Foco\u003A\u003Aperdu\u0028\u0029",
+            "name": "perdu",
             "summary": "when\u0020a\u0020page\u0020has\u0020not\u0020been\u0020recognized",
-            "url": "classes/controller-Foco.html#method_default"
+            "url": "classes/controller-Foco.html#method_perdu"
         },                {
             "fqsen": "\\model\\BaseManager",
             "name": "BaseManager",
@@ -1296,6 +1296,56 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-TicketPublic.html#property_love"
         },                {
+            "fqsen": "\\view\\Gabarit",
+            "name": "Gabarit",
+            "summary": "",
+            "url": "classes/view-Gabarit.html"
+        },                {
+            "fqsen": "\\view\\Gabarit\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/view-Gabarit.html#method___construct"
+        },                {
+            "fqsen": "\\view\\Gabarit\u003A\u003Atourne\u0028\u0029",
+            "name": "tourne",
+            "summary": "",
+            "url": "classes/view-Gabarit.html#method_tourne"
+        },                {
+            "fqsen": "\\view\\Gabarit\u003A\u003A\u0024contenu",
+            "name": "contenu",
+            "summary": "",
+            "url": "classes/view-Gabarit.html#property_contenu"
+        },                {
+            "fqsen": "\\view\\Lien",
+            "name": "Lien",
+            "summary": "",
+            "url": "classes/view-Lien.html"
+        },                {
+            "fqsen": "\\view\\Lien\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/view-Lien.html#method___construct"
+        },                {
+            "fqsen": "\\view\\Objet",
+            "name": "Objet",
+            "summary": "",
+            "url": "classes/view-Objet.html"
+        },                {
+            "fqsen": "\\view\\Objet\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/view-Objet.html#method___construct"
+        },                {
+            "fqsen": "\\view\\Perdu",
+            "name": "Perdu",
+            "summary": "",
+            "url": "classes/view-Perdu.html"
+        },                {
+            "fqsen": "\\view\\Perdu\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/view-Perdu.html#method___construct"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -1331,14 +1381,14 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/colors.html"
         },                {
-            "fqsen": "\\view",
-            "name": "view",
-            "summary": "",
-            "url": "namespaces/view.html"
-        },                {
             "fqsen": "\\view\\admin",
             "name": "admin",
             "summary": "",
             "url": "namespaces/view-admin.html"
+        },                {
+            "fqsen": "\\view",
+            "name": "view",
+            "summary": "",
+            "url": "namespaces/view.html"
         }            ]
 );

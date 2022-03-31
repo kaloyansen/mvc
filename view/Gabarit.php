@@ -1,12 +1,22 @@
 <?php namespace view;
-$user = isset($_SESSION['user']) ? $_SESSION['user'] : 'guest';
-$titre = $view_titre ? $view_titre : 'no title';
-?>
+/**
+ * @desc static part of the web page
+ * @abstract static frontend
+ * @author Kaloyan KRASTEV
+ * @link kaloyansen@gmail.com
+ * @version 0.0.1
+ */
+class Gabarit {
+
+    private $contenu;
+    function __construct($contenu) {    $this->contenu = $contenu;    }
+    function tourne(object $oo): void {
+    	$user = isset($_SESSION['user']) ? $_SESSION['user'] : 'guest'; ?>
 <!doctype html>
 <html lang="fr">
   <head>
     <meta charset="utf-8"/>
-    <title><?=$titre;?></title>
+    <title><?=$oo->titre;?></title>
 	<!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -19,8 +29,8 @@ $titre = $view_titre ? $view_titre : 'no title';
     <link rel="stylesheet" href="<?=MEDIA;?>/css/style.css"/>
     <meta name="application-name" content="<?=APPNAME;?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="<?=$view_description;?>"/>
-    <meta name="keywords" content="<?=$view_keywords;?>"/>
+    <meta name="description" content="<?=$oo->description;?>"/>
+    <meta name="keywords" content="<?=$oo->keywords;?>"/>
     <meta name="author" content="Kaloyan KRASTEV"/>
   </head>
   <body id="top">
@@ -37,7 +47,7 @@ $titre = $view_titre ? $view_titre : 'no title';
         else echo 'logout';?>
         </a>
       </nav>
-      <?=$content;?>
+      <?=$this->contenu;?>
       <footer>
         <address>
           code by Kaloyan KRASTEV, 32 quai Xavier JOUVIN Grenoble FRANCE
@@ -90,5 +100,7 @@ $titre = $view_titre ? $view_titre : 'no title';
     <script src="<?=MEDIA;?>/js/jquery-3.6.0.min.js"></script>
     <script src="<?=MEDIA;?>/js/control.js"></script>
   </body>
-</html>
+</html><?php
+    }
+} ?>
 

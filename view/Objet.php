@@ -1,9 +1,20 @@
 <?php namespace view;
-$user = isset($_SESSION['user']) ? $_SESSION['user'] : 'guest';
-$ta = $controbjet->ticket_array;
-$rate = $controbjet->rate;
-?>
+/**
+ * @desc dinamic part of the web page
+ * @abstract dinamic frontend
+ * @author Kaloyan KRASTEV
+ * @link kaloyansen@gmail.com
+ * @version 0.0.2
+ */
+class Objet {
+	/**
+	 */
+	public function __construct($controbjet) {
 
+		$user = isset($_SESSION['user']) ? $_SESSION['user'] : 'guest';
+		$ta = $controbjet->ticket_array;
+		$rate = $controbjet->rate;
+		?>
 <article>
 
   <h2><?=$controbjet->message;?></h2>
@@ -22,4 +33,7 @@ $rate = $controbjet->rate;
       if ($ticket->getLove() > 0) echo '">[hate ticket #'.$id.' rate('.$rate[0].')]</a>';
       else echo '">[love ticket #'.$id.' rate('.$rate[0].')]</a>';
   } ?>
-</article>
+</article><?php
+    }
+}
+
