@@ -18,7 +18,7 @@ $ta = $controbjet->ticket_array;
       }
       //echo $ticket->getLove();
       echo '<a id="love" class="lien" href="'.WWW.'?page=love&id='.$id;
-      if ($ticket->getLove() > 0) echo '">[hate ticket #'.$id.']</a>';
-      else echo '">[love ticket #'.$id.']</a>';
+      if ($ticket->getLove() > 0) echo '">[hate ticket #'.$id.' rate('.$controbjet->rate[0].')]</a>';
+      else echo '">[love ticket #'.$id.' rate('.$controbjet->rate[0].')]</a>';
   } ?>
 </article>

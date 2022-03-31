@@ -53,29 +53,24 @@ class TicketManager extends \model\BaseManager {
         return $resultat ? $query : $this->error();
     }
 
-    public function rate(int $id) {
+    public function rate(int $id): int {
 
-        $query = "SELECT rate FROM ".self::TABLE;
-        $query = $query.self::WHERE.$id;
+        $query = "SELECT * FROM remote WHERE ticket=".$id;
         $result = $this->sql($query);
-        if (!$result) return $this->error();
+        $rate = 0;
+        if (!$result) return $rate;
 
-        $rate = mysqli_fetch_array($result)[0] + 1;
-
-        $query = "UPDATE ".self::TABLE." SET rate=".$rate;
-        $query = $query.self::WHERE.$id;
-        $result = $this->sql($query);
-        if (!$result) return $this->error();
-        return $result;
+        while ($result->fetch_object()) $rate++;
+        return $rate;
     }
 
-    public function selectAll() {
+    public function selectAll(int $maxtick) {
 
     	$query = self::SELECT;
     	$result = $this->sql($query);
     	if (!$result) return $this->error();
     	$ticket_array = array();
-    	while ($mfobj = $result->fetch_object()) {
+    	while ($mfobj = $result->fetch_object() && 0 < $maxtick --) {
     		$ticket_array[] = new \model\Ticket($mfobj, $mfobj->id);
     	}
         return empty($ticket_array) ? false : $ticket_array;

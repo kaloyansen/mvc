@@ -55,7 +55,12 @@ $titre = $view_titre ? $view_titre : 'no title';
           code by Kaloyan KRASTEV, 32 quai Xavier JOUVIN Grenoble FRANCE
           <a class="loco" href="mailto:kaloyansen@gmail.com">kaloyansen@gmail.com</a>
           <a class="loco" href="tel:+33681244812">+33 6 812 44 812</a>
-          <a href="https://kaloyansen.github.io/mvc"
+          <a id="linkedin"
+             href='https://www.linkedin.com/company/publicis-sapient/'
+             target='_blank'>
+            <i class='mdi mdi-linkedin'></i></a>
+          <a id=github
+             href="https://kaloyansen.github.io/mvc"
              target="_blank"
              rel="noopener">
             <svg xmlns="http://www.w3.org/2000/svg"

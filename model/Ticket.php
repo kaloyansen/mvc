@@ -1,36 +1,35 @@
 <?php namespace model;
+
 /**
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
  * @desc ticket container
- * @version 0.0.2
+ * @version 0.0.3
  */
-class Ticket {
+class Ticket extends \model\TicketPublic {
 
-    private $id;
-
-    private $title;
-    private $description;
-    private $color;
-    private $keywords;
-    private $body;
-    private $jour;//datetime
-
-    private int $prix;
-    private int $diff;
-    private int $temps;
-    private int $personne;
-    private int $hide;
-    private int $love;//l'amour n'est pas à la base de données
-
+    /**
+     * @abstract construction à partir d'un enregistrement dans la base de données
+     * @desc prenez soin de vous
+     */
     public function __construct($objet = false, $id = false) {
 
-        if ($id) $this->setId($id);
-        if (!$objet) $objet = self::randomBody('abcdef', 6);
-        $this->copy_object($objet);
+    	if ($id) $this->setId($id);
+    	if (!$objet) $objet = self::randomBody('abcdef', 6);
+    	$this->consume($objet);
     }
 
-    private function copy_object($obj) {
+    /**
+     * creative distraction
+     */
+    function __destruct() {
+    	error_log('folder: '.__DIR__);
+    	error_log('file: '.__FILE__);
+    	error_log('class: '.__CLASS__);
+    	error_log(' destruction');
+    }
+
+    protected function consume($obj): void {
 
     	$this->title = $obj->title;
     	$this->description = $obj->description;
@@ -44,6 +43,49 @@ class Ticket {
     	$this->temps = $obj->temps;
     	$this->personne = $obj->personne;
     	$this->hide = $obj->hide;
+    }
+
+    private static function euro(int $eu): string {
+
+    	$code = false;
+    	while (0 < $eu --) $code = $code.'€';
+
+    	return $code;
+    }
+
+    private static function fouet(int $fou): string {
+
+    	$code = false;
+    	while (0 < $fou --) $code = $code.'<img src="'.IMG.'/fouet.png" alt="difficulté" />';
+
+    	return $code;
+    }
+
+    private static function second2hour(int $seconds): string {
+
+        $minutes = $seconds / 60;
+        $hour_float = $minutes / 60;
+        $hour = intval($hour_float);
+        $minute = ($hour_float - $hour) * 60;
+
+        $code = false;
+        if ($hour > 0) $code = $hour.'h ';
+        if ($minute > 0) $code = $code.$minute.'min';
+
+        return $code;
+    }
+
+    private static function string2list(string $input, string $delimiter = ',', bool $numbered = true): string {
+
+    	$sep_tag = explode($delimiter, $input);
+    	//$sep_tag = preg_split("/\".","."/", $input);
+    	$output = '<ul>';
+    	if ($numbered) $output = '<ol>';
+
+    	foreach ($sep_tag as $tag) $output = $output.'<li class="collection-item">'.$tag.'</li>';
+
+    	if ($numbered) return $output.'</ol>';
+    	return $output.'</ul>';
     }
 
     public function overview(bool $all = false): string {
@@ -64,15 +106,17 @@ class Ticket {
 
     public function __toString(): string {
 
+    	$br = '<br />';
     	$krava = '<div class="ticket" style="background-color: '.$this->color.';">';
-    	$krava = $krava.'<br />description: '.$this->description;
-    	$krava = $krava.'<br />produits: '.$this->keywords;
-    	$krava = $krava.'<br />action: '.$this->body;
-    	$krava = $krava.'<br />temps: '.$this->temps;
-    	$krava = $krava.'<br />prix: '.$this->prix.'€';
-    	$krava = $krava.'<br />pour '.$this->personne.' personnes';
-    	$krava = $krava.'<br />depui: '.$this->jour;
-    	return $krava.'<br /><br /></div>';
+    	$krava = $krava.$br.$this->description;
+    	$krava = $krava.$br.'temps: '.self::second2hour($this->temps);
+    	$krava = $krava.', difficulté '.self::fouet($this->diff);
+    	$krava = $krava.', prix: '.self::euro($this->prix);
+    	$krava = $krava.$br.'produits pour '.$this->personne.' personnes:';
+    	$krava = $krava.$br.self::string2list($this->keywords);
+    	$krava = $krava.$br.self::string2list($this->body, '.', false);
+    	$krava = $krava.$br.'publiée: '.$this->jour;
+    	return $krava.$br.'</div>';
     }
 
     public function validation(): bool {//hmmmm
@@ -82,38 +126,10 @@ class Ticket {
         isset($this->keywords);
     }
 
-    public function setId($id) { if (is_int(intval($id))) $this->id = $id; }
-    public function setTitle($title) { if (is_string($title)) $this->title = $title; }
-    public function setDescription($desc) { if (is_string($desc)) $this->description = $desc; }
-    public function setColor($color) { if (is_string($color)) $this->color = $color; }
-    public function setKeywords($kw) { if (is_string($kw)) $this->keywords = $kw; }
-    public function setBody($body) { if (is_string($body)) $this->body = $body; }
-    public function setJour($jour) { if (is_string($jour)) $this->jour = $jour; }
-    public function setPrix(int $prix): void { $this->prix = $prix; }
-    public function setDiff(int $diff): void { $this->diff = $diff; }
-    public function setTemps(int $temps): void { $this->temps = $temps; }
-    public function setPersonne(int $per): void { $this->personne = $per; }
-    public function setHide(int $hide): void { $this->hide = $hide; }
-    public function setLove(int $love): void { $this->love = $love; }
-
-    public function getId() { return $this->id; }
-    public function getTitle() { return $this->title; }
-    public function getDescription() { return $this->description; }
-    public function getColor() { return $this->color; }
-    public function getKeywords() { return $this->keywords; }
-    public function getBody() { return $this->body; }
-    public function getJour() { return $this->jour; }
-    public function getPrix(): int { return $this->prix; }
-    public function getDiff(): int { return $this->diff; }
-    public function getTemps(): int { return $this->temps; }
-    public function getPersonne(): int { return $this->personne; }
-    public function getHide(): int { return $this->hide; }
-    public function getLove(): int { return $this->love; }
-
     public function loadPost() {
 
         $postobjet = (object) $_POST;
-        $this->copy_object($postobjet);
+        $this->consume($postobjet);
     }
 
     private static function randomBody($wordset = "abcdef", $wordlen = 6) {

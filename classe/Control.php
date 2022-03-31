@@ -77,10 +77,10 @@ class Control {
      */
     public static function terminalRequest(): void {
 
-        if (empty($_SERVER['REQUEST_METHOD'])) {
+        if (empty($_SERVER['REQUEST_METHOD'])) {//terminall
     	    define('ONLINE', false);
-            define('METHOD', false);
-
+            define('METHOD', false);/* cli à coder
+            */
             global $argv;
             $argc = count($argv);
 
@@ -109,12 +109,14 @@ class Control {
 
     public static function getUserIpAddr(): ?string {
 
-    	if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
             $ip = $_SERVER['HTTP_CLIENT_IP'];
         } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
             $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-        } else {
+        } elseif (ONLINE) {
             $ip = $_SERVER['REMOTE_ADDR'];
+        } else {
+            $ip = '176.176.176.176';
         }
 
         return $ip;

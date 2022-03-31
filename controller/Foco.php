@@ -6,7 +6,7 @@
  * @category controller
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.7
+ * @version 0.0.9
  */
 class Foco extends \controller\Moco {
 
@@ -20,49 +20,67 @@ class Foco extends \controller\Moco {
     public function love(): void {
 
     	$id = self::idLoad();
+    	$rate = array();
+    	$tickets = array();
 
-    	$manager = new \model\TicketManager();
-    	$message = $manager->loveMeDo($id);
-    	$ticket = $manager->select($id);
-    	$ticket->setLove($manager->sheLovesMe($id));
-    	unset($manager);
+    	$mana = new \model\TicketManager();
+    	$message = $mana->loveMeDo($id);
+    	$ticket = $mana->select($id);
+    	$ticket->setLove($mana->sheLovesMe($id));
+    	$rate[] = $mana->rate($id);
+    	unset($mana);
 
-    	$ticket_array[] = $ticket;
+    	$tickets[] = $ticket;
 
         $view = new \classe\View(self::getPage());
         $view->manger($ticket);
         $view->afficher( (object) array('message' => $message,
-                                        'ticket_array' => $ticket_array) );
+                                        'ticket_array' => $tickets,
+                                        'rate' => $rate
+        ) );
     }
 
     public function liste(): void {
 
-    	$manager = new \model\TicketManager();
-        $message = $this->transMess($manager->count().' free tickets available');
-        $ticket_array = $manager->select();
-        foreach ($ticket_array as $ticket) $ticket->setLove($manager->sheLovesMe($ticket->getId()));
-        unset($manager);
+    	$rate = array();
+
+    	$mana = new \model\TicketManager();
+        $message = $this->transMess($mana->count().' free tickets available');
+        $tickets = $mana->selectAll(4);
+        foreach ($tickets as $ticket) {
+        	$id = $ticket->getId();
+        	$ticket->setLove($mana->sheLovesMe($id));
+        	$rate[] = $mana->rate($id);
+        }
+        unset($mana);
 
         $view = new \classe\View(self::getPage());
-        $view->manger($ticket_array[0]);
+        $view->manger($tickets[0]);
         $view->afficher( (object) array('message' => $message,
-                                        'ticket_array' => $ticket_array) );
+                                        'ticket_array' => $tickets,
+                                        'rate' => $rate
+        ) );
 	}
 
     public function objet(): void {
 
         $id = self::idLoad();
+        $rate = array();
+        $tickets = array();
 
-        $manager = new \model\TicketManager();
-        $ticket = $manager->select($id);
-        $ticket->setLove($manager->sheLovesMe($id));
-        $ticket_array[] = $ticket;
-        unset($manager);
+        $mana = new \model\TicketManager();
+        $ticket = $mana->select($id);
+        $ticket->setLove($mana->sheLovesMe($id));
+        $tickets[] = $ticket;
+        $rate[] = $mana->rate($id);
+        unset($mana);
 
         $view = new \classe\View(self::getPage());
         $view->manger($ticket);
         $view->afficher( (object) array('message' => $this->transMess(self::tikid()),
-                                        'ticket_array' => $ticket_array) );
+                                        'ticket_array' => $tickets,
+                                        'rate' => $rate
+        ) );
     }
 
     /**

@@ -117,7 +117,8 @@ a[href^="tel"]::before {
 }
 
 .ticket {
-	text-align: center;
+	text-align: left;
+	padding: 6vw;
 	color: #666;
     border-radius: 3vw;
     text-decoration: none;
