@@ -19,13 +19,17 @@ class TicketManager extends \model\BaseManager {
         return mysqli_num_rows($result);
     }
 
-    public function author(\model\Ticket $ticket) {
+    public function authorId(\model\Ticket $ticket) {
 
     	$query = "SELECT cuisinier FROM ticket WHERE id=".$ticket->getId();
     	$result = $this->sql($query);
     	if (!$result) return $this->error();
-    	$cuisinier = mysqli_fetch_array($result)[0];
+    	return mysqli_fetch_array($result)[0];
+    }
 
+    public function author(\model\Ticket $ticket) {
+
+    	$cuisinier = $this->authorId($ticket);
     	$query = "SELECT nom FROM cuisinier WHERE cid=".$cuisinier;
     	$result = $this->sql($query);
     	if (!$result) return $this->error();
@@ -35,9 +39,17 @@ class TicketManager extends \model\BaseManager {
     public function last() {
 
     	$query = "SELECT MAX(id) FROM ".self::TABLE;
-        $result = $this->sql($query);
-        if (!$result) return $this->error();
-        return mysqli_fetch_array($result)[0];
+    	$result = $this->sql($query);
+    	if (!$result) return $this->error();
+    	return mysqli_fetch_array($result)[0];
+    }
+
+    public function lastAuthor() {
+
+    	$query = "SELECT MAX(cid) FROM cuisinier";
+    	$result = $this->sql($query);
+    	if (!$result) return $this->error();
+    	return mysqli_fetch_array($result)[0];
     }
 
     public function sheLovesMe(int $id): int {
@@ -77,7 +89,20 @@ class TicketManager extends \model\BaseManager {
         return $rate;
     }
 
-    public function selectAll(int $maxtick) {
+    public function selectSameAuthor(int $cid, int $maxtick = 1000) {
+
+        $query = self::SELECT;
+        $query = $query.' WHERE cuisinier='.$cid;
+        $result = $this->sql($query);
+        if (!$result) return $this->error();
+        $ticket_array = array();
+        while ($mfobj = $result->fetch_object()) {
+        	if (0 < $maxtick --) $ticket_array[] = new \model\Ticket($mfobj, $mfobj->id);
+        }
+        return empty($ticket_array) ? false : $ticket_array;
+    }
+
+    public function selectAll(int $maxtick = 1000) {
 
     	$query = self::SELECT;
     	$result = $this->sql($query);
@@ -98,6 +123,28 @@ class TicketManager extends \model\BaseManager {
     	if (!$result) return $this->error();
     	$mfobj = mysqli_fetch_object($result);
         return new \model\Ticket($mfobj, $id);
+    }
+
+    public function selectAuthors(int $maxtick = 1000) {
+
+    	$query = 'SELECT * FROM cuisinier';
+    	$result = $this->sql($query);
+    	if (!$result) return $this->error();
+    	$carray = array();
+    	while ($mfobj = $result->fetch_object()) {
+    		if (0 < $maxtick --) $carray[] = new \model\Cuisinier($mfobj);
+    	}
+    	return empty($carray) ? false : $carray;
+    }
+
+    public function selectAuthor($id = false) {
+
+    	if (!$id) return $this->selectAuthors();
+        $query = "SELECT * FROM cuisinier WHERE cid=".$id;
+    	$result = $this->sql($query);
+    	if (!$result) return $this->error();
+    	$mfobj = mysqli_fetch_object($result);
+    	return new \model\Cuisinier($mfobj);
     }
 
     public function insert(\model\Ticket $ticket) {

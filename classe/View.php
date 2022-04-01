@@ -26,12 +26,12 @@ class View {
 
     public function manger(\model\Ticket $ticket): void {
 
-        $this->titre = $ticket->getTitle();
-        $this->description = $ticket->getDescription();
-        $this->keywords = $ticket->getKeywords();
+    	$this->titre = $ticket->getTitle();
+    	$this->description = $ticket->getDescription();
+    	$this->keywords = $ticket->getKeywords();
     }
 
-    /**
+/**
      * @desc téléporte au _gabarit.php
      */
     public function afficher($controbjet = 0) {

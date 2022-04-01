@@ -6,7 +6,7 @@
  * @category controller
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.1.0
+ * @version 0.1.1
  */
 class Foco extends \controller\Moco {
 
@@ -90,6 +90,45 @@ class Foco extends \controller\Moco {
                                         'rate' => $rate,
                                         'author' => $author
         ) );
+    }
+
+    private static function fill(\model\TicketManager $tman, $tickarr, $author, $rate): void {
+
+    	foreach ($tickarr as $ticket) {
+    		$id = $ticket->getId();
+    		$ticket->setLove($tman->sheLovesMe($id));
+    		$author[] = $tman->author($ticket);
+    		$rate[] = $tman->rate($id);
+    	}
+    }
+
+    public function author(): void {
+
+    	$id = self::cidLoad();
+    	$rate = array();
+    	$tickets = array();
+    	$author = array();
+
+    	$mana = new \model\TicketManager();
+    	$cuisinier = $mana->selectAuthor($id);
+    	$tickets = $mana->selectSameAuthor($id);
+
+    	self::fill($mana, $tickets, $author, $rate);/*
+    	foreach ($tickets as $ticket) {
+    		$id = $ticket->getId();
+    		$ticket->setLove($mana->sheLovesMe($id));
+    		$author[] = $mana->author($ticket);
+    		$rate[] = $mana->rate($id);
+    	}*/
+    	unset($mana);
+
+    	$view = new \classe\View('author');
+    	$view->manger($tickets[0]);
+    	$view->afficher( (object) array('cuisinier' => $cuisinier,
+                                        'ticket_array' => $tickets,
+    	                                'rate' => $rate,
+    	                                'author' => $author
+    	) );
     }
 
     /**

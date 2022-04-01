@@ -1,10 +1,10 @@
 <?php namespace model;
-
 /**
+ * @desc ticket container
+ * @see class attributes in superclass TicketPublic
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @desc ticket container
- * @version 0.0.3
+ * @version 0.0.4
  */
 class Ticket extends \model\TicketPublic {
 

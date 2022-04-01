@@ -8,8 +8,8 @@
 class Control {
     private const DEFAULTPAGE = 'objet';
     /**
-     * $objet = new $chemin($argument);
-     * $resultat = $objet->$method();
+     * @example $objet = new $chemin($argument);
+     * @example $resultat = $objet->$method();
      */
     public static function controler(): void {
 
@@ -32,6 +32,9 @@ class Control {
                 $chemin = $frontofficecontroller;
                 break;
             case 'lien':
+            	$chemin = $frontofficecontroller;
+            	break;
+            case 'author':
             	$chemin = $frontofficecontroller;
             	break;
             case 'love':

@@ -39,7 +39,7 @@ class Gabarit {
       <nav>
         <a class="loco" href="<?=WWW;?>">home</a>
         <a class="loco" href="<?=WWW;?>?page=objet">last</a>
-        <a class="loco" href="<?=WWW;?>?page=liste">list</a>
+        <a class="loco" href="<?=WWW;?>?page=all">list</a>
         <a class="loco" href="<?=WWW;?>?page=insert">new</a>
         <a class="loco" href="<?=WWW;?>?page=deconnexion"><?=$user;?></a>
         <a class="loco" href="<?=WWW;?>?page=deconnexion"><?php

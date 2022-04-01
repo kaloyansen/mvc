@@ -1,9 +1,10 @@
 <?php namespace model;
 /**
+ * @desc ticket container attributes, setters and getters
+ * @see Ticket for the rest of the class
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @desc ticket container
- * @version 0.0.3
+ * @version 0.0.4
  */
 class TicketPublic {
 

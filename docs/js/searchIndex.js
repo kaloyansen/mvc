@@ -93,7 +93,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\classe\\Control\u003A\u003Acontroler\u0028\u0029",
             "name": "controler",
-            "summary": "\u0024objet\u0020\u003D\u0020new\u0020\u0024chemin\u0028\u0024argument\u0029\u003B\n\u0024resultat\u0020\u003D\u0020\u0024objet\u002D\u003E\u0024method\u0028\u0029\u003B",
+            "summary": "",
             "url": "classes/classe-Control.html#method_controler"
         },                {
             "fqsen": "\\classe\\Control\u003A\u003AautoloadClassDefinition\u0028\u0029",
@@ -656,6 +656,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/controller-Foco.html#method_objet"
         },                {
+            "fqsen": "\\controller\\Foco\u003A\u003Afill\u0028\u0029",
+            "name": "fill",
+            "summary": "",
+            "url": "classes/controller-Foco.html#method_fill"
+        },                {
+            "fqsen": "\\controller\\Foco\u003A\u003Aauthor\u0028\u0029",
+            "name": "author",
+            "summary": "",
+            "url": "classes/controller-Foco.html#method_author"
+        },                {
             "fqsen": "\\controller\\Foco\u003A\u003Aperdu\u0028\u0029",
             "name": "perdu",
             "summary": "when\u0020a\u0020page\u0020has\u0020not\u0020been\u0020recognized",
@@ -921,6 +931,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-TicketManager.html#method_count"
         },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003AauthorId\u0028\u0029",
+            "name": "authorId",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_authorId"
+        },                {
             "fqsen": "\\model\\TicketManager\u003A\u003Aauthor\u0028\u0029",
             "name": "author",
             "summary": "",
@@ -930,6 +945,11 @@ Search.appendIndex(
             "name": "last",
             "summary": "",
             "url": "classes/model-TicketManager.html#method_last"
+        },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003AlastAuthor\u0028\u0029",
+            "name": "lastAuthor",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_lastAuthor"
         },                {
             "fqsen": "\\model\\TicketManager\u003A\u003AsheLovesMe\u0028\u0029",
             "name": "sheLovesMe",
@@ -946,6 +966,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-TicketManager.html#method_rate"
         },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003AselectSameAuthor\u0028\u0029",
+            "name": "selectSameAuthor",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_selectSameAuthor"
+        },                {
             "fqsen": "\\model\\TicketManager\u003A\u003AselectAll\u0028\u0029",
             "name": "selectAll",
             "summary": "",
@@ -955,6 +980,16 @@ Search.appendIndex(
             "name": "select",
             "summary": "",
             "url": "classes/model-TicketManager.html#method_select"
+        },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003AselectAuthors\u0028\u0029",
+            "name": "selectAuthors",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_selectAuthors"
+        },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003AselectAuthor\u0028\u0029",
+            "name": "selectAuthor",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_selectAuthor"
         },                {
             "fqsen": "\\model\\TicketManager\u003A\u003Ainsert\u0028\u0029",
             "name": "insert",
@@ -1061,6 +1096,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/controller-Moco.html#method_idLoad"
         },                {
+            "fqsen": "\\controller\\Moco\u003A\u003AcidLoad\u0028\u0029",
+            "name": "cidLoad",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_cidLoad"
+        },                {
             "fqsen": "\\controller\\Moco\u003A\u003AtransMess\u0028\u0029",
             "name": "transMess",
             "summary": "",
@@ -1070,6 +1110,11 @@ Search.appendIndex(
             "name": "readid",
             "summary": "",
             "url": "classes/controller-Moco.html#method_readid"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003Areadcid\u0028\u0029",
+            "name": "readcid",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_readcid"
         },                {
             "fqsen": "\\controller\\Moco\u003A\u003Apasse\u0028\u0029",
             "name": "passe",
@@ -1336,6 +1381,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Objet.html#method___construct"
         },                {
+            "fqsen": "\\view\\Objet\u003A\u003AlinkTicket\u0028\u0029",
+            "name": "linkTicket",
+            "summary": "",
+            "url": "classes/view-Objet.html#method_linkTicket"
+        },                {
+            "fqsen": "\\view\\Objet\u003A\u003AviewTicket\u0028\u0029",
+            "name": "viewTicket",
+            "summary": "",
+            "url": "classes/view-Objet.html#method_viewTicket"
+        },                {
             "fqsen": "\\view\\Perdu",
             "name": "Perdu",
             "summary": "",
@@ -1350,6 +1405,86 @@ Search.appendIndex(
             "name": "draw",
             "summary": "",
             "url": "classes/view-Perdu.html#method_draw"
+        },                {
+            "fqsen": "\\model\\Cuisinier",
+            "name": "Cuisinier",
+            "summary": "",
+            "url": "classes/model-Cuisinier.html"
+        },                {
+            "fqsen": "\\model\\Cuisinier\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/model-Cuisinier.html#method___construct"
+        },                {
+            "fqsen": "\\model\\Cuisinier\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/model-Cuisinier.html#method_getId"
+        },                {
+            "fqsen": "\\model\\Cuisinier\u003A\u003AgetNom\u0028\u0029",
+            "name": "getNom",
+            "summary": "",
+            "url": "classes/model-Cuisinier.html#method_getNom"
+        },                {
+            "fqsen": "\\model\\Cuisinier\u003A\u003AgetPrenom\u0028\u0029",
+            "name": "getPrenom",
+            "summary": "",
+            "url": "classes/model-Cuisinier.html#method_getPrenom"
+        },                {
+            "fqsen": "\\model\\Cuisinier\u003A\u003AsetId\u0028\u0029",
+            "name": "setId",
+            "summary": "",
+            "url": "classes/model-Cuisinier.html#method_setId"
+        },                {
+            "fqsen": "\\model\\Cuisinier\u003A\u003AsetNom\u0028\u0029",
+            "name": "setNom",
+            "summary": "",
+            "url": "classes/model-Cuisinier.html#method_setNom"
+        },                {
+            "fqsen": "\\model\\Cuisinier\u003A\u003AsetPrenom\u0028\u0029",
+            "name": "setPrenom",
+            "summary": "",
+            "url": "classes/model-Cuisinier.html#method_setPrenom"
+        },                {
+            "fqsen": "\\model\\Cuisinier\u003A\u003Aconsume\u0028\u0029",
+            "name": "consume",
+            "summary": "",
+            "url": "classes/model-Cuisinier.html#method_consume"
+        },                {
+            "fqsen": "\\model\\Cuisinier\u003A\u003A__toString\u0028\u0029",
+            "name": "__toString",
+            "summary": "",
+            "url": "classes/model-Cuisinier.html#method___toString"
+        },                {
+            "fqsen": "\\model\\Cuisinier\u003A\u003A\u0024id",
+            "name": "id",
+            "summary": "",
+            "url": "classes/model-Cuisinier.html#property_id"
+        },                {
+            "fqsen": "\\model\\Cuisinier\u003A\u003A\u0024nom",
+            "name": "nom",
+            "summary": "",
+            "url": "classes/model-Cuisinier.html#property_nom"
+        },                {
+            "fqsen": "\\model\\Cuisinier\u003A\u003A\u0024prenom",
+            "name": "prenom",
+            "summary": "",
+            "url": "classes/model-Cuisinier.html#property_prenom"
+        },                {
+            "fqsen": "\\model\\Cuisinier\u003A\u003A\u0024photo",
+            "name": "photo",
+            "summary": "",
+            "url": "classes/model-Cuisinier.html#property_photo"
+        },                {
+            "fqsen": "\\view\\Author",
+            "name": "Author",
+            "summary": "",
+            "url": "classes/view-Author.html"
+        },                {
+            "fqsen": "\\view\\Author\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/view-Author.html#method___construct"
         },                {
             "fqsen": "\\",
             "name": "\\",

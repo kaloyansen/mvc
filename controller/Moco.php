@@ -43,6 +43,13 @@ class Moco {
     	return self::id();
     }
 
+    protected static function cidLoad(): int {
+
+    	self::$private_id = self::readcid();
+    	self::$private_tikid = 'cuisinier #'.self::$private_id;
+    	return self::id();
+    }
+
     protected function transMess($message) {
 
         $ses = self::fromSession('message');
@@ -59,9 +66,21 @@ class Moco {
     	if ($iid) return intval($iid); //{ || $inputid == 0) {
 
     	$db = new \model\TicketManager();
-        $iid = $db->last();
-        unset($db);
-        return intval($iid);
+    	$iid = $db->last();
+    	unset($db);
+    	return intval($iid);
+    }
+
+    private static function readcid(): int {
+
+    	if (ONLINE) $iid = self::fromGet('id');
+    	else $iid = ARGU2;
+    	if ($iid) return intval($iid);
+
+    	$db = new \model\TicketManager();
+    	$iid = $db->lastAuthor();
+    	unset($db);
+    	return intval($iid);
     }
 
     private static function passe(): ?string {
