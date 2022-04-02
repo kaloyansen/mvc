@@ -72,21 +72,24 @@ class Foco extends \controller\Moco {
 
         $id = self::idLoad();
         $rate = array();
-        $tickets = array();
+        $ticket_array = array();
         $author = array();
+        $view_class = self::getPage();
 
         $mana = new \model\TicketManager();
         $ticket = $mana->select($id);
+        $title = $ticket->getTitle();
         $ticket->setLove($mana->sheLovesMe($id));
-        $tickets[] = $ticket;
         $rate[] = $mana->rate($id);
         $author[] = $mana->author($ticket);
         unset($mana);
 
-        $view = new \classe\View(self::getPage());
-        $view->manger($ticket);
+        $ticket_array[] = $ticket;
+
+        $view = new \classe\View($view_class, $title, 'dof', 'kof');
+        //$view->manger($ticket);
         $view->afficher( (object) array('message' => $this->transMess(self::tikid()),
-                                        'ticket_array' => $tickets,
+                                        'ticket_array' => $ticket_array,
                                         'rate' => $rate,
                                         'author' => $author
         ) );
@@ -106,26 +109,30 @@ class Foco extends \controller\Moco {
 
     	$id = self::cidLoad();
     	$rate = array();
-    	$tickets = array();
     	$author = array();
+    	$view_class = 'author';
 
     	$mana = new \model\TicketManager();
     	$cuisinier = $mana->selectAuthor($id);
-    	$tickets = $mana->selectSameAuthor($id);
+    	$title = $cuisinier->getNom().', '.$cuisinier->getPrenom();
+    	$cuisinier_array = $mana->selectAuthors();
+    	$ticket_array = $mana->selectSameAuthor($id);
 
-    	self::fill($mana, $tickets, $author, $rate);/*
-    	foreach ($tickets as $ticket) {
+    	//self::fill($mana, $tickets, $author, $rate);/*
+    	$keys = '';
+    	foreach ($ticket_array as $ticket) {
     		$id = $ticket->getId();
+    		$keys = $ticket->getTitle().$keys.', ';
     		$ticket->setLove($mana->sheLovesMe($id));
     		$author[] = $mana->author($ticket);
     		$rate[] = $mana->rate($id);
-    	}*/
+    	}
     	unset($mana);
 
-    	$view = new \classe\View('author');
-    	$view->manger($tickets[0]);
+    	$view = new \classe\View($view_class, $title, $title, $keys);
     	$view->afficher( (object) array('cuisinier' => $cuisinier,
-                                        'ticket_array' => $tickets,
+                                        'cuisinier_array' => $cuisinier_array,
+                                        'ticket_array' => $ticket_array,
     	                                'rate' => $rate,
     	                                'author' => $author
     	) );

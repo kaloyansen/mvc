@@ -31,23 +31,47 @@ class Moco {
     protected static function fromSession(string $par) { return isset($_SESSION[$par]) ? $_SESSION[$par] : false; }
     protected static function checkAccess(): ?string {
 
-    	$user = self::fromSession('user');
-    	if ($user) return $user;
-    	return self::passe();
+        $user = self::fromSession('user');
+        if ($user) return $user;
+        return self::passe();
     }
 
     protected static function idLoad(): int {
 
-    	self::$private_id = self::readid();
-    	self::$private_tikid = 'ticket #'.self::$private_id;
-    	return self::id();
+        self::$private_id = self::readId();
+        self::$private_tikid = 'ticket #'.self::$private_id;
+        return self::id();
     }
 
     protected static function cidLoad(): int {
 
-    	self::$private_id = self::readcid();
-    	self::$private_tikid = 'cuisinier #'.self::$private_id;
-    	return self::id();
+        self::$private_id = self::readCid();
+        self::$private_tikid = 'cuisinier #'.self::$private_id;
+        return self::id();
+    }
+
+    private static function readId(): int {
+
+        if (ONLINE) $iid = self::fromGet('id');
+        else $iid = ARGU2;
+        if ($iid) return intval($iid);
+
+        $db = new \model\TicketManager();
+        $iid = $db->last();
+        unset($db);
+        return intval($iid);
+    }
+
+    private static function readCid(): int {
+
+        if (ONLINE) $iid = self::fromGet('id');
+        else $iid = ARGU2;
+        if ($iid) return intval($iid);
+
+        $db = new \model\TicketManager();
+        $iid = $db->lastAuthor();
+        unset($db);
+        return intval($iid);
     }
 
     protected function transMess($message) {
@@ -57,30 +81,6 @@ class Moco {
         error_log('message old('.$ses.') new('.$message.')');
 
         return $ses ? $message.'(-> '.$ses.' <-)' : $message;
-    }
-
-    private static function readid(): int {
-
-    	if (ONLINE) $iid = self::fromGet('id');
-    	else $iid = ARGU2;
-    	if ($iid) return intval($iid); //{ || $inputid == 0) {
-
-    	$db = new \model\TicketManager();
-    	$iid = $db->last();
-    	unset($db);
-    	return intval($iid);
-    }
-
-    private static function readcid(): int {
-
-    	if (ONLINE) $iid = self::fromGet('id');
-    	else $iid = ARGU2;
-    	if ($iid) return intval($iid);
-
-    	$db = new \model\TicketManager();
-    	$iid = $db->lastAuthor();
-    	unset($db);
-    	return intval($iid);
     }
 
     private static function passe(): ?string {
@@ -102,9 +102,9 @@ class Moco {
         unset($db);
 
         if ($access) {
-        	$_SESSION['user'] = $pseudo;
-        	error_log('user('.$pseudo.') login');
-        	return $pseudo;
+            $_SESSION['user'] = $pseudo;
+            error_log('user('.$pseudo.') login');
+            return $pseudo;
         }
 
         return null;

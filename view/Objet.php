@@ -4,7 +4,7 @@
  * @abstract dinamic frontend
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.3
+ * @version 0.0.5
  */
 class Objet {
 	/**
@@ -16,50 +16,70 @@ class Objet {
 		$total = count($rate);
 		$author = $controbjet->author;
 
-		echo '<h2>'.$controbjet->message.'</h2>';
         foreach (array_reverse($ta) as $ticket) {
 
-            $total --;
-            self::viewTicket($ticket, $author[$total], $rate[$total], true);
+        	//echo '<h2>'.$ticket->getTitle().'</h2>';
+        	$total --;
+            self::viewTicket($ticket, $author[$total], $rate[$total], 1);
         }
     }
 
-    protected static function linkTicket(\model\Ticket $ticket, $author): void {
+    protected static function viewTicket(\model\Ticket $ticket, $author, $rate, int $option = 0): void {
+
+        $lcl = '"loco"';
+        echo '<div class="container">';
+
+        if ($option == 0) self::ticketLink($ticket, $author, $lcl);
+    	elseif ($option == 1) echo $ticket;
+    	elseif ($option == 2) self::ticketOverview($ticket, $lcl);
+    	else error_log('todo');
 
     	$id = $ticket->getId();
-    	echo '<a class="lien" style="background-color: '.$ticket->getColor().';"';
+    	$user = isset($_SESSION['user']) ? $_SESSION['user'] : false;
+    	$href = 'href="'.WWW.'?page=';
+    	if ($user) {
+
+    		echo '<a id="modify" class='.$lcl;
+    		echo $href.'update&id='.$id;
+    		echo '">[modify #'.$id.']</a>';
+    		echo '<a id="delete" class='.$lcl;
+    		echo $href.'delete&id='.$id;
+    		echo '">[delete #'.$id.']</a>';
+    	}
+
+    	self::etoile($ticket, '"lien"', $rate);
+    	echo '</div>';
+    }
+
+    private static function etoile(\model\Ticket $ticket, string $link_class, int $rate) {
+
+        $id = $ticket->getId();
+        $href = 'href="'.WWW.'?page=';
+        echo '<a id="love" class='.$link_class;
+    	echo $href.'love&id='.$id.'">';
+    	if ($ticket->getLove() > 0) echo '<span class="fa fa-star checked">'.$rate.'</span>';
+    	else echo '<span class="fa fa-star">'.$rate.'</span>';
+    	echo '</a>';
+    }
+
+    private static function ticketLink(\model\Ticket $ticket, $author, string $lcl): void {
+
+    	$id = $ticket->getId();
+    	echo '<a class='.$lcl.' style="background-color: '.$ticket->getColor().';"';
     	echo 'href="'.WWW.'?page=objet&id='.$id.'">';
     	echo $id.' '.$ticket->getTitle().' '.$ticket->getDescription();
     	echo ' cuisinier: '.$author;
     	echo '</a>';
     }
 
-    protected static function viewTicket(\model\Ticket $ticket, $author, $rate, bool $entier = false): void {
-
-    	echo '<article>';
-
-    	if ($entier) echo $ticket;
-    	else self::linkTicket($ticket, $author);
+    private static function ticketOverview(\model\Ticket $ticket, string $lcl): void {
 
     	$id = $ticket->getId();
-    	$user = isset($_SESSION['user']) ? $_SESSION['user'] : false;
-    	if ($user) {
-    		echo '<a id="modify" class="lien"';
-    		echo 'href="'.WWW.'?page=update&id='.$id;
-    		echo '">[modify ticket #'.$id.']</a>';
-    		echo '<a id="delete" class="lien"';
-    		echo 'href="'.WWW.'?page=delete&id='.$id;
-    		echo '">[delete ticket #'.$id.']</a>';
-    	}
-
-    	echo '<a id="love" class="lien"';
-    	echo 'href="'.WWW.'?page=love&id='.$id;
-    	if ($ticket->getLove() > 0) echo '">[hate ticket #'.$id.' rate('.$rate[0].')]</a>';
-    	else echo '">[love ticket #'.$id.' rate('.$rate[0].')]</a>';
-    	echo '<article>';
+    	echo '<a class='.$lcl.' style="background-color: '.$ticket->getColor().';"';
+    	echo 'href="'.WWW.'?page=objet&id='.$id.'">';
+    	echo $ticket->overview();
+    	echo '</a>';
     }
-
-
 
 }
 

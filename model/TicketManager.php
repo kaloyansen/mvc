@@ -114,7 +114,7 @@ class TicketManager extends \model\BaseManager {
         return empty($ticket_array) ? false : $ticket_array;
     }
 
-    public function select($id = false) {
+    public function select(int $id = 0) {
 
     	if (!$id) return $this->selectAll();
     	$query = self::SELECT;
@@ -137,9 +137,9 @@ class TicketManager extends \model\BaseManager {
     	return empty($carray) ? false : $carray;
     }
 
-    public function selectAuthor($id = false) {
+    public function selectAuthor(int $id = 0) {
 
-    	if (!$id) return $this->selectAuthors();
+    	if (!$id) { return $this->selectAuthors(); }
         $query = "SELECT * FROM cuisinier WHERE cid=".$id;
     	$result = $this->sql($query);
     	if (!$result) return $this->error();

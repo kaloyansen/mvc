@@ -4,7 +4,7 @@
  * @see class attributes in superclass TicketPublic
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.4
+ * @version 0.0.5
  */
 class Ticket extends \model\TicketPublic {
 
@@ -29,7 +29,7 @@ class Ticket extends \model\TicketPublic {
     	error_log(' destruction');
     }
 
-    protected function consume($obj): void {
+    private function consume($obj): void {
 
     	$this->title = $obj->title;
     	$this->description = $obj->description;
@@ -45,75 +45,50 @@ class Ticket extends \model\TicketPublic {
     	$this->hide = $obj->hide;
     }
 
-    private static function euro(int $eu): string {
 
-    	$code = false;
-    	while (0 < $eu --) $code = $code.'€';
+    public function overview(bool $all = true): string {
 
-    	return $code;
-    }
-
-    private static function fouet(int $fou): string {
-
-    	$code = false;
-    	while (0 < $fou --) $code = $code.'<img src="'.IMG.'/fouet.png" alt="difficulté" />';
-
-    	return $code;
-    }
-
-    private static function second2hour(int $seconds): string {
-
-        $minutes = $seconds / 60;
-        $hour_float = $minutes / 60;
-        $hour = intval($hour_float);
-        $minute = ($hour_float - $hour) * 60;
-
-        $code = false;
-        if ($hour > 0) $code = $hour.'h ';
-        if ($minute > 0) $code = $code.$minute.'min';
-
-        return $code;
-    }
-
-    private static function string2list(string $input, string $delimiter = ',', bool $numbered = true): string {
-
-    	$sep_tag = explode($delimiter, $input);
-    	//$sep_tag = preg_split("/\".","."/", $input);
-    	$output = '<ul>';
-    	if ($numbered) $output = '<ol>';
-
-    	foreach ($sep_tag as $tag) $output = $output.'<li class="collection-item">'.$tag.'</li>';
-
-    	if ($numbered) return $output.'</ol>';
-    	return $output.'</ul>';
-    }
-
-    public function overview(bool $all = false): string {
-
-        $krava = '<div class="ticket" style="background-color: '.$this->color.';">';
+    	$img = IMG.'/recette.'.$this->getId().'.jpg';
+    	$krava = '<div class="ticket" style="background-color: '.$this->color.';">';
         $krava = $krava.$this->title;
-        $krava = $krava.'('.$this->description.') ';
+        //$krava = $krava.self::photo($this->getId());
+        $krava = $krava.self::figure($img, $this->description, 'moyenne');
+        //$krava = $krava.$this->description;
 
         if ($all) {
-            $krava = $krava.'temps: '.$this->temps.' secondes, ';
-            $krava = $krava.'prix: '.$this->prix.'€, ';
-            $krava = $krava.'pour '.$this->personne.' personnes, ';
-            $krava = $krava.'publié: '.$this->jour;
+        	$krava = $krava.'<br />temps: '.self::second2hour($this->temps);
+        	$krava = $krava.', difficulté '.self::fouet($this->diff);
+        	$krava = $krava.'<br />prix: '.self::euro($this->prix);
+            $krava = $krava.' '.$this->personne.' personnes';
+            //$krava = $krava.'publié: '.$this->jour;
         }
 
         return $krava.'</div>';
     }
 
+    /** @see /media/css/style.css for datails
+     * @deprecated */
+    protected static function photo($id, $taille = 'moyenne'): string {
+
+    	$img = IMG.'/recette.'.$id.'.jpg';
+    	return '<img class="'.$taille.'" src="'.$img.'" alt="'.$img.'" />';
+    }
+
     public function __toString(): string {
 
     	$br = '<br />';
+    	$img = IMG.'/recette.'.$this->getId().'.jpg';
+
     	$krava = '<div class="ticket" style="background-color: '.$this->color.';">';
-    	$krava = $krava.$br.$this->description;
+    	$krava = $krava.self::figure($img, $this->description, 'grand');
+    	//0$krava = $krava.$br.$this->description;
     	$krava = $krava.$br.'temps: '.self::second2hour($this->temps);
     	$krava = $krava.', difficulté '.self::fouet($this->diff);
     	$krava = $krava.', prix: '.self::euro($this->prix);
     	$krava = $krava.$br.'produits pour '.$this->personne.' personnes:';
     	$krava = $krava.$br.self::string2list($this->keywords);
+
+    	//$krava = $krava.self::photo($this->getId(), 'grand');
     	$krava = $krava.$br.self::string2list($this->body, '.', false);
     	$krava = $krava.$br.'publiée: '.$this->jour;
     	return $krava.$br.'</div>';

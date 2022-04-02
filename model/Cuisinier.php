@@ -5,7 +5,7 @@
  * @link kaloyansen@gmail.com
  * @version 0.0.1
  */
-class Cuisinier {
+class Cuisinier extends \model\Transport {
 
     private int $id;
     private string $nom;
@@ -13,10 +13,10 @@ class Cuisinier {
     private string $photo;
 	/**
 	 */
-	public function __construct($objet = false, $id = false) {
+	public function __construct($objet = false, int $id = 0) {
 
 		if ($id) $this->setId($id);
-		if ($objet) $this->consume($objet);
+		$this->consume($objet);
 	}
 
 	public function getId(): int { return $this->id; }
@@ -26,21 +26,23 @@ class Cuisinier {
 	public function setNom(string $nom): void { $this->nom = $nom; }
 	public function setPrenom(string $prenom): void { $this->prenom = $prenom; }
 
-	protected function consume($obj): void {
+	protected function consume($objet): void {
 
-		$this->id = $obj->cid;
-		$this->nom = $obj->nom;
-		$this->prenom = $obj->prenom;
-		$this->photo = $obj->photo;
+		if (!$objet) error_log('séro object in class: '.__CLASS__.' in void methot: consume');
+		$this->id = $objet->cid;
+		$this->nom = $objet->nom;
+		$this->prenom = $objet->prenom;
+		if ($objet->photo) $this->photo = $objet->photo;
 	}
 
 	public function __toString(): string {
 
 		$br = '<br />';
-		$code = '<div class="ticket">';
-		$code = $code.$br.$this->nom.', '.$this->prenom;
-		$photo = 'cuisinier.'.$this->id.'.png';
-		$code = $code.'<img src="'.IMG.'/'.$photo.'" alt="'.$photo.' not found" />';
+		$code = '<div class="chef">';//todo class in css
+		//$code = $code.$br.$this->nom.', '.$this->prenom;
+		$fichier = IMG.'/cuisinier.'.$this->id.'.png';
+		//$code = $code.'<img class="petit" src="'.$fichier.'" alt="'.$fichier.' not found" />';
+		$code = $code.self::figure($fichier, 'chef '.$this->nom.', '.$this->prenom);
 		return $code.$br.'</div>';
 	}
 

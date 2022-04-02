@@ -21,7 +21,7 @@ class Lien extends \view\Objet {
         foreach (array_reverse($ta) as $ticket) {
 
         	$total --;
-        	self::viewTicket($ticket, $author[$total], $rate[$total]);
+        	self::viewTicket($ticket, $author[$total], $rate[$total], 2);
         }
 
     }

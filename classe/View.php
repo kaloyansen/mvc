@@ -8,32 +8,32 @@
  */
 class View {
     private $chemin;
-    private $titre;
+    private $title;
     private $description;
     private $keywords;
 
-    public function __construct($chemin, $titre = 0, $description = 0, $keywords = 0) {
+    public function __construct($chemin, $title = 0, $description = 0, $keywords = 0) {
 
         $this->chemin = $chemin;
-        $this->titre = 'titre par default';
+        $this->title = 'title par default';
         $this->description = 'description par default';
         $this->keywords = 'clé par default';
 
-        if ($titre) $this->titre = $titre;
+        if ($title) $this->title = $title;
         if ($description) $this->description = $description;
         if ($keywords) $this->keywords = $keywords;
     }
 
     public function manger(\model\Ticket $ticket): void {
 
-    	$this->titre = $ticket->getTitle();
+    	$this->title = $ticket->getTitle();
     	$this->description = $ticket->getDescription();
     	$this->keywords = $ticket->getKeywords();
     }
 
-/**
-     * @desc téléporte au _gabarit.php
-     */
+    /**
+      * @desc téléporte au _gabarit.php
+      */
     public function afficher($controbjet = 0) {
 
         $dinaclass = '\\view\\'.ucfirst($this->chemin);
@@ -44,7 +44,7 @@ class View {
 
         $gabarit = new \view\Gabarit($content);
         $gabarit->tourne( (object) array(
-            'titre' => $this->titre,
+            'title' => $this->title,
             'description' => $this->description,
             'keywords' => $this->keywords));
     }

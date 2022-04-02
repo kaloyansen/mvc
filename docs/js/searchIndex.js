@@ -171,10 +171,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/classe-View.html#property_chemin"
         },                {
-            "fqsen": "\\classe\\View\u003A\u003A\u0024titre",
-            "name": "titre",
+            "fqsen": "\\classe\\View\u003A\u003A\u0024title",
+            "name": "title",
             "summary": "",
-            "url": "classes/classe-View.html#property_titre"
+            "url": "classes/classe-View.html#property_title"
         },                {
             "fqsen": "\\classe\\View\u003A\u003A\u0024description",
             "name": "description",
@@ -876,30 +876,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-Ticket.html#method_consume"
         },                {
-            "fqsen": "\\model\\Ticket\u003A\u003Aeuro\u0028\u0029",
-            "name": "euro",
-            "summary": "",
-            "url": "classes/model-Ticket.html#method_euro"
-        },                {
-            "fqsen": "\\model\\Ticket\u003A\u003Afouet\u0028\u0029",
-            "name": "fouet",
-            "summary": "",
-            "url": "classes/model-Ticket.html#method_fouet"
-        },                {
-            "fqsen": "\\model\\Ticket\u003A\u003Asecond2hour\u0028\u0029",
-            "name": "second2hour",
-            "summary": "",
-            "url": "classes/model-Ticket.html#method_second2hour"
-        },                {
-            "fqsen": "\\model\\Ticket\u003A\u003Astring2list\u0028\u0029",
-            "name": "string2list",
-            "summary": "",
-            "url": "classes/model-Ticket.html#method_string2list"
-        },                {
             "fqsen": "\\model\\Ticket\u003A\u003Aoverview\u0028\u0029",
             "name": "overview",
             "summary": "",
             "url": "classes/model-Ticket.html#method_overview"
+        },                {
+            "fqsen": "\\model\\Ticket\u003A\u003Aphoto\u0028\u0029",
+            "name": "photo",
+            "summary": "",
+            "url": "classes/model-Ticket.html#method_photo"
         },                {
             "fqsen": "\\model\\Ticket\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
@@ -1101,20 +1086,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/controller-Moco.html#method_cidLoad"
         },                {
+            "fqsen": "\\controller\\Moco\u003A\u003AreadId\u0028\u0029",
+            "name": "readId",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_readId"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003AreadCid\u0028\u0029",
+            "name": "readCid",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_readCid"
+        },                {
             "fqsen": "\\controller\\Moco\u003A\u003AtransMess\u0028\u0029",
             "name": "transMess",
             "summary": "",
             "url": "classes/controller-Moco.html#method_transMess"
-        },                {
-            "fqsen": "\\controller\\Moco\u003A\u003Areadid\u0028\u0029",
-            "name": "readid",
-            "summary": "",
-            "url": "classes/controller-Moco.html#method_readid"
-        },                {
-            "fqsen": "\\controller\\Moco\u003A\u003Areadcid\u0028\u0029",
-            "name": "readcid",
-            "summary": "",
-            "url": "classes/controller-Moco.html#method_readcid"
         },                {
             "fqsen": "\\controller\\Moco\u003A\u003Apasse\u0028\u0029",
             "name": "passe",
@@ -1381,15 +1366,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Objet.html#method___construct"
         },                {
-            "fqsen": "\\view\\Objet\u003A\u003AlinkTicket\u0028\u0029",
-            "name": "linkTicket",
-            "summary": "",
-            "url": "classes/view-Objet.html#method_linkTicket"
-        },                {
             "fqsen": "\\view\\Objet\u003A\u003AviewTicket\u0028\u0029",
             "name": "viewTicket",
             "summary": "",
             "url": "classes/view-Objet.html#method_viewTicket"
+        },                {
+            "fqsen": "\\view\\Objet\u003A\u003Aetoile\u0028\u0029",
+            "name": "etoile",
+            "summary": "",
+            "url": "classes/view-Objet.html#method_etoile"
+        },                {
+            "fqsen": "\\view\\Objet\u003A\u003AticketLink\u0028\u0029",
+            "name": "ticketLink",
+            "summary": "",
+            "url": "classes/view-Objet.html#method_ticketLink"
+        },                {
+            "fqsen": "\\view\\Objet\u003A\u003AticketOverview\u0028\u0029",
+            "name": "ticketOverview",
+            "summary": "",
+            "url": "classes/view-Objet.html#method_ticketOverview"
         },                {
             "fqsen": "\\view\\Perdu",
             "name": "Perdu",
@@ -1485,6 +1480,41 @@ Search.appendIndex(
             "name": "__construct",
             "summary": "",
             "url": "classes/view-Author.html#method___construct"
+        },                {
+            "fqsen": "\\view\\Author\u003A\u003AviewAuthor\u0028\u0029",
+            "name": "viewAuthor",
+            "summary": "",
+            "url": "classes/view-Author.html#method_viewAuthor"
+        },                {
+            "fqsen": "\\model\\Transport",
+            "name": "Transport",
+            "summary": "",
+            "url": "classes/model-Transport.html"
+        },                {
+            "fqsen": "\\model\\Transport\u003A\u003Afigure\u0028\u0029",
+            "name": "figure",
+            "summary": "",
+            "url": "classes/model-Transport.html#method_figure"
+        },                {
+            "fqsen": "\\model\\Transport\u003A\u003Aeuro\u0028\u0029",
+            "name": "euro",
+            "summary": "",
+            "url": "classes/model-Transport.html#method_euro"
+        },                {
+            "fqsen": "\\model\\Transport\u003A\u003Afouet\u0028\u0029",
+            "name": "fouet",
+            "summary": "",
+            "url": "classes/model-Transport.html#method_fouet"
+        },                {
+            "fqsen": "\\model\\Transport\u003A\u003Asecond2hour\u0028\u0029",
+            "name": "second2hour",
+            "summary": "",
+            "url": "classes/model-Transport.html#method_second2hour"
+        },                {
+            "fqsen": "\\model\\Transport\u003A\u003Astring2list\u0028\u0029",
+            "name": "string2list",
+            "summary": "",
+            "url": "classes/model-Transport.html#method_string2list"
         },                {
             "fqsen": "\\",
             "name": "\\",

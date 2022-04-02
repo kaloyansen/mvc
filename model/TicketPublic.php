@@ -6,7 +6,7 @@
  * @link kaloyansen@gmail.com
  * @version 0.0.4
  */
-class TicketPublic {
+class TicketPublic extends \model\Transport {
 
     private $id;
 
