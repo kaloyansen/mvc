@@ -1,9 +1,9 @@
 <?php namespace model;
 /**
+ * @desc ticket database interface
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @desc ticket database interface
- * @version 0.0.2
+ * @version 0.0.3
  */
 class TicketManager extends \model\BaseManager {
 
@@ -27,7 +27,7 @@ class TicketManager extends \model\BaseManager {
     	return mysqli_fetch_array($result)[0];
     }
 
-    public function author(\model\Ticket $ticket) {
+    public function authorName(\model\Ticket $ticket) {
 
     	$cuisinier = $this->authorId($ticket);
     	$query = "SELECT nom FROM cuisinier WHERE cid=".$cuisinier;
@@ -150,17 +150,34 @@ class TicketManager extends \model\BaseManager {
     public function insert(\model\Ticket $ticket) {
 
     	$query = "INSERT INTO ".self::TABLE;
-        $query = $query."(title, body, position, status, color, description, keywords)";
-        $query = $query." VALUES('".$ticket->getTitle();
-        $query = $query."', '".$ticket->getBody();
-        $query = $query."', '".$ticket->getPosition();
-        $query = $query."', '".$ticket->getStatus();
-        $query = $query."', '".$ticket->getColor();
-        $query = $query."', '".$ticket->getDescription();
-        $query = $query."', '".$ticket->getKeywords()."')";
-        $result = $this->sql($query);
-        if (!$result) return $this->error();
-        return $result;
+    	$query = $query."(title, body, position, status, color, description, keywords)";
+    	$query = $query." VALUES";
+    	$query = $query.self::INSEB;
+    	$query = $query.$ticket->getTitle().self::INSEP;
+    	$query = $query.$ticket->getBody().self::INSEP;
+    	$query = $query.$ticket->getPosition().self::INSEP;
+    	$query = $query.$ticket->getStatus().self::INSEP;
+    	$query = $query.$ticket->getColor().self::INSEP;
+    	$query = $query.$ticket->getDescription().self::INSEP;
+    	$query = $query.$ticket->getKeywords().self::INSEF;
+    	$result = $this->sql($query);
+    	if (!$result) return $this->error();
+    	return $result;
+    }
+
+    public function insertAuthor(\model\Cuisinier $cuisinier) {
+
+    	$query = "INSERT INTO cuisinier";
+    	$query = $query."(nom, prenom, photo)";
+    	$query = $query." VALUES";
+    	$query = $query.self::INSEB;
+    	$query = $query.$cuisinier->getNom().self::INSEP;
+    	$query = $query.$cuisinier->getPrenom().self::INSEP;
+    	$query = $query.$cuisinier->getPhoto().self::INSEF;
+
+    	$result = $this->sql($query);
+    	if (!$result) return $this->error();
+    	return $result;
     }
 
     public function update($id, \model\Ticket $ticket) {
@@ -180,6 +197,14 @@ class TicketManager extends \model\BaseManager {
     public function delete($id) {
 
     	$query = "DELETE FROM ".self::TABLE.self::WHERE.$id;
+    	$result = $this->sql($query);
+    	if (!$result) return $this->error();
+    	return $result;
+    }
+
+    public function deleteAuthor($id) {
+
+        $query = "DELETE FROM cuisinier WHERE cid=".$id;
         $result = $this->sql($query);
         if (!$result) return $this->error();
         return $result;

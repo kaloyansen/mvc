@@ -1,15 +1,20 @@
 <?php namespace controller;
 /**
  * @desc BackOffice COntroller Boco extends FrontOffice COntroller class Foco
- * @abstract backoffice methods are reserved to administrator
+ * @abstract backoffice methods are reserved to administrators
  * @namespace controller
  * @category controller
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.3
+ * @version 0.0.6
  */
 class Boco extends \controller\Foco {
-
+    /**
+     * @desc admin peux
+     * créer un autre admin
+     * créer ou effacer un cuisinier
+     * créer, modifier et effacer une recette
+     * */
     public function __construct($page = false) {
 
         $access = self::checkAccess();
@@ -17,56 +22,91 @@ class Boco extends \controller\Foco {
         if (!$access) {
             self::interdire();
             if (!$page) error_log('expect argument in constructer of '.__CLASS__);
-            self::setPage($page);
+            else self::setPage($page);
             $this->login();
         } else {
             self::permettre();
         }
     }
 
-    public function deconnexion() {
+    public function deconnexion(): void {
 
         $user = self::fromSession('user');
+        $view_class = 'admin/deconnexion';
         if (!$user) $user = 'guest';//something wrong
         $message = $user.' deconnexion';
 
-        $view = new \classe\View('admin/deconnexion', $message, 'deconnexion', 'clé 5');
-        $view->afficher( (object) array('user' => $user,
-                                        'message' => $this->transMess($message)) );
+        $view = new \classe\View($view_class, $message, 'deconnexion', 'clé 5');
+        $view->afficher( array('user' => $user,
+                               'message' => $this->transMess($message)) );
     }
 
-	public function insert() {
+    public function admin(): void {
 
-		$do_insert = true;
-		$ticket_load_post = false;
+    	$view_class = 'admin';
+    	$do_insert = true;
+    	$load_post = false;
 
-		if (ONLINE && self::fromPost('new_ticket_form_fill')) $ticket_load_post = true;
-		else $do_insert = false;
+    	if (ONLINE && self::fromPost('new_admin_form_fill')) $load_post = true;
+    	else $do_insert = false;
 
-		$ticket = new \model\Ticket();
-		if ($ticket_load_post) $ticket->loadPost();
+    	$admin = new \model\Membre();
+    	if ($load_post) $admin->loadPost();
 
-		if ($do_insert) {
-			$db = new \model\TicketManager();
-			$db_insert = $db->insert($ticket);
-			$db_last = $db->last();
-			$this->transMess('ticked #'.$db_last.' created('.$db_insert.')');
-			unset($db);
-			header('location: '.WWW.'?page=objet&id='.$db_last);
-		}
+    	$db = new \model\MembreManager();
 
-		$view = new \classe\View('admin/insert_form');
-		$view->manger($ticket);
-		$view->afficher( (object) array('message' => $this->transMess('create new ticket')) );
-	}
+    	if ($do_insert) {
 
-	public function update() {
+    		$db_insert = $db->insert($admin);
+    		$db_last = $db->last();
+    		$this->transMess('admin #'.$db_last.' created('.$db_insert.')');
+    		unset($db);
+    		header('location: '.WWW.'?page=admin&id='.$db_last);//
+    	}
 
-		self::idLoad();
+        $admin_array = $db->selectAll();
+    	unset($db);
+
+    	$title = 'créer un(e) administrateur';//afficher le formulaire de création d'un administrateur
+    	$view = new \classe\View($view_class, $title, $admin->getPseudo(), $admin->getId());
+    	$view->afficher( array('message' => $this->transMess($title),
+                               'admin_array' => $admin_array) );
+    }
+
+    public function insert(): void {
+
+    	$view_class = 'insert';
+    	$do_insert = true;
+    	$ticket_load_post = false;
+
+    	if (ONLINE && self::fromPost('new_ticket_form_fill')) $ticket_load_post = true;
+    	else $do_insert = false;
+
+    	$ticket = new \model\Ticket();
+    	if ($ticket_load_post) $ticket->loadPost();
+
+    	if ($do_insert) {
+    		$db = new \model\TicketManager();
+    		$db_insert = $db->insert($ticket);
+    		$db_last = $db->last();
+    		$this->transMess('ticked #'.$db_last.' created('.$db_insert.')');
+    		unset($db);
+    		header('location: '.WWW.'?page=objet&id='.$db_last);
+    	}
+
+    	$view = new \classe\View($view_class);
+    	$view->manger($ticket);
+    	$view->afficher( array('message' => $this->transMess('create new ticket')) );
+    }
+
+    public function update(): void {
+
+		$id = self::idLoad();
+		$view_class = 'admin/update_form';
 
 		$do_update = true;
 		$db = new \model\TicketManager();
-		$ticket = $db->select(self::id());
+		$ticket = $db->select($id);
 
 		if (ONLINE) {
 			if (self::fromPost('update_ticket_form_fill')) $ticket->loadPost();
@@ -77,22 +117,22 @@ class Boco extends \controller\Foco {
 
 		$message = 'update '.self::tikid();
 		if ($do_update) {
-			$message = self::tikid().' updated('.$db->update(self::id(), $ticket).')';
+			$message = self::tikid().' updated('.$db->update($id, $ticket).')';
 			unset($db);
-			header('location: '.WWW.'?page=objet&id='.self::id());
+			header('location: '.WWW.'?page=objet&id='.$id);
 		}
 
 		unset($db);
 
-		$view = new \classe\View('admin/update_form');
+		$view = new \classe\View($view_class);
 		$view->manger($ticket);
-		$view->afficher( (object) array('message' => $this->transMess($message),
-                                        'ticket' => $ticket) );
+		$view->afficher( array('message' => $this->transMess($message),
+                               'ticket' => $ticket) );
 	}
 
-	public function delete() {
+	public function delete(): void {
 
-		self::idLoad();
+		$id = self::idLoad();
 
 		if (ONLINE) {
 
@@ -109,16 +149,16 @@ class Boco extends \controller\Foco {
 
 		if (!$roule) {/* afficher la confirmation
 			*/
-			$view_chemin = 'admin/delete_confirmation';
+			$view_class = 'admin/delete_confirmation';
 			$message = 'delete '.self::tikid().' confirmation';
-			$ticket_array[] = $db->select(self::id());
+			$ticket_array[] = $db->select($id);
 		} else {/* sortir
 			*/
-			$view_chemin = 'lien';
+			$view_class = 'lien';
 			if ($roule == 'nodel') {
 				$message = self::tikid().' not deleted';
 			} elseif ($roule == 'del') {
-				$message = self::tikid().' deleted('.$db->delete(self::id()).')';
+				$message = self::tikid().' deleted('.$db->delete($id).')';
 			} else {
 				$message = 'bordel';
 			}
@@ -129,40 +169,40 @@ class Boco extends \controller\Foco {
 		unset($db);
 		$ticket = $ticket_array[0];
 
-		$view = new \classe\View($view_chemin);
+		$view = new \classe\View($view_class);
 		$view->manger($ticket);
-		$view->afficher( (object) array('user' => self::fromSession('user'),
-                                        'message' => $this->transMess($message),
-                                        'ticket_array' => $ticket_array) );
+		$view->afficher( array('user' => self::fromSession('user'),
+                               'message' => $this->transMess($message),
+                               'ticket_array' => $ticket_array) );
 	}
 
 	private function login(): void {
 
+		$view_class = 'login';
 		$page = self::getPage();
 		if (!$page) $page = 'home';
 
 		$message = 'accès à la zone d\'administration';
-		$view = new \classe\View('admin/login_form', $message, 'description', 'clé');
-		$view->afficher( (object) array('message' => $this->transMess($message),
-                                        'action' => WWW.'?page='.$page));
-		//return 0;
+		$view = new \classe\View($view_class, $message, 'description', 'clé');
+		$view->afficher( array('message' => $this->transMess($message),
+                               'action' => WWW.'?page='.$page) );
 	}
 
-	public function home() {
+	public function home(): void {
 
-		self::idLoad();
+		$id = self::idLoad();
+		$view_class = 'objet';
 
 		$manager = new \model\TicketManager();
-		$ticket = $manager->select(self::id());
+		$ticket = $manager->select($id);
 		$ticket_array[] = $ticket;
 		unset($manager);
 
-		$view = new \classe\View('objet');
+		$view = new \classe\View($view_class);
 		$view->manger($ticket);
-		$view->afficher( (object) array('message' => $this->transMess('zone d\'administration'),
-                                        'user' => self::fromSession('user'),
-                                        'ticket_array' => $ticket_array));
-		//return 0;
+		$view->afficher( array('message' => $this->transMess('zone d\'administration'),
+                               'user' => self::fromSession('user'),
+                               'ticket_array' => $ticket_array) );
 	}
 
 } ?>

@@ -34,6 +34,9 @@ class Control {
             case 'lien':
             	$chemin = $frontofficecontroller;
             	break;
+            case 'over':
+            	$chemin = $frontofficecontroller;
+            	break;
             case 'author':
             	$chemin = $frontofficecontroller;
             	break;

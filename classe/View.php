@@ -34,9 +34,11 @@ class View {
     /**
       * @desc téléporte au _gabarit.php
       */
-    public function afficher($controbjet = 0) {
+    public function afficher($contrarray = 0) {
 
-        $dinaclass = '\\view\\'.ucfirst($this->chemin);
+    	$controbjet = (object) $contrarray;
+
+      	$dinaclass = '\\view\\'.ucfirst($this->chemin);
 
         ob_start();
         new $dinaclass($controbjet);

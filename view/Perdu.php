@@ -10,7 +10,7 @@ class Perdu {
 
 	function __construct($controbjet) { self::draw($controbjet->message); }
 	private static function draw($message): void {
-        ?><article class="box">
+        ?><article class="ticket">
             <h3>an error occurred</h3>
             <h2><?=$message;?></h2>
 

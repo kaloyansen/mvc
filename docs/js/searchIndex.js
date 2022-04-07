@@ -606,6 +606,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/controller-Boco.html#method_deconnexion"
         },                {
+            "fqsen": "\\controller\\Boco\u003A\u003Aadmin\u0028\u0029",
+            "name": "admin",
+            "summary": "",
+            "url": "classes/controller-Boco.html#method_admin"
+        },                {
             "fqsen": "\\controller\\Boco\u003A\u003Ainsert\u0028\u0029",
             "name": "insert",
             "summary": "",
@@ -656,15 +661,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/controller-Foco.html#method_objet"
         },                {
-            "fqsen": "\\controller\\Foco\u003A\u003Afill\u0028\u0029",
-            "name": "fill",
-            "summary": "",
-            "url": "classes/controller-Foco.html#method_fill"
-        },                {
             "fqsen": "\\controller\\Foco\u003A\u003Aauthor\u0028\u0029",
             "name": "author",
             "summary": "",
             "url": "classes/controller-Foco.html#method_author"
+        },                {
+            "fqsen": "\\controller\\Foco\u003A\u003Aover\u0028\u0029",
+            "name": "over",
+            "summary": "",
+            "url": "classes/controller-Foco.html#method_over"
         },                {
             "fqsen": "\\controller\\Foco\u003A\u003Aperdu\u0028\u0029",
             "name": "perdu",
@@ -731,6 +736,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-BaseManager.html#method_getPropArray"
         },                {
+            "fqsen": "\\model\\BaseManager\u003A\u003AINSEB",
+            "name": "INSEB",
+            "summary": "",
+            "url": "classes/model-BaseManager.html#constant_INSEB"
+        },                {
+            "fqsen": "\\model\\BaseManager\u003A\u003AINSEP",
+            "name": "INSEP",
+            "summary": "",
+            "url": "classes/model-BaseManager.html#constant_INSEP"
+        },                {
+            "fqsen": "\\model\\BaseManager\u003A\u003AINSEF",
+            "name": "INSEF",
+            "summary": "",
+            "url": "classes/model-BaseManager.html#constant_INSEF"
+        },                {
             "fqsen": "\\model\\BaseManager\u003A\u003A\u0024conn",
             "name": "conn",
             "summary": "",
@@ -781,15 +801,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-Membre.html#method_neuf"
         },                {
-            "fqsen": "\\model\\Membre\u003A\u003Atake\u0028\u0029",
-            "name": "take",
+            "fqsen": "\\model\\Membre\u003A\u003Aconsume\u0028\u0029",
+            "name": "consume",
             "summary": "",
-            "url": "classes/model-Membre.html#method_take"
+            "url": "classes/model-Membre.html#method_consume"
         },                {
             "fqsen": "\\model\\Membre\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
             "summary": "",
             "url": "classes/model-Membre.html#method_getId"
+        },                {
+            "fqsen": "\\model\\Membre\u003A\u003AgetParent\u0028\u0029",
+            "name": "getParent",
+            "summary": "",
+            "url": "classes/model-Membre.html#method_getParent"
         },                {
             "fqsen": "\\model\\Membre\u003A\u003AgetPseudo\u0028\u0029",
             "name": "getPseudo",
@@ -805,6 +830,11 @@ Search.appendIndex(
             "name": "setId",
             "summary": "",
             "url": "classes/model-Membre.html#method_setId"
+        },                {
+            "fqsen": "\\model\\Membre\u003A\u003AsetParent\u0028\u0029",
+            "name": "setParent",
+            "summary": "",
+            "url": "classes/model-Membre.html#method_setParent"
         },                {
             "fqsen": "\\model\\Membre\u003A\u003AsetPseudo\u0028\u0029",
             "name": "setPseudo",
@@ -826,6 +856,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-Membre.html#property_id"
         },                {
+            "fqsen": "\\model\\Membre\u003A\u003A\u0024parent",
+            "name": "parent",
+            "summary": "",
+            "url": "classes/model-Membre.html#property_parent"
+        },                {
             "fqsen": "\\model\\Membre\u003A\u003A\u0024pseudo",
             "name": "pseudo",
             "summary": "",
@@ -846,10 +881,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-MembreManager.html#method_select"
         },                {
+            "fqsen": "\\model\\MembreManager\u003A\u003AselectAll\u0028\u0029",
+            "name": "selectAll",
+            "summary": "",
+            "url": "classes/model-MembreManager.html#method_selectAll"
+        },                {
             "fqsen": "\\model\\MembreManager\u003A\u003Ainsert\u0028\u0029",
             "name": "insert",
             "summary": "",
             "url": "classes/model-MembreManager.html#method_insert"
+        },                {
+            "fqsen": "\\model\\MembreManager\u003A\u003Alast\u0028\u0029",
+            "name": "last",
+            "summary": "",
+            "url": "classes/model-MembreManager.html#method_last"
+        },                {
+            "fqsen": "\\model\\MembreManager\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "",
+            "url": "classes/model-MembreManager.html#method_delete"
         },                {
             "fqsen": "\\model\\MembreManager\u003A\u003A\u0024tab",
             "name": "tab",
@@ -881,25 +931,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-Ticket.html#method_overview"
         },                {
-            "fqsen": "\\model\\Ticket\u003A\u003Aphoto\u0028\u0029",
-            "name": "photo",
-            "summary": "",
-            "url": "classes/model-Ticket.html#method_photo"
-        },                {
             "fqsen": "\\model\\Ticket\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
             "summary": "",
             "url": "classes/model-Ticket.html#method___toString"
-        },                {
-            "fqsen": "\\model\\Ticket\u003A\u003Avalidation\u0028\u0029",
-            "name": "validation",
-            "summary": "",
-            "url": "classes/model-Ticket.html#method_validation"
-        },                {
-            "fqsen": "\\model\\Ticket\u003A\u003AloadPost\u0028\u0029",
-            "name": "loadPost",
-            "summary": "",
-            "url": "classes/model-Ticket.html#method_loadPost"
         },                {
             "fqsen": "\\model\\Ticket\u003A\u003ArandomBody\u0028\u0029",
             "name": "randomBody",
@@ -921,10 +956,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-TicketManager.html#method_authorId"
         },                {
-            "fqsen": "\\model\\TicketManager\u003A\u003Aauthor\u0028\u0029",
-            "name": "author",
+            "fqsen": "\\model\\TicketManager\u003A\u003AauthorName\u0028\u0029",
+            "name": "authorName",
             "summary": "",
-            "url": "classes/model-TicketManager.html#method_author"
+            "url": "classes/model-TicketManager.html#method_authorName"
         },                {
             "fqsen": "\\model\\TicketManager\u003A\u003Alast\u0028\u0029",
             "name": "last",
@@ -981,6 +1016,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-TicketManager.html#method_insert"
         },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003AinsertAuthor\u0028\u0029",
+            "name": "insertAuthor",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_insertAuthor"
+        },                {
             "fqsen": "\\model\\TicketManager\u003A\u003Aupdate\u0028\u0029",
             "name": "update",
             "summary": "",
@@ -990,6 +1030,11 @@ Search.appendIndex(
             "name": "delete",
             "summary": "",
             "url": "classes/model-TicketManager.html#method_delete"
+        },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003AdeleteAuthor\u0028\u0029",
+            "name": "deleteAuthor",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_deleteAuthor"
         },                {
             "fqsen": "\\model\\TicketManager\u003A\u003ATABLE",
             "name": "TABLE",
@@ -1191,6 +1236,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-TicketPublic.html#method_setHide"
         },                {
+            "fqsen": "\\model\\TicketPublic\u003A\u003AsetCuisinier\u0028\u0029",
+            "name": "setCuisinier",
+            "summary": "",
+            "url": "classes/model-TicketPublic.html#method_setCuisinier"
+        },                {
             "fqsen": "\\model\\TicketPublic\u003A\u003AsetLove\u0028\u0029",
             "name": "setLove",
             "summary": "",
@@ -1256,6 +1306,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-TicketPublic.html#method_getHide"
         },                {
+            "fqsen": "\\model\\TicketPublic\u003A\u003AgetCuisinier\u0028\u0029",
+            "name": "getCuisinier",
+            "summary": "",
+            "url": "classes/model-TicketPublic.html#method_getCuisinier"
+        },                {
             "fqsen": "\\model\\TicketPublic\u003A\u003AgetLove\u0028\u0029",
             "name": "getLove",
             "summary": "",
@@ -1320,6 +1375,11 @@ Search.appendIndex(
             "name": "hide",
             "summary": "",
             "url": "classes/model-TicketPublic.html#property_hide"
+        },                {
+            "fqsen": "\\model\\TicketPublic\u003A\u003A\u0024cuisinier",
+            "name": "cuisinier",
+            "summary": "",
+            "url": "classes/model-TicketPublic.html#property_cuisinier"
         },                {
             "fqsen": "\\model\\TicketPublic\u003A\u003A\u0024love",
             "name": "love",
@@ -1426,6 +1486,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-Cuisinier.html#method_getPrenom"
         },                {
+            "fqsen": "\\model\\Cuisinier\u003A\u003AgetPhoto\u0028\u0029",
+            "name": "getPhoto",
+            "summary": "",
+            "url": "classes/model-Cuisinier.html#method_getPhoto"
+        },                {
             "fqsen": "\\model\\Cuisinier\u003A\u003AsetId\u0028\u0029",
             "name": "setId",
             "summary": "",
@@ -1440,6 +1505,11 @@ Search.appendIndex(
             "name": "setPrenom",
             "summary": "",
             "url": "classes/model-Cuisinier.html#method_setPrenom"
+        },                {
+            "fqsen": "\\model\\Cuisinier\u003A\u003AsetPhoto\u0028\u0029",
+            "name": "setPhoto",
+            "summary": "",
+            "url": "classes/model-Cuisinier.html#method_setPhoto"
         },                {
             "fqsen": "\\model\\Cuisinier\u003A\u003Aconsume\u0028\u0029",
             "name": "consume",
@@ -1491,6 +1561,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-Transport.html"
         },                {
+            "fqsen": "\\model\\Transport\u003A\u003AloadPost\u0028\u0029",
+            "name": "loadPost",
+            "summary": "",
+            "url": "classes/model-Transport.html#method_loadPost"
+        },                {
             "fqsen": "\\model\\Transport\u003A\u003Afigure\u0028\u0029",
             "name": "figure",
             "summary": "",
@@ -1515,6 +1590,36 @@ Search.appendIndex(
             "name": "string2list",
             "summary": "",
             "url": "classes/model-Transport.html#method_string2list"
+        },                {
+            "fqsen": "\\view\\Insert",
+            "name": "Insert",
+            "summary": "",
+            "url": "classes/view-Insert.html"
+        },                {
+            "fqsen": "\\view\\Insert\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/view-Insert.html#method___construct"
+        },                {
+            "fqsen": "\\view\\Login",
+            "name": "Login",
+            "summary": "",
+            "url": "classes/view-Login.html"
+        },                {
+            "fqsen": "\\view\\Login\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/view-Login.html#method___construct"
+        },                {
+            "fqsen": "\\view\\Over",
+            "name": "Over",
+            "summary": "",
+            "url": "classes/view-Over.html"
+        },                {
+            "fqsen": "\\view\\Over\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/view-Over.html#method___construct"
         },                {
             "fqsen": "\\",
             "name": "\\",

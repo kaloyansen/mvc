@@ -6,7 +6,7 @@
  * @category controller
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.1.1
+ * @version 0.1.3
  */
 class Foco extends \controller\Moco {
 
@@ -20,33 +20,35 @@ class Foco extends \controller\Moco {
     public function love(): void {
 
     	$id = self::idLoad();
+    	$view_class = self::getPage();
+
     	$rate = array();
     	$tickets = array();
-    	$author = array();
+    	//$author = array();
 
     	$mana = new \model\TicketManager();
     	$message = $mana->loveMeDo($id);
     	$ticket = $mana->select($id);
     	$ticket->setLove($mana->sheLovesMe($id));
-    	$author[] = $mana->author($ticket);
+    	//$author[] = $mana->authorName($ticket);
     	$rate[] = $mana->rate($id);
     	unset($mana);
 
     	$tickets[] = $ticket;
 
-        $view = new \classe\View(self::getPage());
+        $view = new \classe\View($view_class);
         $view->manger($ticket);
-        $view->afficher( (object) array('message' => $message,
-                                        'ticket_array' => $tickets,
-                                        'rate' => $rate,
-                                        'author' => $author
+        $view->afficher( array('message' => $message,
+                               'ticket_array' => $tickets,
+                               'rate' => $rate
         ) );
     }
 
     public function liste(): void {
 
+    	$view_class = self::getPage();
+
     	$rate = array();
-    	$author = array();
 
     	$mana = new \model\TicketManager();
         $message = $this->transMess($mana->count().' free tickets available');
@@ -54,68 +56,65 @@ class Foco extends \controller\Moco {
         foreach ($tickets as $ticket) {
         	$id = $ticket->getId();
         	$ticket->setLove($mana->sheLovesMe($id));
-        	$author[] = $mana->author($ticket);
+        	//$author[] = $mana->authorName($ticket);
         	$rate[] = $mana->rate($id);
         }
         unset($mana);
 
-        $view = new \classe\View(self::getPage());
+        $view = new \classe\View($view_class);
         $view->manger($tickets[0]);
-        $view->afficher( (object) array('message' => $message,
-                                        'ticket_array' => $tickets,
-                                        'rate' => $rate,
-                                        'author' => $author
-        ) );
+        $view->afficher( array('message' => $message,
+                               'ticket_array' => $tickets,
+                               'rate' => $rate) );
 	}
 
     public function objet(): void {
 
         $id = self::idLoad();
+        $view_class = self::getPage();
+
         $rate = array();
         $ticket_array = array();
-        $author = array();
-        $view_class = self::getPage();
 
         $mana = new \model\TicketManager();
         $ticket = $mana->select($id);
-        $title = $ticket->getTitle();
         $ticket->setLove($mana->sheLovesMe($id));
         $rate[] = $mana->rate($id);
-        $author[] = $mana->author($ticket);
+        //$author[] = $mana->authorName($ticket);
         unset($mana);
 
         $ticket_array[] = $ticket;
 
-        $view = new \classe\View($view_class, $title, 'dof', 'kof');
-        //$view->manger($ticket);
-        $view->afficher( (object) array('message' => $this->transMess(self::tikid()),
-                                        'ticket_array' => $ticket_array,
-                                        'rate' => $rate,
-                                        'author' => $author
-        ) );
-    }
-
-    private static function fill(\model\TicketManager $tman, $tickarr, $author, $rate): void {
-
-    	foreach ($tickarr as $ticket) {
-    		$id = $ticket->getId();
-    		$ticket->setLove($tman->sheLovesMe($id));
-    		$author[] = $tman->author($ticket);
-    		$rate[] = $tman->rate($id);
-    	}
+        $view = new \classe\View($view_class);
+        $view->manger($ticket);
+        $view->afficher( array('message' => $this->transMess(self::tikid()),
+                               'ticket_array' => $ticket_array,
+                               'rate' => $rate) );
     }
 
     public function author(): void {
 
-    	$id = self::cidLoad();
-    	$rate = array();
-    	$author = array();
     	$view_class = 'author';
+
+    	$mana = new \model\TicketManager();
+    	$title = "les-magiciens-du-fouet";
+    	$cuisinier_array = $mana->selectAuthors();
+    	unset($mana);
+
+    	$view = new \classe\View($view_class, $title, $title, $title);
+    	$view->afficher( array('cuisinier_array' => $cuisinier_array) );
+    }
+
+    public function over(): void {
+
+    	$id = self::cidLoad();
+    	$view_class = 'over';
+
+    	$rate = array();
 
     	$mana = new \model\TicketManager();
     	$cuisinier = $mana->selectAuthor($id);
     	$title = $cuisinier->getNom().', '.$cuisinier->getPrenom();
-    	$cuisinier_array = $mana->selectAuthors();
     	$ticket_array = $mana->selectSameAuthor($id);
 
     	//self::fill($mana, $tickets, $author, $rate);/*
@@ -124,28 +123,23 @@ class Foco extends \controller\Moco {
     		$id = $ticket->getId();
     		$keys = $ticket->getTitle().$keys.', ';
     		$ticket->setLove($mana->sheLovesMe($id));
-    		$author[] = $mana->author($ticket);
     		$rate[] = $mana->rate($id);
     	}
     	unset($mana);
 
     	$view = new \classe\View($view_class, $title, $title, $keys);
-    	$view->afficher( (object) array('cuisinier' => $cuisinier,
-                                        'cuisinier_array' => $cuisinier_array,
-                                        'ticket_array' => $ticket_array,
-    	                                'rate' => $rate,
-    	                                'author' => $author
-    	) );
+    	$view->afficher( array('ticket_array' => $ticket_array,
+                               'rate' => $rate) );
     }
-
     /**
      * when a page has not been recognized
      */
     public function perdu(): void {
 
+        $view_class = 'perdu';
     	$message = $this->transMess(PAGE.' not found');
-    	$view = new \classe\View('perdu', $message, $message, $message);
-    	$view->afficher( (object) array('message' => $message) );
+    	$view = new \classe\View($view_class, $message, $message, $message);
+    	$view->afficher( array('message' => $message) );
     }
 
 

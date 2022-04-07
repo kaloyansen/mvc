@@ -3,6 +3,7 @@
 set ugit = /usr/bin/git
 
 $ugit switch dev
+$ugit pull
 $ugit commit -am 'auto-commit by Kaloyan KRASTEV'
 $ugit push
 

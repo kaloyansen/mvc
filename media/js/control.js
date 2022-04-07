@@ -1,7 +1,7 @@
 /**
  * code by Kaloyan KRASTEV
  */
-$(document).ready(function() {
+
 /*
     $('input').change(function() {
         var color = $(this).val();
@@ -9,16 +9,18 @@ $(document).ready(function() {
         $('.color').css('background-color', color);
     });
 */
+$(document).ready(function() {
+
     $('#submit').click(function() {
         var retour = true;
-        
+
         if ($('#pseudo').val() == '') {
             $('#pseudo').css('border-color', 'red');
             $('.pseudoErr').html('<i>fill pseudo</i>').css('color', 'red');
             retour = false;
         } else {
             $('#pseudo').css('border-color', 'green');
-            $('.pseudoErr').html('ok').css('color', 'blue');            
+            $('.pseudoErr').html('ok').css('color', 'blue');
         }
 
         if ($('#password').val() == '') {

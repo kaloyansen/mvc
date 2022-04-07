@@ -4,7 +4,7 @@
  * @see class attributes in superclass TicketPublic
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.5
+ * @version 0.0.6
  */
 class Ticket extends \model\TicketPublic {
 
@@ -43,69 +43,65 @@ class Ticket extends \model\TicketPublic {
     	$this->temps = $obj->temps;
     	$this->personne = $obj->personne;
     	$this->hide = $obj->hide;
+    	$this->cuisinier = $obj->cuisinier;
     }
-
 
     public function overview(bool $all = true): string {
 
     	$img = IMG.'/recette.'.$this->getId().'.jpg';
     	$krava = '<div class="ticket" style="background-color: '.$this->color.';">';
-        $krava = $krava.$this->title;
+        $krava = $krava.$this->getTitle();
         //$krava = $krava.self::photo($this->getId());
         $krava = $krava.self::figure($img, $this->description, 'moyenne');
         //$krava = $krava.$this->description;
 
         if ($all) {
         	$krava = $krava.'<br />temps: '.self::second2hour($this->temps);
-        	$krava = $krava.', difficulté '.self::fouet($this->diff);
+        	$krava = $krava.'<br />difficulté '.self::fouet($this->diff);
         	$krava = $krava.'<br />prix: '.self::euro($this->prix);
-            $krava = $krava.' '.$this->personne.' personnes';
+            $krava = $krava.'<br />'.$this->personne.' personnes';
             //$krava = $krava.'publié: '.$this->jour;
         }
 
         return $krava.'</div>';
     }
 
-    /** @see /media/css/style.css for datails
-     * @deprecated */
+    /* @see /media/css/style.css for datails
+     * @deprecated
     protected static function photo($id, $taille = 'moyenne'): string {
 
     	$img = IMG.'/recette.'.$id.'.jpg';
     	return '<img class="'.$taille.'" src="'.$img.'" alt="'.$img.'" />';
     }
+    */
 
-    public function __toString(): string {
+    public function __toString() {
 
     	$br = '<br />';
     	$img = IMG.'/recette.'.$this->getId().'.jpg';
 
     	$krava = '<div class="ticket" style="background-color: '.$this->color.';">';
-    	$krava = $krava.self::figure($img, $this->description, 'grand');
-    	//0$krava = $krava.$br.$this->description;
-    	$krava = $krava.$br.'temps: '.self::second2hour($this->temps);
-    	$krava = $krava.', difficulté '.self::fouet($this->diff);
-    	$krava = $krava.', prix: '.self::euro($this->prix);
-    	$krava = $krava.$br.'produits pour '.$this->personne.' personnes:';
-    	$krava = $krava.$br.self::string2list($this->keywords);
+    	//$krava = $krava.$br.$this->getTitle();
+    	$krava = $krava.self::figure($img, $this->getDescription(), 'grand');
+    	$krava = $krava.$br.'temps: '.self::second2hour($this->getTemps());
+    	$krava = $krava.', difficulté '.self::fouet($this->getDiff());
+    	$krava = $krava.', prix: '.self::euro($this->getPrix());
+    	$krava = $krava.$br.'produits pour '.$this->getPersonne().' personnes:';
+    	$krava = $krava.$br.self::string2list($this->getKeywords(), ',', false);
 
     	//$krava = $krava.self::photo($this->getId(), 'grand');
-    	$krava = $krava.$br.self::string2list($this->body, '.', false);
-    	$krava = $krava.$br.'publiée: '.$this->jour;
+    	$krava = $krava.$br.self::string2list($this->getBody(), '.');
+    	$krava = $krava.$br.'publiée: '.$this->getJour();
     	return $krava.$br.'</div>';
     }
 
+    /* deprecated
     public function validation(): bool {//hmmmm
         return isset($this->title) &&
         isset($this->body) &&
         isset($this->description) &&
         isset($this->keywords);
-    }
-
-    public function loadPost() {
-
-        $postobjet = (object) $_POST;
-        $this->consume($postobjet);
-    }
+    }*/
 
     private static function randomBody($wordset = "abcdef", $wordlen = 6) {
 
@@ -121,7 +117,8 @@ class Ticket extends \model\TicketPublic {
             'diff' => 1,
             'temps' => 1000,
             'personne' => 2,
-            'hide' => 0
+            'hide' => 0,
+            'cuisinier' => 1
         );
     }
 

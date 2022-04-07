@@ -1,8 +1,7 @@
 <?php namespace model;
 /**
  *
- * @author Kaloyan KRASTEV, kaloyansen@gmail.com
- * @abstract safety database connexion
+  * @abstract safety database connexion
  * @example $database = new BaseManager(initfile);
  * // suit code user
  * ...
@@ -12,13 +11,17 @@
  * @desc initfile is a text file with a basic line format property: value
  * @desc !!! add initfile to .gitignore to keep it secret !!!
  * @example initfile example: model/.db.example
- * @version 0.0.2
- *
+ * @author Kaloyan KRASTEV, kaloyansen@gmail.com
+ * @version 0.0.3
  */
 class BaseManager {
 	private static $conn;
 	private static int $iconn;
 	private static string $jsonFile = DOWN."/connexion.json";
+
+	const INSEB = "('";
+	const INSEP = "', '";
+	const INSEF = "')";
 
 	private $server;
 	private $username;

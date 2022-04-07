@@ -7,6 +7,12 @@
  */
 class Transport {
 
+    public function loadPost() {
+
+        $postobjet = (object) $_POST;
+        $this->consume($postobjet);
+    }
+
 	protected static function figure(string $fichier = 'path/to/file.ext', string $caption = 'text_to_display', string $taille = 'petit'): string {
 
 		$picture = '<figure>
@@ -34,7 +40,7 @@ class Transport {
 	protected static function fouet(int $fou): string {
 
 		$code = false;
-		while (0 < $fou --) $code = $code.'<img src="'.IMG.'/fouet.png" alt="difficulté" />';
+		while (0 < $fou --) $code = $code.'<img class="img-fluid fa fa-spin" src="'.IMG.'/fouet.png" alt="difficulté" />';
 
 		return $code;
 	}

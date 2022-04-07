@@ -6,10 +6,6 @@
     box-sizing: border-box;
 }
 
-.montainer {
-    max-width: 333px;
-}
-
 html {
     color-scheme: light;
     color-scheme: light light;
@@ -34,33 +30,88 @@ body {
     grid-template-columns: 1fr;
     grid-template-areas:
     "header"
+    "header"
     "nav"
     "article"
     "footer";
 }
 
-header { grid-area: header; }
+header {
+    grid-area: header;
+	width: 100%;
+    height: 20vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 300px 12px 100px;
+}
+
+nav {
+  /*  position: fixed;
+    top: 0;
+    left: 0;*/
+    grid-area: nav;
+	width: 100%;
+/*    height: 20vh; */
+    display: grid;
+    align-items: center;
+    border-bottom: 0px solid #F9690E;
+
+}
+
+nav .nav-item {
+    display: inline;
+    margin: 10px;
+    padding: 0;
+    font-size: 50px;
+}
+
+nav .nav-item:first-of-type {
+    margin-left: 48px;
+}
+
+nav .nav-item a {
+    color: white;
+    text-decoration: none;
+}
+
+nav .nav-item a:hover {
+    text-decoration: underline;
+}
+
+nav #more-drop-down-menu a:last-of-type:hover {
+    text-decoration: none;
+}
+
+nav .nav-item a.active {
+    text-decoration: underline;
+    color: #F9690E;
+}
+/*
 nav {
     grid-area: nav;
-	position: top;
-	display: block-inline;
-/*	left: 2vw;
-	width: 22vw;
-	top: 10vw;*/
-    text-align: center;
+    margin: 0px auto; 
+    width: 100%;
+    right: 0;
+    padding: 42px;
 }
+*/
 ul { margin: 0; padding: 0; }
+ol { margin: 0; padding: 0; }
 
-ul li {
-	list-style: none;
-	padding: 0px;
+ul li, ol li {
+/*	list-style: none;
+	padding: 0px; */
 	font-weight: bold;
 	text-decoration: none;
-	font-size: 27px;
+	font-size: 22px;
 }
 
 article {
 	grid-area: article;
+	margin: 0;
+	padding: 0;
 /*	background-color: #09f;
 	color: #caf;
     text-align: center;*/
@@ -69,7 +120,7 @@ article {
 #modify { background-color: #00a; }
 #delete { background-color: #a00; }
 
-
+/*
 a[href^="mailto"]::before {
     content: "📧 ";
 }
@@ -77,7 +128,7 @@ a[href^="mailto"]::before {
 a[href^="tel"]::before {
     content: "📞 ";
 }
-
+*/
 .checked {
     color: orange;
 }
@@ -87,10 +138,10 @@ a[href^="tel"]::before {
     color: #caf;
     background-color: #358;
     font-weight: bold;
-    font-size: 27px;
+    /*font-size: 27px;*/
     text-decoration: none;  
     list-style: none;
-    padding: 2px;
+    padding: 0;
     /*width: 77%;*/
     text-align: center;
 }
@@ -104,7 +155,7 @@ a[href^="tel"]::before {
     text-decoration: none;  
     list-style: none;
     padding: 2px;
-    border-radius: 0 0 1vw 1vw;
+    border-radius: 1vw;
     /*width: 77%;*/
     text-align: center;
 }
@@ -127,11 +178,25 @@ a[href^="tel"]::before {
     margin: 0;
     padding: 10px 20px;	
 }
+
+.container {
+    display: inline;
+}
 */
+.jaba {
+    display: inline-block;
+    width: 345px;
+    margin: 20px;
+}
+
+.fill {
+	display: block;
+}
+
 .ticket {
+    padding: 4vw;
 	text-align: left;
-	padding: 6vw;
-	color: #666;
+	border: 0px solid black;
     border-radius: 1vw 1vw 0 0;
     text-decoration: none;
     text-decoration-thickness: 0;
@@ -192,7 +257,7 @@ footer {
 }
 
 
-
+/*
 .box {
     width: 75%;
     margin: auto;
@@ -210,7 +275,7 @@ footer {
 	border: 6vw solid #caf;
 	border-radius: 11vw;
 }
-
+*/
 strong { font-size: 7vw; }
 h1 { text-align: center; font-size: 60px; }
 h2 { text-align: center; font-size: 50px; }
@@ -221,11 +286,16 @@ h6 { text-align: center; font-size: 10px; }
 
 
 img[class="petit"] { height: 111px; width: 176px; } 
-img[class="moyenne"] { height: 256px; } 
-img[class="grand"] { height: 456px; } 
+img[class="moyenne"] { width: 100%; } 
+img[class="grand"] { width: 100%; } 
 
+
+img:hover {
+  transform: scale(1.001); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+/*
 @media screen and (max-width: 654px) {
-    ul { /*display: flex;*/ justify-content: center; }
+    ul { display: flex; justify-content: center; }
 	#main {
         grid-template-columns: 1fr;
         grid-template-areas: 
@@ -237,6 +307,6 @@ img[class="grand"] { height: 456px; }
 	
 }
 
-
+*/
 
 
