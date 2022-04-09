@@ -651,10 +651,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/controller-Foco.html#method_love"
         },                {
-            "fqsen": "\\controller\\Foco\u003A\u003Aliste\u0028\u0029",
-            "name": "liste",
+            "fqsen": "\\controller\\Foco\u003A\u003Aall\u0028\u0029",
+            "name": "all",
             "summary": "",
-            "url": "classes/controller-Foco.html#method_liste"
+            "url": "classes/controller-Foco.html#method_all"
         },                {
             "fqsen": "\\controller\\Foco\u003A\u003Aobjet\u0028\u0029",
             "name": "objet",
@@ -1446,6 +1446,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Objet.html#method_ticketOverview"
         },                {
+            "fqsen": "\\view\\Objet\u003A\u003Aalert\u0028\u0029",
+            "name": "alert",
+            "summary": "",
+            "url": "classes/view-Objet.html#method_alert"
+        },                {
             "fqsen": "\\view\\Perdu",
             "name": "Perdu",
             "summary": "",
@@ -1620,6 +1625,26 @@ Search.appendIndex(
             "name": "__construct",
             "summary": "",
             "url": "classes/view-Over.html#method___construct"
+        },                {
+            "fqsen": "\\view\\Admin",
+            "name": "Admin",
+            "summary": "",
+            "url": "classes/view-Admin.html"
+        },                {
+            "fqsen": "\\view\\Admin\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/view-Admin.html#method___construct"
+        },                {
+            "fqsen": "\\view\\Admin\u003A\u003AviewAdmin\u0028\u0029",
+            "name": "viewAdmin",
+            "summary": "",
+            "url": "classes/view-Admin.html#method_viewAdmin"
+        },                {
+            "fqsen": "\\view\\Admin\u003A\u003Aformulaire\u0028\u0029",
+            "name": "formulaire",
+            "summary": "",
+            "url": "classes/view-Admin.html#method_formulaire"
         },                {
             "fqsen": "\\",
             "name": "\\",

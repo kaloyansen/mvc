@@ -94,5 +94,11 @@ class Objet {
     	echo '</a>';
     }
 
+    protected static function alert(string $message): void {
+    	?><script>
+        window.alert('<?=$message;?>');
+        </script><?php
+	}
+
 }
 

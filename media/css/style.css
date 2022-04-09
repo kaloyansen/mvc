@@ -155,7 +155,7 @@ a[href^="tel"]::before {
     text-decoration: none;  
     list-style: none;
     padding: 2px;
-    border-radius: 1vw;
+    border-radius: 0;
     /*width: 77%;*/
     text-align: center;
 }

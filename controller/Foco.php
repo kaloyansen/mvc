@@ -6,7 +6,7 @@
  * @category controller
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.1.3
+ * @version 0.1.4
  */
 class Foco extends \controller\Moco {
 
@@ -44,7 +44,7 @@ class Foco extends \controller\Moco {
         ) );
     }
 
-    public function liste(): void {
+    public function all(): void {
 
     	$view_class = self::getPage();
 
@@ -52,7 +52,7 @@ class Foco extends \controller\Moco {
 
     	$mana = new \model\TicketManager();
         $message = $this->transMess($mana->count().' free tickets available');
-        $tickets = $mana->selectAll(4);
+        $tickets = $mana->selectAll();
         foreach ($tickets as $ticket) {
         	$id = $ticket->getId();
         	$ticket->setLove($mana->sheLovesMe($id));
@@ -66,7 +66,7 @@ class Foco extends \controller\Moco {
         $view->afficher( array('message' => $message,
                                'ticket_array' => $tickets,
                                'rate' => $rate) );
-	}
+    }
 
     public function objet(): void {
 

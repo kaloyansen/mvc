@@ -24,6 +24,5 @@ class Lien extends \view\Objet {
         	self::viewTicket($ticket, $rate[$total], 2);
         }
         echo '</article>';
-
     }
 }

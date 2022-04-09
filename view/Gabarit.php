@@ -37,14 +37,14 @@ class Gabarit {
 	<div id="main">
 	  <header><h1><?=$oo->title;?></h1></header>
 	  <nav class="navbar fixed-top navbar-expand-lg navbar-info row">
-        <a class="nav-item loco col fa fa-refresh fa-3x fa-fw" title="home" href="<?=WWW;?>"></a>
-        <a class="nav-item loco col" href="<?=WWW;?>?page=author">cheff</a>
-        <a class="nav-item loco col" href="<?=WWW;?>?page=objet">last</a>
-        <a class="nav-item loco col" href="<?=WWW;?>?page=all">list</a>
-        <a class="nav-item loco col" href="<?=WWW;?>?page=insert">new</a>
+        <a class="nav-item loco col" title="home" href="<?=WWW;?>"><span class="fa fa-refresh"></span></a>
+        <a class="nav-item loco col" href="<?=WWW;?>?page=author"><span class="fa fa-euro"></span></a>
+        <a class="nav-item loco col" title="last" href="<?=WWW;?>?page=objet"><span class="fa fa-gift"></span></a>
+        <a class="nav-item loco col" title="list" href="<?=WWW;?>?page=all"><span class="fa fa-list"></span></a>
+        <a class="nav-item loco col" title="new" href="<?=WWW;?>?page=insert"><span class="fa fa-plus"></span></a>
         <a class="nav-item loco col" href="<?=WWW;?>?page=deconnexion"><?php
-        if ($user == 'guest') echo '<i class="fa fa-sign-in" title="log in">'.$user.'</i>';
-        else echo '<i class="fa fa-sign-out" title="log out">'.$user.'</i>';?>
+        if ($user == 'guest') echo '<span class="fa fa-sign-in" title="log in">'.$user.'</span>';
+        else echo '<span class="fa fa-sign-out" title="log out">'.$user.'</span>';?>
         </a>
       </nav>
       <?=$this->contenu;?>

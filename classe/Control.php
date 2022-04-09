@@ -46,8 +46,7 @@ class Control {
             	break;
             case 'all':
                 $chemin = $frontofficecontroller;
-                $method = 'liste';
-                $argument = 'objet';
+                $argument = 'lien';
                 break;
             default:
                 $chemin = $frontofficecontroller;

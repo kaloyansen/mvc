@@ -49,6 +49,7 @@ class Boco extends \controller\Foco {
 
     	if (ONLINE && self::fromPost('new_admin_form_fill')) $load_post = true;
     	else $do_insert = false;
+    	$afficher_formulaire = false;
 
     	$admin = new \model\Membre();
     	if ($load_post) $admin->loadPost();
@@ -59,18 +60,23 @@ class Boco extends \controller\Foco {
 
     		$db_insert = $db->insert($admin);
     		$db_last = $db->last();
-    		$this->transMess('admin #'.$db_last.' created('.$db_insert.')');
-    		unset($db);
-    		header('location: '.WWW.'?page=admin&id='.$db_last);//
+    		$title = 'admin #'.$db_last.' created('.$db_insert.')';
+    		//unset($db);
+    		//header('location: '.WWW.'?page=admin&id='.$db_last);//
+
+    	} else {
+
+    		$title = 'créer un(e) administrateur';
+            $afficher_formulaire = true;
     	}
 
         $admin_array = $db->selectAll();
     	unset($db);
 
-    	$title = 'créer un(e) administrateur';//afficher le formulaire de création d'un administrateur
     	$view = new \classe\View($view_class, $title, $admin->getPseudo(), $admin->getId());
     	$view->afficher( array('message' => $this->transMess($title),
-                               'admin_array' => $admin_array) );
+                               'admin_array' => $admin_array,
+    			               'afform' => $afficher_formulaire) );
     }
 
     public function insert(): void {
