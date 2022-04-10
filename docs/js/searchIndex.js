@@ -876,10 +876,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-MembreManager.html"
         },                {
-            "fqsen": "\\model\\MembreManager\u003A\u003Aselect\u0028\u0029",
-            "name": "select",
+            "fqsen": "\\model\\MembreManager\u003A\u003AcheckPassword\u0028\u0029",
+            "name": "checkPassword",
             "summary": "",
-            "url": "classes/model-MembreManager.html#method_select"
+            "url": "classes/model-MembreManager.html#method_checkPassword"
+        },                {
+            "fqsen": "\\model\\MembreManager\u003A\u003AselectByPseudo\u0028\u0029",
+            "name": "selectByPseudo",
+            "summary": "",
+            "url": "classes/model-MembreManager.html#method_selectByPseudo"
         },                {
             "fqsen": "\\model\\MembreManager\u003A\u003AselectAll\u0028\u0029",
             "name": "selectAll",
@@ -1115,6 +1120,11 @@ Search.appendIndex(
             "name": "fromSession",
             "summary": "",
             "url": "classes/controller-Moco.html#method_fromSession"
+        },                {
+            "fqsen": "\\controller\\Moco\u003A\u003Auser\u0028\u0029",
+            "name": "user",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_user"
         },                {
             "fqsen": "\\controller\\Moco\u003A\u003AcheckAccess\u0028\u0029",
             "name": "checkAccess",

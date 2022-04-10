@@ -6,7 +6,7 @@
  * @category view
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.1
+ * @version 0.0.2
  */
 class Admin extends \view\Objet {
 
@@ -17,15 +17,14 @@ class Admin extends \view\Objet {
 		echo '<h3>total '.count($controbjet->admin_array).' administrateurs</h3>';
 		self::viewAdmin($controbjet->admin_array);
 		if ($controbjet->afform) self::formulaire($controbjet);
-		else self::modal($controbjet->message, 'de la base de données', 'merci');
+		if ($controbjet->message) self::modal($controbjet->message, 'de la base de données', 'merci');
 		echo '</article>';
 	}
 
 	protected static function viewAdmin($adminarray): void {
 
-		echo '<ul>';
-		foreach (array_reverse($adminarray) as $admin) echo '<li class="lien">'.$admin->getId().'. '.$admin->getPseudo().' created by '.$admin->getParent().'</li>';
-		echo '</ul>';
+		foreach (array_reverse($adminarray) as $admin) echo '<h3>'.$admin->getId().'. '.$admin->getPseudo().' created by '.$admin->getParent().'</h3>';
+		echo '<a id="create" class="loco" href="'.WWW.'?page=admin&id=10000">create a new administrator</a>';
 	}
 
 	private static function formulaire($controbjet): void {

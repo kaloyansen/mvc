@@ -11,7 +11,7 @@ class Keystroke {
 
     constructor(div) {
         this.currentDiv = document.getElementById(div);
-        this.nkey = 21;
+        this.nkey = 15;
     }
 
     setKeystroke() {

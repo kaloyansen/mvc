@@ -47,11 +47,13 @@ class Boco extends \controller\Foco {
     public function admin(): void {
 
         $view_class = 'admin';
+        $id = self::idLoad();
         $do_insert = false;
         $afficher_formulaire = false;
 
         if (ONLINE && self::fromPost('new_admin_form_fill')) $do_insert = true;
-        else $afficher_formulaire = true;
+        elseif ($id == 10000) $afficher_formulaire = true;
+        else $afficher_formulaire = false;
 
         $db = new \model\MembreManager();
 
@@ -62,17 +64,17 @@ class Boco extends \controller\Foco {
             $new_admin->setParent($old_admin->getId());
             $db_insert = $db->insert($new_admin);
             //$db_last = $db->last();
-            $title = 'admin #'.$db->last().' created('.$db_insert.')';
+            $message = 'admin #'.$db->last().' created('.$db_insert.')';
         } else {
 
-            $title = 'créer un(e) administrateur';
+            $message = false;
         }
 
         $admin_array = $db->selectAll();
         unset($db);
 
-        $view = new \classe\View($view_class, $title, $title, $title);
-        $view->afficher( array('message' => $this->transMess($title),
+        $view = new \classe\View($view_class, $message, $message, $message);
+        $view->afficher( array('message' => $message,
                                'admin_array' => $admin_array,
                                'afform' => $afficher_formulaire) );
     }
@@ -105,8 +107,8 @@ class Boco extends \controller\Foco {
 
     public function update(): void {
 
-		$id = self::idLoad();
-		$view_class = 'admin/update_form';
+    	$id = self::idLoad();
+    	$view_class = 'admin/update_form';
 
 		$do_update = true;
 		$db = new \model\TicketManager();
