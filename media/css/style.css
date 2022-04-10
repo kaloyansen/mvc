@@ -97,8 +97,8 @@ nav {
     padding: 42px;
 }
 */
-ul { margin: 0; padding: 0; }
-ol { margin: 0; padding: 0; }
+ul { margin: 0; padding: 33px; }
+ol { margin: 0; padding: 33px; }
 
 ul li, ol li {
 /*	list-style: none;
@@ -168,7 +168,7 @@ a[href^="tel"]::before {
 }
 
 .lien:hover {
-    color: #359;
+	color: #359;
     background-color: #caf;
     cursor: pointer;
 }
@@ -193,7 +193,15 @@ a[href^="tel"]::before {
 .jaba {
     display: inline-block;
     width: 345px;
-    margin: 20px;
+    border: 1vw solid transparent;
+/*    padding: 22px;
+    padding: 0;
+    margin: 22px;
+    margin: auto; */
+}
+
+.jaba:hover {
+    border: 0.1vw solid transparent;
 }
 
 .fill {
@@ -201,15 +209,16 @@ a[href^="tel"]::before {
 }
 
 .ticket {
-    padding: 4vw;
-	text-align: left;
-	border: 0px solid black;
-    border-radius: 1vw 1vw 0 0;
+  /*  padding: 4vw; 
+	border: 2vw solid transparent;*/
+	padding: 10px;
+    text-align: left;
+    border-radius: 0;
     text-decoration: none;
     text-decoration-thickness: 0;
 }
 .ticket:hover {
-	color: #000;
+    border-radius: 0;
 }
 
 
@@ -300,11 +309,11 @@ img[class="petit"] { height: 111px; width: 176px; }
 img[class="moyenne"] { width: 100%; } 
 img[class="grand"] { width: 100%; } 
 
-
-img:hover {
-  transform: scale(1.001); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-}
 /*
+img:hover {
+  transform: scale(1.001);
+}
+
 @media screen and (max-width: 654px) {
     ul { display: flex; justify-content: center; }
 	#main {

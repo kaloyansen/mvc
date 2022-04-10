@@ -4,16 +4,13 @@
  * @abstract dinamic frontend
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.1
+ * @version 0.0.3
  */
-class Message {
+class Message extends \view\Frontend {
 
-	function __construct($controbjet) { self::draw($controbjet->message); }
-	private static function draw($message): void {
-        ?><article class="ticket">
+	function __construct($controbjet) {
 
-            <h2><?=$message;?></h2>
-
-          </article><?php
+		parent::__construct($controbjet);
+		self::viewMessage($controbjet->message);
 	}
 }

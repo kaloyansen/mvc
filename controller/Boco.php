@@ -52,7 +52,7 @@ class Boco extends \controller\Foco {
         $afficher_formulaire = false;
 
         if (ONLINE && self::fromPost('new_admin_form_fill')) $do_insert = true;
-        elseif ($id == 10000) $afficher_formulaire = true;
+        elseif ($id == 11111) $afficher_formulaire = true;
         else $afficher_formulaire = false;
 
         $db = new \model\MembreManager();
@@ -74,7 +74,7 @@ class Boco extends \controller\Foco {
         unset($db);
 
         $view = new \classe\View($view_class, $message, $message, $message);
-        $view->afficher( array('message' => $message,
+        $view->afficher( array('modal' => $message,
                                'admin_array' => $admin_array,
                                'afform' => $afficher_formulaire) );
     }

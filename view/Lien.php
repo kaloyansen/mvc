@@ -4,25 +4,20 @@
  * @abstract dinamic frontend
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.1
+ * @version 0.0.3
  */
-class Lien extends \view\Objet {
+class Lien extends \view\Frontend {
 	/**
 	 */
 	public function __construct($controbjet) {
 
-		$ta = $controbjet->ticket_array;
-		$rate = $controbjet->rate;
-		$total = count($rate);
-        //echo '<div class="box">';
+		parent::__construct($controbjet);
+		$this->setObjet($controbjet);
 
 		echo '<article class="container">';
+		$this->viewTicketArray(2);
 
-        foreach (array_reverse($ta) as $ticket) {
-
-        	$total --;
-        	self::viewTicket($ticket, $rate[$total], 2);
-        }
         echo '</article>';
-    }
+        self::viewModal($controbjet->modal, 'de la base de données', 'merci');
+	}
 }

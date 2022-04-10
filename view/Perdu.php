@@ -8,10 +8,10 @@
  */
 class Perdu {
 
-	function __construct($controbjet) { self::draw($controbjet->message); }
-	private static function draw($message): void {
+	function __construct($controbjet) { self::send($controbjet->message); }
+	private static function send($message): void {
         ?><article class="ticket">
-            <h3>an error occurred</h3>
+            <h3>there is a message for you</h3>
             <h2><?=$message;?></h2>
 
             <p>the page you are looking for is currently unavailable<br/>try again later</p>

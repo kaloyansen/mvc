@@ -8,10 +8,15 @@
  * @link kaloyansen@gmail.com
  * @version 0.0.3
  */
-class Login extends \view\Objet {
+class Login extends \view\Frontend {
 
-	function __construct($controbjet) { self::loginForm($controbjet); }
-	private static function loginForm($controbjet): void { ?>
+	function __construct($controbjet) {
+
+		parent::__construct($controbjet);
+		self::viewForm($controbjet);
+	}
+
+	private static function viewForm($controbjet): void { ?>
 <article>
   <h2><?=$controbjet->message;?></h2>
   <div class="row" id="result"></div>

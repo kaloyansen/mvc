@@ -37,11 +37,13 @@ class View {
     public function afficher($contrarray = 0) {
 
     	$controbjet = (object) $contrarray;
+    	if (empty($controbjet->modal)) $controbjet->modal = false;
+    	if (empty($controbjet->message)) $controbjet->message = false;
 
       	$dinaclass = '\\view\\'.ucfirst($this->chemin);
 
         ob_start();
-        new $dinaclass($controbjet);
+        $quoiFaire = new $dinaclass($controbjet);
         $content = ob_get_clean();
 
         $gabarit = new \view\Gabarit($content);

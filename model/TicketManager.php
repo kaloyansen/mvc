@@ -3,7 +3,7 @@
  * @desc ticket database interface
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.3
+ * @version 0.0.4
  */
 class TicketManager extends \model\BaseManager {
 
@@ -70,12 +70,14 @@ class TicketManager extends \model\BaseManager {
         $yes = $this->sheLovesMe($id);
         if ($yes > 0) {
     	    $query = "DELETE FROM remote WHERE rid=".$yes;
+    	    $message = 'vous n\'aimez plus #'.$id;
         } else {
     	    $query = "INSERT INTO remote (ticket, ip) VALUES ('".$id."', '".REMOTE."')";
+    	    $message = 'vous aimez #'.$id;
         }
 
         $resultat = $this->sql($query);
-        return $resultat ? $query : $this->error();
+        return $resultat ? $message : $this->error();
     }
 
     public function rate(int $id): int {

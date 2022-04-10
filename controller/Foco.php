@@ -38,7 +38,7 @@ class Foco extends \controller\Moco {
 
         $view = new \classe\View($view_class);
         $view->manger($ticket);
-        $view->afficher( array('message' => $message,
+        $view->afficher( array('modal' => $message,
                                'ticket_array' => $tickets,
                                'rate' => $rate
         ) );

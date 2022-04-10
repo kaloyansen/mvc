@@ -1,17 +1,19 @@
 <?php namespace view;
 /**
- * @desc backoffice insert view
+ * @desc backoffice new article view
  * @abstract backoffice methods are reserved to administrator
  * @namespace controller
  * @category controller
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.1
+ * @version 0.0.3
  */
-class Insert {
+class Insert extends \view\Frontend {
 
 	function __construct($controbjet) {
-        $color = \Colors\RandomColor::one(array('luminosity'=>'light'));?>
+
+		parent::__construct($controbjet);
+		$color = \Colors\RandomColor::one(array('luminosity'=>'light'));?>
 <article>
 
   <div class="box">

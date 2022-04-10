@@ -1,38 +1,26 @@
 <?php namespace view;
 /**
- * @desc a dinamic part of the author web page
- * @abstract dinamic frontend
+ * @desc the dinamic part of the author web page
+ * @abstract dinamic frontoffice frontend
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.3
+ * @version 0.0.5
  */
-class Author extends \view\Objet {
+class Author extends \view\Frontend {
 	/**
 	 */
 	public function __construct($controbjet) {
 
+		parent::__construct($controbjet);
+		$user = isset($_SESSION['user']) ? $_SESSION['user'] : false;
 		$ca = $controbjet->cuisinier_array;
-
-		?><article class="container"><?php
-		foreach (array_reverse($ca) as $chef) {
-			self::viewAuthor($chef);
-		}
-		foreach (array_reverse($ca) as $chef) {
-			self::viewAuthor($chef);
-		}
-		foreach (array_reverse($ca) as $chef) {
-			self::viewAuthor($chef);
-		}
-
-        ?></article><?php
+		echo '<article class="container">';
+		foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
+		foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
+		foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
+		if ($user) self::viewAuthor(null);
+        echo '</article>';
     }
 
-    protected static function viewAuthor(\model\Cuisinier $cuisinier): void {
-    	?><div class="jaba">
-            <a class="loco" href="<?=WWW;?>?page=over&id=<?=$cuisinier->getId();?>"><?php
-        echo $cuisinier;
-          ?></a>
-          </div><?php
-    }
 }
 

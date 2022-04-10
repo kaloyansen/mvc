@@ -1441,36 +1441,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Objet.html#method___construct"
         },                {
-            "fqsen": "\\view\\Objet\u003A\u003AviewTicket\u0028\u0029",
-            "name": "viewTicket",
-            "summary": "",
-            "url": "classes/view-Objet.html#method_viewTicket"
-        },                {
-            "fqsen": "\\view\\Objet\u003A\u003Aetoile\u0028\u0029",
-            "name": "etoile",
-            "summary": "",
-            "url": "classes/view-Objet.html#method_etoile"
-        },                {
-            "fqsen": "\\view\\Objet\u003A\u003AticketLink\u0028\u0029",
-            "name": "ticketLink",
-            "summary": "",
-            "url": "classes/view-Objet.html#method_ticketLink"
-        },                {
-            "fqsen": "\\view\\Objet\u003A\u003AticketOverview\u0028\u0029",
-            "name": "ticketOverview",
-            "summary": "",
-            "url": "classes/view-Objet.html#method_ticketOverview"
-        },                {
-            "fqsen": "\\view\\Objet\u003A\u003Aalert\u0028\u0029",
-            "name": "alert",
-            "summary": "",
-            "url": "classes/view-Objet.html#method_alert"
-        },                {
-            "fqsen": "\\view\\Objet\u003A\u003Amodal\u0028\u0029",
-            "name": "modal",
-            "summary": "",
-            "url": "classes/view-Objet.html#method_modal"
-        },                {
             "fqsen": "\\view\\Perdu",
             "name": "Perdu",
             "summary": "",
@@ -1481,10 +1451,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Perdu.html#method___construct"
         },                {
-            "fqsen": "\\view\\Perdu\u003A\u003Adraw\u0028\u0029",
-            "name": "draw",
+            "fqsen": "\\view\\Perdu\u003A\u003Asend\u0028\u0029",
+            "name": "send",
             "summary": "",
-            "url": "classes/view-Perdu.html#method_draw"
+            "url": "classes/view-Perdu.html#method_send"
         },                {
             "fqsen": "\\model\\Cuisinier",
             "name": "Cuisinier",
@@ -1576,11 +1546,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Author.html#method___construct"
         },                {
-            "fqsen": "\\view\\Author\u003A\u003AviewAuthor\u0028\u0029",
-            "name": "viewAuthor",
-            "summary": "",
-            "url": "classes/view-Author.html#method_viewAuthor"
-        },                {
             "fqsen": "\\model\\Transport",
             "name": "Transport",
             "summary": "",
@@ -1636,10 +1601,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Login.html#method___construct"
         },                {
-            "fqsen": "\\view\\Login\u003A\u003AloginForm\u0028\u0029",
-            "name": "loginForm",
+            "fqsen": "\\view\\Login\u003A\u003AviewForm\u0028\u0029",
+            "name": "viewForm",
             "summary": "",
-            "url": "classes/view-Login.html#method_loginForm"
+            "url": "classes/view-Login.html#method_viewForm"
         },                {
             "fqsen": "\\view\\Over",
             "name": "Over",
@@ -1661,15 +1626,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Admin.html#method___construct"
         },                {
-            "fqsen": "\\view\\Admin\u003A\u003AviewAdmin\u0028\u0029",
-            "name": "viewAdmin",
+            "fqsen": "\\view\\Admin\u003A\u003AviewForm\u0028\u0029",
+            "name": "viewForm",
             "summary": "",
-            "url": "classes/view-Admin.html#method_viewAdmin"
-        },                {
-            "fqsen": "\\view\\Admin\u003A\u003Aformulaire\u0028\u0029",
-            "name": "formulaire",
-            "summary": "",
-            "url": "classes/view-Admin.html#method_formulaire"
+            "url": "classes/view-Admin.html#method_viewForm"
         },                {
             "fqsen": "\\view\\Message",
             "name": "Message",
@@ -1681,10 +1641,95 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Message.html#method___construct"
         },                {
-            "fqsen": "\\view\\Message\u003A\u003Adraw\u0028\u0029",
-            "name": "draw",
+            "fqsen": "\\view\\admin\\Delete",
+            "name": "Delete",
             "summary": "",
-            "url": "classes/view-Message.html#method_draw"
+            "url": "classes/view-admin-Delete.html"
+        },                {
+            "fqsen": "\\view\\admin\\Delete\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/view-admin-Delete.html#method___construct"
+        },                {
+            "fqsen": "\\view\\admin\\Delete\u003A\u003AviewForm\u0028\u0029",
+            "name": "viewForm",
+            "summary": "",
+            "url": "classes/view-admin-Delete.html#method_viewForm"
+        },                {
+            "fqsen": "\\view\\Frontend",
+            "name": "Frontend",
+            "summary": "",
+            "url": "classes/view-Frontend.html"
+        },                {
+            "fqsen": "\\view\\Frontend\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/view-Frontend.html#method___construct"
+        },                {
+            "fqsen": "\\view\\Frontend\u003A\u003AsetObjet\u0028\u0029",
+            "name": "setObjet",
+            "summary": "",
+            "url": "classes/view-Frontend.html#method_setObjet"
+        },                {
+            "fqsen": "\\view\\Frontend\u003A\u003AgetObjet\u0028\u0029",
+            "name": "getObjet",
+            "summary": "",
+            "url": "classes/view-Frontend.html#method_getObjet"
+        },                {
+            "fqsen": "\\view\\Frontend\u003A\u003AviewTicketArray\u0028\u0029",
+            "name": "viewTicketArray",
+            "summary": "",
+            "url": "classes/view-Frontend.html#method_viewTicketArray"
+        },                {
+            "fqsen": "\\view\\Frontend\u003A\u003AviewTicket\u0028\u0029",
+            "name": "viewTicket",
+            "summary": "",
+            "url": "classes/view-Frontend.html#method_viewTicket"
+        },                {
+            "fqsen": "\\view\\Frontend\u003A\u003Aetoile\u0028\u0029",
+            "name": "etoile",
+            "summary": "",
+            "url": "classes/view-Frontend.html#method_etoile"
+        },                {
+            "fqsen": "\\view\\Frontend\u003A\u003AticketLink\u0028\u0029",
+            "name": "ticketLink",
+            "summary": "",
+            "url": "classes/view-Frontend.html#method_ticketLink"
+        },                {
+            "fqsen": "\\view\\Frontend\u003A\u003AticketOverview\u0028\u0029",
+            "name": "ticketOverview",
+            "summary": "",
+            "url": "classes/view-Frontend.html#method_ticketOverview"
+        },                {
+            "fqsen": "\\view\\Frontend\u003A\u003Aalert\u0028\u0029",
+            "name": "alert",
+            "summary": "",
+            "url": "classes/view-Frontend.html#method_alert"
+        },                {
+            "fqsen": "\\view\\Frontend\u003A\u003AviewAuthor\u0028\u0029",
+            "name": "viewAuthor",
+            "summary": "",
+            "url": "classes/view-Frontend.html#method_viewAuthor"
+        },                {
+            "fqsen": "\\view\\Frontend\u003A\u003AviewMessage\u0028\u0029",
+            "name": "viewMessage",
+            "summary": "",
+            "url": "classes/view-Frontend.html#method_viewMessage"
+        },                {
+            "fqsen": "\\view\\Frontend\u003A\u003AviewAdmin\u0028\u0029",
+            "name": "viewAdmin",
+            "summary": "",
+            "url": "classes/view-Frontend.html#method_viewAdmin"
+        },                {
+            "fqsen": "\\view\\Frontend\u003A\u003AviewModal\u0028\u0029",
+            "name": "viewModal",
+            "summary": "",
+            "url": "classes/view-Frontend.html#method_viewModal"
+        },                {
+            "fqsen": "\\view\\Frontend\u003A\u003A\u0024controbj",
+            "name": "controbj",
+            "summary": "",
+            "url": "classes/view-Frontend.html#property_controbj"
         },                {
             "fqsen": "\\",
             "name": "\\",
