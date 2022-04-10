@@ -57,10 +57,12 @@ class Boco extends \controller\Foco {
 
         if ($do_insert) {
 
-            $admin = new \model\Membre(false, true);
-            $db_insert = $db->insert($admin);
-            $db_last = $db->last();
-            $title = 'admin #'.$db_last.' created('.$db_insert.')';
+            $old_admin = $db->selectByPseudo(self::user());
+            $new_admin = new \model\Membre(false, true);
+            $new_admin->setParent($old_admin->getId());
+            $db_insert = $db->insert($new_admin);
+            //$db_last = $db->last();
+            $title = 'admin #'.$db->last().' created('.$db_insert.')';
         } else {
 
             $title = 'créer un(e) administrateur';

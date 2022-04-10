@@ -29,6 +29,7 @@ class Moco {
     protected static function fromPost(string $par) { return isset($_POST[$par]) ? $_POST[$par] : false; }
     protected static function fromGet(string $par) { return isset($_GET[$par]) ? $_GET[$par] : false; }
     protected static function fromSession(string $par) { return isset($_SESSION[$par]) ? $_SESSION[$par] : false; }
+    protected static function user() { return self::fromSession('user'); }
     protected static function checkAccess(): ?string {
 
         $user = self::fromSession('user');
@@ -100,7 +101,7 @@ class Moco {
         }
 
         $db = new \model\MembreManager();
-        $access = $db->select($pseudo, $password); //var_dump($access);
+        $access = $db->checkPassword($pseudo, $password); //var_dump($access);
         unset($db);
 
         if ($access) {

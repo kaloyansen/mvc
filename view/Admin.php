@@ -12,21 +12,25 @@ class Admin extends \view\Objet {
 
 	function __construct($controbjet) {
 
-		foreach (array_reverse($controbjet->admin_array) as $admin) self::viewAdmin($admin);
+		echo '<article>';
+		echo '<h2>'.$controbjet->message.'</h2>';
+		echo '<h3>total '.count($controbjet->admin_array).' administrateurs</h3>';
+		self::viewAdmin($controbjet->admin_array);
 		if ($controbjet->afform) self::formulaire($controbjet);
 		else self::modal($controbjet->message, 'de la base de données', 'merci');
+		echo '</article>';
 	}
 
-	protected static function viewAdmin(\model\Membre $admin): void {
+	protected static function viewAdmin($adminarray): void {
 
-		echo '<p>'.$admin->getId().'. '.$admin->getPseudo().' created by '.$admin->getParent().'</p>';
+		echo '<ul>';
+		foreach (array_reverse($adminarray) as $admin) echo '<li class="lien">'.$admin->getId().'. '.$admin->getPseudo().' created by '.$admin->getParent().'</li>';
+		echo '</ul>';
 	}
 
 	private static function formulaire($controbjet): void {
 
 	    ?>
-<article>
-  <h2><?=$controbjet->message;?></h2>
   <div class="row" id="result"></div>
   <div class="row" id="connection">
 
@@ -67,7 +71,6 @@ class Admin extends \view\Objet {
       </div>
     </form>
   </div>
-</article>
 
 <script src="<?=MEDIA ?>/js/keypad.js"></script>
 <?php

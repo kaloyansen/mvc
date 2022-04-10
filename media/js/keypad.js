@@ -11,10 +11,11 @@ class Keystroke {
 
     constructor(div) {
         this.currentDiv = document.getElementById(div);
+        this.nkey = 21;
     }
 
     setKeystroke() {
-        for (let i = 0; i < 16; i++) {
+        for (let i = 0; i < this.nkey; i++) {
             let newDiv = document.createElement('div');
             newDiv.classList.add('case');
             newDiv.setAttribute('id', 'case' + i)
@@ -28,7 +29,7 @@ class Keystroke {
         let num, test = true, str = '';
         for (let i = 0; i < 10; i++) {
             while (test == true) {
-                num = Math.floor(Math.random() * 16);
+                num = Math.floor(Math.random() * this.nkey);
                 //if (str.indexOf('-' + num + '-') > -1) {
                 if (str.indexOf('-' + num + '-') < 0) {
                     //num = Math.floor(Math.random() * 16);
@@ -46,10 +47,10 @@ class Keystroke {
             }
             test = true;
         }
-        //return this;
     }
 
     resetKeystroke() {
+
         let element = this.currentDiv;
         while (element.firstChild) {
             element.removeChild(element.firstChild);

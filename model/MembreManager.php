@@ -9,21 +9,34 @@ class MembreManager extends \model\BaseManager {
 
 	private $tab = 'membre';//le nom du tableau dans la base de donnée
 
-    public function select($pseudo, $password) {
+	public function checkPassword($pseudo, $password) {
 
-        $query = "SELECT * FROM ".$this->tab;
-        $query = $query." WHERE pseudo='".$pseudo."'";
-        $query = $query." AND password='".$password."'";
+		$query = "SELECT * FROM ".$this->tab;
+		$query = $query." WHERE pseudo='".$pseudo."'";
+		$query = $query." AND password='".$password."'";
 
-        $result = $this->sql($query);
+		$result = $this->sql($query);
 
-        //$objet = mysqli_fetch_object($result);
-        //return $objet ? new \model\Membre($objet) : null;
-        $admin_array = array();
-        while ($mfobj = $result->fetch_object()) $admin_array[] = new \model\Membre($mfobj);
+		//$objet = mysqli_fetch_object($result);
+		//return $objet ? new \model\Membre($objet) : null;
+		$admin_array = array();
+		while ($mfobj = $result->fetch_object()) $admin_array[] = new \model\Membre($mfobj);
 
-        return empty($admin_array) ? null : $admin_array[0];
-    }
+		return empty($admin_array) ? null : $admin_array[0];
+	}
+
+	public function selectByPseudo($pseudo) {
+
+		$query = "SELECT * FROM ".$this->tab;
+		$query = $query." WHERE pseudo='".$pseudo."'";
+
+		$result = $this->sql($query);
+
+		$admin_array = array();
+		while ($mfobj = $result->fetch_object()) $admin_array[] = new \model\Membre($mfobj);
+
+		return empty($admin_array) ? null : $admin_array[0];
+	}
 
 	public function selectAll(int $maxtick = 1000) {
 
