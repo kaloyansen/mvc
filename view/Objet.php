@@ -4,7 +4,7 @@
  * @abstract dinamic frontend
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.6
+ * @version 0.0.7
  */
 class Objet {
 	/**
@@ -17,13 +17,16 @@ class Objet {
 		//$author = $controbjet->author;
 
 		echo '<article class="container">';
+
 		foreach (array_reverse($ta) as $ticket) {
 
         	//echo '<h2>'.$ticket->getTitle().'</h2>';
         	$total --;
             self::viewTicket($ticket, $rate[$total], 1);
         }
-        echo '</article>';
+
+        echo "</article>";
+        //self::modal('attention au virage', 'info', 'ok');
 	}
 
     protected static function viewTicket(\model\Ticket $ticket, $rate, int $option = 0): void {
@@ -94,11 +97,48 @@ class Objet {
     	echo '</a>';
     }
 
-    protected static function alert(string $message): void {
+    protected static function alert(string $message, int $lifetime = 5): void {
     	?><script>
-        window.alert('<?=$message;?>');
-        </script><?php
-	}
+    	const WIN = window.open('', 'message', 'toolbar=yes,scrollbars=yes,resizable=yes,top=66,left=66,width=222,height=333');
 
+    	setTimeout(function() {
+        	WIN.document.write('<?=$message;?>');
+        	WIN.focus();
+        }, <?=$lifetime * 250;?>);
+
+    	setTimeout(function() {
+            WIN.close();
+        }, <?=$lifetime * 1000;?>);
+
+        </script><?php
+    }
+
+    protected static function modal(string $message, string $title = 'message', string $ok = 'close'): void { ?>
+
+    	<script src="<?=MEDIA;?>/js/jquery-3.6.0.min.js"></script>
+    	<script>
+          $(window).on('load', function() {
+              $('#modalTag').modal('show');
+          });
+        </script>
+
+    	<div class="modal fade" id="modalTag" role="dialog">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title"><?=$title;?></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p><?=$message;?></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="close" data-bs-dismiss="modal"><?=$ok;?></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <?php
+    }
 }
 

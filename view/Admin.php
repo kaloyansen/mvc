@@ -8,17 +8,18 @@
  * @link kaloyansen@gmail.com
  * @version 0.0.1
  */
-class Admin {
+class Admin extends \view\Objet {
 
 	function __construct($controbjet) {
 
 		foreach (array_reverse($controbjet->admin_array) as $admin) self::viewAdmin($admin);
 		if ($controbjet->afform) self::formulaire($controbjet);
+		else self::modal($controbjet->message, 'de la base de données', 'merci');
 	}
 
 	protected static function viewAdmin(\model\Membre $admin): void {
 
-		echo $admin->getPseudo().' created by '.$admin->getParent();
+		echo '<p>'.$admin->getId().'. '.$admin->getPseudo().' created by '.$admin->getParent().'</p>';
 	}
 
 	private static function formulaire($controbjet): void {

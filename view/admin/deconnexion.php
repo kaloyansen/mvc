@@ -1,4 +1,6 @@
-<?php namespace view\admin; ?>
+<?php namespace view\admin;
+//deprecated
+?>
 
 <article>
 

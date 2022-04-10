@@ -117,6 +117,13 @@ article {
     text-align: center;*/
 }
 
+.modal-content {
+
+	color: blue;
+    font-size: 33px;
+    background-color: #123456;
+}
+
 #modify { background-color: #00a; }
 #delete { background-color: #a00; }
 
@@ -210,6 +217,10 @@ textarea { height: 222px; }
 input, textarea { /* [type="text"], input[type="password"] { */
     width: 100%;
     padding: 0;
+}
+
+input[type="password"] {
+    cursor: none;
 }
 
 input[type="color"] {

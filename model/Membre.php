@@ -6,20 +6,18 @@
  * @version 0.0.1
  */
 class Membre extends \model\Transport {/*
-	*/
-	private int $id;
-	private int $parent;
-	private string $pseudo;
-	private string $password;
+    */
+    private int $id;
+    private int $parent;
+    private string $pseudo;
+    private string $password;
 
-	public function __construct($body = false) {
+    public function __construct($body = false, bool $fromPost = false) {
 
-		if ($body) {
-			$this->consume($body);
-		} else {
-			$this->neuf();
-		}
-	}
+        if ($body) $this->consume($body);
+        elseif ($fromPost) $this->loadPost();
+        else $this->neuf();
+    }
 
 	public function neuf($id = 0) {
 

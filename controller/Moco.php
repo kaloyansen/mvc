@@ -6,7 +6,7 @@
  * @category controller
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.6
+ * @version 0.0.7
  */
 class Moco {
 
@@ -85,10 +85,8 @@ class Moco {
 
     private static function passe(): ?string {
 
-        $pseudo = false;
-        $password = false;
-
         if (ONLINE) {
+        	//var_dump($_POST);
             $pseudo = self::fromPost('pseudo');
             $password = self::fromPost('password');
         } else {
@@ -96,20 +94,52 @@ class Moco {
             $password = ARGU3;
         }
 
-        if (!$pseudo || !$password) return null;
+        if (!$pseudo || !$password) {
+        	error_log(__CLASS__.'::passe('.$pseudo.':'.$password.')');
+        	return null;
+        }
+
         $db = new \model\MembreManager();
-        $access = $db->select($pseudo, $password);
+        $access = $db->select($pseudo, $password); //var_dump($access);
         unset($db);
 
         if ($access) {
-            $_SESSION['user'] = $pseudo;
-            error_log('user('.$pseudo.') login');
+
+        	$_SESSION['user'] = $pseudo;
+            self::modal($pseudo.' login success', 'bravo', 'continuer');
             return $pseudo;
         }
 
         return null;
     }
 
-}
+    protected static function modal(string $message, string $title = 'message', string $ok = 'close'): void { ?>
 
-?>
+    	<script src="<?=MEDIA;?>/js/jquery-3.6.0.min.js"></script>
+    	<script>
+          $(window).on('load', function() {
+              $('#modalTag').modal('show');
+          });
+        </script>
+
+    	<div class="modal fade" id="modalTag" role="dialog">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title"><?=$title;?></h5>
+                <button type="button" class="btn-inline btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p><?=$message;?></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="close" data-bs-dismiss="modal"><?=$ok;?></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <?php
+    }
+
+
+} ?>

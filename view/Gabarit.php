@@ -43,43 +43,21 @@ class Gabarit {
         <a class="nav-item loco col" title="list" href="<?=WWW;?>?page=all"><span class="fa fa-list"></span></a>
         <a class="nav-item loco col" title="new" href="<?=WWW;?>?page=insert"><span class="fa fa-plus"></span></a>
         <a class="nav-item loco col" href="<?=WWW;?>?page=deconnexion"><?php
-        if ($user == 'guest') echo '<span class="fa fa-sign-in" title="log in">'.$user.'</span>';
-        else echo '<span class="fa fa-sign-out" title="log out">'.$user.'</span>';?>
+        if ($user == 'guest') echo '<span class="fa fa-sign-in" title="log in"></span>';
+        else echo '<span class="fa fa-sign-out" title="log out">'.explode('@', $user)[0].'</span>';?>
         </a>
       </nav>
       <?=$this->contenu;?>
       <footer>
         <address>
           Kaloyan KRASTEV, 32 quai Xavier JOUVIN Grenoble FRANCE
-          <a class="loco fa fa-spin fa-envelope-o"
-             title="kaloyansen@gmail.com"
-             href="mailto:kaloyansen@gmail.com"
-             target="_blank"></a>
-          <a class="loco fa fa-spin fa-linkedin-square"
-             title="linkedin"
-             href="https://www.linkedin.com/in/kaloyan-k-krastev"
-             target="_blank"></a>
-          <a class="loco fa fa-spin fa-github"
-             title="github.io"
-             href="https://kaloyansen.github.io/mvc"
-             target="_blank"></a>
-          <a class="loco fa fa-spin fa-phone"
-             title="+33 6 812 44 812"
-             href="tel:+33681244812"
-             target="_blank"></a>
-          <a class="loco fa fa-spin fa-flag fa-1x"
-             title="font awesome"
-             href="https://fontawesome.com"
-             target="_blank"></a>
-          <a class="loco fa fa-spin fa-rotate-right"
-             title="bootstrap"
-             href="https://bootstrap.com"
-             target="_blank"></a>
-          <a class="loco fa fa-spin fa-rotate-left"
-             style="fa-animation-direction: reverse;"
-             title="bootstrap"
-             href="https://bootstrap.com"
-             target="_blank"></a>
+          <a class="loco fa fa-spin fa-envelope-o" title="kaloyansen@gmail.com" href="mailto:kaloyansen@gmail.com" target="_blank"></a>
+          <a class="loco fa fa-spin fa-linkedin-square" title="linkedin" href="https://www.linkedin.com/in/kaloyan-k-krastev" target="_blank"></a>
+          <a class="loco fa fa-spin fa-github" title="github.io" href="https://kaloyansen.github.io/mvc" target="_blank"></a>
+          <a class="loco fa fa-spin fa-phone" title="+33 6 812 44 812" href="tel:+33681244812" target="_blank"></a>
+          <a class="loco fa fa-spin fa-flag fa-1x" title="font awesome" href="https://fontawesome.com" target="_blank"></a>
+          <a class="loco fa fa-spin fa-rotate-right" title="bootstrap" href="https://bootstrap.com" target="_blank"></a>
+          <a class="loco fa fa-spin fa-rotate-left" style="fa-animation-direction: reverse;" title="bootstrap" href="https://bootstrap.com" target="_blank"></a>
         </address>
       </footer>
       <?php if (DEBUG_LEVEL > 4) {
@@ -101,11 +79,9 @@ class Gabarit {
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
 
-    <!----------------------------- jquery ---------------------->
-    <script src="<?=MEDIA;?>/js/jquery-3.6.0.min.js"></script>
-    <script src="<?=MEDIA;?>/js/control.js"></script>
   </body>
-</html><?php
+</html>
+<?php
     }
 } ?>
 

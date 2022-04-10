@@ -21,10 +21,12 @@ class Control {
 
         switch(PAGE) {
 
-            case 'insert': break;
-            case 'update': break;
+        	//case 'login': break;
+        	case 'insert': break;
+        	case 'update': break;
             case 'delete': break;
             case 'home': break;
+            case 'admin': break;
             case 'deconnexion':
                 $argument = 'home';
                 break;

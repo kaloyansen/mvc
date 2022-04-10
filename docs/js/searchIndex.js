@@ -1151,6 +1151,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/controller-Moco.html#method_passe"
         },                {
+            "fqsen": "\\controller\\Moco\u003A\u003Amodal\u0028\u0029",
+            "name": "modal",
+            "summary": "",
+            "url": "classes/controller-Moco.html#method_modal"
+        },                {
             "fqsen": "\\controller\\Moco\u003A\u003A\u0024permisDAppelerMethode",
             "name": "permisDAppelerMethode",
             "summary": "",
@@ -1451,6 +1456,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Objet.html#method_alert"
         },                {
+            "fqsen": "\\view\\Objet\u003A\u003Amodal\u0028\u0029",
+            "name": "modal",
+            "summary": "",
+            "url": "classes/view-Objet.html#method_modal"
+        },                {
             "fqsen": "\\view\\Perdu",
             "name": "Perdu",
             "summary": "",
@@ -1616,6 +1626,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Login.html#method___construct"
         },                {
+            "fqsen": "\\view\\Login\u003A\u003AloginForm\u0028\u0029",
+            "name": "loginForm",
+            "summary": "",
+            "url": "classes/view-Login.html#method_loginForm"
+        },                {
             "fqsen": "\\view\\Over",
             "name": "Over",
             "summary": "",
@@ -1645,6 +1660,21 @@ Search.appendIndex(
             "name": "formulaire",
             "summary": "",
             "url": "classes/view-Admin.html#method_formulaire"
+        },                {
+            "fqsen": "\\view\\Message",
+            "name": "Message",
+            "summary": "",
+            "url": "classes/view-Message.html"
+        },                {
+            "fqsen": "\\view\\Message\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/view-Message.html#method___construct"
+        },                {
+            "fqsen": "\\view\\Message\u003A\u003Adraw\u0028\u0029",
+            "name": "draw",
+            "summary": "",
+            "url": "classes/view-Message.html#method_draw"
         },                {
             "fqsen": "\\",
             "name": "\\",

@@ -61,14 +61,16 @@ class Keystroke {
 
     eventKeystroke() {
         const CASE = document.getElementsByClassName('case');
-        const PASSWORD = document.getElementById('password');
+        const pw = document.getElementById('password');
         var datakey;
         for (const cas of CASE) {
+
             cas.addEventListener('click', function() {
 
                 datakey = this.getAttribute('data-key');
                 if (datakey < 0) datakey = '';
-                else PASSWORD.value = PASSWORD.value + datakey;
+                else pw.value = pw.value + datakey;
+                window.console.log(pw.value);
             }, false);
         }
     }
@@ -77,30 +79,45 @@ class Keystroke {
 class Connexion {
 
     constructor(form, login, password, result, reset) {
+
+        this.FORM = document.getElementById(form);
         this.LOGIN = document.getElementById(login);
         this.PASSWORD = document.getElementById(password);
         this.RESULT = document.getElementById(result);
         this.RESET = document.getElementById(reset);
-        this.FORM = document.getElementById(form);
         //this.url = this.FORM.getAttribute('action');
     }
 
     submitForm() {
-        this.FORM.addEventListener('submit', function(event) {
-            event.preventDefault();
+
+        let pw = this.PASSWORD;
+        let id = this.LOGIN;
+        if (pw) window.console.log(id.value, pw.value);
+        else window.console.error('no password :(');
+
+
+        this.FORM.addEventListener('submit', function() {
+            window.console.log(id.value, pw.value);
+            //if (!id || !pw) event.preventDefault();
         })
         //return this;
+   
     }
 
     resetForm(ks) {
+
+        let pw = this.PASSWORD;
+        let id = this.LOGIN;
         let result = this.RESULT;
-        let password = this.PASSWORD;
+
         this.RESET.addEventListener('click', function() {
             result.setAttribute('class', '');
-            result.innerText = password.value = '';
+            window.console.log(id.value, pw.value);
+            result.innerText = pw.value = '';
             ks.resetKeystroke();
         }, false);
-        this.LOGIN.focus();
+        
+        id.focus();
     }
 }
 

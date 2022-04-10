@@ -6,7 +6,7 @@
  * @category controller
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.6
+ * @version 0.0.7
  */
 class Boco extends \controller\Foco {
     /**
@@ -21,7 +21,7 @@ class Boco extends \controller\Foco {
 
         if (!$access) {
             self::interdire();
-            if (!$page) error_log('expect argument in constructer of '.__CLASS__);
+            if (!$page) error_log('argument expexted in '.__CLASS__.' constructor');
             else self::setPage($page);
             $this->login();
         } else {
@@ -31,52 +31,48 @@ class Boco extends \controller\Foco {
 
     public function deconnexion(): void {
 
-        $user = self::fromSession('user');
-        $view_class = 'admin/deconnexion';
+    	$view_class = 'message';
+
+    	$user = self::fromSession('user');
         if (!$user) $user = 'guest';//something wrong
         $message = $user.' deconnexion';
 
+        $_SESSION = array();
+        session_destroy();
+
         $view = new \classe\View($view_class, $message, 'deconnexion', 'clé 5');
-        $view->afficher( array('user' => $user,
-                               'message' => $this->transMess($message)) );
+        $view->afficher( array('message' => $this->transMess($message)) );
     }
 
     public function admin(): void {
 
-    	$view_class = 'admin';
-    	$do_insert = true;
-    	$load_post = false;
+        $view_class = 'admin';
+        $do_insert = false;
+        $afficher_formulaire = false;
 
-    	if (ONLINE && self::fromPost('new_admin_form_fill')) $load_post = true;
-    	else $do_insert = false;
-    	$afficher_formulaire = false;
+        if (ONLINE && self::fromPost('new_admin_form_fill')) $do_insert = true;
+        else $afficher_formulaire = true;
 
-    	$admin = new \model\Membre();
-    	if ($load_post) $admin->loadPost();
+        $db = new \model\MembreManager();
 
-    	$db = new \model\MembreManager();
+        if ($do_insert) {
 
-    	if ($do_insert) {
+            $admin = new \model\Membre(false, true);
+            $db_insert = $db->insert($admin);
+            $db_last = $db->last();
+            $title = 'admin #'.$db_last.' created('.$db_insert.')';
+        } else {
 
-    		$db_insert = $db->insert($admin);
-    		$db_last = $db->last();
-    		$title = 'admin #'.$db_last.' created('.$db_insert.')';
-    		//unset($db);
-    		//header('location: '.WWW.'?page=admin&id='.$db_last);//
-
-    	} else {
-
-    		$title = 'créer un(e) administrateur';
-            $afficher_formulaire = true;
-    	}
+            $title = 'créer un(e) administrateur';
+        }
 
         $admin_array = $db->selectAll();
-    	unset($db);
+        unset($db);
 
-    	$view = new \classe\View($view_class, $title, $admin->getPseudo(), $admin->getId());
-    	$view->afficher( array('message' => $this->transMess($title),
+        $view = new \classe\View($view_class, $title, $title, $title);
+        $view->afficher( array('message' => $this->transMess($title),
                                'admin_array' => $admin_array,
-    			               'afform' => $afficher_formulaire) );
+                               'afform' => $afficher_formulaire) );
     }
 
     public function insert(): void {
