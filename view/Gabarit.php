@@ -17,12 +17,12 @@ class Gabarit {
 
     	if (isset($_SESSION['user'])) {
             $user = $_SESSION['user'];
-            $decotitle = 'log out';
+            $decotitle = 'sign out';
             $decoclass = 'fa fa-sign-out';
             $decontent = explode('@', $user)[0];
         } else {
             $user = 'guest';
-        	$decotitle = 'log in';
+        	$decotitle = 'sign in';
         	$decoclass = 'fa fa-sign-in';
         	$decontent = '';
         } ?>

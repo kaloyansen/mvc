@@ -64,17 +64,21 @@ class Boco extends \controller\Foco {
             $new_admin->setParent($old_admin->getId());
             $db_insert = $db->insert($new_admin);
             //$db_last = $db->last();
-            $message = 'admin #'.$db->last().' created('.$db_insert.')';
+            $message = false;
+            $modal = 'admin #'.$db->last().' created('.$db_insert.')';
         } else {
 
-            $message = false;
+            $message = 'zone admin';
+            $modal = false;
         }
 
         $admin_array = $db->selectAll();
         unset($db);
 
-        $view = new \classe\View($view_class, $message, $message, $message);
-        $view->afficher( array('modal' => $message,
+        $title = $modal ? $modal : $message;
+        $view = new \classe\View($view_class, $title, $title, $title);
+        $view->afficher( array('message' => $message,
+                               'modal' => $modal,
                                'admin_array' => $admin_array,
                                'afform' => $afficher_formulaire) );
     }

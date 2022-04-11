@@ -31,11 +31,11 @@ class Frontend {
             $total --;
             self::viewTicket($ticket, $rate[$total], $option);
         }
-        if ($user) self::viewTicket(null);
+        //if ($user) self::viewTicket(null);
 
     }
 
-	private static function viewTicket(?\model\Ticket $ticket, $rate = 0, int $option = 0): void {
+	protected static function viewTicket(?\model\Ticket $ticket, $rate = 0, int $option = 0): void {
 
         $lcl = '"loco"';
         $dcl = '"jaba"';
@@ -45,7 +45,7 @@ class Frontend {
         if (!$ticket) {
         	echo '<div class="ticket">';
         	echo '<a title="nouvelle recette" id="insert" class="lien"';
-        	echo $href.'insert">créer une nuvelle recette</a>';
+        	echo $href.'insert">créer un article</a>';
             echo '</div>';
             return;
         }
@@ -66,19 +66,30 @@ class Frontend {
 
     		echo '<a title="update" id="update" class='.$lcl;
     		echo $href.'update&id='.$id;
-    		echo '">[modify #'.$id.']</a>';
+    		echo '">modify</a>';
     		echo '<a title="delete" id="delete" class='.$lcl;
     		echo $href.'delete&id='.$id;
-    		echo '">[delete #'.$id.']</a>';
+    		echo '">delete</a>';
+    		self::hide($ticket, $lcl);
+    		echo ' #'.$id;
     	}
 
     	echo '</div>';
 	}
 
+    private static function hide(\model\Ticket $ticket, string $link_class) {
+
+        $id = $ticket->getId();
+        $title = 'hide';
+        if ($ticket->getHide() > 0) $title = 'show';
+
+        echo '<a title="'.$title.'" class='.$link_class;
+        echo ' href="'.WWW.'?page=hide&id='.$id.'">'.$title.'</a>';
+	}
+
     private static function etoile(\model\Ticket $ticket, string $link_class, int $rate) {
 
         $id = $ticket->getId();
-        $href = 'href="'.WWW.'?page=';
         $checked = false;
         $title = 'je l\'aime';
         if ($ticket->getLove() > 0) {
@@ -86,10 +97,8 @@ class Frontend {
         	$title = $title.' plus';
         }
 
-        echo '<a title="'.$title.'" class='.$link_class;
-    	echo $href.'love&id='.$id.'">';
-    	echo '<span role="button" title="'.$title.'" class="fa fa-star '.$checked.'">'.$rate.'</span>';
-    	echo '</a>';
+        echo '<a title="'.$title.'" class='.$link_class.' href="'.WWW.'?page=love&id='.$id.'">';
+    	echo '<span role="button" title="'.$title.'" class="fa fa-star '.$checked.'">'.$rate.'</span></a>';
     }
 
     private static function ticketLink(\model\Ticket $ticket, string $lcl): void {
@@ -139,15 +148,19 @@ class Frontend {
 
     		$id = $cuisinier->getId();
     		$href = ' href="'.WWW.'?page=over&id='.$id.'"';
+    		$title = 'voir articles';
+    		$aid = 'select-'.$id;
     	} else {
 
-    		$cuisinier = 'new cuisinier';
+    		$cuisinier = 'créer un author';
+    		$title = $cuisinier;
     		$href = ' href="'.WWW.'?page=author&id=11111"';
     		$dcl = '"ticket"';
     		$lcl = '"lien"';
+    		$aid = 'insert';
     	} ?>
     	<div class=<?=$dcl;?>>
-          <a class=<?=$lcl;?> <?=$href;?>><?=$cuisinier;?></a><?php
+          <a id="<?=$aid;?>" title="<?=$title;?>" class=<?=$lcl;?> <?=$href;?>><?=$cuisinier;?></a><?php
     	if ($user && $id) {
     		$href = ' href="'.WWW.'?page=delchef&id=';
     		echo '<a title="delete #'.$id.'" id="delete" class='.$lcl.$href.$id.'">[delete cuisinier #'.$id.']</a>';
@@ -163,8 +176,13 @@ class Frontend {
 
     protected static function viewAdmin($adminarray): void {
 
-    	foreach (array_reverse($adminarray) as $admin) echo '<h3>'.$admin->getId().'. '.$admin->getPseudo().' created by '.$admin->getParent().'</h3>';
-    	echo '<a id="create" class="lien" href="'.WWW.'?page=admin&id=11111">create a new administrator</a>';
+        if ($adminarray) {
+            foreach (array_reverse($adminarray) as $admin) echo '<h3>'.$admin->getId().'. '.$admin->getPseudo().' created by '.$admin->getParent().'</h3>';
+        } else {
+            echo '<div class="ticket">';
+            echo '<a title="nouvel admin" id="insert" class="lien" href="'.WWW.'?page=admin&id=11111">créer un administrateur</a>';
+            echo '</div>';
+        }
     }
 
     protected static function viewModal($message, string $title = 'message', string $ok = 'close'): void {

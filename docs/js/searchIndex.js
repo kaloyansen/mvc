@@ -1686,6 +1686,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Frontend.html#method_viewTicket"
         },                {
+            "fqsen": "\\view\\Frontend\u003A\u003Ahide\u0028\u0029",
+            "name": "hide",
+            "summary": "",
+            "url": "classes/view-Frontend.html#method_hide"
+        },                {
             "fqsen": "\\view\\Frontend\u003A\u003Aetoile\u0028\u0029",
             "name": "etoile",
             "summary": "",

@@ -13,10 +13,20 @@ class Admin extends \view\Frontend {
 	function __construct($controbjet) {
 
 		parent::__construct($controbjet);
-		echo '<article>';
+		echo '<article class="row">';
+		self::viewAdmin($controbjet->admin_array);
+		echo '<div class="col">';
 		//self::viewMessage($controbjet->message);
 		//echo '<h3>total '.count($controbjet->admin_array).' administrateurs</h3>';
-		self::viewAdmin($controbjet->admin_array);
+		self::viewAdmin(null);
+		echo '</div>';
+		echo '<div class="col">';
+		self::viewAuthor(null);
+		echo '</div>';
+		echo '<div class="col">';
+		self::viewTicket(null);
+		echo '</div>';
+
 		if ($controbjet->afform) self::viewForm($controbjet);
 		self::viewModal($controbjet->modal, 'de la base de données', 'merci');
 		echo '</article>';

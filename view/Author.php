@@ -18,7 +18,7 @@ class Author extends \view\Frontend {
 		foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
 		foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
 		foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
-		if ($user) self::viewAuthor(null);
+		//if ($user) self::viewAuthor(null);
         echo '</article>';
     }
 
