@@ -13,6 +13,7 @@ class Admin extends \view\Frontend {
 	function __construct($controbjet) {
 
 		parent::__construct($controbjet);
+
 		echo '<article class="row">';
 		self::viewAdmin($controbjet->admin_array);
 		echo '<div class="col">';

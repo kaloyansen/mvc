@@ -11,6 +11,7 @@ class Objet extends \view\Frontend {
 	public function __construct($controbjet) {
 
 		parent::__construct($controbjet);
+
 		echo '<article class="container">';
 		$this->viewTicketArray(1);
         echo "</article>";

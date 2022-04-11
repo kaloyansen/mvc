@@ -4,23 +4,20 @@
  * @abstract dinamic frontend
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.1
+ * @version 0.0.3
  */
-class Frontend {
+abstract class Frontend {
 	/**
+	 * @var $conrtobj
+	 * @desc data to visualise
+	 * @abstract sent from controller
 	 */
-	private $controbj;
-
-	public function __construct($controbjet) {
-
-        $this->setObjet($controbjet);
-	}
-
-    protected function setObjet($contre): void { $this->controbj = $contre; }
-    protected function getObjet() { return $this->controbj; }
+	private object $controbj;
+	public function __construct($controbjet) { $this->setObjet($controbjet); }
+	public function stop(): bool { return false; }
+	protected function getObjet(): object { return $this->controbj; }
+	protected function setObjet(object $contre): void { $this->controbj = $contre; }
     protected function viewTicketArray(int $option = 0): void {
-
-    	$user = isset($_SESSION['user']) ? $_SESSION['user'] : false;
 
     	$controbjet = $this->getObjet();
         $ta = $controbjet->ticket_array;
@@ -31,8 +28,6 @@ class Frontend {
             $total --;
             self::viewTicket($ticket, $rate[$total], $option);
         }
-        //if ($user) self::viewTicket(null);
-
     }
 
 	protected static function viewTicket(?\model\Ticket $ticket, $rate = 0, int $option = 0): void {

@@ -12,13 +12,12 @@ class Author extends \view\Frontend {
 	public function __construct($controbjet) {
 
 		parent::__construct($controbjet);
-		$user = isset($_SESSION['user']) ? $_SESSION['user'] : false;
+
 		$ca = $controbjet->cuisinier_array;
 		echo '<article class="container">';
 		foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
 		foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
 		foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
-		//if ($user) self::viewAuthor(null);
         echo '</article>';
     }
 

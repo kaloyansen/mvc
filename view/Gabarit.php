@@ -14,6 +14,7 @@ class Gabarit {
 
     	$moi = 'Kaloyan KRASTEV, 32 quai Xavier JOUVIN Grenoble FRANCE';
     	$favicon = IMG.'/favicon.ico';
+    	$user = false;
 
     	if (isset($_SESSION['user'])) {
             $user = $_SESSION['user'];
@@ -21,7 +22,6 @@ class Gabarit {
             $decoclass = 'fa fa-sign-out';
             $decontent = explode('@', $user)[0];
         } else {
-            $user = 'guest';
         	$decotitle = 'sign in';
         	$decoclass = 'fa fa-sign-in';
         	$decontent = '';
@@ -55,8 +55,10 @@ class Gabarit {
         <a class="nav-item loco col" title="cuisiniers" href="<?=WWW;?>?page=author">cuisiniers</a>
         <a class="nav-item loco col" title="list" href="<?=WWW;?>?page=all">
         <span class="fa fa-list"></span></a>
+        <?php if ($user) { ?>
         <a class="nav-item loco col" title="new" href="<?=WWW;?>?page=admin">
         <span class="fa fa-plus"></span></a>
+        <?php } ?>
         <a class="nav-item loco col" title="<?=$decotitle;?>" href="<?=WWW;?>?page=deconnexion">
         <span class="<?=$decoclass;?>" title="<?=$decotitle;?>"><?=$decontent;?></span></a>
       </nav>
@@ -73,14 +75,14 @@ class Gabarit {
         </address>
       </footer>
       <?php if (DEBUG_LEVEL > 4) {
-          echo '<!--';
-          echo ' debug level: '.DEBUG_LEVEL;
+          echo '<!-- debug level: '.DEBUG_LEVEL;
           echo ', local: '.LOCO;
           echo ', host: '.WWW;
           echo ', page: '.PAGE;
           echo ', method: '.METHOD;
           echo ', session: '.SESTAT;
           echo ', remote: '.REMOTE;
+          if (!$user) $user = 'guest';
           echo ', user: '.$user;
           echo " -->\n";
       } ?>
@@ -91,17 +93,7 @@ class Gabarit {
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
     <script src="<?=MEDIA;?>/js/jquery-3.6.0.min.js"></script>
-    <script>
-
-    $('.loco').mouseout(
-        function() { $(this).addClass('hover'); },
-        function() { $(this).removeClass('fa-spin'); }
-    );
-    $('.loco').hover(
-        function(){ $(this).addClass('fa-spin'); },
-        function(){ $(this).removeClass('hover'); }
-    );
-    </script>
+    <script src="<?=MEDIA;?>/js/spin.js"></script>
   </body>
 </html>
 <?php

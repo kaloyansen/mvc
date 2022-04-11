@@ -37,20 +37,20 @@ class View {
     public function afficher($contrarray = 0) {
 
     	$controbjet = (object) $contrarray;
-    	if (empty($controbjet->modal)) $controbjet->modal = false;
-    	if (empty($controbjet->message)) $controbjet->message = false;
+    	if (empty($controbjet->modal)) { $controbjet->modal = false; }
+    	if (empty($controbjet->message)) { $controbjet->message = false; }
 
-      	$dinaclass = '\\view\\'.ucfirst($this->chemin);
+      	$dinaclass = '\\view\\'.ucfirst($this->chemin);//!!
 
         ob_start();
-        $quoiFaire = new $dinaclass($controbjet);
+        $view = new $dinaclass($controbjet);
+        if ($view->stop()) return;
         $content = ob_get_clean();
 
         $gabarit = new \view\Gabarit($content);
-        $gabarit->tourne( (object) array(
-            'title' => $this->title,
-            'description' => $this->description,
-            'keywords' => $this->keywords));
+        $gabarit->tourne( (object) array('title' => $this->title,
+                                         'description' => $this->description,
+                                         'keywords' => $this->keywords));
     }
 }
 

@@ -76,6 +76,10 @@
                 <a href="namespaces/composer-autoload.html" class="">Autoload</a>
                 
             </li>
+                    <li>
+                <a href="namespaces/composer-semver.html" class="">Semver</a>
+                
+            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -85,12 +89,6 @@
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/view.html" class="">view</a>
 </h4>
-    <ul class="phpdocumentor-list">
-                    <li>
-                <a href="namespaces/view-admin.html" class="">admin</a>
-                
-            </li>
-            </ul>
 
                         </section>
                 <section class="phpdocumentor-sidebar__category">
@@ -127,6 +125,9 @@
                             <tr>
                     <td class="phpdocumentor-cell"><a href="reports/deprecated.html#vendor/composer/InstalledVersions.php">vendor/composer/InstalledVersions.php</a></td>
                 </tr>
+                            <tr>
+                    <td class="phpdocumentor-cell"><a href="reports/deprecated.html#vendor/composer/semver/src/VersionParser.php">vendor/composer/semver/src/VersionParser.php</a></td>
+                </tr>
                     </table>
         
                     <a id="vendor/composer/InstalledVersions.php"></a>
@@ -141,6 +142,21 @@
                             <td class="phpdocumentor-cell">260</td>
                             <td class="phpdocumentor-cell"><a href="classes/Composer-InstalledVersions.html#method_getRawData"><abbr title="\Composer\InstalledVersions::getRawData()">InstalledVersions::getRawData()</abbr></a></td>
                             <td class="phpdocumentor-cell"><p>Use getAllRawData() instead which returns all datasets for all autoloaders present in the process. getRawData only returns the first dataset loaded, which may not be what you expect.</p>
+</td>
+                        </tr>
+                                                </table>
+                    <a id="vendor/composer/semver/src/VersionParser.php"></a>
+            <h3><abbr title="vendor/composer/semver/src/VersionParser.php">VersionParser.php</abbr></h3>
+            <table>
+                <tr>
+                    <th class="phpdocumentor-heading">Line</th>
+                    <th class="phpdocumentor-heading">Element</th>
+                    <th class="phpdocumentor-heading">Reason</th>
+                </tr>
+                                                            <tr>
+                            <td class="phpdocumentor-cell">237</td>
+                            <td class="phpdocumentor-cell"><a href="classes/Composer-Semver-VersionParser.html#method_normalizeDefaultBranch"><abbr title="\Composer\Semver\VersionParser::normalizeDefaultBranch()">VersionParser::normalizeDefaultBranch()</abbr></a></td>
+                            <td class="phpdocumentor-cell"><p>No need to use this anymore in theory, Composer 2 does not normalize any branch names to 9999999-dev anymore</p>
 </td>
                         </tr>
                                                 </table>

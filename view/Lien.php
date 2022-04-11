@@ -12,7 +12,6 @@ class Lien extends \view\Frontend {
 	public function __construct($controbjet) {
 
 		parent::__construct($controbjet);
-		$this->setObjet($controbjet);
 
 		echo '<article class="container">';
 		$this->viewTicketArray(2);

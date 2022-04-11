@@ -75,6 +75,10 @@
                 <a href="namespaces/composer-autoload.html" class="">Autoload</a>
                 
             </li>
+                    <li>
+                <a href="namespaces/composer-semver.html" class="">Semver</a>
+                
+            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -84,12 +88,6 @@
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/view.html" class="">view</a>
 </h4>
-    <ul class="phpdocumentor-list">
-                    <li>
-                <a href="namespaces/view-admin.html" class="">admin</a>
-                
-            </li>
-            </ul>
 
                         </section>
                 <section class="phpdocumentor-sidebar__category">
@@ -128,6 +126,11 @@
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/Composer-Semver-Constraint-ConstraintInterface.html"><abbr title="\Composer\Semver\Constraint\ConstraintInterface">ConstraintInterface</abbr></a></dt>
+        <dd>DO NOT IMPLEMENT this interface. It is only meant for usage as a type hint
+in libraries relying on composer/semver but creating your own constraint class
+that implements this interface is not a supported use case and will cause the
+composer/semver components to return unexpected results.</dd>
     
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/classe-Control.html"><abbr title="\classe\Control">Control</abbr></a></dt>
         <dd></dd>
@@ -187,9 +190,33 @@
         <dd></dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/view-Message.html"><abbr title="\view\Message">Message</abbr></a></dt>
         <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/view-admin-Delete.html"><abbr title="\view\admin\Delete">Delete</abbr></a></dt>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/view-Delete.html"><abbr title="\view\Delete">Delete</abbr></a></dt>
         <dd></dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/view-Frontend.html"><abbr title="\view\Frontend">Frontend</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Composer-Semver-Comparator.html"><abbr title="\Composer\Semver\Comparator">Comparator</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Composer-Semver-CompilingMatcher.html"><abbr title="\Composer\Semver\CompilingMatcher">CompilingMatcher</abbr></a></dt>
+        <dd>Helper class to evaluate constraint by compiling and reusing the code to evaluate</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Composer-Semver-Constraint-Bound.html"><abbr title="\Composer\Semver\Constraint\Bound">Bound</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Composer-Semver-Constraint-Constraint.html"><abbr title="\Composer\Semver\Constraint\Constraint">Constraint</abbr></a></dt>
+        <dd>Defines a constraint.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Composer-Semver-Constraint-MatchAllConstraint.html"><abbr title="\Composer\Semver\Constraint\MatchAllConstraint">MatchAllConstraint</abbr></a></dt>
+        <dd>Defines the absence of a constraint.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Composer-Semver-Constraint-MatchNoneConstraint.html"><abbr title="\Composer\Semver\Constraint\MatchNoneConstraint">MatchNoneConstraint</abbr></a></dt>
+        <dd>Blackhole of constraints, nothing escapes it</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Composer-Semver-Constraint-MultiConstraint.html"><abbr title="\Composer\Semver\Constraint\MultiConstraint">MultiConstraint</abbr></a></dt>
+        <dd>Defines a conjunctive or disjunctive set of constraints.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Composer-Semver-Interval.html"><abbr title="\Composer\Semver\Interval">Interval</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Composer-Semver-Intervals.html"><abbr title="\Composer\Semver\Intervals">Intervals</abbr></a></dt>
+        <dd>Helper class generating intervals from constraints</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Composer-Semver-Semver.html"><abbr title="\Composer\Semver\Semver">Semver</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Composer-Semver-VersionParser.html"><abbr title="\Composer\Semver\VersionParser">VersionParser</abbr></a></dt>
+        <dd>Version parser.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/view-Update.html"><abbr title="\view\Update">Update</abbr></a></dt>
         <dd></dd>
     
     

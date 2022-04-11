@@ -12,6 +12,7 @@ class Over extends \view\Frontend {
 	public function __construct($controbjet) {
 
 		parent::__construct($controbjet);
+
 		echo '<article class="container-fluid">';
         $this->viewTicketArray(2);
         echo '</article>';
