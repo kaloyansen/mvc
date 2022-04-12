@@ -37,6 +37,7 @@ class Gabarit {
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
           crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="<?=MEDIA;?>/css/style.css"/>
     <link rel = "icon" type = "image/x-icon" href = "<?=$favicon;?>" />
     <link rel = "SHORTCUT ICON" href = "<?=$favicon;?>" />
@@ -52,7 +53,8 @@ class Gabarit {
 	  <nav class="navbar fixed-top navbar-expand-lg navbar-info row">
         <a class="nav-item loco col" title="home" href="<?=WWW;?>?page=objet">
         <span class="fa fa-refresh"></span></a>
-        <a class="nav-item loco col" title="cuisiniers" href="<?=WWW;?>?page=author">cuisiniers</a>
+        <a class="nav-item loco col" title="cuisiniers" href="<?=WWW;?>?page=author">
+        <span class="fa fa-user"></span></a>
         <a class="nav-item loco col" title="list" href="<?=WWW;?>?page=all">
         <span class="fa fa-list"></span></a>
         <?php if ($user) { ?>
@@ -65,13 +67,13 @@ class Gabarit {
       <?=$this->contenu;?>
       <footer>
         <address><?=$moi;?>
-          <a class="loco fa fa-envelope-o" title="kaloyansen@gmail.com" href="mailto:kaloyansen@gmail.com" target="_blank"></a>
-          <a class="loco fa fa-linkedin-square" title="linkedin" href="https://www.linkedin.com/in/kaloyan-k-krastev" target="_blank"></a>
-          <a class="loco fa fa-github" title="github.io" href="https://kaloyansen.github.io/mvc" target="_blank"></a>
-          <a class="loco fa fa-phone" title="+33 6 812 44 812" href="tel:+33681244812" target="_blank"></a>
-          <a class="loco fa fa-flag fa-1x" title="font awesome" href="https://fontawesome.com" target="_blank"></a>
-          <a class="loco fa fa-rotate-right" title="bootstrap" href="https://bootstrap.com" target="_blank"></a>
-          <a class="loco fa fa-rotate-left" style="fa-animation-direction: reverse;" title="bootstrap" href="https://bootstrap.com" target="_blank"></a>
+          <a class="roco fa fa-envelope-o" title="kaloyansen@gmail.com" href="mailto:kaloyansen@gmail.com" target="_blank"></a>
+          <a class="roco fa fa-linkedin-square" title="linkedin" href="https://www.linkedin.com/in/kaloyan-k-krastev" target="_blank"></a>
+          <a class="roco fa fa-github" title="github.io" href="https://kaloyansen.github.io/mvc" target="_blank"></a>
+          <a class="roco fa fa-phone" title="+33 6 812 44 812" href="tel:+33681244812" target="_blank"></a>
+          <a class="roco fa fa-flag fa-1x" title="font awesome" href="https://fontawesome.com" target="_blank"></a>
+          <a class="roco fa fa-rotate-right" title="bootstrap" href="https://bootstrap.com" target="_blank"></a>
+          <a class="roco fa fa-rotate-left" style="fa-animation-direction: reverse;" title="bootstrap" href="https://bootstrap.com" target="_blank"></a>
         </address>
       </footer>
       <?php if (DEBUG_LEVEL > 4) {

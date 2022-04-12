@@ -141,43 +141,29 @@ a[href^="tel"]::before {
 }
 
 
-.loco {
+.loco, .roco, .lien {
     color: #caf;
     background-color: #358;
     font-weight: bold;
     /*font-size: 27px;*/
     text-decoration: none;  
     list-style: none;
-    padding: 0;
+    padding: 2px;
     /*width: 77%;*/
     text-align: center;
 }
 
 .lien {
     display: block;
-    color: #caf;
-    background-color: #358;
-    font-weight: bold;
     font-size: 27px;
-    text-decoration: none;  
-    list-style: none;
-    padding: 2px;
-    border-radius: 0;
-    /*width: 77%;*/
-    text-align: center;
 }
 
-.lien:hover {
+.lien:hover, .loco:hover, .roco:hover {
 	color: #359;
     background-color: #caf;
     cursor: pointer;
 }
 
-.loco:hover {
-    color: #359;
-    background-color: #caf;
-    cursor: pointer;
-}
 /*
 .chef {
     min-width: 300px;

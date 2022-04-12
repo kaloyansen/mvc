@@ -1,11 +1,11 @@
 /**
  * spinning 
  */
-$('.loco').mouseout(
+$('.roco').mouseout(
     function() { $(this).addClass('hover'); },
     function() { $(this).removeClass('fa-spin'); }
 );
-$('.loco').hover(
+$('.roco').hover(
     function() { $(this).addClass('fa-spin'); },
     function() { $(this).removeClass('hover'); }
 );

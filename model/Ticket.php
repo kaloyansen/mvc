@@ -14,7 +14,7 @@ class Ticket extends \model\TicketPublic {
      */
     public function __construct($objet = false, $id = false) {
 
-    	if ($id) $this->setId($id);
+    	//if ($id) $this->setId($id);
     	if (!$objet) $objet = self::randomBody('abcdef', 6);
     	$this->consume($objet);
     }
@@ -29,7 +29,16 @@ class Ticket extends \model\TicketPublic {
     	error_log(' destruction');
     }
 
+    public function nProp(): int {
+
+    	$proparr = \model\BaseManager::getPropArray($this);
+    	return count($proparr);
+    }
+
     private function consume($obj): void {
+
+    	$this->id = $obj->id;
+    	$this->love = $obj->love;
 
     	$this->title = $obj->title;
     	$this->description = $obj->description;
@@ -107,6 +116,7 @@ class Ticket extends \model\TicketPublic {
 
     	$wordlet = str_repeat($wordset, 10);
         return (object) array(
+        	'id' => 123456,
             'title' => 'un ticket généré automatiquement',
         	'description' => 'la méthode s\'appelle randomBody',
         	'color' => \Colors\RandomColor::one(array('luminosity'=>'light')),
@@ -118,7 +128,8 @@ class Ticket extends \model\TicketPublic {
             'temps' => 1000,
             'personne' => 2,
             'hide' => 0,
-            'cuisinier' => 1
+            'cuisinier' => 1,
+            'love' => 0
         );
     }
 

@@ -5,7 +5,7 @@
 	"license" : "Apache-2.0",
 	"require" : {
 		"mistic100/randomcolor" : "^1.0",
-		"composer/semver" : "~3.3"
+		"phpunit/phpunit": "9.5.x-dev"
 	},
 	"autoload" : {
 		"psr-4" : {
