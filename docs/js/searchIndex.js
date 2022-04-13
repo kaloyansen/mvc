@@ -741,10 +741,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-BaseManager.html#method_connexion"
         },                {
-            "fqsen": "\\model\\BaseManager\u003A\u003AgetPropArray\u0028\u0029",
-            "name": "getPropArray",
+            "fqsen": "\\model\\BaseManager\u003A\u003Aobject2array\u0028\u0029",
+            "name": "object2array",
             "summary": "",
-            "url": "classes/model-BaseManager.html#method_getPropArray"
+            "url": "classes/model-BaseManager.html#method_object2array"
         },                {
             "fqsen": "\\model\\BaseManager\u003A\u003AINSEB",
             "name": "INSEB",
@@ -976,35 +976,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-TicketManager.html#method_authorId"
         },                {
-            "fqsen": "\\model\\TicketManager\u003A\u003AauthorName\u0028\u0029",
-            "name": "authorName",
-            "summary": "",
-            "url": "classes/model-TicketManager.html#method_authorName"
-        },                {
             "fqsen": "\\model\\TicketManager\u003A\u003Alast\u0028\u0029",
             "name": "last",
             "summary": "",
             "url": "classes/model-TicketManager.html#method_last"
-        },                {
-            "fqsen": "\\model\\TicketManager\u003A\u003AlastAuthor\u0028\u0029",
-            "name": "lastAuthor",
-            "summary": "",
-            "url": "classes/model-TicketManager.html#method_lastAuthor"
-        },                {
-            "fqsen": "\\model\\TicketManager\u003A\u003AsheLovesMe\u0028\u0029",
-            "name": "sheLovesMe",
-            "summary": "",
-            "url": "classes/model-TicketManager.html#method_sheLovesMe"
-        },                {
-            "fqsen": "\\model\\TicketManager\u003A\u003AloveMeDo\u0028\u0029",
-            "name": "loveMeDo",
-            "summary": "",
-            "url": "classes/model-TicketManager.html#method_loveMeDo"
-        },                {
-            "fqsen": "\\model\\TicketManager\u003A\u003Arate\u0028\u0029",
-            "name": "rate",
-            "summary": "",
-            "url": "classes/model-TicketManager.html#method_rate"
         },                {
             "fqsen": "\\model\\TicketManager\u003A\u003AselectSameAuthor\u0028\u0029",
             "name": "selectSameAuthor",
@@ -1021,25 +996,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-TicketManager.html#method_select"
         },                {
-            "fqsen": "\\model\\TicketManager\u003A\u003AselectAuthors\u0028\u0029",
-            "name": "selectAuthors",
-            "summary": "",
-            "url": "classes/model-TicketManager.html#method_selectAuthors"
-        },                {
-            "fqsen": "\\model\\TicketManager\u003A\u003AselectAuthor\u0028\u0029",
-            "name": "selectAuthor",
-            "summary": "",
-            "url": "classes/model-TicketManager.html#method_selectAuthor"
-        },                {
             "fqsen": "\\model\\TicketManager\u003A\u003Ainsert\u0028\u0029",
             "name": "insert",
             "summary": "",
             "url": "classes/model-TicketManager.html#method_insert"
-        },                {
-            "fqsen": "\\model\\TicketManager\u003A\u003AinsertAuthor\u0028\u0029",
-            "name": "insertAuthor",
-            "summary": "",
-            "url": "classes/model-TicketManager.html#method_insertAuthor"
         },                {
             "fqsen": "\\model\\TicketManager\u003A\u003Aupdate\u0028\u0029",
             "name": "update",
@@ -1051,10 +1011,55 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-TicketManager.html#method_delete"
         },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003AauthorName\u0028\u0029",
+            "name": "authorName",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_authorName"
+        },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003AlastAuthor\u0028\u0029",
+            "name": "lastAuthor",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_lastAuthor"
+        },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003AselectAuthorNoms\u0028\u0029",
+            "name": "selectAuthorNoms",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_selectAuthorNoms"
+        },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003AselectAuthors\u0028\u0029",
+            "name": "selectAuthors",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_selectAuthors"
+        },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003AselectAuthor\u0028\u0029",
+            "name": "selectAuthor",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_selectAuthor"
+        },                {
             "fqsen": "\\model\\TicketManager\u003A\u003AdeleteAuthor\u0028\u0029",
             "name": "deleteAuthor",
             "summary": "",
             "url": "classes/model-TicketManager.html#method_deleteAuthor"
+        },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003AinsertAuthor\u0028\u0029",
+            "name": "insertAuthor",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_insertAuthor"
+        },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003AsheLovesMe\u0028\u0029",
+            "name": "sheLovesMe",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_sheLovesMe"
+        },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003AloveMeDo\u0028\u0029",
+            "name": "loveMeDo",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_loveMeDo"
+        },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003Arate\u0028\u0029",
+            "name": "rate",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_rate"
         },                {
             "fqsen": "\\model\\TicketManager\u003A\u003ATABLE",
             "name": "TABLE",
@@ -1176,11 +1181,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/controller-Moco.html#method_passe"
         },                {
-            "fqsen": "\\controller\\Moco\u003A\u003Amodal\u0028\u0029",
-            "name": "modal",
-            "summary": "",
-            "url": "classes/controller-Moco.html#method_modal"
-        },                {
             "fqsen": "\\controller\\Moco\u003A\u003A\u0024permisDAppelerMethode",
             "name": "permisDAppelerMethode",
             "summary": "",
@@ -1235,6 +1235,11 @@ Search.appendIndex(
             "name": "setBody",
             "summary": "",
             "url": "classes/model-TicketPublic.html#method_setBody"
+        },                {
+            "fqsen": "\\model\\TicketPublic\u003A\u003AsetPhoto\u0028\u0029",
+            "name": "setPhoto",
+            "summary": "",
+            "url": "classes/model-TicketPublic.html#method_setPhoto"
         },                {
             "fqsen": "\\model\\TicketPublic\u003A\u003AsetJour\u0028\u0029",
             "name": "setJour",
@@ -1306,6 +1311,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-TicketPublic.html#method_getBody"
         },                {
+            "fqsen": "\\model\\TicketPublic\u003A\u003AgetPhoto\u0028\u0029",
+            "name": "getPhoto",
+            "summary": "",
+            "url": "classes/model-TicketPublic.html#method_getPhoto"
+        },                {
             "fqsen": "\\model\\TicketPublic\u003A\u003AgetJour\u0028\u0029",
             "name": "getJour",
             "summary": "",
@@ -1375,6 +1385,11 @@ Search.appendIndex(
             "name": "body",
             "summary": "",
             "url": "classes/model-TicketPublic.html#property_body"
+        },                {
+            "fqsen": "\\model\\TicketPublic\u003A\u003A\u0024photo",
+            "name": "photo",
+            "summary": "",
+            "url": "classes/model-TicketPublic.html#property_photo"
         },                {
             "fqsen": "\\model\\TicketPublic\u003A\u003A\u0024jour",
             "name": "jour",
@@ -1775,6 +1790,16 @@ Search.appendIndex(
             "name": "viewForm",
             "summary": "",
             "url": "classes/view-Update.html#method_viewForm"
+        },                {
+            "fqsen": "\\view\\Update\u003A\u003Aarray2option\u0028\u0029",
+            "name": "array2option",
+            "summary": "",
+            "url": "classes/view-Update.html#method_array2option"
+        },                {
+            "fqsen": "\\view\\Update\u003A\u003Aauthor2option\u0028\u0029",
+            "name": "author2option",
+            "summary": "",
+            "url": "classes/view-Update.html#method_author2option"
         },                {
             "fqsen": "\\test\\TicketTest",
             "name": "TicketTest",

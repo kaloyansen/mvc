@@ -6,7 +6,7 @@
  * @category controller
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.7
+ * @version 0.0.9
  */
 class Boco extends \controller\Foco {
     /**
@@ -86,15 +86,42 @@ class Boco extends \controller\Foco {
     public function insert(): void {
 
     	$view_class = 'insert';
-    	$do_insert = true;
-    	$ticket_load_post = false;
-
-    	if (ONLINE && self::fromPost('new_ticket_form_fill')) $ticket_load_post = true;
-    	else $do_insert = false;
-
+    	$do_insert = false;
+    	$afform = false;
+    	$modal = false;
+    	$message = false;
     	$ticket = new \model\Ticket();
-    	if ($ticket_load_post) $ticket->loadPost();
+    	$rate = 0;
+    	$authors = array();
 
+    	if (ONLINE) {
+    		if (self::fromPost('new_ticket_form_fill') == 'save') {
+    			$ticket->loadPost();
+    			$mana = new \model\TicketManager();
+    			$db_insert = $mana->insert($ticket);
+    			$db_last = $mana->last();
+    			unset($mana);
+    			$modal = 'ticked #'.$db_last.' created('.$db_insert.')';
+    		} elseif (self::fromPost('new_ticket_form_fill') == 'cancel') {
+    			$message = 'create cancelled';
+    		} else {
+                $afform = true;
+                $mana = new \model\TicketManager();
+                $authors = $mana->selectAuthors();
+                unset($mana);
+    		}
+    	}
+
+    	$view = new \classe\View($view_class);
+    	$view->manger($ticket);
+    	$view->afficher( array('message' => $this->transMess($message),
+    			'ticket' => $ticket,
+    			'rate' => $rate,
+    			'modal' => $modal,
+    			'authors' => $authors,
+    			'afform' => $afform) );
+
+    	/*
     	if ($do_insert) {
     		$db = new \model\TicketManager();
     		$db_insert = $db->insert($ticket);
@@ -106,39 +133,49 @@ class Boco extends \controller\Foco {
 
     	$view = new \classe\View($view_class);
     	$view->manger($ticket);
-    	$view->afficher( array('message' => $this->transMess('create new ticket')) );
+    	$view->afficher( array('message' => $this->transMess('create new ticket')) );*/
     }
 
     public function update(): void {
 
     	$id = self::idLoad();
-    	$view_class = 'admin/update_form';
+    	$view_class = 'update';
 
-		$do_update = true;
-		$db = new \model\TicketManager();
-		$ticket = $db->select($id);
+		$mana = new \model\TicketManager();
+		$ticket = $mana->select($id);
+		$rate = $mana->rate($id);
+		$authors = $mana->selectAuthors();
+
+		$afform = false;
+		$modal = false;
+		$message = false;
 
 		if (ONLINE) {
-			if (self::fromPost('update_ticket_form_fill')) $ticket->loadPost();
-			else $do_update = false;
-		} else {
-			$ticket->setTitle('new-'.$ticket->getTitle());
+			if (self::fromPost('update_ticket_form_fill') == 'save') {
+				$ticket->loadPost();
+				$modal = self::tikid().' updated('.$mana->update($id, $ticket).')';
+			} elseif (self::fromPost('update_ticket_form_fill') == 'cancel') {
+				$message = 'update '.self::tikid().' cancelled';
+			} else {
+				$afform = true;
+			}
 		}
+			/*
+			 unset($db);
+			\view\Frontend::viewModal($message, 'de la base de données', 'continuer');
+			header('location: '.WWW.'?page=objet&id='.$id); */
 
-		$message = 'update '.self::tikid();
-		if ($do_update) {
-			$message = self::tikid().' updated('.$db->update($id, $ticket).')';
-			unset($db);
-			header('location: '.WWW.'?page=objet&id='.$id);
-		}
-
-		unset($db);
+		unset($mana);
 
 		$view = new \classe\View($view_class);
 		$view->manger($ticket);
 		$view->afficher( array('message' => $this->transMess($message),
-                               'ticket' => $ticket) );
-	}
+				'ticket' => $ticket,
+				'rate' => $rate,
+				'modal' => $modal,
+				'authors' => $authors,
+				'afform' => $afform) );
+    }
 
 	public function delete(): void {
 
@@ -159,7 +196,7 @@ class Boco extends \controller\Foco {
 
 		if (!$roule) {/* afficher la confirmation
 			*/
-			$view_class = 'admin/delete_confirmation';
+			$view_class = 'delete';
 			$message = 'delete '.self::tikid().' confirmation';
 			$ticket_array[] = $db->select($id);
 		} else {/* sortir

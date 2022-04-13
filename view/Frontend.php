@@ -180,7 +180,7 @@ abstract class Frontend {
         }
     }
 
-    protected static function viewModal($message, string $title = 'message', string $ok = 'close'): void {
+    public static function viewModal($message, string $title = 'message', string $ok = 'close'): void {
 
         if (!$message) return; ?>
 

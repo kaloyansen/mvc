@@ -87,7 +87,7 @@ class Moco {
     private static function passe(): ?string {
 
         if (ONLINE) {
-        	//var_dump($_POST);
+
             $pseudo = self::fromPost('pseudo');
             $password = self::fromPost('password');
         } else {
@@ -96,25 +96,28 @@ class Moco {
         }
 
         if (!$pseudo || !$password) {
-        	error_log(__CLASS__.'::passe('.$pseudo.':'.$password.')');
+
         	return null;
+        } else {
+
+            $mana = new \model\MembreManager();
+            $access = $mana->checkPassword($pseudo, $password);
+            unset($mana);
+            if ($access) {
+
+                $_SESSION['user'] = $pseudo;
+                self::modal($pseudo.' login success', 'bravo', 'continuer');
+                return $pseudo;
+            } else {
+                return null;
+            }
         }
 
-        $db = new \model\MembreManager();
-        $access = $db->checkPassword($pseudo, $password); //var_dump($access);
-        unset($db);
-
-        if ($access) {
-
-        	$_SESSION['user'] = $pseudo;
-            self::modal($pseudo.' login success', 'bravo', 'continuer');
-            return $pseudo;
-        }
-
-        return null;
+        //return $retour;
     }
 
-    protected static function modal(string $message, string $title = 'message', string $ok = 'close'): void { ?>
+/*
+    protected static function viewModal(string $message, string $title = 'message', string $ok = 'close'): void { ?>
 
     	<script src="<?=MEDIA;?>/js/jquery-3.6.0.min.js"></script>
     	<script>
@@ -141,6 +144,6 @@ class Moco {
         </div>
         <?php
     }
-
+*/
 
 } ?>

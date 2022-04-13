@@ -4,7 +4,7 @@
  * @see class attributes in superclass TicketPublic
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.6
+ * @version 0.0.7
  */
 class Ticket extends \model\TicketPublic {
 
@@ -15,7 +15,6 @@ class Ticket extends \model\TicketPublic {
     public function __construct($objet = false, $id = false) {
 
     	//if ($id) $this->setId($id);
-    	if (!$objet) $objet = self::randomBody('abcdef', 6);
     	$this->consume($objet);
     }
 
@@ -31,28 +30,35 @@ class Ticket extends \model\TicketPublic {
 
     public function nProp(): int {
 
-    	$proparr = \model\BaseManager::getPropArray($this);
+    	$proparr = \model\BaseManager::object2array($this);
     	return count($proparr);
     }
 
-    private function consume($obj): void {
+    /**
+     * @abstract convert a table row to an object
+     * @desc row fetchet as an object
+     */
+    protected function consume($obj): void {
 
-    	$this->id = $obj->id;
-    	$this->love = $obj->love;
+    	if (!$obj) $obj = self::randomBody('abcdef', 6);
+
+    	if (isset($obj->id)) $this->id = $obj->id;
+    	//$this->love = $obj->love;
 
     	$this->title = $obj->title;
     	$this->description = $obj->description;
-    	$this->color = $obj->color;
+    	if (isset($obj->color)) $this->color = $obj->color;
     	$this->keywords = $obj->keywords;
     	$this->body = $obj->body;
-    	$this->jour = $obj->jour;
+    	$this->photo = $obj->photo;
+    	if (isset($obj->jour)) $this->jour = $obj->jour;
 
-    	$this->prix = $obj->prix;
-    	$this->diff = $obj->diff;
+    	$this->prix = intval($obj->prix);
+    	$this->diff = intval($obj->diff);
     	$this->temps = $obj->temps;
     	$this->personne = $obj->personne;
-    	$this->hide = $obj->hide;
-    	$this->cuisinier = $obj->cuisinier;
+    	if (isset($obj->hide)) $this->hide = $obj->hide;
+    	$this->cuisinier = intval($obj->cuisinier);
     }
 
     public function overview(bool $all = true): string {
@@ -60,9 +66,7 @@ class Ticket extends \model\TicketPublic {
     	$img = IMG.'/recette.'.$this->getId().'.jpg';
     	$krava = '<div class="ticket" style="background-color: '.$this->color.';">';
         $krava = $krava.$this->getTitle();
-        //$krava = $krava.self::photo($this->getId());
         $krava = $krava.self::figure($img, $this->description, 'moyenne');
-        //$krava = $krava.$this->description;
 
         if ($all) {
         	$krava = $krava.'<br />temps: '.self::second2hour($this->temps);
@@ -75,30 +79,18 @@ class Ticket extends \model\TicketPublic {
         return $krava.'</div>';
     }
 
-    /* @see /media/css/style.css for datails
-     * @deprecated
-    protected static function photo($id, $taille = 'moyenne'): string {
-
-    	$img = IMG.'/recette.'.$id.'.jpg';
-    	return '<img class="'.$taille.'" src="'.$img.'" alt="'.$img.'" />';
-    }
-    */
-
     public function __toString() {
 
     	$br = '<br />';
     	$img = IMG.'/recette.'.$this->getId().'.jpg';
 
     	$krava = '<div class="ticket" style="background-color: '.$this->color.';">';
-    	//$krava = $krava.$br.$this->getTitle();
     	$krava = $krava.self::figure($img, $this->getDescription(), 'grand');
     	$krava = $krava.$br.'temps: '.self::second2hour($this->getTemps());
     	$krava = $krava.', difficulté '.self::fouet($this->getDiff());
     	$krava = $krava.', prix: '.self::euro($this->getPrix());
     	$krava = $krava.$br.'produits pour '.$this->getPersonne().' personnes:';
     	$krava = $krava.$br.self::string2list($this->getKeywords(), ',', false);
-
-    	//$krava = $krava.self::photo($this->getId(), 'grand');
     	$krava = $krava.$br.self::string2list($this->getBody(), '.');
     	$krava = $krava.$br.'publiée: '.$this->getJour();
     	return $krava.$br.'</div>';
@@ -122,14 +114,15 @@ class Ticket extends \model\TicketPublic {
         	'color' => \Colors\RandomColor::one(array('luminosity'=>'light')),
         	'keywords' => substr(str_shuffle($wordlet), 0, $wordlen),
         	'body' => 'ce ticket est autogénéré par la méthode randomBody de la classe d\'entité '.__CLASS__,
-            'jour' => date('d-m-y h:i:s'),
+        	'photo' => 'pathtophoto.jpg',
+        	'jour' => date('d-m-y h:i:s'),
             'prix' => 1,
             'diff' => 1,
             'temps' => 1000,
             'personne' => 2,
             'hide' => 0,
-            'cuisinier' => 1,
-            'love' => 0
+        	'cuisinier' => 1,
+        	'love' => 0
         );
     }
 

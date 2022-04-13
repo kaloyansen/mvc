@@ -15,6 +15,7 @@ class TicketPublic extends \model\Transport {
     protected string $color;
     protected string $keywords;
     protected string $body;
+    protected?string $photo;
     protected $jour;//datetime
 
     protected int $prix;
@@ -31,6 +32,7 @@ class TicketPublic extends \model\Transport {
     public function setColor(string $color): void { $this->color = $color; }
     public function setKeywords(string $kw): void { $this->keywords = $kw; }
     public function setBody(string $body): void { $this->body = $body; }
+    public function setPhoto(string $photo): void { $this->photo = $photo; }
     public function setJour($jour): void { $this->jour = $jour; }
     public function setPrix(int $prix): void { $this->prix = $prix; }
     public function setDiff(int $diff): void { $this->diff = $diff; }
@@ -46,6 +48,7 @@ class TicketPublic extends \model\Transport {
     public function getColor() { return $this->color; }
     public function getKeywords(): string { return $this->keywords; }
     public function getBody(): string { return $this->body; }
+    public function getPhoto(): string { return $this->photo; }
     public function getJour() { return $this->jour; }
     public function getPrix(): int { return $this->prix; }
     public function getDiff(): int { return $this->diff; }

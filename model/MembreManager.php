@@ -1,13 +1,14 @@
 <?php namespace model;
 /**
- * @desc administartor database intrface
+ * @desc administartor database interface
+ * @abstract
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.2
+ * @version 0.0.4
  */
 class MembreManager extends \model\BaseManager {
 
-	private $tab = 'membre';//le nom du tableau dans la base de donnée
+	private $tab = 'membre';
 
 	public function checkPassword($pseudo, $password) {
 
@@ -16,13 +17,18 @@ class MembreManager extends \model\BaseManager {
 		$query = $query." AND password='".$password."'";
 
 		$result = $this->sql($query);
+		$arra = array();
+		while ($mfobj = $result->fetch_object()) $arra[] = new \model\Membre($mfobj);
 
-		//$objet = mysqli_fetch_object($result);
-		//return $objet ? new \model\Membre($objet) : null;
-		$admin_array = array();
-		while ($mfobj = $result->fetch_object()) $admin_array[] = new \model\Membre($mfobj);
+		$car = count($arra);
 
-		return empty($admin_array) ? null : $admin_array[0];
+		if ($car < 1) {
+			return null;
+		} else {
+		    if ($car > 1) echo 'size '.$car.' impossible in method checkPassword of '.__CLASS__;
+			return $arra[0];
+		}
+		//return empty($admin_array) ? null : $admin_array[0];
 	}
 
 	public function selectByPseudo($pseudo) {

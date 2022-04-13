@@ -60,6 +60,9 @@ class Gabarit {
         <?php if ($user) { ?>
         <a class="nav-item loco col" title="new" href="<?=WWW;?>?page=admin">
         <span class="fa fa-plus"></span></a>
+        <?php } else { ?>
+        <a class="nav-item loco col" title="about" href="https://kaloyansen.github.io/mvc">
+        <span class="fa fa-github"></span></a>
         <?php } ?>
         <a class="nav-item loco col" title="<?=$decotitle;?>" href="<?=WWW;?>?page=deconnexion">
         <span class="<?=$decoclass;?>" title="<?=$decotitle;?>"><?=$decontent;?></span></a>

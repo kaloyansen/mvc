@@ -13,7 +13,8 @@ class TicketTest extends \PHPUnit\Framework\TestCase {
 	public function testnProp($expected) {
 
 		$ticket = new \model\Ticket();
-		$this->assertSame($expected, $ticket->nProp());
+		$this->assertIsObject($ticket);
+		$this->assertGreaterThanOrEqual($expected, $ticket->nProp());
 	}
 
 	public function inputForTest() { return [[11], [12], [13], [14], [15], [16], [17], [18], [19], [20]]; }

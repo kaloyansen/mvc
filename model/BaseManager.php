@@ -50,7 +50,7 @@ class BaseManager {
 
 	private function export() {
 
-		//file_put_contents(self::$jsonFile, print_r(json_encode(self::getPropArray(self::$conn)), true));
+		//file_put_contents(self::$jsonFile, print_r(json_encode(self::object2array(self::$conn)), true));
 		return self::$conn;
 	}
 
@@ -76,7 +76,7 @@ class BaseManager {
 		return $this->error() ? $this->error() : self::$conn;
 	}
 
-	public static function getPropArray($objet) {//array of properties
+	public static function object2array($objet) {//array of properties
 		$reflectionClass = new \ReflectionClass(get_class($objet));
 		$array = array();
 		foreach ($reflectionClass->getProperties() as $property) {

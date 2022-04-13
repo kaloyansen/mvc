@@ -6,7 +6,7 @@
  * @category controller
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.3
+ * @version 0.0.4
  */
 class Login extends \view\Frontend {
 
@@ -58,13 +58,7 @@ class Login extends \view\Frontend {
   </div>
 </article>
 
-<script src="<?=MEDIA ?>/js/keypad.js"></script>
-<!----------------------------- jquery ---------------------->
-<?php
-/* <script src="<?=MEDIA;?>/js/jquery-3.6.0.min.js"></script>
-<script src="<?=MEDIA;?>/js/control.js"></script>  */
-?>
-<?php
+<script src="<?=MEDIA ?>/js/keypad.js"></script><?php
 	}
 } ?>
 
