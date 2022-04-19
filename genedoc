@@ -16,7 +16,7 @@ set ugit = /usr/bin/git
 $ugit switch dev
 
 echo 2. name the documentation folder and clean it
-set docudir = src/docs
+set docudir = docs
 sudo rm -fR $docudir
 
 echo 3. if you have docker the following long command\'s gonna generate the documentation \
@@ -25,10 +25,10 @@ echo docker run --rm -v ${PWD}/src:/data phpdoc/phpdoc:3 -d . -t docs
 docker run --rm -v ${PWD}/src:/data phpdoc/phpdoc:3 -d . -t docs
 
 echo 4. show documentation disk usage
+sudo mv -fv src/docs .
 /usr/bin/du --max-depth=1 -h -a $docudir
 
 echo 5. save changes and send all to github
-sudo mv -v src/docs .
 $ugit commit -am 'commit de la documentation générée par phpdoc:3'
 $ugit push
 
