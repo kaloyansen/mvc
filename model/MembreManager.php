@@ -72,7 +72,7 @@ class MembreManager extends \model\BaseManager {
 		return $result;
 	}
 
-    public function last() {
+    public function maxid() {
 
 		$query = "SELECT MAX(id) FROM ".$this->tab;
 		$result = $this->sql($query);

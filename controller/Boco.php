@@ -63,9 +63,8 @@ class Boco extends \controller\Foco {
             $new_admin = new \model\Membre(false, true);
             $new_admin->setParent($old_admin->getId());
             $db_insert = $db->insert($new_admin);
-            //$db_last = $db->last();
             $message = false;
-            $modal = 'admin #'.$db->last().' created('.$db_insert.')';
+            $modal = 'admin #'.$db->maxid().' created('.$db_insert.')';
         } else {
 
             $message = 'zone admin';
@@ -85,55 +84,40 @@ class Boco extends \controller\Foco {
 
     public function insert(): void {
 
-    	$view_class = 'insert';
-    	$do_insert = false;
+    	$view_class = 'update';
     	$afform = false;
     	$modal = false;
     	$message = false;
-    	$ticket = new \model\Ticket();
     	$rate = 0;
     	$authors = array();
+    	$ticket = new \model\Ticket();
 
+    	$mana = new \model\TicketManager();
     	if (ONLINE) {
-    		if (self::fromPost('new_ticket_form_fill') == 'save') {
+    		if (self::fromPost('update_ticket_form_fill') == 'save') {
+
     			$ticket->loadPost();
-    			$mana = new \model\TicketManager();
     			$db_insert = $mana->insert($ticket);
-    			$db_last = $mana->last();
-    			unset($mana);
-    			$modal = 'ticked #'.$db_last.' created('.$db_insert.')';
+    			$modal = 'ticked #'.$mana->maxid().' created('.$db_insert.')';
+    			$ticket = $mana->select($mana->maxid());
     		} elseif (self::fromPost('new_ticket_form_fill') == 'cancel') {
     			$message = 'create cancelled';
     		} else {
                 $afform = true;
-                $mana = new \model\TicketManager();
                 $authors = $mana->selectAuthors();
-                unset($mana);
     		}
     	}
+
+    	unset($mana);
 
     	$view = new \classe\View($view_class);
     	$view->manger($ticket);
     	$view->afficher( array('message' => $this->transMess($message),
-    			'ticket' => $ticket,
-    			'rate' => $rate,
-    			'modal' => $modal,
-    			'authors' => $authors,
-    			'afform' => $afform) );
-
-    	/*
-    	if ($do_insert) {
-    		$db = new \model\TicketManager();
-    		$db_insert = $db->insert($ticket);
-    		$db_last = $db->last();
-    		$this->transMess('ticked #'.$db_last.' created('.$db_insert.')');
-    		unset($db);
-    		header('location: '.WWW.'?page=objet&id='.$db_last);
-    	}
-
-    	$view = new \classe\View($view_class);
-    	$view->manger($ticket);
-    	$view->afficher( array('message' => $this->transMess('create new ticket')) );*/
+    	                       'ticket' => $ticket,
+    	                       'rate' => $rate,
+    	                       'modal' => $modal,
+    	                       'authors' => $authors,
+    	                       'afform' => $afform) );
     }
 
     public function update(): void {
@@ -160,21 +144,17 @@ class Boco extends \controller\Foco {
 				$afform = true;
 			}
 		}
-			/*
-			 unset($db);
-			\view\Frontend::viewModal($message, 'de la base de données', 'continuer');
-			header('location: '.WWW.'?page=objet&id='.$id); */
 
 		unset($mana);
 
 		$view = new \classe\View($view_class);
 		$view->manger($ticket);
 		$view->afficher( array('message' => $this->transMess($message),
-				'ticket' => $ticket,
-				'rate' => $rate,
-				'modal' => $modal,
-				'authors' => $authors,
-				'afform' => $afform) );
+		                       'ticket' => $ticket,
+		                       'rate' => $rate,
+		                       'modal' => $modal,
+		                       'authors' => $authors,
+		                       'afform' => $afform) );
     }
 
 	public function delete(): void {
@@ -235,21 +215,46 @@ class Boco extends \controller\Foco {
                                'action' => WWW.'?page='.$page) );
 	}
 
-	public function home(): void {
+	public function hide(): void {
 
 		$id = self::idLoad();
 		$view_class = 'objet';
 
-		$manager = new \model\TicketManager();
-		$ticket = $manager->select($id);
+		$rate = array();
+		$tickets = array();
+
+		$mana = new \model\TicketManager();
+		$message = $mana->hide($id);
+		$ticket = $mana->select($id);
+		$rate[] = $mana->rate($id);
+		unset($mana);
+
+		$tickets[] = $ticket;
+
+		$view = new \classe\View($view_class);
+		$view->manger($ticket);
+		$view->afficher( array('modal' => $message,
+		                       'ticket_array' => $tickets,
+		                       'rate' => $rate) );
+	}
+
+	public function home(): void {
+
+		$id = self::idLoad();
+		$view_class = 'objet';
+        $rate = array();
+		$mana = new \model\TicketManager();
+		$ticket = $mana->select($id);
+		$rate[] = $mana->rate($id);
 		$ticket_array[] = $ticket;
-		unset($manager);
+		unset($mana);
 
 		$view = new \classe\View($view_class);
 		$view->manger($ticket);
 		$view->afficher( array('message' => $this->transMess('zone d\'administration'),
                                'user' => self::fromSession('user'),
-                               'ticket_array' => $ticket_array) );
+                               'ticket_array' => $ticket_array,
+		                       'rate' => $rate) );
 	}
 
 } ?>

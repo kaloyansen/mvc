@@ -58,7 +58,7 @@ class Moco {
         if ($iid) return intval($iid);
 
         $db = new \model\TicketManager();
-        $iid = $db->last();
+        $iid = $db->maxid();
         unset($db);
         return intval($iid);
     }
@@ -106,7 +106,7 @@ class Moco {
             if ($access) {
 
                 $_SESSION['user'] = $pseudo;
-                self::modal($pseudo.' login success', 'bravo', 'continuer');
+                \view\Frontend::viewModal($pseudo.' login success', 'bravo', 'continuer');
                 return $pseudo;
             } else {
                 return null;

@@ -110,10 +110,10 @@ class Ticket extends \model\TicketPublic {
         return (object) array(
         	'id' => 123456,
             'title' => 'un ticket généré automatiquement',
-        	'description' => 'la méthode s\'appelle randomBody',
+        	'description' => 'la méthode est randomBody',
         	'color' => \Colors\RandomColor::one(array('luminosity'=>'light')),
         	'keywords' => substr(str_shuffle($wordlet), 0, $wordlen),
-        	'body' => 'ce ticket est autogénéré par la méthode randomBody de la classe d\'entité '.__CLASS__,
+        	'body' => 'ce ticket est autogénéré par la méthode randomBody '.__CLASS__,
         	'photo' => 'pathtophoto.jpg',
         	'jour' => date('d-m-y h:i:s'),
             'prix' => 1,

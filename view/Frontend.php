@@ -32,7 +32,7 @@ abstract class Frontend {
 
 	protected static function viewTicket(?\model\Ticket $ticket, $rate = 0, int $option = 0): void {
 
-        $lcl = '"loco"';
+        $lcl = '"lien"';
         $dcl = '"jaba"';
         $href = ' href="'.WWW.'?page=';
         if ($option == 1) $dcl = '"fill"';
@@ -45,15 +45,18 @@ abstract class Frontend {
             return;
         }
 
+        $id = $ticket->getId();
+        $hide = $ticket->getHide();
+        $user = isset($_SESSION['user']) ? $_SESSION['user'] : false;
+
+        if ($hide && !$user) return;
+
         echo '<div class='.$dcl.'>';
 
         if ($option == 0) self::ticketLink($ticket, $lcl);
     	elseif ($option == 1) echo $ticket;
     	elseif ($option == 2) self::ticketOverview($ticket, $lcl);
     	else error_log('todo');
-
-    	$id = $ticket->getId();
-    	$user = isset($_SESSION['user']) ? $_SESSION['user'] : false;
 
     	self::etoile($ticket, '"lien"', $rate);
 
@@ -136,7 +139,7 @@ abstract class Frontend {
 
     	$user = isset($_SESSION['user']) ? $_SESSION['user'] : false;
     	$id = false;
-    	$lcl = '"loco"';
+    	$lcl = '"lien"';
     	$dcl = '"jaba"';
 
     	if ($cuisinier) {

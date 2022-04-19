@@ -3,7 +3,7 @@
  * @desc ticket database interface
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.4
+ * @version 0.0.5
  */
 class TicketManager extends \model\BaseManager {
 
@@ -11,7 +11,7 @@ class TicketManager extends \model\BaseManager {
 	private const SELECT = "SELECT * FROM ticket";
 	private const WHERE = " WHERE id=";
 
-    public function count() {
+    public function count(): int {
 
         $query = self::SELECT;
         $result = $this->sql($query);
@@ -19,33 +19,41 @@ class TicketManager extends \model\BaseManager {
         return mysqli_num_rows($result);
     }
 
-    public function authorId(\model\Ticket $ticket) {
+    public function authorId(\model\Ticket $ticket): int {
 
     	$query = "SELECT cuisinier FROM ticket WHERE id=".$ticket->getId();
     	$result = $this->sql($query);
-    	if (!$result) return $this->error();
+    	//if (!$result) return $this->error();
     	return mysqli_fetch_array($result)[0];
     }
 
-    public function last() {
+    public function maxid(): int {
 
     	$query = "SELECT MAX(id) FROM ".self::TABLE;
     	$result = $this->sql($query);
-    	if (!$result) return $this->error();
+    	//if (!$result) return $this->error();
     	return mysqli_fetch_array($result)[0];
     }
 
     public function selectSameAuthor(int $cid, int $maxtick = 1000) {
 
-    	$query = self::SELECT;
-    	$query = $query.' WHERE cuisinier='.$cid;
-    	$result = $this->sql($query);
-    	if (!$result) return $this->error();
-    	$ticket_array = array();
-    	while ($mfobj = $result->fetch_object()) {
-    		if (0 < $maxtick --) $ticket_array[] = new \model\Ticket($mfobj, $mfobj->id);
-    	}
-    	return empty($ticket_array) ? false : $ticket_array;
+        $query = self::SELECT;
+        $query = $query.' WHERE cuisinier='.$cid;
+        $result = $this->sql($query);
+        if (!$result) return $this->error();
+
+        $ticket_array = array();
+        while ($mfobj = $result->fetch_object()) {
+            if (0 < $maxtick --) {
+
+            	$id = $mfobj->id;
+            	$ticket = new \model\Ticket($mfobj, $id);
+            	$ticket->setLove($this->sheLovesMe($id));
+            	$ticket_array[] = $ticket;
+            }
+        }
+
+        return empty($ticket_array) ? false : $ticket_array;
     }
 
     public function selectAll(int $maxtick = 1000) {
@@ -53,10 +61,18 @@ class TicketManager extends \model\BaseManager {
     	$query = self::SELECT;
     	$result = $this->sql($query);
     	if (!$result) return $this->error();
+
     	$ticket_array = array();
     	while ($mfobj = $result->fetch_object()) {
-    		if (0 < $maxtick --) $ticket_array[] = new \model\Ticket($mfobj, $mfobj->id);
+    		if (0 < $maxtick --) {
+
+    			$id = $mfobj->id;
+    			$ticket = new \model\Ticket($mfobj, $id);
+    			$ticket->setLove($this->sheLovesMe($id));
+    			$ticket_array[] = $ticket;
+    		}
     	}
+
     	return empty($ticket_array) ? false : $ticket_array;
     }
 
@@ -77,16 +93,18 @@ class TicketManager extends \model\BaseManager {
     public function insert(\model\Ticket $ticket) {
 
     	$query = "INSERT INTO ".self::TABLE;
-    	$query = $query."(title, body, position, status, color, description, keywords)";
+    	$query = $query."(title, description, body, keywords, prix, diff, temps, color, personne)";
     	$query = $query." VALUES";
     	$query = $query.self::INSEB;
     	$query = $query.$ticket->getTitle().self::INSEP;
-    	$query = $query.$ticket->getBody().self::INSEP;
-    	$query = $query.$ticket->getPosition().self::INSEP;
-    	$query = $query.$ticket->getStatus().self::INSEP;
-    	$query = $query.$ticket->getColor().self::INSEP;
     	$query = $query.$ticket->getDescription().self::INSEP;
-    	$query = $query.$ticket->getKeywords().self::INSEF;
+    	$query = $query.$ticket->getBody().self::INSEP;
+    	$query = $query.$ticket->getKeywords().self::INSEP;
+    	$query = $query.$ticket->getPrix().self::INSEP;
+    	$query = $query.$ticket->getDiff().self::INSEP;
+    	$query = $query.$ticket->getTemps().self::INSEP;
+    	$query = $query.$ticket->getColor().self::INSEP;
+    	$query = $query.$ticket->getPersonne().self::INSEF;
     	$result = $this->sql($query);
     	if (!$result) return $this->error();
     	return $result;
@@ -108,6 +126,26 @@ class TicketManager extends \model\BaseManager {
     	return $result;
     }
 
+    public function hide(int $id): string {
+
+    	$query = 'SELECT hide from ticket';
+    	$query = $query.self::WHERE.$id;
+    	$result = $this->sql($query);
+    	$yes = mysqli_fetch_array($result)[0];
+
+    	if (intval($yes) > 0) {//show
+    		$query = "UPDATE ".self::TABLE." SET hide=0";
+    		$query = $query.self::WHERE.$id;
+    		$message = 'show #'.$id;
+    	} else {//hide
+    		$query = "UPDATE ".self::TABLE." SET hide=1";
+    		$query = $query.self::WHERE.$id;
+    		$message = 'hide #'.$id;
+    	}
+
+    	return $this->sql($query) ? $message : $this->error();
+    }
+
     public function delete($id) {
 
     	$query = "DELETE FROM ".self::TABLE.self::WHERE.$id;
@@ -119,24 +157,24 @@ class TicketManager extends \model\BaseManager {
     /**
      * @desc table cuisinier
      */
-    public function authorName(\model\Ticket $ticket) {
+    public function authorName(\model\Ticket $ticket): string {
 
     	$cuisinier = $this->authorId($ticket);
     	$query = "SELECT nom FROM cuisinier WHERE cid=".$cuisinier;
     	$result = $this->sql($query);
-    	if (!$result) return $this->error();
+    	//if (!$result) return $this->error();
     	return mysqli_fetch_array($result)[0];
     }
 
-    public function lastAuthor() {
+    public function lastAuthor(): int {
 
     	$query = "SELECT MAX(cid) FROM cuisinier";
     	$result = $this->sql($query);
-    	if (!$result) return $this->error();
+    	//if (!$result) return $this->error();
     	return mysqli_fetch_array($result)[0];
     }
 
-    public function selectAuthorNoms(int $maxtick = 1000) {
+    public function selectAuthorNoms(int $maxtick = 1000): array {
 
     	$authors = $this->selectAuthors($maxtick);
     	$names = array();
@@ -172,8 +210,7 @@ class TicketManager extends \model\BaseManager {
 
     	$query = "DELETE FROM cuisinier WHERE cid=".$id;
     	$result = $this->sql($query);
-    	if (!$result) return $this->error();
-    	return $result;
+    	return $result ? $result : $this->error();
     }
 
     public function insertAuthor(\model\Cuisinier $cuisinier) {
@@ -187,8 +224,7 @@ class TicketManager extends \model\BaseManager {
     	$query = $query.$cuisinier->getPhoto().self::INSEF;
 
     	$result = $this->sql($query);
-    	if (!$result) return $this->error();
-    	return $result;
+    	return $result ? $result : $this->error();
     }
 
     /**
@@ -202,12 +238,10 @@ class TicketManager extends \model\BaseManager {
 
         $result = $this->sql($query);
         $myobj = mysqli_fetch_object($result);
-        $bof = $myobj ? intval($myobj->rid) : 0;
-        error_log('sheLovesMe('.$bof.')');
-        return $bof;
+        return $myobj ? intval($myobj->rid) : 0;
     }
 
-    public function loveMeDo(int $id) {
+    public function loveMeDo(int $id): string {
 
         $yes = $this->sheLovesMe($id);
         if ($yes > 0) {
@@ -218,17 +252,18 @@ class TicketManager extends \model\BaseManager {
     	    $message = 'vous aimez #'.$id;
         }
 
-        $resultat = $this->sql($query);
-        return $resultat ? $message : $this->error();
+        return $this->sql($query) ? $message : $this->error();
+        //$resultat = $this->sql($query);
+        //return $resultat ? $message : $this->error();
     }
 
     public function rate(int $id): int {
 
         $query = "SELECT * FROM remote WHERE ticket=".$id;
         $result = $this->sql($query);
+
         $rate = 0;
         if (!$result) return $rate;
-
         while ($result->fetch_object()) $rate++;
         return $rate;
     }
