@@ -28,7 +28,7 @@ echo 4. show documentation disk usage
 /usr/bin/du --max-depth=1 -h -a $docudir
 
 echo 5. save changes and send all to github
-mv -v src/docs .
+sudo mv -v src/docs .
 $ugit commit -am 'commit de la documentation générée par phpdoc:3'
 $ugit push
 
