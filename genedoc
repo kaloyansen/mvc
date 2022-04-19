@@ -23,7 +23,7 @@ mkdir $docudir
 echo 3. if you have docker the following long command\'s gonna generate the documentation \
 after a phpdoc docker image has been dowloaded
 echo docker run --rm -v ${PWD}:/data phpdoc/phpdoc:3 -d . -t $docudir
-docker run --rm -v ${PWD}:/data phpdoc/phpdoc:3 -d . -t $docudir
+docker run --rm -v ${PWD}/src:/data phpdoc/phpdoc:3 -d . -t $docudir
 
 echo 4. show documentation disk usage
 /usr/bin/du --max-depth=1 -h -a $docudir

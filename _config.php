@@ -25,8 +25,8 @@ define('WWW', $url.$_SERVER['PHP_SELF']);
  */
 //define('LOCO', dirname(__FILE__));
 define('LOCO', '.');
-define('MODEL', LOCO.'/model');
-define('VIEW', LOCO.'/view');
+define('MODEL', LOCO.'/src/model');
+define('VIEW', LOCO.'/src/view');
 define('MEDIA', LOCO.'/media');
 define('IMG', MEDIA.'/img');
 define('DOWN', MEDIA.'/download');

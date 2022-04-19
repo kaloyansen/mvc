@@ -9,10 +9,10 @@
 	},
 	"autoload" : {
 		"psr-4" : {
-			"classe\\" : "classe",
-			"model\\" : "model",
-			"view\\" : "view",
-			"controller\\" : "controller"
+			"classe\\" : "src/classe",
+			"model\\" : "src/model",
+			"view\\" : "src/view",
+			"controller\\" : "src/controller"
 		}
 	},
 	"authors" : [{
