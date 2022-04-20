@@ -124,8 +124,12 @@ article {
     background-color: #123456;
 }
 
-#modify { background-color: #00a; }
-#delete { background-color: #a00; }
+a[id^=delete] { background-color: red; }
+a[id^=update] { background-color: blue; }
+a[id^=insert] { background-color: cyan; }
+a[id^=love] { background-color: yellow; }
+a[id^=hide] { background-color: magenta; }
+
 
 /*
 a[href^="mailto"]::before {
@@ -222,6 +226,8 @@ input[type="color"] {
     height: 66px;
     width: 100%;
 }
+
+/*
 input[type="submit"] {
 	width: 100%;
     padding: 0;
@@ -236,7 +242,7 @@ input[type="submit"]:hover {
 	background-color: black;
 	color: white;
 }
-
+*/
 footer {
     grid-area: footer;
     text-align: center;

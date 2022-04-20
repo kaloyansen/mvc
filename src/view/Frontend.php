@@ -39,7 +39,7 @@ abstract class Frontend {
 
         if (!$ticket) {
         	echo '<div class="ticket">';
-        	echo '<a title="nouvelle recette" id="insert" class="lien"';
+        	echo '<a title="nouvelle recette" id="insert-ticket" class="lien"';
         	echo $href.'insert">créer un article</a>';
             echo '</div>';
             return;
@@ -62,10 +62,10 @@ abstract class Frontend {
 
     	if ($user) {
 
-    		echo '<a title="update" id="update" class='.$lcl;
+    		echo '<a title="update" id="update-'.$id.'" class='.$lcl;
     		echo $href.'update&id='.$id;
     		echo '">modify</a>';
-    		echo '<a title="delete" id="delete" class='.$lcl;
+    		echo '<a title="delete" id="delete-'.$id.'" class='.$lcl;
     		echo $href.'delete&id='.$id;
     		echo '">delete</a>';
     		self::hide($ticket, $lcl);
@@ -81,7 +81,7 @@ abstract class Frontend {
         $title = 'hide';
         if ($ticket->getHide() > 0) $title = 'show';
 
-        echo '<a title="'.$title.'" class='.$link_class;
+        echo '<a title="'.$title.'" id="hide-'.$id.'" class='.$link_class;
         echo ' href="'.WWW.'?page=hide&id='.$id.'">'.$title.'</a>';
 	}
 
@@ -95,7 +95,7 @@ abstract class Frontend {
         	$title = $title.' plus';
         }
 
-        echo '<a title="'.$title.'" class='.$link_class.' href="'.WWW.'?page=love&id='.$id.'">';
+        echo '<a title="'.$title.'" id="love-'.$id.'" class='.$link_class.' href="'.WWW.'?page=love&id='.$id.'">';
     	echo '<span role="button" title="'.$title.'" class="fa fa-star '.$checked.'">'.$rate.'</span></a>';
     }
 
@@ -103,7 +103,7 @@ abstract class Frontend {
 
     	$id = $ticket->getId();
 
-    	echo '<a class='.$lcl.' style="background-color: '.$ticket->getColor().';"';
+    	echo '<a class='.$lcl.' id="link-'.$id.'" style="background-color: '.$ticket->getColor().';"';
     	echo 'href="'.WWW.'?page=objet&id='.$id.'">';
     	echo $id.' '.$ticket->getTitle().' '.$ticket->getDescription();
     	echo '</a>';
@@ -113,7 +113,7 @@ abstract class Frontend {
 
     	$id = $ticket->getId();
 
-    	echo '<a class='.$lcl.' style="background-color: '.$ticket->getColor().';"';
+    	echo '<a class='.$lcl.' id="overview-'.$id.'" style="background-color: '.$ticket->getColor().';"';
     	echo 'href="'.WWW.'?page=objet&id='.$id.'">';
     	echo $ticket->overview();
     	echo '</a>';
@@ -155,13 +155,13 @@ abstract class Frontend {
     		$href = ' href="'.WWW.'?page=author&id=11111"';
     		$dcl = '"ticket"';
     		$lcl = '"lien"';
-    		$aid = 'insert';
+    		$aid = 'insert-author';
     	} ?>
     	<div class=<?=$dcl;?>>
           <a id="<?=$aid;?>" title="<?=$title;?>" class=<?=$lcl;?> <?=$href;?>><?=$cuisinier;?></a><?php
     	if ($user && $id) {
     		$href = ' href="'.WWW.'?page=delchef&id=';
-    		echo '<a title="delete #'.$id.'" id="delete" class='.$lcl.$href.$id.'">[delete cuisinier #'.$id.']</a>';
+    		echo '<a title="delete #'.$id.'" id="delete-'.$id.'" class='.$lcl.$href.$id.'">[delete cuisinier #'.$id.']</a>';
     	} ?>
 
         </div><?php
@@ -169,7 +169,7 @@ abstract class Frontend {
 
     protected static function viewMessage($message): void {
 
-    	if ($message) echo '<h2>'.$message.'</h2>';
+    	if ($message && false) echo '<h2>'.$message.'</h2>';
     }
 
     protected static function viewAdmin($adminarray): void {
@@ -178,7 +178,7 @@ abstract class Frontend {
             foreach (array_reverse($adminarray) as $admin) echo '<h3>'.$admin->getId().'. '.$admin->getPseudo().' created by '.$admin->getParent().'</h3>';
         } else {
             echo '<div class="ticket">';
-            echo '<a title="nouvel admin" id="insert" class="lien" href="'.WWW.'?page=admin&id=11111">créer un administrateur</a>';
+            echo '<a title="nouvel admin" id="insert-admin" class="lien" href="'.WWW.'?page=admin&id=11111">créer un administrateur</a>';
             echo '</div>';
         }
     }

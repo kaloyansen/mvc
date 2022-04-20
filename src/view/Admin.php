@@ -6,33 +6,41 @@
  * @category view
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.2
+ * @version 0.0.4
  */
-class Admin extends \view\Frontend {
+class Admin extends \view\Login {
 
 	function __construct($controbjet) {
 
-		parent::__construct($controbjet);
-
+		\view\Frontend::__construct($controbjet);
 		echo '<article class="row">';
+		self::viewMessage($controbjet->message);
 		self::viewAdmin($controbjet->admin_array);
-		echo '<div class="col">';
-		//self::viewMessage($controbjet->message);
-		//echo '<h3>total '.count($controbjet->admin_array).' administrateurs</h3>';
-		self::viewAdmin(null);
-		echo '</div>';
-		echo '<div class="col">';
-		self::viewAuthor(null);
-		echo '</div>';
-		echo '<div class="col">';
-		self::viewTicket(null);
-		echo '</div>';
 
-		if ($controbjet->afform) self::viewForm($controbjet);
+		if ($controbjet->afform) {
+			self::viewAdminForm($controbjet, 'admin_form_fill');
+			echo '</article>';
+			echo '<script src="'.MEDIA.'/js/keypad.js"></script>';
+		} else {
+
+            echo '<div class="col">';
+            self::viewAdmin(null);
+            echo '</div>';
+            echo '<div class="col">';
+            self::viewAuthor(null);
+            echo '</div>';
+            echo '<div class="col">';
+            self::viewTicket(null);
+            echo '</div>';
+            echo '</article>';
+		}
 		self::viewModal($controbjet->modal, 'de la base de données', 'merci');
-		echo '</article>';
 	}
 
+	/**
+	 *
+	 * @deprecated
+	 */
 	private static function viewForm($controbjet): void {
 
 	    ?>
@@ -41,7 +49,6 @@ class Admin extends \view\Frontend {
 
     <form class="col-8 p-auto m-auto"
           id="logform"
-          action="<?=$controbjet->action;?>"
           method="post"
           enctype="application/x-www-form-urlencoded">
 
@@ -71,8 +78,8 @@ class Admin extends \view\Frontend {
       </div>
       <div id="pad" class="form-group mx-auto my-4"></div>
       <div class="mt-3 text-center">
-        <button type="button" class="btn btn-secondary" id="reset">Effacer</button>
-        <button type="submit" class="btn btn-primary" id="create">Valider</button>
+        <button type="button" class="btn btn-secondary" id="reset">reset</button>
+        <button type="submit" class="btn btn-primary" id="validate">create</button>
       </div>
     </form>
   </div>

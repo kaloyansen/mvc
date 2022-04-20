@@ -6,19 +6,23 @@
  * @category controller
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.4
+ * @version 0.0.5
  */
 class Login extends \view\Frontend {
 
 	function __construct($controbjet) {
 
 		parent::__construct($controbjet);
-		self::viewForm($controbjet);
+
+		echo '<article>';
+		self::viewMessage($controbjet->message);
+		self::viewAdminForm($controbjet, 'validate');
+		echo '</article>';
+		echo '<script src="'.MEDIA.'/js/keypad.js"></script>';
 	}
 
-	private static function viewForm($controbjet): void { ?>
-<article>
-  <h2><?=$controbjet->message;?></h2>
+	protected static function viewAdminForm($controbjet, string $name = 'validate'): void { ?>
+
   <div class="row" id="result"></div>
   <div class="row" id="connection">
 
@@ -51,14 +55,12 @@ class Login extends \view\Frontend {
 
       <div id="pad" class="form-group mx-auto my-4"></div>
       <div class="mt-3 text-center">
-        <button type="button" class="btn btn-secondary" id="reset">Effacer</button>
-        <button type="submit" name="validate" class="btn btn-primary" id="validate">Valider</button>
+        <button type="button" class="btn btn-outline-secondary" id="reset">Effacer</button>
+        <button type="submit" name="<?=$name;?>" value="1" class="btn btn-outline-primary btn-lg" id="validate">Valider</button>
       </div>
     </form>
-  </div>
-</article>
+  </div><?php
 
-<script src="<?=MEDIA ?>/js/keypad.js"></script><?php
 	}
 } ?>
 

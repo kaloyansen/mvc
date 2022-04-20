@@ -1281,10 +1281,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Login.html#method___construct"
         },                {
-            "fqsen": "\\view\\Login\u003A\u003AviewForm\u0028\u0029",
-            "name": "viewForm",
+            "fqsen": "\\view\\Login\u003A\u003AviewAdminForm\u0028\u0029",
+            "name": "viewAdminForm",
             "summary": "",
-            "url": "classes/view-Login.html#method_viewForm"
+            "url": "classes/view-Login.html#method_viewAdminForm"
         },                {
             "fqsen": "\\view\\Message",
             "name": "Message",

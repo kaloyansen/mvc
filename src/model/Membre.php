@@ -27,10 +27,10 @@ class Membre extends \model\Transport {/*
 		$this->setPassword('riba');
 	}
 
-	private function consume($body): void {
+	protected function consume($body): void {
 
-		$this->id = $body->id;
-		$this->parent = $body->parent;
+		if (isset($body->id)) $this->id = $body->id;
+		if (isset($body->parent)) $this->parent = $body->parent;
 		$this->pseudo = $body->pseudo;
 		$this->password = $body->password;
 	}

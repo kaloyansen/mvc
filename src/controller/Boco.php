@@ -48,27 +48,23 @@ class Boco extends \controller\Foco {
 
         $view_class = 'admin';
         $id = self::idLoad();
-        $do_insert = false;
-        $afficher_formulaire = false;
-
-        if (ONLINE && self::fromPost('new_admin_form_fill')) $do_insert = true;
-        elseif ($id == 11111) $afficher_formulaire = true;
-        else $afficher_formulaire = false;
+        $afform = false;
+        $modal = false;
+        $message = false;
 
         $db = new \model\MembreManager();
+        if (ONLINE && self::fromPost('admin_form_fill')) {
 
-        if ($do_insert) {
-
-            $old_admin = $db->selectByPseudo(self::user());
-            $new_admin = new \model\Membre(false, true);
-            $new_admin->setParent($old_admin->getId());
-            $db_insert = $db->insert($new_admin);
-            $message = false;
-            $modal = 'admin #'.$db->maxid().' created('.$db_insert.')';
+        	$old_admin = $db->selectByPseudo(self::user());
+        	$new_admin = new \model\Membre(false, true);
+        	$new_admin->setParent($old_admin->getId());
+        	$db_insert = $db->insert($new_admin);
+        	$modal = 'admin #'.$db->maxid().' created('.$db_insert.')';
+        } elseif ($id == 11111) {
+        	$afform = true;
+        	$message = 'créer un nouveau administrateur';
         } else {
-
-            $message = 'zone admin';
-            $modal = false;
+            $message = 'la zone d\'administration';
         }
 
         $admin_array = $db->selectAll();
@@ -78,8 +74,9 @@ class Boco extends \controller\Foco {
         $view = new \classe\View($view_class, $title, $title, $title);
         $view->afficher( array('message' => $message,
                                'modal' => $modal,
+                               'action' => WWW.'?page='.$view_class,
                                'admin_array' => $admin_array,
-                               'afform' => $afficher_formulaire) );
+                               'afform' => $afform) );
     }
 
     public function insert(): void {
