@@ -55,8 +55,8 @@ class Login extends \view\Frontend {
 
       <div id="pad" class="form-group mx-auto my-4"></div>
       <div class="mt-3 text-center">
-        <button type="button" class="btn btn-outline-secondary" id="reset">Effacer</button>
-        <button type="submit" name="<?=$name;?>" value="1" class="btn btn-outline-primary btn-lg" id="validate">Valider</button>
+        <button type="button" class="btn btn-outline-secondary" id="reset">recharger</button>
+        <button type="submit" name="<?=$name;?>" value="1" class="btn btn-outline-primary btn-lg" id="validate">valider</button>
       </div>
     </form>
   </div><?php

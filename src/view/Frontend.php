@@ -175,12 +175,17 @@ abstract class Frontend {
     protected static function viewAdmin($adminarray): void {
 
         if ($adminarray) {
+
+        	echo '<h3>liste d\'administrateurs:</h3>';
             foreach (array_reverse($adminarray) as $admin) echo '<h3>'.$admin->getId().'. '.$admin->getPseudo().' created by '.$admin->getParent().'</h3>';
         } else {
-            echo '<div class="ticket">';
+
+        	echo '<div class="ticket">';
             echo '<a title="nouvel admin" id="insert-admin" class="lien" href="'.WWW.'?page=admin&id=11111">créer un administrateur</a>';
             echo '</div>';
         }
+
+        echo '<br />';
     }
 
     public static function viewModal($message, string $title = 'message', string $ok = 'close'): void {

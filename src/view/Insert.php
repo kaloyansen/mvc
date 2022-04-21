@@ -1,5 +1,6 @@
 <?php namespace view;
 /**
+ * @deprecated
  * @desc backoffice new article view
  * @abstract backoffice methods are reserved to administrator
  * @namespace controller
@@ -8,20 +9,23 @@
  * @link kaloyansen@gmail.com
  * @version 0.0.3
  */
-class Insert extends \view\Frontend {
+class Insert extends \view\Update {
 
     function __construct($controbjet) {
 
-        parent::__construct($controbjet);
+        \view\Frontend::__construct($controbjet);
 
         echo '<article>';
         self::viewMessage($controbjet->message);
-        self::viewForm($controbjet, 'box', 'new_ticket_form_fill');
+        self::viewTicketForm($controbjet->ticket, 'box', 'new_ticket_form_fill');
         echo '</article>';
 
         self::viewModal($controbjet->modal, 'de la base de données', 'merci');
 	}
 
+    /**
+     * @deprecated
+     */
 	private static function viewForm($controbjet, string $dcl, string $name): void {
 
 		$color = \Colors\RandomColor::one(array('luminosity'=>'light'));?>

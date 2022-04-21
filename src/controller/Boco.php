@@ -6,7 +6,7 @@
  * @category controller
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.9
+ * @version 0.1.1
  */
 class Boco extends \controller\Foco {
     /**
@@ -156,55 +156,75 @@ class Boco extends \controller\Foco {
 
 	public function delete(): void {
 
-		$id = self::idLoad();
+        $id = self::idLoad();
+        $view_class = 'delete';
+        $afform = false;
+        $modal = false;
+        $message = false;
 
-		if (ONLINE) {
+        $mana = new \model\TicketManager();
+        $ticket = $mana->select($id);
 
-			$confirm = self::fromPost('delete_ticket_form_fill');
-			if ($confirm == 'no') $roule = 'nodel';
-			elseif ($confirm == 'yes') $roule = 'del';
-			else $roule = false;
-		} else {
+        if (ONLINE) {
 
-			$roule = ARGU2 ? 'del' : false;
-		}
+            $confirm = self::fromPost('confirmation_form_fill');
+            if ($confirm == 'no') $message = self::tikid().' not deleted';
+            elseif ($confirm == 'yes') $modal = self::tikid().' deleted('.$mana->delete($id).')';
+            else $afform = true;
+            if ($afform) $message = 'delete '.self::tikid().' confirmation';
+        } else {/* command line interface
+        */
+            $roule = ARGU2 ? 'del' : false;
+            if ($roule) $message = self::tikid().' deleted('.$mana->delete($id).')';
+        }
 
-		$db = new \model\TicketManager();
+        unset($mana);
 
-		if (!$roule) {/* afficher la confirmation
-			*/
-			$view_class = 'delete';
-			$message = 'delete '.self::tikid().' confirmation';
-			$ticket_array[] = $db->select($id);
-		} else {/* sortir
-			*/
-			$view_class = 'lien';
-			if ($roule == 'nodel') {
-				$message = self::tikid().' not deleted';
-			} elseif ($roule == 'del') {
-				$message = self::tikid().' deleted('.$db->delete($id).')';
-			} else {
-				$message = 'bordel';
-			}
+        $view = new \classe\View($view_class);
+        $view->manger($ticket);
+        $view->afficher( array('message' => $message,
+                               'modal' => $modal,
+                               'afform' => $afform,
+                               'objet' => $ticket) );
+    }
 
-			$ticket_array = $db->selectAll();
-		}
+    public function delchef(): void {
 
-		unset($db);
-		$ticket = $ticket_array[0];
+        $id = self::cidLoad();
+        $view_class = 'delete';
+        $afform = false;
+        $modal = false;
+        $message = false;
 
-		$view = new \classe\View($view_class);
-		$view->manger($ticket);
-		$view->afficher( array('user' => self::fromSession('user'),
-                               'message' => $this->transMess($message),
-                               'ticket_array' => $ticket_array) );
-	}
+        $mana = new \model\TicketManager();
+        $chef = $mana->selectAuthor($id);
 
-	private function login(): void {
+        if (ONLINE) {
+
+            $confirm = self::fromPost('confirmation_form_fill');
+            if ($confirm == 'no') $message = self::tikid().' not deleted';
+            elseif ($confirm == 'yes') $modal = self::tikid().' deleted('.$mana->deleteAuthor($id).')';
+            else $afform = true;
+            if ($afform) $message = 'delete '.self::tikid().' confirmation';
+        } else {/* command line interface
+            */
+            $roule = ARGU2 ? 'del' : false;
+            if ($roule) $message = self::tikid().' deleted('.$mana->deleteAuthor($id).')';
+        }
+
+        unset($mana);
+        $view = new \classe\View($view_class, $message ? $message : $modal, $chef->getNom(), $chef->getPrenom());
+        $view->afficher( array('message' => $message,
+                               'modal' => $modal,
+                               'afform' => $afform,
+                               'objet' => $chef) );
+    }
+
+    private function login(): void {
 
 		$view_class = 'login';
 		$page = self::getPage();
-		if (!$page) $page = 'home';
+		if (!$page) $page = 'admin';
 
 		$message = 'accès à la zone d\'administration';
 		$view = new \classe\View($view_class, $message, 'description', 'clé');

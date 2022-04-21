@@ -76,7 +76,11 @@ class Gabarit {
           <a class="roco fa fa-phone" title="+33 6 812 44 812" href="tel:+33681244812" target="_blank"></a>
           <a class="roco fa fa-flag fa-1x" title="font awesome" href="https://fontawesome.com" target="_blank"></a>
           <a class="roco fa fa-rotate-right" title="bootstrap" href="https://bootstrap.com" target="_blank"></a>
-          <a class="roco fa fa-rotate-left" style="fa-animation-direction: reverse;" title="bootstrap" href="https://bootstrap.com" target="_blank"></a>
+          <!-- a class="roco fa fa-rotate-left"
+             style="fa-animation-direction: reverse;"
+             title="bootstrap"
+             href="https://bootstrap.com"
+             target="_blank"></a -->
         </address>
       </footer>
       <?php if (DEBUG_LEVEL > 4) {

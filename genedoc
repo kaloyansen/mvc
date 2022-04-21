@@ -8,30 +8,37 @@ echo  ////////////////// version 0.0.2 ///////////////////
 echo ////////////////////////////////////////////////////
 
 
-echo usage: it is possible to follow the comments one by one but you\'d better \
-edit this file to correspond your project and then run it any time you need to
+echo usage: it is possible to follow the comments one by one but you may want to \
+edit this file in a way needed by your project and then run it any time you need to
 
-echo 1. go to the php source directory and set git branch if needed
+echo 1. set the git branch if needed
 set ugit = /usr/bin/git
 $ugit switch dev
 
-echo 2. name the documentation folder and clean it
-set docudir = docs
-sudo rm -fR $docudir
+echo 2. chose source directoty, name the documentation folder and clean it
+set docdir = ${PWD}/docs
+set srcdir = ${PWD}/src
+sudo rm -fR $docdir
 
-echo 3. if you have docker the following long command\'s gonna generate the documentation \
-after a phpdoc docker image has been dowloaded
-echo docker run --rm -v ${PWD}/src:/data phpdoc/phpdoc:3 -d . -t docs
-docker run --rm -v ${PWD}/src:/data phpdoc/phpdoc:3 -d . -t docs
+echo 3. if you have docker the following long command is going to generate the documentation \
+after/if a phpdoc docker image has been dowloaded
 
-echo 4. show documentation disk usage
+# docker run --rm -v ${PWD}/src:/data phpdoc/phpdoc:3 -t docs
+set dockerun = 'docker run --rm -v $srcdir:/data phpdoc/phpdoc:3 -t docs'
+echo $dockerun
+$dockerun
+#docker run --rm -v ${PWD}/src:/data phpdoc/phpdoc:3 -d . -t docs
+
+echo 4. show disk usage
 sudo mv -fv src/docs .
-/usr/bin/du --max-depth=1 -h -a $docudir
+/usr/bin/du --max-depth=1 -h -a $docdir
+/usr/bin/find $srcdir -name "*.php" | xargs wc -l | sort -n
 
 echo 5. save changes and send all to github
 $ugit commit -am 'commit de la documentation générée par phpdoc:3'
 $ugit push
 
 echo 6. clean the envirenment
-unset docudir
 unset ugit
+unset srcdir
+unset docdir

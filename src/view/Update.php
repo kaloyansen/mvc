@@ -17,14 +17,14 @@ class Update extends \view\Frontend {
         self::viewMessage($controbjet->message);
         if ($controbjet->afform) {
 
-        	self::viewForm($controbjet->ticket, $controbjet->authors, 'ticket', 'update_ticket_form_fill');
+        	self::viewTicketForm($controbjet->ticket, $controbjet->authors, 'ticket', 'update_ticket_form_fill');
         } else self::viewTicket($controbjet->ticket, $controbjet->rate, 1);
         echo '</article>';
 
         self::viewModal($controbjet->modal, 'de la base de données', 'merci');
     }
 
-	private static function viewForm(\model\Ticket $ticket, $authors, string $dcl, string $name): void {
+	protected static function viewTicketForm(\model\Ticket $ticket, $authors, string $dcl, string $name): void {
 
 		//$color = \Colors\RandomColor::one(array('luminosity'=>'light'));
 		$color = $ticket->getColor(); ?>

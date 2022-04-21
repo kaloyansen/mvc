@@ -253,8 +253,6 @@ class TicketManager extends \model\BaseManager {
         }
 
         return $this->sql($query) ? $message : $this->error();
-        //$resultat = $this->sql($query);
-        //return $resultat ? $message : $this->error();
     }
 
     public function rate(int $id): int {

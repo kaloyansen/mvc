@@ -4,7 +4,7 @@
  * @see class attributes in superclass TicketPublic
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.7
+ * @version 0.0.8
  */
 class Ticket extends \model\TicketPublic {
 
@@ -109,16 +109,16 @@ class Ticket extends \model\TicketPublic {
     	$wordlet = str_repeat($wordset, 10);
         return (object) array(
         	'id' => 123456,
-            'title' => 'un ticket généré automatiquement',
-        	'description' => 'la méthode est randomBody',
+            'title' => 'le titre',
+        	'description' => 'une déscription',
         	'color' => \Colors\RandomColor::one(array('luminosity'=>'light')),
-        	'keywords' => substr(str_shuffle($wordlet), 0, $wordlen),
-        	'body' => 'ce ticket est autogénéré par la méthode randomBody '.__CLASS__,
+        	'keywords' => 'diviser les produit avec virgule',
+        	'body' => 'diviser les étapes avec point',
         	'photo' => 'pathtophoto.jpg',
         	'jour' => date('d-m-y h:i:s'),
-            'prix' => 1,
-            'diff' => 1,
-            'temps' => 1000,
+            'prix' => 2,
+            'diff' => 2,
+            'temps' => 3600,
             'personne' => 2,
             'hide' => 0,
         	'cuisinier' => 1,
