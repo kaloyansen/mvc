@@ -8,29 +8,29 @@ echo  ////////////////// version 0.0.2 ///////////////////
 echo ////////////////////////////////////////////////////
 
 
-echo usage: it is possible to follow the comments one by one but you may want to \
+echo 0. usage: \
+it is possible to follow the comments one by one but you may want to \
 edit this file in a way needed by your project and then run it any time you need to
 
 echo 1. set the git branch if needed
 set ugit = /usr/bin/git
 $ugit switch dev
 
-echo 2. chose source directoty, name the documentation folder and clean it
-set docdir = ${PWD}/docs
+echo 2. chose a php source and a documentation target directory \
+docs is ok for github to generate web page from the documentation
 set srcdir = ${PWD}/src
-sudo rm -fR $docdir
+set docdir = docs
+set neuf = $srcdir/$docdir
 
 echo 3. if you have docker the following long command is going to generate the documentation \
-after/if a phpdoc docker image has been dowloaded
-
-# docker run --rm -v ${PWD}/src:/data phpdoc/phpdoc:3 -t docs
-set dockerun = 'docker run --rm -v $srcdir:/data phpdoc/phpdoc:3 -t docs'
+after/if the docker image has been dowloaded
+set dockerun = /usr/bin/docker\ run\ --rm\ -v\ ${srcdir}:/data\ phpdoc/phpdoc:3\ -t\ $docdir
 echo $dockerun
 $dockerun
-#docker run --rm -v ${PWD}/src:/data phpdoc/phpdoc:3 -d . -t docs
+/usr/bin/sudo rm -fR $docdir
+/usr/bin/sudo mv -fv $neuf .
 
 echo 4. show disk usage
-sudo mv -fv src/docs .
 /usr/bin/du --max-depth=1 -h -a $docdir
 /usr/bin/find $srcdir -name "*.php" | xargs wc -l | sort -n
 
@@ -42,3 +42,4 @@ echo 6. clean the envirenment
 unset ugit
 unset srcdir
 unset docdir
+unset dockerun
