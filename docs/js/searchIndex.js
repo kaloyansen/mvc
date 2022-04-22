@@ -48,13 +48,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\classe\\Control\u003A\u003AterminalRequest\u0028\u0029",
             "name": "terminalRequest",
-            "summary": "terminal\u0020request\u0020simulation",
+            "summary": "",
             "url": "classes/classe-Control.html#method_terminalRequest"
         },                {
-            "fqsen": "\\classe\\Control\u003A\u003AgetUserIpAddr\u0028\u0029",
-            "name": "getUserIpAddr",
+            "fqsen": "\\classe\\Control\u003A\u003AgetUserIp\u0028\u0029",
+            "name": "getUserIp",
             "summary": "",
-            "url": "classes/classe-Control.html#method_getUserIpAddr"
+            "url": "classes/classe-Control.html#method_getUserIp"
         },                {
             "fqsen": "\\classe\\Control\u003A\u003ADEFAULTPAGE",
             "name": "DEFAULTPAGE",

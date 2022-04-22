@@ -1,9 +1,10 @@
 <?php namespace classe;
 /**
+ * @abstract controller method depends on the value of [page] get parameter
+ * @desc that's how the program knows what to do
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @abstract controller method depends on the value of the parameter [page]
- * @version 0.0.3
+ * @version 0.0.4
  */
 class Control {
     private const DEFAULTPAGE = 'objet';
@@ -81,7 +82,7 @@ class Control {
 
 
     /**
-     * terminal request simulation
+     * @desc terminal request simulation
      */
     public static function terminalRequest(): void {
 
@@ -115,17 +116,15 @@ class Control {
 
     }
 
-    public static function getUserIpAddr(): ?string {
+    /**
+     * @desc récupérer remote user ip adresse
+     */
+    public static function getUserIp(): ?string {
 
-        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-            $ip = $_SERVER['HTTP_CLIENT_IP'];
-        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-        } elseif (ONLINE) {
-            $ip = $_SERVER['REMOTE_ADDR'];
-        } else {
-            $ip = '176.176.176.176';
-        }
+        if (isset($_SERVER['HTTP_CLIENT_IP'])) $ip = $_SERVER['HTTP_CLIENT_IP'];
+        elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        elseif (ONLINE) $ip = $_SERVER['REMOTE_ADDR'];
+        else $ip = '176.176.176.176';
 
         return $ip;
     }

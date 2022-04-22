@@ -42,7 +42,7 @@ error_log('start('.php_sapi_name().')');
 require('vendor/autoload.php');
 // --> composer dump-autoload
 \classe\Control::terminalRequest();
-define('REMOTE', \classe\Control::getUserIpAddr());
+define('REMOTE', \classe\Control::getUserIp());
 if (ONLINE) {//browser
 	error_log('HTTP_HOST '.$_SERVER['HTTP_HOST']);
 	error_log('REQUEST_URI '.$_SERVER['REQUEST_URI']);
