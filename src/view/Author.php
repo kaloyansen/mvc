@@ -18,7 +18,14 @@ class Author extends \view\Frontend {
 		foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
 		foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
 		foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
-        echo '</article>';
+		foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
+		foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
+		foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
+		foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
+		foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
+		foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
+		foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
+		echo '</article>';
     }
 
 }

@@ -3,7 +3,7 @@
  * @desc object container
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.2
+ * @version 0.0.3
  */
 class Transport {
 
@@ -15,32 +15,28 @@ class Transport {
 
 	protected static function figure(string $fichier = 'path/to/file.ext', string $caption = 'text_to_display', string $taille = 'petit'): string {
 
-		$picture = '<figure>
+		return '<figure>
           <img src="'.$fichier.'"
                alt="'.$fichier.' not found"
                class="'.$taille.'"
                alt="missing" />
           <figcaption>'.$caption.'</figcaption>
         </figure>';
-		return $picture;/*
-		return '<a class="loco"
-                   href="'.$fichier.'">
-		  '.$picture.'
-		</a>';*/
+
 	}
 
 	protected static function euro(int $eu): string {
 
 		$code = false;
-		while (0 < $eu --) $code = $code.'€';
+		while (0 < $eu --) $code = $code.'<span class="roco fa fa-spin">€</span>';
 
-		return $code;
+		return '<span class="roco fa">'.$code.'</span>';
 	}
 
 	protected static function fouet(int $fou): string {
 
 		$code = false;
-		while (0 < $fou --) $code = $code.'<img class="img-fluid fa fa-spin" src="'.IMG.'/fouet.png" alt="difficulté" />';
+		while (0 < $fou --) $code = $code.'<img class="img-fluid roco" src="'.IMG.'/fouet.png" alt="difficulté" />';
 
 		return $code;
 	}

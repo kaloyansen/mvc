@@ -3,7 +3,7 @@
  * @desc ticket database interface
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.5
+ * @version 0.0.6
  */
 class TicketManager extends \model\BaseManager {
 
@@ -22,17 +22,14 @@ class TicketManager extends \model\BaseManager {
     public function authorId(\model\Ticket $ticket): int {
 
     	$query = "SELECT cuisinier FROM ticket WHERE id=".$ticket->getId();
-    	$result = $this->sql($query);
-    	//if (!$result) return $this->error();
-    	return mysqli_fetch_array($result)[0];
+    	return $this->sqlint($query);
     }
 
     public function maxid(): int {
 
     	$query = "SELECT MAX(id) FROM ".self::TABLE;
-    	$result = $this->sql($query);
-    	//if (!$result) return $this->error();
-    	return mysqli_fetch_array($result)[0];
+    	$query = $query.' WHERE hide=0';
+    	return $this->sqlint($query);
     }
 
     public function selectSameAuthor(int $cid, int $maxtick = 1000) {
@@ -169,9 +166,7 @@ class TicketManager extends \model\BaseManager {
     public function lastAuthor(): int {
 
     	$query = "SELECT MAX(cid) FROM cuisinier";
-    	$result = $this->sql($query);
-    	//if (!$result) return $this->error();
-    	return mysqli_fetch_array($result)[0];
+    	return $this->sqlint($query);
     }
 
     public function selectAuthorNoms(int $maxtick = 1000): array {
@@ -235,10 +230,13 @@ class TicketManager extends \model\BaseManager {
         $query = "SELECT rid FROM remote";
         $query = $query." WHERE ticket=".$id;
         $query = $query." AND ip='".REMOTE."'";
-
+        return $this->sqlint($query);
+        /*
         $result = $this->sql($query);
         $myobj = mysqli_fetch_object($result);
+
         return $myobj ? intval($myobj->rid) : 0;
+        */
     }
 
     public function loveMeDo(int $id): string {
@@ -257,13 +255,16 @@ class TicketManager extends \model\BaseManager {
 
     public function rate(int $id): int {
 
-        $query = "SELECT * FROM remote WHERE ticket=".$id;
+        $query = "SELECT COUNT(*) FROM remote WHERE ticket=".$id;
+
+        return $this->sqlint($query);
         $result = $this->sql($query);
 
-        $rate = 0;
-        if (!$result) return $rate;
-        while ($result->fetch_object()) $rate++;
-        return $rate;
+        if (!$result) return 0;
+        return mysqli_num_rows($result);
+
+        /*while ($result->fetch_object()) $rate++;
+        return $rate;*/
     }
 
 }

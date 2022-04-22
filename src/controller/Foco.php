@@ -6,7 +6,7 @@
  * @category controller
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.1.4
+ * @version 0.1.5
  */
 class Foco extends \controller\Moco {
 
@@ -77,12 +77,14 @@ class Foco extends \controller\Moco {
         $ticket_array = array();
 
         $mana = new \model\TicketManager();
+
         $ticket = $mana->select($id);
         $ticket->setLove($mana->sheLovesMe($id));
         $rate[] = $mana->rate($id);
         //$author[] = $mana->authorName($ticket);
         unset($mana);
 
+        \view\Frontend::viewModal($ticket);
         $ticket_array[] = $ticket;
 
         $view = new \classe\View($view_class);

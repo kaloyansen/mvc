@@ -42,7 +42,7 @@ class Cuisinier extends \model\Transport {
 		$br = '<br />';
 		$code = '<div class="chef">';//todo class in css
 		//$code = $code.$br.$this->nom.', '.$this->prenom;
-		$fichier = IMG.'/cuisinier.'.$this->id.'.png';
+		$fichier = IMG.'/cuisinier.'.$this->id.'.jpg';
 		//$code = $code.'<img class="petit" src="'.$fichier.'" alt="'.$fichier.' not found" />';
 		$code = $code.self::figure($fichier, 'chef '.$this->nom.', '.$this->prenom);
 		return $code.$br.'</div>';

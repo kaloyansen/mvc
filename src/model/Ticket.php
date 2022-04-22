@@ -73,7 +73,8 @@ class Ticket extends \model\TicketPublic {
         	$krava = $krava.'<br />difficulté '.self::fouet($this->diff);
         	$krava = $krava.'<br />prix: '.self::euro($this->prix);
             $krava = $krava.'<br />'.$this->personne.' personnes';
-            //$krava = $krava.'publié: '.$this->jour;
+            $krava = $krava.'<br />publié: '.$this->jour;
+            $krava = $krava.'<br />#'.$this->id;
         }
 
         return $krava.'</div>';
@@ -92,7 +93,7 @@ class Ticket extends \model\TicketPublic {
     	$krava = $krava.$br.'produits pour '.$this->getPersonne().' personnes:';
     	$krava = $krava.$br.self::string2list($this->getKeywords(), ',', false);
     	$krava = $krava.$br.self::string2list($this->getBody(), '.');
-    	$krava = $krava.$br.'publiée: '.$this->getJour();
+    	$krava = $krava.$br.'#'.$this->getId().' publiée: '.$this->getJour();
     	return $krava.$br.'</div>';
     }
 
@@ -106,7 +107,7 @@ class Ticket extends \model\TicketPublic {
 
     private static function randomBody($wordset = "abcdef", $wordlen = 6) {
 
-    	$wordlet = str_repeat($wordset, 10);
+    	//$wordlet = str_repeat($wordset, 10);
         return (object) array(
         	'id' => 123456,
             'title' => 'le titre',

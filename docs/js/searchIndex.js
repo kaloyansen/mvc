@@ -361,6 +361,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-BaseManager.html#method_sql"
         },                {
+            "fqsen": "\\model\\BaseManager\u003A\u003Asqloo\u0028\u0029",
+            "name": "sqloo",
+            "summary": "",
+            "url": "classes/model-BaseManager.html#method_sqloo"
+        },                {
+            "fqsen": "\\model\\BaseManager\u003A\u003Asqlarr\u0028\u0029",
+            "name": "sqlarr",
+            "summary": "",
+            "url": "classes/model-BaseManager.html#method_sqlarr"
+        },                {
+            "fqsen": "\\model\\BaseManager\u003A\u003Asqlint\u0028\u0029",
+            "name": "sqlint",
+            "summary": "",
+            "url": "classes/model-BaseManager.html#method_sqlint"
+        },                {
             "fqsen": "\\model\\BaseManager\u003A\u003A__destruct\u0028\u0029",
             "name": "__destruct",
             "summary": "",

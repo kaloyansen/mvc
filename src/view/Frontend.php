@@ -1,10 +1,10 @@
 <?php namespace view;
 /**
- * @desc a dinamic web page model
+ * @desc a dinamic web page class
  * @abstract dinamic frontend
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.3
+ * @version 0.0.4
  */
 abstract class Frontend {
 	/**

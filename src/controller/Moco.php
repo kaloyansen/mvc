@@ -6,7 +6,7 @@
  * @category controller
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.7
+ * @version 0.0.8
  */
 class Moco {
 
@@ -24,7 +24,7 @@ class Moco {
     protected static function id(): int { return self::$private_id; }
     protected static function tikid() { return self::$private_tikid; }
     protected static function setPage(string $page): void { self::$page = $page; }
-    protected static function getPage(): string { return self::$page; }
+    protected static function getPage(string $page_par_default = 'objet'): string { return self::$page ? self::$page : $page_par_default; }
     protected static function echoo(string $happy): void { echo '(-'.$happy.'-)'; }
     protected static function fromPost(string $par) { return isset($_POST[$par]) ? $_POST[$par] : false; }
     protected static function fromGet(string $par) { return isset($_GET[$par]) ? $_GET[$par] : false; }
@@ -53,14 +53,14 @@ class Moco {
 
     private static function readId(): int {
 
-        if (ONLINE) $iid = self::fromGet('id');
-        else $iid = ARGU2;
-        if ($iid) return intval($iid);
+        if (ONLINE) $diez = self::fromGet('id');
+        else $diez = ARGU2;
+        if ($diez) return intval($diez);
 
-        $db = new \model\TicketManager();
-        $iid = $db->maxid();
-        unset($db);
-        return intval($iid);
+        $mana = new \model\TicketManager();
+        $diez = $mana->maxid();
+        unset($mana);
+        return $diez;
     }
 
     private static function readCid(): int {
@@ -109,41 +109,10 @@ class Moco {
                 \view\Frontend::viewModal($pseudo.' login success', 'bravo', 'continuer');
                 return $pseudo;
             } else {
-                return null;
+
+            	return null;
             }
         }
-
-        //return $retour;
     }
-
-/*
-    protected static function viewModal(string $message, string $title = 'message', string $ok = 'close'): void { ?>
-
-    	<script src="<?=MEDIA;?>/js/jquery-3.6.0.min.js"></script>
-    	<script>
-          $(window).on('load', function() {
-              $('#modalTag').modal('show');
-          });
-        </script>
-
-    	<div class="modal fade" id="modalTag" role="dialog">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title"><?=$title;?></h5>
-                <button type="button" class="btn-inline btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <p><?=$message;?></p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="close" data-bs-dismiss="modal"><?=$ok;?></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <?php
-    }
-*/
 
 } ?>
