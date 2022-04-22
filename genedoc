@@ -4,7 +4,7 @@ echo      ////////////////////////////////////////////////////
 echo     /// php documentation generation and publication ///
 echo    ////////// with phpdoc, docker and github //////////
 echo   // code by Kaloyan KRASTEV, kaloyansen@gmail.com ///
-echo  ////////////////// version 0.0.3 ///////////////////
+echo  ////////////////// version 0.0.4 ///////////////////
 echo ////////////////////////////////////////////////////
 echo 0. usage: \
 it is possible to follow the comments one by one but you may want to \
@@ -27,6 +27,7 @@ echo $dockerun
 $dockerun
 /usr/bin/sudo rm -fR $docdir
 /usr/bin/sudo mv -fv $neuf .
+/usr/bin/sudo rm -fR $srcdir/.phpdoc
 
 echo 4. disk usage
 /usr/bin/du --max-depth=1 -h -a $docdir
