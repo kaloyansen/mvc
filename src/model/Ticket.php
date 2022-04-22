@@ -19,7 +19,7 @@ class Ticket extends \model\TicketPublic {
     }
 
     /**
-     * creative distraction
+     * @abstract creative distraction
      */
     function __destruct() {
     	error_log('folder: '.__DIR__);

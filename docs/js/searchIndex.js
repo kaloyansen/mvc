@@ -151,6 +151,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/controller-Boco.html#method_admin"
         },                {
+            "fqsen": "\\controller\\Boco\u003A\u003Achef\u0028\u0029",
+            "name": "chef",
+            "summary": "",
+            "url": "classes/controller-Boco.html#method_chef"
+        },                {
             "fqsen": "\\controller\\Boco\u003A\u003Ainsert\u0028\u0029",
             "name": "insert",
             "summary": "",
@@ -356,6 +361,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-BaseManager.html"
         },                {
+            "fqsen": "\\model\\BaseManager\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/model-BaseManager.html#method___construct"
+        },                {
+            "fqsen": "\\model\\BaseManager\u003A\u003A__destruct\u0028\u0029",
+            "name": "__destruct",
+            "summary": "",
+            "url": "classes/model-BaseManager.html#method___destruct"
+        },                {
             "fqsen": "\\model\\BaseManager\u003A\u003Asql\u0028\u0029",
             "name": "sql",
             "summary": "",
@@ -376,15 +391,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-BaseManager.html#method_sqlint"
         },                {
-            "fqsen": "\\model\\BaseManager\u003A\u003A__destruct\u0028\u0029",
-            "name": "__destruct",
+            "fqsen": "\\model\\BaseManager\u003A\u003Asqlstring\u0028\u0029",
+            "name": "sqlstring",
             "summary": "",
-            "url": "classes/model-BaseManager.html#method___destruct"
-        },                {
-            "fqsen": "\\model\\BaseManager\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/model-BaseManager.html#method___construct"
+            "url": "classes/model-BaseManager.html#method_sqlstring"
         },                {
             "fqsen": "\\model\\BaseManager\u003A\u003Aclose\u0028\u0029",
             "name": "close",
@@ -491,40 +501,45 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-Cuisinier.html#method_getId"
         },                {
-            "fqsen": "\\model\\Cuisinier\u003A\u003AgetNom\u0028\u0029",
-            "name": "getNom",
-            "summary": "",
-            "url": "classes/model-Cuisinier.html#method_getNom"
-        },                {
-            "fqsen": "\\model\\Cuisinier\u003A\u003AgetPrenom\u0028\u0029",
-            "name": "getPrenom",
-            "summary": "",
-            "url": "classes/model-Cuisinier.html#method_getPrenom"
-        },                {
-            "fqsen": "\\model\\Cuisinier\u003A\u003AgetPhoto\u0028\u0029",
-            "name": "getPhoto",
-            "summary": "",
-            "url": "classes/model-Cuisinier.html#method_getPhoto"
-        },                {
             "fqsen": "\\model\\Cuisinier\u003A\u003AsetId\u0028\u0029",
             "name": "setId",
             "summary": "",
             "url": "classes/model-Cuisinier.html#method_setId"
+        },                {
+            "fqsen": "\\model\\Cuisinier\u003A\u003AgetNom\u0028\u0029",
+            "name": "getNom",
+            "summary": "",
+            "url": "classes/model-Cuisinier.html#method_getNom"
         },                {
             "fqsen": "\\model\\Cuisinier\u003A\u003AsetNom\u0028\u0029",
             "name": "setNom",
             "summary": "",
             "url": "classes/model-Cuisinier.html#method_setNom"
         },                {
-            "fqsen": "\\model\\Cuisinier\u003A\u003AsetPrenom\u0028\u0029",
-            "name": "setPrenom",
+            "fqsen": "\\model\\Cuisinier\u003A\u003AgetPhoto\u0028\u0029",
+            "name": "getPhoto",
             "summary": "",
-            "url": "classes/model-Cuisinier.html#method_setPrenom"
+            "url": "classes/model-Cuisinier.html#method_getPhoto"
         },                {
             "fqsen": "\\model\\Cuisinier\u003A\u003AsetPhoto\u0028\u0029",
             "name": "setPhoto",
             "summary": "",
             "url": "classes/model-Cuisinier.html#method_setPhoto"
+        },                {
+            "fqsen": "\\model\\Cuisinier\u003A\u003AgetPrenom\u0028\u0029",
+            "name": "getPrenom",
+            "summary": "",
+            "url": "classes/model-Cuisinier.html#method_getPrenom"
+        },                {
+            "fqsen": "\\model\\Cuisinier\u003A\u003AsetPrenom\u0028\u0029",
+            "name": "setPrenom",
+            "summary": "",
+            "url": "classes/model-Cuisinier.html#method_setPrenom"
+        },                {
+            "fqsen": "\\model\\Cuisinier\u003A\u003Aneuf\u0028\u0029",
+            "name": "neuf",
+            "summary": "",
+            "url": "classes/model-Cuisinier.html#method_neuf"
         },                {
             "fqsen": "\\model\\Cuisinier\u003A\u003Aconsume\u0028\u0029",
             "name": "consume",
@@ -651,6 +666,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-MembreManager.html#method_checkPassword"
         },                {
+            "fqsen": "\\model\\MembreManager\u003A\u003Asql2membreArray\u0028\u0029",
+            "name": "sql2membreArray",
+            "summary": "",
+            "url": "classes/model-MembreManager.html#method_sql2membreArray"
+        },                {
             "fqsen": "\\model\\MembreManager\u003A\u003AselectByPseudo\u0028\u0029",
             "name": "selectByPseudo",
             "summary": "",
@@ -693,7 +713,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\model\\Ticket\u003A\u003A__destruct\u0028\u0029",
             "name": "__destruct",
-            "summary": "creative\u0020distraction",
+            "summary": "",
             "url": "classes/model-Ticket.html#method___destruct"
         },                {
             "fqsen": "\\model\\Ticket\u003A\u003AnProp\u0028\u0029",
@@ -741,6 +761,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-TicketManager.html#method_maxid"
         },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003Asql2ticketArray\u0028\u0029",
+            "name": "sql2ticketArray",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_sql2ticketArray"
+        },                {
             "fqsen": "\\model\\TicketManager\u003A\u003AselectSameAuthor\u0028\u0029",
             "name": "selectSameAuthor",
             "summary": "",
@@ -781,10 +806,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-TicketManager.html#method_authorName"
         },                {
-            "fqsen": "\\model\\TicketManager\u003A\u003AlastAuthor\u0028\u0029",
-            "name": "lastAuthor",
+            "fqsen": "\\model\\TicketManager\u003A\u003Amaxcid\u0028\u0029",
+            "name": "maxcid",
             "summary": "",
-            "url": "classes/model-TicketManager.html#method_lastAuthor"
+            "url": "classes/model-TicketManager.html#method_maxcid"
         },                {
             "fqsen": "\\model\\TicketManager\u003A\u003AselectAuthorNoms\u0028\u0029",
             "name": "selectAuthorNoms",
@@ -1146,6 +1171,26 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Author.html#method___construct"
         },                {
+            "fqsen": "\\view\\Author\u003A\u003AviewAuthorForm\u0028\u0029",
+            "name": "viewAuthorForm",
+            "summary": "",
+            "url": "classes/view-Author.html#method_viewAuthorForm"
+        },                {
+            "fqsen": "\\view\\Chef",
+            "name": "Chef",
+            "summary": "",
+            "url": "classes/view-Chef.html"
+        },                {
+            "fqsen": "\\view\\Chef\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/view-Chef.html#method___construct"
+        },                {
+            "fqsen": "\\view\\Chef\u003A\u003AviewAuthorForm\u0028\u0029",
+            "name": "viewAuthorForm",
+            "summary": "",
+            "url": "classes/view-Chef.html#method_viewAuthorForm"
+        },                {
             "fqsen": "\\view\\Delete",
             "name": "Delete",
             "summary": "",
@@ -1156,10 +1201,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Delete.html#method___construct"
         },                {
-            "fqsen": "\\view\\Delete\u003A\u003AviewConfirmationForm\u0028\u0029",
-            "name": "viewConfirmationForm",
+            "fqsen": "\\view\\Delete\u003A\u003AviewConform\u0028\u0029",
+            "name": "viewConform",
             "summary": "",
-            "url": "classes/view-Delete.html#method_viewConfirmationForm"
+            "url": "classes/view-Delete.html#method_viewConform"
         },                {
             "fqsen": "\\view\\Frontend",
             "name": "Frontend",

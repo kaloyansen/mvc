@@ -13,7 +13,7 @@
  * @example initfile example: model/.db.example
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.4
+ * @version 0.0.5
  */
 class BaseManager {
 
@@ -30,35 +30,39 @@ class BaseManager {
     private $password;
     private $database;
 
-    //protected function get() { return self::$conn; }
-    protected function sql(string $query) { return mysqli_query(self::$conn, $query); }
-    protected function sqloo(string $query): object {
-    	$got = $this->sql($query);
+    public function __construct(?string $infile = null) {
+    	if (!$infile) $infile = MODEL.'/.db.';
+    	$this->initFrom($infile);
+    	self::$iconn = 0;
+    	$this->open();
+    }
+
+    public function __destruct() {
+    	$this->close();
+    	error_log('destroying '.__CLASS__."\n");
+    }
+
+    protected static function sql(string $query) { return mysqli_query(self::$conn, $query); }
+    protected static function sqloo(string $query): object {
+    	$got = self::sql($query);
     	if ($got) return mysqli_fetch_object($got);
     	return null;
     }
 
-    protected function sqlarr(string $query): ?array {
-    	$got = $this->sql($query);
+    protected static function sqlarr(string $query): ?array {
+    	$got = self::sql($query);
     	if ($got) return mysqli_fetch_array($got);
     	return null;
     }
 
-    protected function sqlint(string $query): int {
-    	$arr = $this->sqlarr($query);
+    protected static function sqlint(string $query): int {
+    	$arr = self::sqlarr($query);
     	return $arr ? intval($arr[0]) : 0;
     }
 
-    public function __destruct() {
-        $this->close();
-        error_log('destroying '.__CLASS__."\n");
-    }
-
-    public function __construct(?string $infile = null) {
-        if (!$infile) $infile = MODEL.'/.db.';
-        $this->initFrom($infile);
-        self::$iconn = 0;
-        $this->open();
+    protected static function sqlstring(string $query): string {
+    	$arr = self::sqlarr($query);
+    	return $arr ? $arr[0] : '';
     }
 
     private function close():void { echo "\n"; mysqli_close(self::$conn); }

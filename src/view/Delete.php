@@ -16,13 +16,13 @@ class Delete extends \view\Frontend {
     	echo '<article>';
     	self::viewMessage($controbjet->message);
     	echo $controbjet->objet;
-    	if ($controbjet->afform) self::viewConfirmationForm('ticket', 'confirmation_form_fill');
+    	if ($controbjet->afform) self::viewConform('ticket', 'confirmation_form_fill');
     	echo '</article>';
 
     	self::viewModal($controbjet->modal, 'de la base de données', 'merci');
 	}
 
-    private static function viewConfirmationForm(string $dcl, string $name): void {
+    private static function viewConform(string $dcl, string $name): void {
 
     ?><div class="<?=$dcl;?>">
         <form method="post" action="">

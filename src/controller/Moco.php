@@ -65,14 +65,14 @@ class Moco {
 
     private static function readCid(): int {
 
-        if (ONLINE) $iid = self::fromGet('id');
-        else $iid = ARGU2;
-        if ($iid) return intval($iid);
+        if (ONLINE) $cid = self::fromGet('id');
+        else $cid = ARGU2;
+        if ($cid) return intval($cid);
 
-        $db = new \model\TicketManager();
-        $iid = $db->lastAuthor();
-        unset($db);
-        return intval($iid);
+        $mana = new \model\TicketManager();
+        $cid = $mana->maxcid();
+        unset($mana);
+        return $cid;
     }
 
     protected function transMess($message) {

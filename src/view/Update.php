@@ -11,7 +11,7 @@ class Update extends \view\Frontend {
 
     public function __construct($controbjet) {
 
-        parent::__construct($controbjet);
+        \view\Frontend::__construct($controbjet);
 
         echo '<article>';
         self::viewMessage($controbjet->message);
@@ -53,8 +53,8 @@ class Update extends \view\Frontend {
       <label for="cuisinier" class="form-label">cuisinier:</label>
       <p><?php echo self::author2option($authors, 'cuisinier', $ticket->getCuisinier());?></p>
 
-      <p><input id="update" type="submit" name="<?=$name;?>" value="save"/></p>
-      <p><input id="cancel" type="submit" name="<?=$name;?>" value="cancel"/></p>
+      <p><input id="update" class="btn btn-outline-primary" type="submit" name="<?=$name;?>" value="save"/></p>
+      <p><input id="cancel" class="btn btn-outline-secondary" type="submit" name="<?=$name;?>" value="cancel"/></p>
     </form>
   </div>
   <?php

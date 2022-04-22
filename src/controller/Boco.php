@@ -51,6 +51,7 @@ class Boco extends \controller\Foco {
         $afform = false;
         $modal = false;
         $message = false;
+        $action = WWW.'?page='.$view_class;
 
         $db = new \model\MembreManager();
         if (ONLINE && self::fromPost('admin_form_fill')) {
@@ -74,8 +75,45 @@ class Boco extends \controller\Foco {
         $view = new \classe\View($view_class, $title, $title, $title);
         $view->afficher( array('message' => $message,
                                'modal' => $modal,
-                               'action' => WWW.'?page='.$view_class,
+                               'action' => $action,
                                'admin_array' => $admin_array,
+                               'afform' => $afform) );
+    }
+
+    public function chef(): void {
+
+    	$view_class = 'chef';
+    	$afform = false;
+    	$modal = false;
+    	$message = false;
+    	$cuisinier = null;
+    	$action = WWW.'?page='.$view_class;
+
+        if (ONLINE) {
+
+    		if (self::fromPost('author_form_fill') == 'save') {
+
+    			$cuisinier = new \model\Cuisinier(false, true);
+    			//$cuisinier->loadPost();
+    			$mana = new \model\TicketManager();
+    			$db_insert = $mana->insertAuthor($cuisinier);
+    			$modal = 'cuisinier #'.$mana->maxcid().' created('.$db_insert.')';
+    			unset($mana);
+    		} elseif (self::fromPost('author_form_fill') == 'cancel') {
+
+    			$message = 'create cancelled';
+    		} else {
+
+    			$afform = true;
+    			$message = 'create new author';
+    		}
+    	}
+
+    	$view = new \classe\View($view_class, $message ? $message : $modal, 'new author', '6, 6, 6');
+    	$view->afficher( array('message' => $this->transMess($message),
+                               'modal' => $modal,
+                               'cuisinier' => $cuisinier,
+                               'action' => $action,
                                'afform' => $afform) );
     }
 
@@ -225,11 +263,12 @@ class Boco extends \controller\Foco {
 		$view_class = 'login';
 		$page = self::getPage();
 		if (!$page) $page = 'admin';
+		$action = WWW.'?page='.$page;
 
 		$message = 'accès à la zone d\'administration';
 		$view = new \classe\View($view_class, $message, 'description', 'clé');
 		$view->afficher( array('message' => $this->transMess($message),
-                               'action' => WWW.'?page='.$page) );
+                               'action' => $action) );
 	}
 
 	public function hide(): void {

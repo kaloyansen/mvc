@@ -30,7 +30,6 @@ class Foco extends \controller\Moco {
     	$message = $mana->loveMeDo($id);
     	$ticket = $mana->select($id);
     	$ticket->setLove($mana->sheLovesMe($id));
-    	//$author[] = $mana->authorName($ticket);
     	$rate[] = $mana->rate($id);
     	unset($mana);
 
@@ -81,10 +80,8 @@ class Foco extends \controller\Moco {
         $ticket = $mana->select($id);
         $ticket->setLove($mana->sheLovesMe($id));
         $rate[] = $mana->rate($id);
-        //$author[] = $mana->authorName($ticket);
         unset($mana);
 
-        \view\Frontend::viewModal($ticket);
         $ticket_array[] = $ticket;
 
         $view = new \classe\View($view_class);
@@ -121,7 +118,8 @@ class Foco extends \controller\Moco {
 
     	//self::fill($mana, $tickets, $author, $rate);/*
     	$keys = '';
-    	foreach ($ticket_array as $ticket) {
+
+    	if ($ticket_array) foreach ($ticket_array as $ticket) {
     		$id = $ticket->getId();
     		$keys = $ticket->getTitle().$keys.', ';
     		$ticket->setLove($mana->sheLovesMe($id));

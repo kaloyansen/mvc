@@ -29,6 +29,7 @@ class Control {
             case 'home': break;
             case 'admin': break;
             case 'hide': break;
+            case 'chef': break;
             case 'deconnexion':
                 $argument = 'home';
                 break;

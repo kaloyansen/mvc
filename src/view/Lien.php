@@ -1,5 +1,6 @@
 <?php namespace view;
 /**
+ * @deprecated
  * @desc dinamic part of the web page
  * @abstract dinamic frontend
  * @author Kaloyan KRASTEV

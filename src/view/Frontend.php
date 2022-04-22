@@ -4,7 +4,7 @@
  * @abstract dinamic frontend
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.4
+ * @version 0.0.5
  */
 abstract class Frontend {
 	/**
@@ -22,7 +22,14 @@ abstract class Frontend {
     	$controbjet = $this->getObjet();
         $ta = $controbjet->ticket_array;
         $rate = $controbjet->rate;
+
         $total = count($rate);
+
+        if (!$ta) {
+        	echo '<h1>aucune recette ne corresponde la recherche</h1>';
+        	return;
+        }
+
         foreach (array_reverse($ta) as $ticket) {
 
             $total --;
@@ -152,7 +159,7 @@ abstract class Frontend {
 
     		$cuisinier = 'créer un author';
     		$title = $cuisinier;
-    		$href = ' href="'.WWW.'?page=author&id=11111"';
+    		$href = ' href="'.WWW.'?page=chef"';
     		$dcl = '"ticket"';
     		$lcl = '"lien"';
     		$aid = 'insert-author';
@@ -188,7 +195,7 @@ abstract class Frontend {
         echo '<br />';
     }
 
-    public static function viewModal($message, string $title = 'message', string $ok = 'close'): void {
+    public static function viewModal($message, string $title = 'de la base de données', string $ok = 'merci'): void {
 
         if (!$message) return; ?>
 
