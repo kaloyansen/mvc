@@ -51,21 +51,29 @@ class Gabarit {
 	<div id="main">
 	  <header><h1><?=$oo->title;?></h1></header>
 	  <nav class="navbar fixed-top navbar-expand-lg navbar-info row">
+
+        <?php if (false) { ?>
         <a class="nav-item loco col" title="home" href="<?=WWW;?>?page=objet">
         <span class="fa fa-refresh"></span></a>
-        <a class="nav-item loco col" title="cuisiniers" href="<?=WWW;?>?page=author">
-        <span class="fa fa-user"></span></a>
         <a class="nav-item loco col" title="list" href="<?=WWW;?>?page=all">
         <span class="fa fa-list"></span></a>
-        <?php if ($user) { ?>
+        <?php } ?>
+
+        <a class="nav-item loco col" title="cuisiniers" href="<?=WWW;?>?page=author">
+        <span class="fa fa-user"></span></a>
+
         <a class="nav-item loco col" title="new" href="<?=WWW;?>?page=admin">
         <span class="fa fa-plus"></span></a>
+
+        <?php if ($user) { ?>
+        <a class="nav-item loco col" title="<?=$decotitle;?>" href="<?=WWW;?>?page=deconnexion">
+        <span class="<?=$decoclass;?>" title="<?=$decotitle;?>"><?=$decontent;?></span></a>
+
         <?php } else { ?>
         <a class="nav-item loco col" title="about" href="https://kaloyansen.github.io/mvc">
         <span class="fa fa-github"></span></a>
         <?php } ?>
-        <a class="nav-item loco col" title="<?=$decotitle;?>" href="<?=WWW;?>?page=deconnexion">
-        <span class="<?=$decoclass;?>" title="<?=$decotitle;?>"><?=$decontent;?></span></a>
+
       </nav>
       <?=$this->contenu;?>
       <footer>

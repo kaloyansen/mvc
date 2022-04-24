@@ -31,23 +31,15 @@ class TicketManager extends \model\BaseManager {
     	return self::sqlint($query);
     }
 
-    protected static function sql2ticketArray($result, int $maxtick = 1000): array {
+    public function authoRate(int $cid): int {
 
-    	$ticket_array = array();
-    	while ($mfobj = $result->fetch_object()) {
-    		if (0 < $maxtick --) {
-
-    			$id = $mfobj->id;
-    			$ticket = new \model\Ticket($mfobj, $id);
-    			$ticket->setLove($this->sheLovesMe($id));
-    			$ticket_array[] = $ticket;
-    		}
-    	}
-
-    	return $ticket_array;
+    	$ticket_array = $this->selectByAuthor($cid, 1e8);
+    	$rate = 0;
+    	foreach ($ticket_array as $ticket) $rate += $this->rate($ticket->getId());
+    	return $rate;
     }
 
-    public function selectSameAuthor(int $cid, int $maxtick = 1000) {
+    public function selectByAuthor(int $cid, int $maxtick = 1000) {
 
         $query = self::SELECT;
         $query = $query.' WHERE cuisinier='.$cid;
@@ -281,15 +273,15 @@ class TicketManager extends \model\BaseManager {
     public function rate(int $id): int {
 
         $query = "SELECT COUNT(*) FROM remote WHERE ticket=".$id;
-
         return self::sqlint($query);
+/*
         $result = self::sql($query);
 
         if (!$result) return 0;
         return mysqli_num_rows($result);
 
-        /*while ($result->fetch_object()) $rate++;
-        return $rate;*/
+        while ($result->fetch_object()) $rate++;
+        return $rate; */
     }
 
 }

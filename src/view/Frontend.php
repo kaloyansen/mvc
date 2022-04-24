@@ -184,7 +184,17 @@ abstract class Frontend {
         if ($adminarray) {
 
         	echo '<h3>liste d\'administrateurs:</h3>';
-            foreach (array_reverse($adminarray) as $admin) echo '<h3>'.$admin->getId().'. '.$admin->getPseudo().' created by '.$admin->getParent().'</h3>';
+        	foreach (array_reverse($adminarray) as $admin) {
+
+        		$pid = $admin->getParent();
+        		$parent = $admin;
+        		foreach ($adminarray as $su)
+                    if ($su->getId() == $pid)
+                        $parent = $su;
+
+        		echo '<h3>'.$admin->getId().'. '.$admin->getPseudo();
+        		echo ' created by '.$parent->getPseudo().'</h3>';
+        	}
         } else {
 
         	echo '<div class="ticket">';

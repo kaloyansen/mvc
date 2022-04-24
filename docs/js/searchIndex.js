@@ -761,15 +761,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-TicketManager.html#method_maxid"
         },                {
-            "fqsen": "\\model\\TicketManager\u003A\u003Asql2ticketArray\u0028\u0029",
-            "name": "sql2ticketArray",
+            "fqsen": "\\model\\TicketManager\u003A\u003AauthoRate\u0028\u0029",
+            "name": "authoRate",
             "summary": "",
-            "url": "classes/model-TicketManager.html#method_sql2ticketArray"
+            "url": "classes/model-TicketManager.html#method_authoRate"
         },                {
-            "fqsen": "\\model\\TicketManager\u003A\u003AselectSameAuthor\u0028\u0029",
-            "name": "selectSameAuthor",
+            "fqsen": "\\model\\TicketManager\u003A\u003AselectByAuthor\u0028\u0029",
+            "name": "selectByAuthor",
             "summary": "",
-            "url": "classes/model-TicketManager.html#method_selectSameAuthor"
+            "url": "classes/model-TicketManager.html#method_selectByAuthor"
         },                {
             "fqsen": "\\model\\TicketManager\u003A\u003AselectAll\u0028\u0029",
             "name": "selectAll",
@@ -1156,11 +1156,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Admin.html#method___construct"
         },                {
-            "fqsen": "\\view\\Admin\u003A\u003AviewForm\u0028\u0029",
-            "name": "viewForm",
-            "summary": "",
-            "url": "classes/view-Admin.html#method_viewForm"
-        },                {
             "fqsen": "\\view\\Author",
             "name": "Author",
             "summary": "",
@@ -1170,11 +1165,6 @@ Search.appendIndex(
             "name": "__construct",
             "summary": "",
             "url": "classes/view-Author.html#method___construct"
-        },                {
-            "fqsen": "\\view\\Author\u003A\u003AviewAuthorForm\u0028\u0029",
-            "name": "viewAuthorForm",
-            "summary": "",
-            "url": "classes/view-Author.html#method_viewAuthorForm"
         },                {
             "fqsen": "\\view\\Chef",
             "name": "Chef",
@@ -1186,11 +1176,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Chef.html#method___construct"
         },                {
-            "fqsen": "\\view\\Chef\u003A\u003AviewAuthorForm\u0028\u0029",
-            "name": "viewAuthorForm",
-            "summary": "",
-            "url": "classes/view-Chef.html#method_viewAuthorForm"
-        },                {
             "fqsen": "\\view\\Delete",
             "name": "Delete",
             "summary": "",
@@ -1201,10 +1186,55 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Delete.html#method___construct"
         },                {
-            "fqsen": "\\view\\Delete\u003A\u003AviewConform\u0028\u0029",
-            "name": "viewConform",
+            "fqsen": "\\view\\Formulaire",
+            "name": "Formulaire",
             "summary": "",
-            "url": "classes/view-Delete.html#method_viewConform"
+            "url": "classes/view-Formulaire.html"
+        },                {
+            "fqsen": "\\view\\Formulaire\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/view-Formulaire.html#method___construct"
+        },                {
+            "fqsen": "\\view\\Formulaire\u003A\u003AconForm\u0028\u0029",
+            "name": "conForm",
+            "summary": "",
+            "url": "classes/view-Formulaire.html#method_conForm"
+        },                {
+            "fqsen": "\\view\\Formulaire\u003A\u003AauthorForm\u0028\u0029",
+            "name": "authorForm",
+            "summary": "",
+            "url": "classes/view-Formulaire.html#method_authorForm"
+        },                {
+            "fqsen": "\\view\\Formulaire\u003A\u003AoldAuthorForm\u0028\u0029",
+            "name": "oldAuthorForm",
+            "summary": "",
+            "url": "classes/view-Formulaire.html#method_oldAuthorForm"
+        },                {
+            "fqsen": "\\view\\Formulaire\u003A\u003AadminForm\u0028\u0029",
+            "name": "adminForm",
+            "summary": "",
+            "url": "classes/view-Formulaire.html#method_adminForm"
+        },                {
+            "fqsen": "\\view\\Formulaire\u003A\u003AoldAdminForm\u0028\u0029",
+            "name": "oldAdminForm",
+            "summary": "",
+            "url": "classes/view-Formulaire.html#method_oldAdminForm"
+        },                {
+            "fqsen": "\\view\\Formulaire\u003A\u003AticketForm\u0028\u0029",
+            "name": "ticketForm",
+            "summary": "",
+            "url": "classes/view-Formulaire.html#method_ticketForm"
+        },                {
+            "fqsen": "\\view\\Formulaire\u003A\u003Aarray2option\u0028\u0029",
+            "name": "array2option",
+            "summary": "",
+            "url": "classes/view-Formulaire.html#method_array2option"
+        },                {
+            "fqsen": "\\view\\Formulaire\u003A\u003Aauthor2option\u0028\u0029",
+            "name": "author2option",
+            "summary": "",
+            "url": "classes/view-Formulaire.html#method_author2option"
         },                {
             "fqsen": "\\view\\Frontend",
             "name": "Frontend",
@@ -1311,31 +1341,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Gabarit.html#property_contenu"
         },                {
-            "fqsen": "\\view\\Insert",
-            "name": "Insert",
-            "summary": "",
-            "url": "classes/view-Insert.html"
-        },                {
-            "fqsen": "\\view\\Insert\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/view-Insert.html#method___construct"
-        },                {
-            "fqsen": "\\view\\Insert\u003A\u003AviewForm\u0028\u0029",
-            "name": "viewForm",
-            "summary": "",
-            "url": "classes/view-Insert.html#method_viewForm"
-        },                {
-            "fqsen": "\\view\\Lien",
-            "name": "Lien",
-            "summary": "",
-            "url": "classes/view-Lien.html"
-        },                {
-            "fqsen": "\\view\\Lien\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/view-Lien.html#method___construct"
-        },                {
             "fqsen": "\\view\\Login",
             "name": "Login",
             "summary": "",
@@ -1345,11 +1350,6 @@ Search.appendIndex(
             "name": "__construct",
             "summary": "",
             "url": "classes/view-Login.html#method___construct"
-        },                {
-            "fqsen": "\\view\\Login\u003A\u003AviewAdminForm\u0028\u0029",
-            "name": "viewAdminForm",
-            "summary": "",
-            "url": "classes/view-Login.html#method_viewAdminForm"
         },                {
             "fqsen": "\\view\\Message",
             "name": "Message",
@@ -1405,21 +1405,6 @@ Search.appendIndex(
             "name": "__construct",
             "summary": "",
             "url": "classes/view-Update.html#method___construct"
-        },                {
-            "fqsen": "\\view\\Update\u003A\u003AviewTicketForm\u0028\u0029",
-            "name": "viewTicketForm",
-            "summary": "",
-            "url": "classes/view-Update.html#method_viewTicketForm"
-        },                {
-            "fqsen": "\\view\\Update\u003A\u003Aarray2option\u0028\u0029",
-            "name": "array2option",
-            "summary": "",
-            "url": "classes/view-Update.html#method_array2option"
-        },                {
-            "fqsen": "\\view\\Update\u003A\u003Aauthor2option\u0028\u0029",
-            "name": "author2option",
-            "summary": "",
-            "url": "classes/view-Update.html#method_author2option"
         },                {
             "fqsen": "\\",
             "name": "\\",

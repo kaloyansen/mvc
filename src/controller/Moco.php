@@ -1,12 +1,12 @@
 <?php namespace controller;
 /**
- * @desc Main COntroller class Moco
- * @abstract controller superclass
+ * @desc main controller class
+ * @abstract abstract controller superclass
  * @namespace controller
- * @category controller
+ * @category general
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.8
+ * @version 0.1.0
  */
 class Moco {
 
@@ -15,7 +15,12 @@ class Moco {
     private static $private_tikid;
     private static string $page;
 
-    public function __construct() { self::permettre(); }
+    public function __construct($page = false) {
+
+        if (!$page) $page = 'author';
+        self::setPage($page);
+    	self::permettre();//free accès par défault
+    }
 
     public function jePeuxEntrer(): bool { return self::$permisDAppelerMethode; }
     protected static function permettre(): void { self::$permisDAppelerMethode = true; }
@@ -24,7 +29,7 @@ class Moco {
     protected static function id(): int { return self::$private_id; }
     protected static function tikid() { return self::$private_tikid; }
     protected static function setPage(string $page): void { self::$page = $page; }
-    protected static function getPage(string $page_par_default = 'objet'): string { return self::$page ? self::$page : $page_par_default; }
+    protected static function getPage(string $page_par_default = 'objet'): string { return isset(self::$page) ? self::$page : $page_par_default; }
     protected static function echoo(string $happy): void { echo '(-'.$happy.'-)'; }
     protected static function fromPost(string $par) { return isset($_POST[$par]) ? $_POST[$par] : false; }
     protected static function fromGet(string $par) { return isset($_GET[$par]) ? $_GET[$par] : false; }

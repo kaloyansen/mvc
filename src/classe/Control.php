@@ -22,23 +22,28 @@ class Control {
 
         switch(PAGE) {
 
-        	//case 'login': break;
-        	case 'insert': break;
+        	case 'admin': break;
+        	case 'chef': break;
         	case 'update': break;
-            case 'delete': break;
-            case 'home': break;
-            case 'admin': break;
-            case 'hide': break;
-            case 'chef': break;
+        	case 'delete': break;
+        	case 'insert':
+        		$argument = 'update';
+        		break;
+        	case 'delchef':
+        		$argument = 'delete';
+        		break;
+        	case 'home':
+        		$argument = 'objet';
+        		break;
+            case 'hide':
+            	$argument = 'objet';
+            	break;
             case 'deconnexion':
-                $argument = 'home';
-                break;
+            	$argument = 'message';
+            	break;
             case 'objet':
                 $chemin = $frontofficecontroller;
                 break;
-            case 'lien':
-            	$chemin = $frontofficecontroller;
-            	break;
             case 'over':
             	$chemin = $frontofficecontroller;
             	break;
@@ -51,7 +56,7 @@ class Control {
             	break;
             case 'all':
                 $chemin = $frontofficecontroller;
-                $argument = 'lien';
+                $argument = 'over';
                 break;
             default:
                 $chemin = $frontofficecontroller;

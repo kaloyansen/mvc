@@ -1,37 +1,28 @@
 <?php namespace controller;
 /**
- * @desc BackOffice COntroller Boco extends FrontOffice COntroller class Foco
- * @abstract backoffice methods are reserved to administrators
+ * @desc backoffice controller extends frontoffice controller class
+ * @abstract backoffice methods are reserved to superuser
  * @namespace controller
- * @category controller
+ * @category backoffice
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.1.1
+ * @version 0.1.2
  */
 class Boco extends \controller\Foco {
-    /**
-     * @desc admin peux
-     * créer un autre admin
-     * créer ou effacer un cuisinier
-     * créer, modifier et effacer une recette
-     * */
+
     public function __construct($page = false) {
 
+        parent::__construct($page);
         $access = self::checkAccess();
 
         if (!$access) {
-            self::interdire();
-            if (!$page) error_log('argument expexted in '.__CLASS__.' constructor');
-            else self::setPage($page);
+
+        	self::interdire();
             $this->login();
-        } else {
-            self::permettre();
         }
     }
 
     public function deconnexion(): void {
-
-    	$view_class = 'message';
 
     	$user = self::fromSession('user');
         if (!$user) $user = 'guest';//something wrong
@@ -40,7 +31,7 @@ class Boco extends \controller\Foco {
         $_SESSION = array();
         session_destroy();
 
-        $view = new \classe\View($view_class, $message, 'deconnexion', 'clé 5');
+        $view = new \classe\View('message', $message, 'deconnexion', 'clé 5');
         $view->afficher( array('message' => $this->transMess($message)) );
     }
 
@@ -82,7 +73,6 @@ class Boco extends \controller\Foco {
 
     public function chef(): void {
 
-    	$view_class = 'chef';
     	$afform = false;
     	$modal = false;
     	$message = false;
@@ -109,7 +99,7 @@ class Boco extends \controller\Foco {
     		}
     	}
 
-    	$view = new \classe\View($view_class, $message ? $message : $modal, 'new author', '6, 6, 6');
+    	$view = new \classe\View(self::getPage(), $message ? $message : $modal, 'new author', '6, 6, 6');
     	$view->afficher( array('message' => $this->transMess($message),
                                'modal' => $modal,
                                'cuisinier' => $cuisinier,
@@ -119,7 +109,6 @@ class Boco extends \controller\Foco {
 
     public function insert(): void {
 
-    	$view_class = 'update';
     	$afform = false;
     	$modal = false;
     	$message = false;
@@ -145,7 +134,7 @@ class Boco extends \controller\Foco {
 
     	unset($mana);
 
-    	$view = new \classe\View($view_class);
+    	$view = new \classe\View(self::getPage());
     	$view->manger($ticket);
     	$view->afficher( array('message' => $this->transMess($message),
     	                       'ticket' => $ticket,
@@ -158,7 +147,6 @@ class Boco extends \controller\Foco {
     public function update(): void {
 
     	$id = self::idLoad();
-    	$view_class = 'update';
 
 		$mana = new \model\TicketManager();
 		$ticket = $mana->select($id);
@@ -182,7 +170,7 @@ class Boco extends \controller\Foco {
 
 		unset($mana);
 
-		$view = new \classe\View($view_class);
+		$view = new \classe\View(self::getPage());
 		$view->manger($ticket);
 		$view->afficher( array('message' => $this->transMess($message),
 		                       'ticket' => $ticket,
@@ -195,7 +183,6 @@ class Boco extends \controller\Foco {
 	public function delete(): void {
 
         $id = self::idLoad();
-        $view_class = 'delete';
         $afform = false;
         $modal = false;
         $message = false;
@@ -218,7 +205,7 @@ class Boco extends \controller\Foco {
 
         unset($mana);
 
-        $view = new \classe\View($view_class);
+        $view = new \classe\View(self::getPage());
         $view->manger($ticket);
         $view->afficher( array('message' => $message,
                                'modal' => $modal,
@@ -229,7 +216,6 @@ class Boco extends \controller\Foco {
     public function delchef(): void {
 
         $id = self::cidLoad();
-        $view_class = 'delete';
         $afform = false;
         $modal = false;
         $message = false;
@@ -251,7 +237,7 @@ class Boco extends \controller\Foco {
         }
 
         unset($mana);
-        $view = new \classe\View($view_class, $message ? $message : $modal, $chef->getNom(), $chef->getPrenom());
+        $view = new \classe\View(self::getPage(), $message ? $message : $modal, $chef->getNom(), $chef->getPrenom());
         $view->afficher( array('message' => $message,
                                'modal' => $modal,
                                'afform' => $afform,
@@ -260,13 +246,12 @@ class Boco extends \controller\Foco {
 
     private function login(): void {
 
-		$view_class = 'login';
 		$page = self::getPage();
 		if (!$page) $page = 'admin';
 		$action = WWW.'?page='.$page;
 
 		$message = 'accès à la zone d\'administration';
-		$view = new \classe\View($view_class, $message, 'description', 'clé');
+		$view = new \classe\View('login', $message, 'description', 'clé');
 		$view->afficher( array('message' => $this->transMess($message),
                                'action' => $action) );
 	}
@@ -274,7 +259,6 @@ class Boco extends \controller\Foco {
 	public function hide(): void {
 
 		$id = self::idLoad();
-		$view_class = 'objet';
 
 		$rate = array();
 		$tickets = array();
@@ -287,7 +271,7 @@ class Boco extends \controller\Foco {
 
 		$tickets[] = $ticket;
 
-		$view = new \classe\View($view_class);
+		$view = new \classe\View(self::getPage());
 		$view->manger($ticket);
 		$view->afficher( array('modal' => $message,
 		                       'ticket_array' => $tickets,
@@ -297,7 +281,6 @@ class Boco extends \controller\Foco {
 	public function home(): void {
 
 		$id = self::idLoad();
-		$view_class = 'objet';
         $rate = array();
 		$mana = new \model\TicketManager();
 		$ticket = $mana->select($id);
@@ -305,7 +288,7 @@ class Boco extends \controller\Foco {
 		$ticket_array[] = $ticket;
 		unset($mana);
 
-		$view = new \classe\View($view_class);
+		$view = new \classe\View(self::getPage());
 		$view->manger($ticket);
 		$view->afficher( array('message' => $this->transMess('zone d\'administration'),
                                'user' => self::fromSession('user'),
