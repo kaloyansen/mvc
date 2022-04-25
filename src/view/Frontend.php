@@ -4,7 +4,7 @@
  * @abstract dinamic frontend
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.7
+ * @version 0.0.8
  */
 abstract class Frontend {
 	/**
@@ -46,8 +46,9 @@ abstract class Frontend {
 
         if (!$ticket) {
         	echo '<div class="ticket">';
-        	echo '<a title="nouvelle recette" id="insert-ticket" class="lien"';
-        	echo $href.'insert">créer un article</a>';
+        	//echo '<a title="nouvelle recette" id="insert-ticket" class="lien"';
+        	//echo $href.'insert">créer un article</a>';
+        	echo '<h1>no ticket</h1>';
             echo '</div>';
             return;
         }
@@ -161,13 +162,12 @@ abstract class Frontend {
     	$lcl = '"lien"';
     	$dcl = '"jaba"';
 
-    	if ($cuisinier) {
-
-    		$id = $cuisinier->getId();
-    		$href = ' href="'.WWW.'?page=over&id='.$id.'"';
-    		$title = 'voir articles';
-    		$aid = 'select-'.$id;
-    	} else {
+    	$id = $cuisinier->getId();
+    	$href = ' href="'.WWW.'?page=over&id='.$id.'"';
+    	$title = 'voir articles';
+    	$aid = 'select-'.$id;
+/*
+    } else {
 
     		$cuisinier = 'créer un author';
     		$title = $cuisinier;
@@ -175,8 +175,8 @@ abstract class Frontend {
     		$dcl = '"ticket"';
     		$lcl = '"lien"';
     		$aid = 'insert-author';
-    	} ?>
-    	<div class=<?=$dcl;?>>
+    	} */
+      ?><div class=<?=$dcl;?>>
           <a id="<?=$aid;?>" title="<?=$title;?>" class=<?=$lcl;?> <?=$href;?>>
           <?=$cuisinier;?> <?=$nart;?> recettes <?=self::star(5, $rate);?></a><?php
     	if ($user && $id) {
@@ -211,8 +211,8 @@ abstract class Frontend {
         } else {
 
         	echo '<div class="ticket">';
-            echo '<a title="nouvel admin" id="insert-admin" class="lien" href="'.WWW.'?page=admin&id=11111">créer un administrateur</a>';
-            echo '</div>';
+        	echo '<h1>no adminarray</h1>';
+        	echo '</div>';
         }
 
         echo '<br />';

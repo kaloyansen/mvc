@@ -1221,11 +1221,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Formulaire.html#method_authorForm"
         },                {
-            "fqsen": "\\view\\Formulaire\u003A\u003AoldAuthorForm\u0028\u0029",
-            "name": "oldAuthorForm",
-            "summary": "",
-            "url": "classes/view-Formulaire.html#method_oldAuthorForm"
-        },                {
             "fqsen": "\\view\\Formulaire\u003A\u003AadminForm\u0028\u0029",
             "name": "adminForm",
             "summary": "",

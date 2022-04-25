@@ -1,10 +1,11 @@
 <?php namespace view;
 /**
- * @desc les formulaires
- * @abstract dinamic frontend
+ * @abstract dinamic frontend for admin(login, create), author(create, update, delete)
+ * @desc ticket(create, update, delete) et delete confirmation for both author and ticket
+ * @access delete admin not implemented for security reasons
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.1
+ * @version 0.0.2
  */
 class Formulaire extends \view\Frontend {
 
@@ -43,26 +44,6 @@ class Formulaire extends \view\Frontend {
     </div><?php
     }
 
-    protected static function oldAuthorForm(string $dcl, string $name): void {
-
-
-    	?><div class="<?=$dcl;?>">
-
-    <form method="post" action="">
-
-      <label for="nom" class="form-label">nom:</label>
-      <p><input id="nom" class="form-control" type="text" name="nom" /></p>
-      <label for="prenom" class="form-label">prénom:</label>
-      <p><input id="prenom" class="form-control" type="text" name="prenom" /></p>
-      <label for="photo" class="form-label">photo:</label>
-      <p><input id="photo" class="form-control" type="text" name="photo" /></p>
-
-      <p><input id="update" type="submit" name="<?=$name;?>" value="save"/></p>
-      <p><input id="cancel" type="submit" name="<?=$name;?>" value="cancel"/></p>
-    </form>
-  </div><?php
-    }
-
     protected static function adminForm($controbjet, string $name = 'validate'): void { ?>
 
   <div class="row" id="result"></div>
@@ -80,7 +61,7 @@ class Formulaire extends \view\Frontend {
                name="pseudo"
                maxlength="255"
                value=""
-               placeholder="identifiant" required />
+               placeholder="un courriel" required />
         <span class="pseudoErr"></span>
 
         <label for="password">mot de passe</label>
@@ -90,7 +71,7 @@ class Formulaire extends \view\Frontend {
                name="password"
                maxlength="6"
                value=""
-               placeholder="mot de passe"
+               placeholder="avec le clavier virtuel"
                readonly = "readonly"
                required />
         <span class="passwordErr"></span>
@@ -104,7 +85,6 @@ class Formulaire extends \view\Frontend {
   </div><?php
 
 	}
-
 
     protected static function ticketForm(\model\Ticket $ticket, $authors, string $dcl, string $name): void {
 

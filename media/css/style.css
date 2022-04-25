@@ -250,21 +250,22 @@ footer {
 
 
 #pad {
-  width: 500px;
-  height: 300px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: .5rem;
+    max-width: 800px;
+    height: 400px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: .5rem;
 }
 
 .case span {
-  display: flex;
-  font-size: 44px;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
+    display: flex;
+    font-size: 44px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border: 0.1vw solid #000;
 }
 
 
