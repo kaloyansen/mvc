@@ -7,12 +7,12 @@
 }
 
 html {
-    color-scheme: light;
     color-scheme: light light;
     color-scheme: light dark;
     color-scheme: dark light;
     color-scheme: dark dark;
     color-scheme: dark;
+    color-scheme: light;
 }
 
 body {
@@ -146,8 +146,8 @@ a[href^="tel"]::before {
 
 
 .loco, .roco, .lien {
-    color: #caf;
-    background-color: #358;
+    color: #000;
+    background-color: #359;
     font-weight: bold;
     /*font-size: 27px;*/
     text-decoration: none;  
@@ -164,7 +164,7 @@ a[href^="tel"]::before {
 
 .lien:hover, .loco:hover, .roco:hover {
 	color: #359;
-    background-color: #caf;
+    background-color: #000;
     cursor: pointer;
 }
 
@@ -183,16 +183,11 @@ a[href^="tel"]::before {
 .jaba {
     display: inline-block;
     width: 345px;
-    border: 1vw solid transparent;
-/*    padding: 22px;
-    padding: 0;
-    margin: 22px;
-    margin: auto; */
+    border: 0 solid transparent;
+    padding: 22px;
 }
 
-.jaba:hover {
-    border: 0.1vw solid transparent;
-}
+.jaba:hover { padding: 0; }
 
 .fill {
 	display: block;
@@ -200,17 +195,21 @@ a[href^="tel"]::before {
 
 .ticket {
   /*  padding: 4vw; 
-	border: 2vw solid transparent;*/
+	border: 2vw solid transparent;
+    color: #999;*/
 	padding: 10px;
     text-align: left;
     border-radius: 0;
     text-decoration: none;
     text-decoration-thickness: 0;
 }
-.ticket:hover {
-    border-radius: 0;
-}
 
+/*
+.ticket:hover {
+    color: #234567;
+	border-radius: 0;
+}
+*/
 
 textarea { height: 222px; }
 input, textarea { /* [type="text"], input[type="password"] { */

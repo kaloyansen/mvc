@@ -3,7 +3,7 @@
  * @desc _config.php
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.1 *
+ * @version 0.0.2
  */
 define('DEBUG_LEVEL', 5);
 define('APPNAME', 'mvc 99% php');
@@ -14,10 +14,19 @@ define('ROOT', $_SERVER['DOCUMENT_ROOT']);//inutile
  */
 $url = $_SERVER['SCRIPT_NAME'];
 
-if (isset($_SERVER['REQUEST_METHOD'])) $url = 'http://'.$_SERVER['HTTP_HOST'];
+if (isset($_SERVER['REQUEST_METHOD'])) {
+
+	$url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http').'://'.$_SERVER[HTTP_HOST];
+	//$url = 'http://'.$_SERVER['HTTP_HOST'];
+	$get = explode('?', basename($_SERVER['REQUEST_URI']));
+	define('WWWGET', $get[1]);
+} else {
+	define('WWWGET', false);
+}
 
 //define('WWW', $url.$_SERVER['REQUEST_URI'];//to work in a container
 define('WWW', $url.$_SERVER['PHP_SELF']);
+
 //define('WWW', dirname($url));
 
 /**

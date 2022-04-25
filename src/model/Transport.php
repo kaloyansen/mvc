@@ -28,15 +28,16 @@ class Transport {
 	protected static function euro(int $eu): string {
 
 		$code = false;
-		while (0 < $eu --) $code = $code.'<span class="roco fa fa-spin">€</span>';
+		while (0 < $eu --) $code = $code.'€';//<span class="">€</span>';
 
-		return '<span class="roco fa">'.$code.'</span>';
+		return $code;
+		//return '<span class="roco fa">'.$code.'</span>';
 	}
 
 	protected static function fouet(int $fou): string {
 
 		$code = false;
-		while (0 < $fou --) $code = $code.'<img class="img-fluid roco" src="'.IMG.'/fouet.png" alt="difficulté" />';
+		while (0 < $fou --) $code = $code.'<img class="img-fluid" src="'.IMG.'/fouet.png" alt="difficulté" />';
 
 		return $code;
 	}

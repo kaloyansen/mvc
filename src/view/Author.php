@@ -4,7 +4,7 @@
  * @abstract dinamic frontoffice frontend
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.8
+ * @version 0.0.9
  */
 class Author extends \view\Frontend {
 
@@ -15,19 +15,17 @@ class Author extends \view\Frontend {
         echo '<article class="container">';
         self::viewMessage($controbjet->message);
         $ca = $controbjet->cuisinier_array;
+        $rate = $controbjet->rate;
+        $nart = $controbjet->nart;
 
-        foreach ($ca as $chef) self::viewAuthor($chef);
-        foreach ($ca as $chef) self::viewAuthor($chef);
-        foreach ($ca as $chef) self::viewAuthor($chef);
-        foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
-        foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
-        foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
-        foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
-        foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
-        foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
-        foreach (array_reverse($ca) as $chef) self::viewAuthor($chef);
+        $total = count($rate);
+        foreach ($ca as $chef) { $total --; self::viewAuthor($chef, $rate[$total], $nart[$total]); }
+        $total = count($rate);
+        foreach ($ca as $chef) { $total --; self::viewAuthor($chef, $rate[$total], $nart[$total]); }
+        $total = count($rate);
+        foreach ($ca as $chef) { $total --; self::viewAuthor($chef, $rate[$total], $nart[$total]); }
 
-		echo '</article>';
+        echo '</article>';
 		self::viewModal($controbjet->modal, 'de la base de données', 'merci');
     }
 

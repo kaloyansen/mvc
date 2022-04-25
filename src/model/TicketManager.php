@@ -3,7 +3,7 @@
  * @desc ticket database interface
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.6
+ * @version 0.0.8
  */
 class TicketManager extends \model\BaseManager {
 
@@ -80,6 +80,29 @@ class TicketManager extends \model\BaseManager {
     	return empty($ticket_array) ? false : $ticket_array;
     }
 
+    public function hiRateId(): int {
+
+    	$query = self::SELECT;
+    	$result = self::sql($query);
+    	if (!$result) return $this->error();
+
+    	$ticket_array = array();
+    	while ($mfobj = $result->fetch_object()) $ticket_array[] = new \model\Ticket($mfobj, $mfobj->id);
+
+    	$hirate = 0;
+    	$hid = 0;
+    	foreach ($ticket_array as $ticket) {
+    		$id = $ticket->getId();
+    		$rate = $this->rate($id);
+    		if ($rate > $hirate && !$ticket->getHide()) {
+                $hirate = $rate;
+                $hid = $id;
+    		}
+    	}
+
+    	return $hid;
+    }
+
     public function select(int $id = 0): \model\Ticket {
 
     	if (!$id) return $this->selectAll();
@@ -87,11 +110,6 @@ class TicketManager extends \model\BaseManager {
     	$query = $query.self::WHERE.$id;
 
         $mfobj = self::sqloo($query);
-    	/*
-    	$result = self::sql($query);
-    	if (!$result) return $this->error();
-    	$mfobj = mysqli_fetch_object($result);
-        */
     	$ticket = new \model\Ticket($mfobj, $id);
     	$ticket->setLove($this->sheLovesMe($id));
     	return $ticket;
@@ -100,7 +118,7 @@ class TicketManager extends \model\BaseManager {
     public function insert(\model\Ticket $ticket) {
 
     	$query = "INSERT INTO ".self::TABLE;
-    	$query = $query."(title, description, body, keywords, prix, diff, temps, color, personne)";
+    	$query = $query."(title, description, body, keywords, prix, diff, temps, cuisinier, color, personne)";
     	$query = $query." VALUES";
     	$query = $query.self::INSEB;
     	$query = $query.addslashes($ticket->getTitle()).self::INSEP;
@@ -110,6 +128,7 @@ class TicketManager extends \model\BaseManager {
     	$query = $query.$ticket->getPrix().self::INSEP;
     	$query = $query.$ticket->getDiff().self::INSEP;
     	$query = $query.$ticket->getTemps().self::INSEP;
+    	$query = $query.$ticket->getCuisinier().self::INSEP;
     	$query = $query.$ticket->getColor().self::INSEP;
     	$query = $query.$ticket->getPersonne().self::INSEF;
     	$result = self::sql($query);
@@ -126,6 +145,7 @@ class TicketManager extends \model\BaseManager {
     	$query = $query."', prix='".$ticket->getPrix();
     	$query = $query."', diff='".$ticket->getDiff();
     	$query = $query."', temps='".$ticket->getTemps();
+    	$query = $query."', cuisinier='".$ticket->getCuisinier();
     	$query = $query."', personne='".$ticket->getPersonne();
     	$query = $query."'".self::WHERE.$id;
     	$result = self::sql($query);
@@ -137,10 +157,6 @@ class TicketManager extends \model\BaseManager {
 
     	$query = 'SELECT hide from ticket';
     	$query = $query.self::WHERE.$id;
-        /*
-    	$result = self::sql($query);
-    	$yes = mysqli_fetch_array($result)[0];
-        */
     	$yes = self::sqlint($query);
 
     	if (intval($yes) > 0) {//show
@@ -156,11 +172,17 @@ class TicketManager extends \model\BaseManager {
     	return self::sql($query) ? $message : $this->error();
     }
 
-    public function delete($id) {
+    public function delete(int $id) {
 
     	$query = "DELETE FROM ".self::TABLE.self::WHERE.$id;
     	$result = self::sql($query);
     	return $result ? $result : $this->error();
+    }
+
+    public function numbArt(int $cid): int {
+
+    	$query = "SELECT COUNT(*) FROM ticket WHERE cuisinier=".$cid;
+    	return self::sqlint($query);
     }
 
     /**
@@ -170,11 +192,6 @@ class TicketManager extends \model\BaseManager {
 
     	$cuisinier = $this->authorId($ticket);
     	$query = "SELECT nom FROM cuisinier WHERE cid=".$cuisinier;
-        /*
-    	$result = self::sql($query);
-
-    	return mysqli_fetch_array($result)[0];
-        */
     	return self::sqlstring($query);
     }
 
@@ -210,10 +227,6 @@ class TicketManager extends \model\BaseManager {
 
     	if (!$id) { return $this->selectAuthors(); }
     	$query = "SELECT * FROM cuisinier WHERE cid=".$id;
-    	/*
-    	$result = self::sql($query);
-    	if (!$result) return $this->error();
-    	$mfobj = mysqli_fetch_object($result);*/
     	$mfobj = self::sqloo($query);
     	return new \model\Cuisinier($mfobj);
     }
@@ -227,9 +240,7 @@ class TicketManager extends \model\BaseManager {
 
     public function insertAuthor(\model\Cuisinier $cuisinier) {
 
-    	$query = "INSERT INTO cuisinier";
-    	$query = $query."(nom, prenom, photo)";
-    	$query = $query." VALUES";
+    	$query = "INSERT INTO cuisinier (nom, prenom, photo) VALUES";
     	$query = $query.self::INSEB;
     	$query = $query.$cuisinier->getNom().self::INSEP;
     	$query = $query.$cuisinier->getPrenom().self::INSEP;
@@ -244,16 +255,8 @@ class TicketManager extends \model\BaseManager {
      */
     public function sheLovesMe(int $id): int {
 
-        $query = "SELECT rid FROM remote";
-        $query = $query." WHERE ticket=".$id;
-        $query = $query." AND ip='".REMOTE."'";
+        $query = "SELECT rid FROM remote WHERE ticket=".$id." AND ip='".REMOTE."'";
         return self::sqlint($query);
-        /*
-        $result = self::sql($query);
-        $myobj = mysqli_fetch_object($result);
-
-        return $myobj ? intval($myobj->rid) : 0;
-        */
     }
 
     public function loveMeDo(int $id): string {
@@ -274,14 +277,6 @@ class TicketManager extends \model\BaseManager {
 
         $query = "SELECT COUNT(*) FROM remote WHERE ticket=".$id;
         return self::sqlint($query);
-/*
-        $result = self::sql($query);
-
-        if (!$result) return 0;
-        return mysqli_num_rows($result);
-
-        while ($result->fetch_object()) $rate++;
-        return $rate; */
     }
 
 }

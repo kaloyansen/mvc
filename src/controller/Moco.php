@@ -63,7 +63,8 @@ class Moco {
         if ($diez) return intval($diez);
 
         $mana = new \model\TicketManager();
-        $diez = $mana->maxid();
+        //$diez = $mana->maxid();
+        $diez = $mana->hiRateId();
         unset($mana);
         return $diez;
     }

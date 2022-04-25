@@ -17,8 +17,8 @@ class Formulaire extends \view\Frontend {
 
     	?><div class="<?=$dcl;?>">
         <form method="post" action="">
-          <p><input id="delete" type="submit" name="<?=$name;?>" value="yes"/></p>
-          <p><input id="cancel" type="submit" name="<?=$name;?>" value="no"/></p>
+          <p><input id="delete" class="btn btn-outline-primary" type="submit" name="<?=$name;?>" value="yes"/></p>
+          <p><input id="cancel" class="btn btn-outline-primary" type="submit" name="<?=$name;?>" value="no"/></p>
         </form></div><?php
     }
 
@@ -104,59 +104,6 @@ class Formulaire extends \view\Frontend {
   </div><?php
 
 	}
-
-
-    /**
-     *
-     * @deprecated
-     */
-    protected static function oldAdminForm($controbjet): void {
-
-    	?>
-  <div class="row" id="result"></div>
-  <div class="row" id="connection">
-
-    <form class="col-8 p-auto m-auto"
-          id="logform"
-          method="post"
-          enctype="application/x-www-form-urlencoded">
-
-      <input type="hidden" name="new_admin_form_fill" value="true" />
-
-      <div class="form-group">
-        <label for="pseudo">identifiant</label>
-        <input type="email"
-               class="form-control"
-               id="pseudo"
-               name="pseudo"
-               maxlength="255"
-               value=""
-               placeholder="identifiant" required />
-        <span class="pseudoErr"></span>
-      </div>
-      <div class="form-group">
-        <label for="password">mot de passe</label>
-        <input type="password"
-               class="form-control"
-               id="password"
-               name="password"
-               maxlength="6"
-               value=""
-               placeholder="mot de passe" disabled required />
-        <span class="passwordErr"></span>
-      </div>
-      <div id="pad" class="form-group mx-auto my-4"></div>
-      <div class="mt-3 text-center">
-        <button type="button" class="btn btn-secondary" id="reset">reset</button>
-        <button type="submit" class="btn btn-primary" id="validate">create</button>
-      </div>
-    </form>
-  </div>
-
-<script src="<?=MEDIA ?>/js/keypad.js"></script>
-<?php
-	}
-
 
 
     protected static function ticketForm(\model\Ticket $ticket, $authors, string $dcl, string $name): void {

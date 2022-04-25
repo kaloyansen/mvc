@@ -4,7 +4,7 @@
  * @abstract dinamic frontend
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.0.5
+ * @version 0.0.7
  */
 abstract class Frontend {
 	/**
@@ -76,7 +76,6 @@ abstract class Frontend {
     		echo $href.'delete&id='.$id;
     		echo '">delete</a>';
     		self::hide($ticket, $lcl);
-    		echo ' #'.$id;
     	}
 
     	echo '</div>';
@@ -92,6 +91,18 @@ abstract class Frontend {
         echo ' href="'.WWW.'?page=hide&id='.$id.'">'.$title.'</a>';
 	}
 
+    private static function star(int $total, int $actif) {
+
+    	$star = '';
+    	while (0 < $total --) {
+    		if (0 < $actif --) $checked = 'checked';
+    		else $checked = 'false';
+    		$star = $star.'<span title="rate" class="fa fa-star '.$checked.'"></span>';
+    	}
+
+    	return $star;
+    }
+
     private static function etoile(\model\Ticket $ticket, string $link_class, int $rate) {
 
         $id = $ticket->getId();
@@ -103,7 +114,8 @@ abstract class Frontend {
         }
 
         echo '<a title="'.$title.'" id="love-'.$id.'" class='.$link_class.' href="'.WWW.'?page=love&id='.$id.'">';
-    	echo '<span role="button" title="'.$title.'" class="fa fa-star '.$checked.'">'.$rate.'</span></a>';
+        echo '<span role="button" title="'.$title.'" class="fa fa-star '.$checked.'">'.$rate.'</span></a>';
+        $_SESSION['wwwget'] = WWWGET;
     }
 
     private static function ticketLink(\model\Ticket $ticket, string $lcl): void {
@@ -126,7 +138,7 @@ abstract class Frontend {
     	echo '</a>';
     }
 
-    protected static function alert(string $message, int $lifetime = 5): void {
+    public static function alert(string $message, int $lifetime = 5): void {
     	?><script>
     	const WIN = window.open('', 'message', 'toolbar=yes,scrollbars=yes,resizable=yes,top=66,left=66,width=222,height=333');
 
@@ -142,7 +154,7 @@ abstract class Frontend {
         </script><?php
     }
 
-    protected static function viewAuthor(?\model\Cuisinier $cuisinier): void {
+    protected static function viewAuthor(?\model\Cuisinier $cuisinier, int $rate = 0, int $nart = 0): void {
 
     	$user = isset($_SESSION['user']) ? $_SESSION['user'] : false;
     	$id = false;
@@ -165,7 +177,8 @@ abstract class Frontend {
     		$aid = 'insert-author';
     	} ?>
     	<div class=<?=$dcl;?>>
-          <a id="<?=$aid;?>" title="<?=$title;?>" class=<?=$lcl;?> <?=$href;?>><?=$cuisinier;?></a><?php
+          <a id="<?=$aid;?>" title="<?=$title;?>" class=<?=$lcl;?> <?=$href;?>>
+          <?=$cuisinier;?> <?=$nart;?> recettes <?=self::star(5, $rate);?></a><?php
     	if ($user && $id) {
     		$href = ' href="'.WWW.'?page=delchef&id=';
     		echo '<a title="delete #'.$id.'" id="delete-'.$id.'" class='.$lcl.$href.$id.'">[delete cuisinier #'.$id.']</a>';
@@ -207,9 +220,11 @@ abstract class Frontend {
 
     public static function viewModal($message, string $title = 'de la base de données', string $ok = 'merci'): void {
 
-        if (!$message) return; ?>
+    	if (isset($_SESSION['modal'])) $message = $_SESSION['modal'];
+    	$x = 5;
+        if (!$message) return;
 
-    	<script src="<?=MEDIA;?>/js/jquery-3.6.0.min.js"></script>
+      ?><script src="<?=MEDIA;?>/js/jquery-3.6.0.min.js"></script>
     	<script>
           $(window).on('load', function() {
               $('#modalTag').modal('show');
@@ -233,6 +248,7 @@ abstract class Frontend {
           </div>
         </div>
         <?php
+        $_SESSION['modal'] = null;
     }
 }
 

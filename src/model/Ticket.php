@@ -69,11 +69,11 @@ class Ticket extends \model\TicketPublic {
         $krava = $krava.self::figure($img, $this->description, 'moyenne');
 
         if ($all) {
-        	$krava = $krava.'<br />temps: '.self::second2hour($this->temps);
+        	$krava = $krava.'<hr>temps: '.self::second2hour($this->temps);
         	$krava = $krava.'<br />difficulté '.self::fouet($this->diff);
         	$krava = $krava.'<br />prix: '.self::euro($this->prix);
-            $krava = $krava.'<br />'.$this->personne.' personnes';
-            $krava = $krava.'<br />publié: '.$this->jour;
+            //$krava = $krava.'<br />'.$this->personne.' personnes';
+            //$krava = $krava.'<br />publié: '.$this->jour;
             $krava = $krava.'<br />#'.$this->id;
         }
 

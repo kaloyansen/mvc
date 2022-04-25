@@ -206,6 +206,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/controller-Foco.html#method_love"
         },                {
+            "fqsen": "\\controller\\Foco\u003A\u003AsendModal\u0028\u0029",
+            "name": "sendModal",
+            "summary": "",
+            "url": "classes/controller-Foco.html#method_sendModal"
+        },                {
             "fqsen": "\\controller\\Foco\u003A\u003Aall\u0028\u0029",
             "name": "all",
             "summary": "",
@@ -776,6 +781,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/model-TicketManager.html#method_selectAll"
         },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003AhiRateId\u0028\u0029",
+            "name": "hiRateId",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_hiRateId"
+        },                {
             "fqsen": "\\model\\TicketManager\u003A\u003Aselect\u0028\u0029",
             "name": "select",
             "summary": "",
@@ -800,6 +810,11 @@ Search.appendIndex(
             "name": "delete",
             "summary": "",
             "url": "classes/model-TicketManager.html#method_delete"
+        },                {
+            "fqsen": "\\model\\TicketManager\u003A\u003AnumbArt\u0028\u0029",
+            "name": "numbArt",
+            "summary": "",
+            "url": "classes/model-TicketManager.html#method_numbArt"
         },                {
             "fqsen": "\\model\\TicketManager\u003A\u003AauthorName\u0028\u0029",
             "name": "authorName",
@@ -1216,11 +1231,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Formulaire.html#method_adminForm"
         },                {
-            "fqsen": "\\view\\Formulaire\u003A\u003AoldAdminForm\u0028\u0029",
-            "name": "oldAdminForm",
-            "summary": "",
-            "url": "classes/view-Formulaire.html#method_oldAdminForm"
-        },                {
             "fqsen": "\\view\\Formulaire\u003A\u003AticketForm\u0028\u0029",
             "name": "ticketForm",
             "summary": "",
@@ -1275,6 +1285,11 @@ Search.appendIndex(
             "name": "hide",
             "summary": "",
             "url": "classes/view-Frontend.html#method_hide"
+        },                {
+            "fqsen": "\\view\\Frontend\u003A\u003Astar\u0028\u0029",
+            "name": "star",
+            "summary": "",
+            "url": "classes/view-Frontend.html#method_star"
         },                {
             "fqsen": "\\view\\Frontend\u003A\u003Aetoile\u0028\u0029",
             "name": "etoile",

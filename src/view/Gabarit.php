@@ -54,13 +54,13 @@ class Gabarit {
 
         <?php if (false) { ?>
         <a class="nav-item loco col" title="home" href="<?=WWW;?>?page=objet">
-        <span class="fa fa-refresh"></span></a>
+        <span class="fa fa-user"></span></a>
         <a class="nav-item loco col" title="list" href="<?=WWW;?>?page=all">
         <span class="fa fa-list"></span></a>
         <?php } ?>
 
         <a class="nav-item loco col" title="cuisiniers" href="<?=WWW;?>?page=author">
-        <span class="fa fa-user"></span></a>
+        <span class="fa fa-refresh"></span></a>
 
         <a class="nav-item loco col" title="new" href="<?=WWW;?>?page=admin">
         <span class="fa fa-plus"></span></a>
@@ -78,11 +78,11 @@ class Gabarit {
       <?=$this->contenu;?>
       <footer>
         <address><?=$moi;?>
-          <a class="roco fa fa-envelope-o" title="kaloyansen@gmail.com" href="mailto:kaloyansen@gmail.com" target="_blank"></a>
-          <a class="roco fa fa-linkedin-square" title="linkedin" href="https://www.linkedin.com/in/kaloyan-k-krastev" target="_blank"></a>
-          <a class="roco fa fa-github" title="github.io" href="https://kaloyansen.github.io/mvc" target="_blank"></a>
-          <a class="roco fa fa-phone" title="+33 6 812 44 812" href="tel:+33681244812" target="_blank"></a>
-          <a class="roco fa fa-flag fa-1x" title="font awesome" href="https://fontawesome.com" target="_blank"></a>
+          <a class="loco fa fa-envelope-o" title="kaloyansen@gmail.com" href="mailto:kaloyansen@gmail.com" target="_blank"></a>
+          <a class="loco fa fa-linkedin-square" title="linkedin" href="https://www.linkedin.com/in/kaloyan-k-krastev" target="_blank"></a>
+          <a class="loco fa fa-github" title="github.io" href="https://kaloyansen.github.io/mvc" target="_blank"></a>
+          <a class="loco fa fa-phone" title="+33 6 812 44 812" href="tel:+33681244812" target="_blank"></a>
+          <a class="loco fa fa-flag fa-1x" title="font awesome" href="https://fontawesome.com" target="_blank"></a>
           <a class="roco fa fa-rotate-right" title="bootstrap" href="https://bootstrap.com" target="_blank"></a>
           <!-- a class="roco fa fa-rotate-left"
              style="fa-animation-direction: reverse;"
@@ -110,7 +110,7 @@ class Gabarit {
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
     <script src="<?=MEDIA;?>/js/jquery-3.6.0.min.js"></script>
-    <script src="<?=MEDIA;?>/js/spin.js"></script>
+    <!-- script src="<?=MEDIA;?>/js/spin.js"></script -->
   </body>
 </html>
 <?php

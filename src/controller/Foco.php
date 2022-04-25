@@ -1,4 +1,5 @@
 <?php namespace controller;
+
 /**
  * @desc frontoffice controller
  * @abstract extends main controller class Moco
@@ -6,7 +7,7 @@
  * @category frontoffice
  * @author Kaloyan KRASTEV
  * @link kaloyansen@gmail.com
- * @version 0.1.6
+ * @version 0.1.8
  */
 class Foco extends \controller\Moco {
 
@@ -19,25 +20,19 @@ class Foco extends \controller\Moco {
 
     	$id = self::idLoad();
 
-    	$rate = array();
-    	$tickets = array();
-    	//$author = array();
-
     	$mana = new \model\TicketManager();
     	$message = $mana->loveMeDo($id);
     	$ticket = $mana->select($id);
     	$ticket->setLove($mana->sheLovesMe($id));
-    	$rate[] = $mana->rate($id);
     	unset($mana);
 
-    	$tickets[] = $ticket;
+        self::sendModal($message);
+    	header('location: '.WWW.'?'.$_SESSION['wwwget']);
+    }
 
-        $view = new \classe\View(self::getPage());
-        $view->manger($ticket);
-        $view->afficher( array('modal' => $message,
-                               'ticket_array' => $tickets,
-                               'rate' => $rate
-        ) );
+    private static function sendModal(string $note): void {
+
+        $_SESSION['modal'] = $note;
     }
 
     public function all(): void {
@@ -87,13 +82,23 @@ class Foco extends \controller\Moco {
 
     public function author(): void {
 
-    	$mana = new \model\TicketManager();
     	$title = "les-magiciens-du-fouet";
+    	$mana = new \model\TicketManager();
     	$cuisinier_array = $mana->selectAuthors();
+    	$rate = array();
+    	$nart = array();
+
+    	foreach (array_reverse($cuisinier_array) as $chef) {
+    		$cid = $chef->getId();
+    		$nart[] = $mana->numbArt($cid);
+    		$rate[] = $mana->authoRate($cid);
+    	}
     	unset($mana);
 
     	$view = new \classe\View(self::getPage(), $title, $title, $title);
-    	$view->afficher( array('cuisinier_array' => $cuisinier_array) );
+    	$view->afficher( array('cuisinier_array' => $cuisinier_array,
+                               'rate' => $rate,
+                               'nart' => $nart) );
     }
 
     public function over(): void {

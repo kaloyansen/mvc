@@ -77,7 +77,7 @@ class Boco extends \controller\Foco {
     	$modal = false;
     	$message = false;
     	$cuisinier = null;
-    	$action = WWW.'?page='.$view_class;
+    	$action = WWW.'?page='.self::getPage();
 
         if (ONLINE) {
 

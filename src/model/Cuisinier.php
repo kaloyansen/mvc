@@ -48,7 +48,7 @@ class Cuisinier extends \model\Transport {
 	public function __toString(): string {
 
 		$br = '<br />';
-		$code = '<div class="chef">';//todo class in css
+		$code = '<div class="ticket">';//todo class in css
 		//$code = $code.$br.$this->nom.', '.$this->prenom;
 		$fichier = IMG.'/cuisinier.'.$this->id.'.jpg';
 		//$code = $code.'<img class="petit" src="'.$fichier.'" alt="'.$fichier.' not found" />';
