@@ -78,7 +78,7 @@ DROP TABLE IF EXISTS `remote`;
 CREATE TABLE `remote` (
   `rid` int(11) UNSIGNED NOT NULL,
   `ticket` int(11) UNSIGNED NOT NULL,
-  `ip` varchar(31) CHARACTER SET ascii NOT NULL
+  `ip` varchar(127) CHARACTER SET ascii NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
