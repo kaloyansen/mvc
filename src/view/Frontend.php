@@ -197,6 +197,7 @@ abstract class Frontend {
         if ($adminarray) {
 
         	echo '<h3>liste d\'administrateurs:</h3>';
+        	echo '<ul class="list-group list-group-horizontal list-group-flush">';
         	foreach (array_reverse($adminarray) as $admin) {
 
         		$pid = $admin->getParent();
@@ -204,10 +205,12 @@ abstract class Frontend {
         		foreach ($adminarray as $su)
                     if ($su->getId() == $pid)
                         $parent = $su;
-
-        		echo '<h3>'.$admin->getId().'. '.$admin->getPseudo();
+                echo '<li class="list-group-item list-group-item-info">';
+                echo '<h3>'.$admin->getId().'. '.$admin->getPseudo();
         		echo ' created by '.$parent->getPseudo().'</h3>';
+        		echo '</li>';
         	}
+        	echo '</ul>';
         } else {
 
         	echo '<div class="ticket">';

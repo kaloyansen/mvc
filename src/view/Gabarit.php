@@ -76,8 +76,10 @@ class Gabarit {
 
       </nav>
       <?=$this->contenu;?>
+
       <footer>
         <address><?=$moi;?>
+
           <a class="loco fa fa-envelope-o" title="kaloyansen@gmail.com" href="mailto:kaloyansen@gmail.com" target="_blank"></a>
           <a class="loco fa fa-linkedin-square" title="linkedin" href="https://www.linkedin.com/in/kaloyan-k-krastev" target="_blank"></a>
           <a class="loco fa fa-github" title="github.io" href="https://kaloyansen.github.io/mvc" target="_blank"></a>

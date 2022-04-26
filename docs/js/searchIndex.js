@@ -1171,6 +1171,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/view-Admin.html#method___construct"
         },                {
+            "fqsen": "\\view\\Admin\u003A\u003Anewline\u0028\u0029",
+            "name": "newline",
+            "summary": "",
+            "url": "classes/view-Admin.html#method_newline"
+        },                {
             "fqsen": "\\view\\Author",
             "name": "Author",
             "summary": "",
