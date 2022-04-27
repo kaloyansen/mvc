@@ -140,8 +140,8 @@ class Formulaire extends \view\Frontend {
         foreach (array_reverse($arrauth) as $chef) {
 
             $nom = $chef->getNom().', '.$chef->getPrenom();
-        	if ($chef->getId() == $value) $code = $code.'<option selected>'.$nom.'</option>';
-            else $code = $code.'<option value="'.$chef->getId().'">'.$nom.'</option>';
+        	$selected = $chef->getId() == $value ? 'selected' : '';
+            $code = $code.'<option value="'.$chef->getId().'" '.$selected.'>'.$nom.'</option>';
         }
 
         return $code.'</select>';
