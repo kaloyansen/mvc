@@ -111,7 +111,7 @@ class Formulaire extends \view\Frontend {
       <label for="personne" class="form-label">personne:</label>
       <p><input class="form-control" id="personne" type="text" name="personne" value="<?=$ticket->getPersonne();?>" /></p>
       <label for="photo" class="form-label">photo:</label>
-      <p><input class="form-control" name="photo" type="file" id="photo" value="<?=$ticket->getPrix();?>"></p>
+      <p><input class="form-control" name="photo" type="text" id="photo" value="<?=$ticket->getPhoto();?>"></p>
       <label for="cuisinier" class="form-label">cuisinier:</label>
       <p><?php echo self::author2option($authors, 'cuisinier', $ticket->getCuisinier());?></p>
 
